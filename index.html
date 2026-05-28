@@ -34,6 +34,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 /* NAV */
 nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;align-items:center;
   gap:1.2rem;border-bottom:1px solid var(--br);background:rgba(6,6,7,.94);backdrop-filter:blur(24px)}
+#nav-desktop{position:sticky;top:0;z-index:100}
 .logo{font-family:'Playfair Display',serif;font-size:.98rem;font-weight:700;color:var(--a);
   letter-spacing:.2em;text-transform:uppercase;flex-shrink:0}
 .logo em{color:var(--b);font-style:italic}
@@ -119,6 +120,7 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
 @keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .card:hover{border-color:var(--bs);background:var(--sh);transform:translateY(-3px);box-shadow:0 10px 40px var(--gl)}
 .card-imgs{display:grid;grid-template-columns:1fr 1fr;height:128px;gap:1px;background:var(--br)}
+@media(max-width:720px){.card-imgs{height:160px}}
 .cis{background:linear-gradient(140deg,rgba(201,168,76,.08),rgba(255,215,0,.03),rgba(122,92,16,.08));
   display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;cursor:zoom-in}
 .cis img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
@@ -384,20 +386,68 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
   .charts-grid{grid-template-columns:1fr}
   .kpi-grid{grid-template-columns:repeat(2,1fr)}
 }
+@media(min-width:721px){
+  #nav-mobile{display:none}
+}
 @media(max-width:720px){
-  nav{padding:0 .9rem;gap:.7rem;height:58px}
-  .nav-mid{display:none}
+  #nav-desktop{display:none}
   .sidebar{display:none}
   .sidebar-toggle{display:none}
   .content,.charts-page,.fiscal-page,.alerts-page{padding:.9rem}
-  .page-title{font-size:1.7rem}
-  .stats-bar{flex-wrap:wrap}
-  .stat{flex:calc(50% - 1px);min-width:0}
+  .page-title{font-size:1.6rem}
+  .stats-bar{display:grid;grid-template-columns:1fr 1fr;gap:1px}
+  .stat{padding:.85rem 1rem}
+  .stat-val{font-size:1.25rem}
   .form-row{grid-template-columns:1fr}
   .catalog-grid{grid-template-columns:repeat(auto-fill,minmax(118px,1fr))}
   .kpi-grid{grid-template-columns:1fr 1fr}
-  .swipe-hint{display:block;font-size:.68rem;color:var(--tm);text-align:center;padding:.5rem;margin-bottom:.5rem}
+  .result-grid{grid-template-columns:1fr}
+  .fiscal-grid{grid-template-columns:1fr}
+  .cards-grid{grid-template-columns:1fr}
+  .swipe-hint{display:block;font-size:.75rem;color:var(--tm);text-align:center;
+    padding:.5rem;margin-bottom:.7rem;letter-spacing:.03em}
+  .photo-row{grid-template-columns:1fr 1fr}
+  .modal{padding:1.25rem;border-radius:12px 12px 0 0;
+    position:fixed;bottom:0;left:0;right:0;max-width:100%;max-height:92vh;
+    border-left:none;border-right:none;border-bottom:none}
+  .overlay{align-items:flex-end;padding:0}
+  .modal-sm{border-radius:12px 12px 0 0}
+  .simu-item-btn{padding:.7rem .75rem}
+  .layout{min-height:calc(100vh - 96px)}
 }
+/* NAV MOBILE */
+#nav-mobile{position:sticky;top:0;z-index:100;background:rgba(6,6,7,.96);
+  backdrop-filter:blur(20px);border-bottom:1px solid var(--br)}
+.mob-top{display:flex;align-items:center;gap:.7rem;padding:.6rem .9rem .4rem;height:50px}
+.mob-price{display:flex;align-items:center;gap:.4rem;flex:1;font-size:.82rem;
+  color:var(--td);cursor:pointer;min-width:0;overflow:hidden}
+.mob-price .dot{flex-shrink:0}
+.mob-price span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#mob-price-lbl .price-val{font-size:.88rem !important}
+.mob-menu-btn{width:34px;height:34px;border-radius:8px;border:1px solid var(--br);
+  background:transparent;color:var(--td);cursor:pointer;font-size:1rem;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.mob-menu-btn:hover,.mob-menu-btn.open{border-color:var(--bs);color:var(--a);background:var(--s)}
+.mob-tabs-row{display:flex;align-items:center;gap:.5rem;padding:.0rem .9rem .5rem;overflow-x:auto}
+.mob-tabs-row::-webkit-scrollbar{display:none}
+.mob-metal-tabs{display:flex;border:1px solid var(--br);border-radius:5px;overflow:hidden;flex-shrink:0}
+.mob-tab{padding:.32rem .9rem;border:none;background:transparent;color:var(--td);
+  font-size:.82rem;font-weight:500;cursor:pointer;font-family:'Inter',system-ui,sans-serif;
+  letter-spacing:.05em;transition:all .2s;white-space:nowrap}
+.mob-tab:first-child{border-right:1px solid var(--br)}
+.mob-tab.active{background:var(--s);color:var(--b)}
+.mob-page-tabs{display:flex;gap:.3rem;overflow-x:auto;flex:1}
+.mob-page-tabs::-webkit-scrollbar{display:none}
+.mob-ptab{padding:.3rem .75rem;border:none;background:transparent;color:var(--tm);
+  font-size:.78rem;cursor:pointer;border-radius:4px;font-family:'Inter',system-ui,sans-serif;
+  white-space:nowrap;transition:all .2s;flex-shrink:0}
+.mob-ptab.active{background:var(--s);color:var(--b)}
+.mob-menu{border-top:1px solid var(--br);padding:.6rem .9rem;animation:up .2s ease}
+.mob-menu-row{display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;flex-wrap:wrap}
+.mob-menu-action{padding:.45rem .9rem;border:1px solid var(--br);border-radius:5px;
+  background:transparent;color:var(--td);font-size:.85rem;cursor:pointer;
+  font-family:'Inter',system-ui,sans-serif;transition:all .2s;white-space:nowrap}
+.mob-menu-action:hover{border-color:var(--bs);color:var(--tx);background:var(--s)}
 </style>
 </head>
 <body>
@@ -411,7 +461,8 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
   </button>
 </div>
 
-<nav>
+<!-- NAV DESKTOP -->
+<nav id="nav-desktop">
   <div class="logo">◆ <em>Patrimoine</em></div>
   <div class="tabs">
     <button class="tab active" id="tab-gold"   onclick="switchMetal('gold')">◆ Or</button>
@@ -440,6 +491,50 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
     <button class="icon-btn" onclick="openSetup()" title="Configuration GitHub">⚙️</button>
   </div>
 </nav>
+
+<!-- NAV MOBILE -->
+<div id="nav-mobile">
+  <!-- Ligne 1 : logo + prix + menu -->
+  <div class="mob-top">
+    <div class="logo" style="font-size:.9rem">◆ <em>Patrimoine</em></div>
+    <div class="mob-price" onclick="openPriceEdit()">
+      <div class="dot" id="mob-dot"></div>
+      <span id="mob-price-lbl">—</span>
+    </div>
+    <button class="mob-menu-btn" onclick="toggleMobMenu()" id="mob-menu-btn">☰</button>
+  </div>
+  <!-- Ligne 2 : métal + pages -->
+  <div class="mob-tabs-row">
+    <div class="mob-metal-tabs">
+      <button class="mob-tab active" id="mob-tab-gold"   onclick="switchMetal('gold')">◆ Or</button>
+      <button class="mob-tab"        id="mob-tab-silver" onclick="switchMetal('silver')">◇ Argent</button>
+    </div>
+    <div class="mob-page-tabs">
+      <button class="mob-ptab active" id="mob-ptab-portfolio" onclick="showPage('portfolio')">Portefeuille</button>
+      <button class="mob-ptab" id="mob-ptab-charts"   onclick="showPage('charts')">Graphiques</button>
+      <button class="mob-ptab" id="mob-ptab-fiscal"   onclick="showPage('fiscal')">Fiscal</button>
+      <button class="mob-ptab" id="mob-ptab-alerts"   onclick="showPage('alerts')">Alertes</button>
+    </div>
+  </div>
+  <!-- Menu déroulant -->
+  <div class="mob-menu" id="mob-menu" style="display:none">
+    <div class="mob-menu-row">
+      <span style="font-size:.8rem;color:var(--tm)">Devise</span>
+      <select class="currency-sel" id="mob-currency-sel" onchange="setCurrency(this.value);$('currency-sel').value=this.value">
+        <option value="EUR">€ EUR</option>
+        <option value="USD">$ USD</option>
+        <option value="CHF">₣ CHF</option>
+        <option value="GBP">£ GBP</option>
+      </select>
+    </div>
+    <div class="mob-menu-row">
+      <button class="mob-menu-action" id="mob-lock-btn" onclick="toggleAdmin();toggleMobMenu()">🔒 Se connecter</button>
+      <button class="mob-menu-action" onclick="openSetup();toggleMobMenu()">⚙️ Config GitHub</button>
+      <button class="mob-menu-action" onclick="openQR();toggleMobMenu()">📱 QR Code</button>
+    </div>
+    <div id="mob-sync-lbl" style="font-size:.75rem;color:var(--tm);padding:.3rem .8rem .5rem"></div>
+  </div>
+</div>
 
 <div id="visitor-bar" class="visitor-bar" style="display:none">
   👁 Mode visiteur — les valeurs sont masquées
@@ -1176,9 +1271,13 @@ async function saveToGH(){
 }
 
 function setSS(type,msg){
-  $('live-dot').className='dot'+(type==='syncing'?' syncing':type==='error'?' error':S.live?' live':'');
+  const dotClass='dot'+(type==='syncing'?' syncing':type==='error'?' error':S.live?' live':'');
   const enc=isEncEnabled()?'<span class="enc-badge">🔐 Chiffré</span>':'';
-  $('sync-lbl').innerHTML=msg+(msg&&enc?' ':'')+enc;
+  const html=msg+(msg&&enc?' ':'')+enc;
+  const ld=$('live-dot'); if(ld) ld.className=dotClass;
+  const md=$('mob-dot');  if(md) md.className=dotClass;
+  const sl=$('sync-lbl'); if(sl) sl.innerHTML=html;
+  const ml=$('mob-sync-lbl'); if(ml) ml.innerHTML=html;
 }
 
 // ════════════════════════════════════════════════════════════
@@ -1295,6 +1394,14 @@ async function fetchLivePrices(){
 //  SWIPE (mobile)
 // ════════════════════════════════════════════════════════════
 const PAGES=['portfolio','charts','fiscal','alerts'];
+function toggleMobMenu(){
+  const menu=$('mob-menu'), btn=$('mob-menu-btn');
+  if(!menu)return;
+  const open=menu.style.display==='none'||!menu.style.display;
+  menu.style.display=open?'block':'none';
+  if(btn) btn.classList.toggle('open',open);
+}
+
 function setupSwipe(){
   let sx=0;
   document.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
@@ -1390,9 +1497,14 @@ function toggleSidebar(){
 function showPage(p){
   S.currentPageView=p;
   PAGES.forEach(id=>{
-    $(`page-${id}`)?.classList.toggle('active',id===p);
+    const el=$(`page-${id}`); if(el) el.classList.toggle('active',id===p);
   });
+  // Desktop nav tabs
   document.querySelectorAll('.nav-page-tab').forEach((b,i)=>b.classList.toggle('active',PAGES[i]===p));
+  // Mobile nav tabs
+  PAGES.forEach(id=>{
+    const mb=$(`mob-ptab-${id}`); if(mb) mb.classList.toggle('active',id===p);
+  });
   if(p==='charts')buildCharts();
   if(p==='fiscal')buildFiscal();
   if(p==='alerts')buildAlerts();
@@ -1404,14 +1516,19 @@ function showPage(p){
 function render(){
   const G=S.page==='gold';
   document.body.className=G?'':'silver';
-  $('tab-gold').classList.toggle('active',G);
-  $('tab-silver').classList.toggle('active',!G);
-  $('metal-name').textContent=G?'Or':'Argent';
-  $('add-btn').style.display=S.isAdmin?'block':'none';
-  $('lock-btn').classList.toggle('on',S.isAdmin);
-  $('lock-btn').textContent=S.isAdmin?'🔓':'🔒';
-  $('sidebar-hint').style.display=S.isAdmin?'none':'block';
-  $('wt-section').style.display=S.filter.type==='piece'?'none':'block';
+  // Desktop tabs
+  const tg=$('tab-gold'); if(tg) tg.classList.toggle('active',G);
+  const ts=$('tab-silver'); if(ts) ts.classList.toggle('active',!G);
+  // Mobile tabs
+  const mg=$('mob-tab-gold'); if(mg) mg.classList.toggle('active',G);
+  const ms=$('mob-tab-silver'); if(ms) ms.classList.toggle('active',!G);
+  const mn=$('metal-name'); if(mn) mn.textContent=G?'Or':'Argent';
+  const ab=$('add-btn'); if(ab) ab.style.display=S.isAdmin?'block':'none';
+  // Lock buttons
+  const lb=$('lock-btn'); if(lb){lb.classList.toggle('on',S.isAdmin);lb.textContent=S.isAdmin?'🔓':'🔒';}
+  const mlb=$('mob-lock-btn'); if(mlb) mlb.textContent=S.isAdmin?'🔓 Admin actif':'🔒 Se connecter';
+  const sh=$('sidebar-hint'); if(sh) sh.style.display=S.isAdmin?'none':'block';
+  const ws=$('wt-section'); if(ws) ws.style.display=S.filter.type==='piece'?'none':'block';
   renderPriceBar();renderStats();renderCards();
   if(S.currentPageView==='charts')buildCharts();
   if(S.currentPageView==='fiscal')buildFiscal();
