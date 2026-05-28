@@ -1151,55 +1151,63 @@ function setCurrency(c){S.currency=$('currency-sel').value=c;ls.set('pm_currency
 })();
 
 async function fetchLivePrices(){
-  // Récupérer le taux EUR/USD en temps réel d'abord
-  let eurUsd = S.fxRates?.USD || 1.08;
-  try{
-    const fx = await fetchTimeout('https://api.exchangerate-api.com/v4/latest/EUR',{},5000);
-    if(fx.ok){ const fd=await fx.json(); eurUsd=fd.rates?.USD||eurUsd; }
-  }catch(e){}
+  const OZ = 31.1035;
 
-  const OZ=31.1035;
-  // API 1 : metals.live (prix en USD/oz)
+  // ── API 1 : Coinbase (CORS OK, pas de clé, XAU/XAG = or/argent en oz troy) ──
   try{
-    const r=await fetchTimeout('https://api.metals.live/v1/spot',{},6000);
-    if(r.ok){
-      const d=await r.json(); const s=Array.isArray(d)?d[0]:d;
-      if(s?.gold && s.gold > 1000){
-        S.prices={
-          gold: (s.gold/eurUsd)/OZ,
-          silver: s.silver?(s.silver/eurUsd)/OZ:S.prices.silver
+    const [rGold, rSilver] = await Promise.all([
+      fetchTimeout('https://api.coinbase.com/v2/exchange-rates?currency=XAU',{},7000),
+      fetchTimeout('https://api.coinbase.com/v2/exchange-rates?currency=XAG',{},7000),
+    ]);
+    if(rGold.ok && rSilver.ok){
+      const dG = await rGold.json();
+      const dS = await rSilver.json();
+      const goldEurOz  = parseFloat(dG?.data?.rates?.EUR);  // € par oz d'or
+      const silverEurOz= parseFloat(dS?.data?.rates?.EUR);  // € par oz d'argent
+      if(goldEurOz > 500){
+        S.prices = {
+          gold:   goldEurOz  / OZ,
+          silver: silverEurOz? silverEurOz / OZ : S.prices.silver,
         };
-        S.live=true; ls.set('pm_prices',S.prices);
+        S.live = true;
+        ls.set('pm_prices', S.prices);
         renderPriceBar(); renderStats();
-        console.log('Prix via metals.live — Or:',s.gold,'USD/Oz →',(s.gold/eurUsd).toFixed(2),'€/Oz');
+        console.log('Prix via Coinbase — Or:', goldEurOz.toFixed(2), '€/Oz · Argent:', silverEurOz.toFixed(2), '€/Oz');
         return;
       }
     }
-  }catch(e){ console.warn('metals.live KO',e.message); }
+  }catch(e){ console.warn('Coinbase KO:', e.message); }
 
-  // API 2 : frankfurter (taux de change) + goldprice.org
+  // ── API 2 : Frankfurter (taux de change XAU en EUR via ECB) ──────────────
   try{
-    const r=await fetchTimeout('https://data.goldprice.org/dbXRates/USD',{},6000);
+    const r = await fetchTimeout('https://api.frankfurter.app/latest?from=XAU&to=EUR,USD',{},6000);
     if(r.ok){
-      const d=await r.json();
-      // goldprice.org renvoie XAU en USD
-      const goldUsdOz = d?.price?.XAU ? (1/d.price.XAU)*1000 : null;
-      if(goldUsdOz && goldUsdOz > 1000){
-        const silverUsdOz = d?.price?.XAG ? (1/d.price.XAG)*1000 : null;
-        S.prices={
-          gold: (goldUsdOz/eurUsd)/OZ,
-          silver: silverUsdOz?(silverUsdOz/eurUsd)/OZ:S.prices.silver
+      const d = await r.json();
+      const goldEurOz = parseFloat(d?.rates?.EUR); // € pour 1 oz d'or
+      if(goldEurOz > 500){
+        // Pour l'argent, ratio or/argent moyen ~85
+        S.prices = {
+          gold:   goldEurOz / OZ,
+          silver: S.prices.silver, // conserver le dernier connu
         };
-        S.live=true; ls.set('pm_prices',S.prices);
+        // Essayer d'avoir l'argent aussi
+        try{
+          const rAg = await fetchTimeout('https://api.frankfurter.app/latest?from=XAG&to=EUR',{},5000);
+          if(rAg.ok){ const dAg=await rAg.json(); const agEur=parseFloat(dAg?.rates?.EUR); if(agEur>0) S.prices.silver=agEur/OZ; }
+        }catch(e){}
+        S.live = true;
+        ls.set('pm_prices', S.prices);
         renderPriceBar(); renderStats();
+        console.log('Prix via Frankfurter — Or:', goldEurOz.toFixed(2), '€/Oz');
         return;
       }
     }
-  }catch(e){ console.warn('goldprice.org KO',e.message); }
+  }catch(e){ console.warn('Frankfurter KO:', e.message); }
 
-  // Fallback : indiquer que le cours est manuel
-  setSS('','Cours manuel');
-  console.warn('Toutes les APIs de prix ont échoué — saisir manuellement via ⚙️');
+  // ── Fallback : conserver derniers prix connus ─────────────────────────────
+  setSS('', '');
+  toast('Cours non disponibles — entrez le prix manuellement via [modifier]', 'warn');
+  console.warn('Toutes les APIs de prix ont échoué.');
 }
 
 // ════════════════════════════════════════════════════════════
