@@ -143,9 +143,12 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
 .card-meta{display:flex;flex-direction:column;gap:.03rem}
 .card-qty{font-size:.88rem;color:var(--td)}
 .card-date{font-size:.8rem;color:var(--tm)}
-.del-btn{width:24px;height:24px;border-radius:3px;border:1px solid rgba(239,68,68,.17);background:transparent;
-  cursor:pointer;color:rgba(239,68,68,.38);font-size:.7rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.del-btn{width:26px;height:26px;border-radius:3px;border:1px solid rgba(239,68,68,.17);background:transparent;
+  cursor:pointer;color:rgba(239,68,68,.38);font-size:.72rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
 .del-btn:hover{border-color:rgba(239,68,68,.7);color:#ef4444;background:rgba(239,68,68,.1)}
+.edit-btn{width:26px;height:26px;border-radius:3px;border:1px solid var(--br);background:transparent;
+  cursor:pointer;color:var(--td);font-size:.82rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.edit-btn:hover{border-color:var(--bs);color:var(--a);background:var(--s)}
 .blurred{filter:blur(6px);user-select:none;pointer-events:none}
 
 /* EMPTY */
@@ -724,6 +727,84 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
   <div class="form-actions">
     <button class="btn-secondary" onclick="closeModal('del-modal')">Annuler</button>
     <button class="btn-danger" onclick="confirmDelete()">Supprimer</button>
+  </div>
+</div>
+</div>
+
+<!-- EDIT -->
+<div class="overlay" id="edit-modal" onclick="closeModal('edit-modal')">
+<div class="modal" onclick="event.stopPropagation()">
+  <div class="modal-title">✎ Modifier la possession</div>
+  <div class="modal-sub" id="edit-sub">Modifiez les informations de cet élément.</div>
+
+  <!-- Infos non modifiables -->
+  <div id="edit-readonly-info" style="padding:.6rem .8rem;background:var(--s);border:1px solid var(--br);border-radius:5px;margin-bottom:1rem;font-size:.85rem;color:var(--td)"></div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label class="form-label">Nom</label>
+      <input type="text" class="form-input" id="edit-name">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Quantité</label>
+      <input type="number" class="form-input" id="edit-qty" min="1">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label class="form-label">Date d'acquisition</label>
+      <input type="date" class="form-input" id="edit-date">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Prix d'achat total (€)</label>
+      <input type="number" class="form-input" id="edit-buy" min="0" step="0.01" placeholder="ex : 1850">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="form-label">Description / Notes</label>
+    <textarea class="form-textarea" id="edit-desc" rows="3" placeholder="Millésime, état, série…"></textarea>
+  </div>
+  <div class="form-group">
+    <label class="form-label">N° série / Référence</label>
+    <input type="text" class="form-input" id="edit-serial" placeholder="Optionnel">
+  </div>
+
+  <div class="form-label" style="margin-bottom:.5rem">Photos</div>
+  <div class="photo-row">
+    <div class="photo-slot">
+      <div class="photo-slot-title">⬤ Pile (Avers)</div>
+      <img id="edit-prev-pile" class="photo-preview" onclick="openLightbox(this.src)">
+      <div id="edit-ph-pile" class="photo-ph"><div class="photo-ph-icon">⬤</div><span>Avers</span></div>
+      <button class="photo-clr" id="edit-clr-pile" onclick="clearEditPhoto('pile')">✕</button>
+      <div class="photo-actions">
+        <label class="photo-btn" for="edit-up-pile" style="cursor:pointer">📁 Fichier</label>
+        <input type="file" id="edit-up-pile" accept="image/*" style="display:none" onchange="handleEditPhoto('pile',this)">
+        <button class="photo-btn" onclick="promptEditPhotoUrl('pile')">🔗 URL</button>
+      </div>
+    </div>
+    <div class="photo-slot">
+      <div class="photo-slot-title">◎ Face (Revers)</div>
+      <img id="edit-prev-face" class="photo-preview" onclick="openLightbox(this.src)">
+      <div id="edit-ph-face" class="photo-ph"><div class="photo-ph-icon">◎</div><span>Revers</span></div>
+      <button class="photo-clr" id="edit-clr-face" onclick="clearEditPhoto('face')">✕</button>
+      <div class="photo-actions">
+        <label class="photo-btn" for="edit-up-face" style="cursor:pointer">📁 Fichier</label>
+        <input type="file" id="edit-up-face" accept="image/*" style="display:none" onchange="handleEditPhoto('face',this)">
+        <button class="photo-btn" onclick="promptEditPhotoUrl('face')">🔗 URL</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aperçu valeur -->
+  <div id="edit-preview" style="display:flex;justify-content:space-between;align-items:center;
+    padding:.6rem .8rem;background:var(--s);border:1px solid var(--br);border-radius:4px;margin-top:.75rem">
+    <span style="font-size:.82rem;color:var(--td)">Valeur estimée</span>
+    <span id="edit-preview-val" style="font-family:'Playfair Display',serif;color:var(--b);font-size:1.1rem">—</span>
+  </div>
+
+  <div class="form-actions">
+    <button class="btn-secondary" onclick="closeModal('edit-modal')">Annuler</button>
+    <button class="btn-primary" id="edit-confirm" onclick="saveEdit()">Enregistrer</button>
   </div>
 </div>
 </div>
@@ -1387,7 +1468,11 @@ function renderCards(){
     const pnlHtml=!blur&&pnl!=null?`<div class="card-pnl" style="color:${pnl>=0?'#22c55e':'#ef4444'}">${pnl>=0?'▲':'▼'} ${fmtVal(Math.abs(pnl))}</div>`:'';
     const ms=item.imgPile?`<div class="cis" onclick="openLightbox('${item.imgPile}')"><img src="${item.imgPile}" onerror="this.parentNode.innerHTML='<div class=cph>⬤</div>'"><span class="ilbl">Pile</span></div>`:`<div class="cis"><div class="cph">${item.type==='lingot'?'▬':'◎'}</div><span class="ilbl">Pile</span></div>`;
     const mf=item.imgFace?`<div class="cis" onclick="openLightbox('${item.imgFace}')"><img src="${item.imgFace}" onerror="this.parentNode.innerHTML='<div class=cph>◎</div>'"><span class="ilbl">Face</span></div>`:`<div class="cis"><div class="cph">${item.type==='lingot'?'▬':'◎'}</div><span class="ilbl">Face</span></div>`;
-    const delBtn=S.isAdmin?`<button class="del-btn" onclick="openDelete('${item.id}')">✕</button>`:'';
+    const delBtn=S.isAdmin?`
+      <div style="display:flex;gap:.35rem">
+        <button class="edit-btn" onclick="openEdit('${item.id}')" title="Modifier">✎</button>
+        <button class="del-btn"  onclick="openDelete('${item.id}')" title="Supprimer">✕</button>
+      </div>`:'';
     const g=getGrams(item);
     const wtInfo=item.type==='lingot'?`${item.wt} · ${f3(g)}g fin`:`${f3(g)}g fin${item.fineness?' · '+item.fineness+'/1000':''}`;
     const valDisplay=blur?'<span class="blurred">●●●●●</span>':fmtVal(vl);
@@ -2182,6 +2267,113 @@ async function addItem(){
   const ok=await saveToGH();
   if(ok){closeModal('add-modal');render();toast('Possession ajoutée','success');}
   else{S.items[S.page].pop();$('add-confirm').disabled=false;$('add-confirm').textContent='Ajouter';}
+}
+
+// EDIT
+let _editId = null;
+let _editPhotos = {pile:null, face:null};
+
+function openEdit(id){
+  const item = (S.items[S.page]||[]).find(i=>i.id===id);
+  if(!item) return;
+  _editId = id;
+  _editPhotos = {pile: item.imgPile||null, face: item.imgFace||null};
+
+  // Infos lecture seule
+  const g = getGrams(item);
+  $('edit-sub').textContent = item.metal==='gold' ? '◆ Or' : '◇ Argent';
+  $('edit-readonly-info').innerHTML =
+    `<strong>${item.type==='lingot'?'Lingot':'Pièce'}</strong> · 
+     ${item.type==='lingot'?(item.wt||''):''}
+     ${g?f3(g)+'g fin':''} · 
+     ${item.fineness?item.fineness+'/1000':''} 
+     ${item.maker?'· '+item.maker:''} ${item.country?'· '+item.country:''}`.replace(/\s+/g,' ').trim();
+
+  // Remplir les champs
+  $('edit-name').value   = item.name   || '';
+  $('edit-qty').value    = item.qty    || 1;
+  $('edit-date').value   = item.date   || '';
+  $('edit-buy').value    = item.buy    != null ? item.buy : '';
+  $('edit-desc').value   = item.desc   || '';
+  $('edit-serial').value = item.serial || '';
+
+  // Photos
+  setEditPhoto('pile', item.imgPile||null);
+  setEditPhoto('face', item.imgFace||null);
+
+  // Aperçu valeur
+  const vl = getGrams(item)*(item.qty||1)*(S.prices[S.page]||0);
+  $('edit-preview-val').textContent = fmtVal(vl);
+
+  $('edit-confirm').disabled = false;
+  $('edit-confirm').textContent = 'Enregistrer';
+  openModal('edit-modal');
+}
+
+function setEditPhoto(slot, src){
+  _editPhotos[slot] = src;
+  const prev  = $(slot==='pile'?'edit-prev-pile':'edit-prev-face');
+  const ph    = $(slot==='pile'?'edit-ph-pile':'edit-ph-face');
+  const clr   = $(slot==='pile'?'edit-clr-pile':'edit-clr-face');
+  if(src){
+    prev.src = src; prev.style.display='block';
+    ph.style.display='none'; clr.style.display='flex';
+  } else {
+    prev.src=''; prev.style.display='none';
+    ph.style.display='flex'; clr.style.display='none';
+  }
+}
+function clearEditPhoto(slot){ setEditPhoto(slot, null); }
+function handleEditPhoto(slot, input){
+  const file=input.files[0]; if(!file) return;
+  const img=new Image(); const url=URL.createObjectURL(file);
+  img.onload=()=>{
+    const canvas=document.createElement('canvas');
+    const MAX=800; const sc=Math.min(1,MAX/Math.max(img.width,img.height));
+    canvas.width=img.width*sc; canvas.height=img.height*sc;
+    canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);
+    setEditPhoto(slot, canvas.toDataURL('image/jpeg',0.82));
+    URL.revokeObjectURL(url);
+  };
+  img.src=url; input.value='';
+}
+function promptEditPhotoUrl(slot){
+  const u=prompt('URL de l’image :','https://');
+  if(u&&u.startsWith('http')) setEditPhoto(slot,u);
+}
+
+async function saveEdit(){
+  const idx = (S.items[S.page]||[]).findIndex(i=>i.id===_editId);
+  if(idx===-1){ toast('Élément introuvable','error'); return; }
+
+  const item = S.items[S.page][idx];
+  const newQty = parseInt($('edit-qty').value)||1;
+
+  // Appliquer les modifications
+  S.items[S.page][idx] = {
+    ...item,
+    name:   $('edit-name').value.trim()  || item.name,
+    qty:    newQty,
+    date:   $('edit-date').value         || item.date,
+    buy:    $('edit-buy').value !== ''   ? parseFloat($('edit-buy').value) : item.buy,
+    desc:   $('edit-desc').value,
+    serial: $('edit-serial').value,
+    imgPile: _editPhotos.pile,
+    imgFace: _editPhotos.face,
+    editedAt: new Date().toISOString(),
+  };
+
+  $('edit-confirm').disabled=true; $('edit-confirm').textContent='Sauvegarde…';
+  const ok = await saveToGH();
+  if(ok){
+    closeModal('edit-modal');
+    render();
+    toast('Modifications enregistrées','success');
+  } else {
+    // Rollback
+    S.items[S.page][idx] = item;
+    $('edit-confirm').disabled=false; $('edit-confirm').textContent='Enregistrer';
+  }
 }
 
 // DELETE
