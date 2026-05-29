@@ -763,8 +763,13 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
     <input type="number" class="form-input" id="manual-wt" placeholder="ex : 37.5" min="0" step="0.001" oninput="updatePreview()"></div>
   </div>
   <div id="manual-fg-group" style="display:none">
-    <div class="form-group"><label class="form-label">Grammes fin</label>
-    <input type="number" class="form-input" id="manual-fg" placeholder="ex : 7.322" min="0" step="0.001" oninput="updatePreview()"></div>
+    <div class="info-box" style="margin-bottom:.6rem">✎ Pièce personnalisée — renseignez les caractéristiques ci-dessous.</div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Grammes fin (or ou argent pur)</label>
+      <input type="number" class="form-input" id="manual-fg" placeholder="ex : 4.5" min="0" step="0.001" oninput="updatePreview()"></div>
+      <div class="form-group"><label class="form-label">Finesse (ex : 900)</label>
+      <input type="number" class="form-input" id="manual-fineness" placeholder="ex : 900" min="1" max="999.9" step="0.1"></div>
+    </div>
   </div>
   <hr class="form-divider">
   <div class="form-row">
@@ -1114,6 +1119,18 @@ const CATALOG={
       {id:'s-p-024',name:'Mark de Germanie 1 Oz',fg:31.1035,fineness:999,weight:31.1035,country:'Allemagne',years:'2015-présent'},
       {id:'s-p-025',name:'5 F Helvétia',fg:4.4325,fineness:835,weight:5.0,country:'Suisse',years:'1888-1967'},
       {id:'s-p-026',name:'2 F Helvétia',fg:2.7745,fineness:835,weight:3.0,country:'Suisse',years:'1874-1967'},
+      {id:'s-p-028',name:'5 F Semeuse argent',fg:4.5,fineness:900,weight:5.0,country:'France',years:'1959-1969',desc:'900/1000, Semeuse'},
+      {id:'s-p-029',name:'5 F Napoléon III',fg:4.5,fineness:900,weight:5.0,country:'France',years:'1852-1869',desc:'900/1000'},
+      {id:'s-p-030',name:'5 F Louis-Philippe',fg:4.5,fineness:900,weight:5.0,country:'France',years:'1831-1848',desc:'900/1000'},
+      {id:'s-p-031',name:'Écu Louis XVI (6 livres)',fg:26.67,fineness:917,weight:29.09,country:'France',years:'1792-1793',desc:'917/1000'},
+      {id:'s-p-032',name:'10 F Hercule argent',fg:10.8,fineness:900,weight:12.0,country:'France',years:'1965-1973',desc:'900/1000'},
+      {id:'s-p-033',name:'20 F Turin argent',fg:10.8,fineness:680,weight:15.887,country:'France',years:'1929-1938',desc:'680/1000'},
+      {id:'s-p-034',name:'2 F Semeuse argent',fg:1.8,fineness:900,weight:2.0,country:'France',years:'1898-1920',desc:'900/1000'},
+      {id:'s-p-035',name:'1 F Semeuse argent',fg:0.9,fineness:900,weight:1.0,country:'France',years:'1898-1920',desc:'900/1000'},
+      {id:'s-p-036',name:'50 centimes Semeuse argent',fg:0.45,fineness:900,weight:0.5,country:'France',years:'1897-1920',desc:'900/1000'},
+      {id:'s-p-037',name:'Piastre Indochine',fg:24.49,fineness:900,weight:27.21,country:'France/Indochine',years:'1885-1928',desc:'900/1000'},
+      {id:'s-p-038',name:'Trade Dollar US',fg:24.9,fineness:900,weight:27.0,country:'États-Unis',years:'1873-1878',desc:'900/1000'},
+      {id:'s-p-039',name:'5 Pesos mexicain argent',fg:12.0,fineness:720,weight:18.0,country:'Mexique',years:'1947-1948',desc:'720/1000'},
       {id:'s-p-027',name:'Pièce personnalisée',fg:null,fineness:null,weight:null,country:'',years:''},
     ]
   }
@@ -2303,11 +2320,12 @@ function renderCatalog(items){
 function selectPiece(id){
   const item=(CATALOG[S.page].pieces||[]).find(i=>i.id===id);if(!item)return;
   S.selectedCat=item;
-  const isC=item.fg===null;
-  $('manual-fg-group').style.display=isC?'block':'none';
-  // Toujours mettre à jour nom et description au changement de pièce
-  $('f-name').value=item.name;
-  $('f-desc').value=item.desc||'';
+  const isCustom=item.fg===null;
+  $('manual-fg-group').style.display=isCustom?'block':'none';
+  // Si personnalisée : vider le nom pour que l'utilisateur le saisisse
+  $('f-name').value=isCustom?'':item.name;
+  $('f-desc').value=isCustom?'':item.desc||'';
+  if(isCustom) setTimeout(()=>$('f-name').focus(),150);
   renderCatalog(CATALOG[S.page].pieces||[]);
   updatePreview();
 }
@@ -2324,21 +2342,58 @@ function updatePreview(){
 }
 
 // PHOTOS
-function handlePhotoUpload(slot,input){
-  const file=input.files[0];if(!file)return;
-  // Compress
-  const img=new Image();const url=URL.createObjectURL(file);
-  img.onload=()=>{
-    const canvas=document.createElement('canvas');
-    const MAX=800;const sc=Math.min(1,MAX/Math.max(img.width,img.height));
-    canvas.width=img.width*sc;canvas.height=img.height*sc;
-    canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);
-    setPhoto(slot,canvas.toDataURL('image/jpeg',0.82));
-    URL.revokeObjectURL(url);
-  };
-  img.src=url;input.value='';
+// Compresser une image (retourne promesse dataUrl)
+function compressImg(file,maxPx,q){
+  return new Promise(resolve=>{
+    const img=new Image();const url=URL.createObjectURL(file);
+    img.onload=()=>{
+      const sc=Math.min(1,maxPx/Math.max(img.width,img.height));
+      const cv=document.createElement('canvas');
+      cv.width=Math.round(img.width*sc);cv.height=Math.round(img.height*sc);
+      cv.getContext('2d').drawImage(img,0,0,cv.width,cv.height);
+      URL.revokeObjectURL(url);resolve(cv.toDataURL('image/jpeg',q));
+    };
+    img.onerror=()=>{URL.revokeObjectURL(url);resolve(null);};
+    img.src=url;
+  });
 }
-function promptPhotoUrl(slot){const u=prompt('URL :','https://');if(u&&u.startsWith('http'))setPhoto(slot,u);}
+
+// Upload une photo dans /images/ du repo GitHub → retourne raw URL
+async function uploadPhotoGH(dataUrl,filename){
+  if(!cfg.token||!cfg.owner||!cfg.repo) return null;
+  try{
+    const b64=dataUrl.split(',')[1];
+    const url=`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/images/${filename}`;
+    let sha=null;
+    try{const ck=await fetchTimeout(url+'?ref='+cfg.branch,{headers:ghH()},5000);if(ck.ok){const d=await ck.json();sha=d.sha;}}catch(e){}
+    const body={message:'photo: '+filename,content:b64,branch:cfg.branch};
+    if(sha)body.sha=sha;
+    const r=await fetchTimeout(url,{method:'PUT',headers:{...ghH(),'Content-Type':'application/json'},body:JSON.stringify(body)},20000);
+    if(r.ok) return `https://raw.githubusercontent.com/${cfg.owner}/${cfg.repo}/${cfg.branch}/images/${filename}`;
+    const err=await r.json();throw new Error(err.message||'Upload failed');
+  }catch(e){toast('Erreur photo : '+e.message,'error');return null;}
+}
+
+async function handlePhotoUpload(slot,input){
+  const file=input.files[0];if(!file)return;
+  const phEl=$(slot==='pile'?'ph-pile-ph':'ph-face-ph');
+  if(phEl)phEl.innerHTML='<div style="font-size:1.3rem;opacity:.5">⏳</div><span>Compression…</span>';
+  // Compresser à 900px
+  const dataUrl=await compressImg(file,900,0.82);
+  if(!dataUrl){toast('Impossible de lire l’image','error');if(phEl)phEl.innerHTML='<div class="photo-ph-icon">⬤</div><span>Avers</span>';return;}
+  if(cfg.token&&cfg.owner&&cfg.repo){
+    if(phEl)phEl.innerHTML='<div style="font-size:1.3rem;opacity:.5">⏳</div><span>Upload GitHub…</span>';
+    const ghUrl=await uploadPhotoGH(dataUrl,uid()+'-'+slot+'.jpg');
+    if(ghUrl){setPhoto(slot,ghUrl);toast('Photo uploadée','success');}
+    else setPhoto(slot,dataUrl);
+  }else{
+    // Sans GitHub : stocker en base64 compressé (600px max pour rester léger dans le JSON)
+    const small=await compressImg(file,600,0.72);
+    setPhoto(slot,small||dataUrl);
+  }
+  input.value='';
+}
+function promptPhotoUrl(slot){const u=prompt('URL de l’image :','https://');if(u&&u.startsWith('http'))setPhoto(slot,u);}
 function setPhoto(slot,src){
   S.photoData[slot]=src;
   const prev=$(slot==='pile'?'prev-pile':'prev-face');
@@ -2441,18 +2496,22 @@ function setEditPhoto(slot, src){
   }
 }
 function clearEditPhoto(slot){ setEditPhoto(slot, null); }
-function handleEditPhoto(slot, input){
-  const file=input.files[0]; if(!file) return;
-  const img=new Image(); const url=URL.createObjectURL(file);
-  img.onload=()=>{
-    const canvas=document.createElement('canvas');
-    const MAX=800; const sc=Math.min(1,MAX/Math.max(img.width,img.height));
-    canvas.width=img.width*sc; canvas.height=img.height*sc;
-    canvas.getContext('2d').drawImage(img,0,0,canvas.width,canvas.height);
-    setEditPhoto(slot, canvas.toDataURL('image/jpeg',0.82));
-    URL.revokeObjectURL(url);
-  };
-  img.src=url; input.value='';
+async function handleEditPhoto(slot,input){
+  const file=input.files[0];if(!file)return;
+  const phEl=$(slot==='pile'?'edit-ph-pile':'edit-ph-face');
+  if(phEl)phEl.innerHTML='<div style="font-size:1.3rem;opacity:.5">⏳</div><span>Compression…</span>';
+  const dataUrl=await compressImg(file,900,0.82);
+  if(!dataUrl){toast('Impossible de lire l’image','error');return;}
+  if(cfg.token&&cfg.owner&&cfg.repo){
+    if(phEl)phEl.innerHTML='<div style="font-size:1.3rem;opacity:.5">⏳</div><span>Upload…</span>';
+    const ghUrl=await uploadPhotoGH(dataUrl,uid()+'-'+slot+'.jpg');
+    if(ghUrl){setEditPhoto(slot,ghUrl);toast('Photo uploadée','success');}
+    else setEditPhoto(slot,dataUrl);
+  }else{
+    const small=await compressImg(file,600,0.72);
+    setEditPhoto(slot,small||dataUrl);
+  }
+  input.value='';
 }
 function promptEditPhotoUrl(slot){
   const u=prompt('URL de l’image :','https://');
