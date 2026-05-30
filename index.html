@@ -548,7 +548,7 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
 <div class="stats-bar">
   <div class="stat"><div class="stat-lbl">Valeur totale</div><div class="stat-val" id="s-val">—</div><div class="stat-sub" id="s-live">—</div></div>
   <div class="stat"><div class="stat-lbl">Poids fin</div><div class="stat-val" id="s-wt">—</div><div class="stat-sub" id="s-oz">—</div></div>
-  <div class="stat"><div class="stat-lbl">Possessions</div><div class="stat-val" id="s-count">—</div><div class="stat-sub" id="s-detail">—</div></div>
+  <div class="stat"><div class="stat-lbl">Unités physiques</div><div class="stat-val" id="s-count">—</div><div class="stat-sub" id="s-detail">—</div></div>
   <div class="stat"><div class="stat-lbl">Prix / gramme</div><div class="stat-val" id="s-price">—</div><div class="stat-sub" id="s-source">—</div></div>
   <div class="stat"><div class="stat-lbl">+/- Value</div><div class="stat-val" id="s-pnl">—</div><div class="stat-sub" id="s-pnl-pct">—</div></div>
 </div>
@@ -1489,11 +1489,27 @@ function toggleMobMenu(){
 }
 
 function setupSwipe(){
-  let sx=0;
-  document.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+  let sx=0, sy=0, blocked=false;
+  document.addEventListener('touchstart',e=>{
+    const el=e.target;
+    // Bloquer le swipe si on touche un slider, input, select, textarea, bouton, ou un modal ouvert
+    blocked = el.tagName==='INPUT'||el.tagName==='SELECT'||
+              el.tagName==='TEXTAREA'||el.tagName==='BUTTON'||
+              el.type==='range'||
+              !!el.closest('.overlay.open')||
+              !!el.closest('.modal')||
+              !!el.closest('.catalog-grid')||
+              !!el.closest('.simu-card');
+    sx=e.touches[0].clientX;
+    sy=e.touches[0].clientY;
+  },{passive:true});
   document.addEventListener('touchend',e=>{
+    if(blocked)return;
     const dx=e.changedTouches[0].clientX-sx;
-    if(Math.abs(dx)<60)return;
+    const dy=e.changedTouches[0].clientY-sy;
+    // Ignorer si le mouvement est plus vertical qu'horizontal
+    if(Math.abs(dy)>Math.abs(dx)*0.6)return;
+    if(Math.abs(dx)<70)return;
     const idx=PAGES.indexOf(S.currentPageView);
     if(dx<0&&idx<PAGES.length-1)showPage(PAGES[idx+1]);
     else if(dx>0&&idx>0)showPage(PAGES[idx-1]);
@@ -1720,8 +1736,22 @@ function renderStats(){
   $('s-val').textContent=blur?'●●●●●':fmtVal(totV);
   $('s-wt').textContent=f3(totG)+' g';
   $('s-oz').textContent=f3(totG/31.1035)+' Oz troy';
-  $('s-count').textContent=cur.length;
-  $('s-detail').textContent=`${cur.filter(i=>i.type==='lingot').length} lingots · ${cur.filter(i=>i.type==='piece').length} pièces`;
+  // Compter les unités physiques réelles (somme des quantités)
+  const nLingotRef  = cur.filter(i=>i.type==='lingot').length;
+  const nPieceRef   = cur.filter(i=>i.type==='piece').length;
+  const nLingotUnits= cur.filter(i=>i.type==='lingot').reduce((s,i)=>s+i.qty,0);
+  const nPieceUnits = cur.filter(i=>i.type==='piece').reduce((s,i)=>s+i.qty,0);
+  const totalUnits  = nLingotUnits + nPieceUnits;
+  // Ligne principale : total d'unités physiques
+  $('s-count').textContent = totalUnits;
+  // Détail : références (lots) et unités
+  const lingotDetail = nLingotRef>0
+    ? nLingotUnits+' lingot'+(nLingotUnits>1?'s':'')+' ('+nLingotRef+' lot'+(nLingotRef>1?'s':'')+')'
+    : '0 lingot';
+  const pieceDetail  = nPieceRef>0
+    ? nPieceUnits+' pièce'+(nPieceUnits>1?'s':'')+' ('+nPieceRef+' lot'+(nPieceRef>1?'s':'')+')'
+    : '0 pièce';
+  $('s-detail').textContent = lingotDetail + ' · ' + pieceDetail;
   $('s-price').textContent=f2(toDisplay(S.prices[S.page]))+' '+(({EUR:'€',USD:'$',CHF:'₣',GBP:'£'})[S.currency]);
   $('s-source').textContent=S.live?'Cours en direct':'Valeur estimée';
   $('s-live').textContent='Prix '+(S.live?'temps réel':'manuel');
@@ -1819,15 +1849,172 @@ function mkChart(id,type,data,options={}){
   S.charts[key]=chart;return chart;
 }
 
+// Cache des cours historiques (éviter de re-fetcher)
+let _priceHistoryCache = null;
+
+async function fetchPriceHistory(){
+  if(_priceHistoryCache) return _priceHistoryCache;
+  const OZ = 31.1035;
+  const today = new Date();
+  const points = [];
+  // Récupérer ~13 points mensuels sur 1 an
+  const promises = [];
+  for(let m = 12; m >= 0; m--){
+    const d = new Date(today.getFullYear(), today.getMonth()-m, 1);
+    const dateStr = d.toISOString().split('T')[0];
+    promises.push(
+      fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${dateStr}/v1/currencies/xau.json`)
+        .then(r => r.ok ? r.json() : null)
+        .then(j => {
+          if(!j?.xau?.eur) return null;
+          return {
+            date: dateStr,
+            goldEurOz: j.xau.eur,   // 1 XAU = X EUR (= prix 1 Oz d'or)
+          };
+        })
+        .catch(() => null)
+    );
+  }
+  const results = await Promise.all(promises);
+  // Ajouter aussi les cours argent (XAG)
+  const agPromises = [];
+  for(let m = 12; m >= 0; m--){
+    const d = new Date(today.getFullYear(), today.getMonth()-m, 1);
+    const dateStr = d.toISOString().split('T')[0];
+    agPromises.push(
+      fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${dateStr}/v1/currencies/xag.json`)
+        .then(r => r.ok ? r.json() : null)
+        .then(j => ({date: dateStr, silverEurOz: j?.xag?.eur || null}))
+        .catch(() => ({date: dateStr, silverEurOz: null}))
+    );
+  }
+  const agResults = await Promise.all(agPromises);
+
+  results.forEach((pt, i) => {
+    if(!pt) return;
+    const ag = agResults[i];
+    points.push({
+      date: pt.date,
+      goldEurOz:   pt.goldEurOz,
+      silverEurOz: ag?.silverEurOz || null,
+    });
+  });
+
+  _priceHistoryCache = points.filter(Boolean);
+  return _priceHistoryCache;
+}
+
 function buildHistoryChart(){
-  const hist=S.history.slice(-90);
-  if(!hist.length){$('chart-history').parentNode.innerHTML='<div style="color:var(--tm);font-size:.8rem;text-align:center;padding:3rem">Aucun historique disponible — les données s\'accumulent au fil du temps.</div>';return;}
-  mkChart('chart-history','line',{
-    labels:hist.map(h=>new Date(h.date).toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit'})),
-    datasets:[{label:'Valeur totale',data:hist.map(h=>Math.round(toDisplay(h.val)*100)/100),
-      borderColor:'rgba(201,168,76,.8)',backgroundColor:'rgba(201,168,76,.08)',
-      borderWidth:1.5,pointRadius:2,pointBackgroundColor:'rgba(201,168,76,.8)',tension:.3,fill:true}]
-  },{scales:{x:{ticks:{color:'rgba(240,237,232,.35)',font:{size:10}},grid:{color:'rgba(201,168,76,.06)'}},y:{ticks:{color:'rgba(240,237,232,.35)',font:{size:10},callback:v=>f2(v)},grid:{color:'rgba(201,168,76,.06)'}}}});
+  const allItems=[...(S.items.gold||[]).map(i=>({...i,metal:'gold'})),
+                  ...(S.items.silver||[]).map(i=>({...i,metal:'silver'}))];
+  const allDates=allItems.filter(i=>i.date).map(i=>i.date).sort();
+  if(!allDates.length&&!S.history.length){
+    const el=$('chart-history'); if(el) el.parentNode.innerHTML='<div style="color:var(--tm);font-size:.85rem;text-align:center;padding:3rem">Aucune donnée — renseignez des dates d\'achat.</div>';
+    return;
+  }
+  const startDate=allDates.length
+    ? new Date(Math.max(new Date(allDates[0]),new Date(Date.now()-365*2*24*3600*1000)))
+    : new Date(Date.now()-90*24*3600*1000);
+  const today=new Date(); today.setHours(0,0,0,0);
+  const timeline=[]; let cur=new Date(startDate); cur.setHours(0,0,0,0);
+  const totalDays=Math.ceil((today-cur)/(24*3600*1000));
+  const step=totalDays>365?14:totalDays>180?7:totalDays>60?3:1;
+  while(cur<=today){
+    const dateStr=cur.toISOString().split('T')[0];
+    let val=0;
+    for(const item of allItems){ if(!item.date||item.date<=dateStr) val+=getGrams(item)*item.qty*(S.prices[item.metal]||0); }
+    const snap=S.history.find(h=>h.date===dateStr);
+    timeline.push({date:dateStr,val:snap?snap.val:val,simulated:!snap});
+    cur=new Date(cur.getTime()+step*24*3600*1000);
+  }
+  if(!timeline.length||(timeline[timeline.length-1].date!==today.toISOString().split('T')[0])){
+    const totV=allItems.reduce((s,i)=>s+getGrams(i)*i.qty*(S.prices[i.metal]||0),0);
+    timeline.push({date:today.toISOString().split('T')[0],val:totV,simulated:false});
+  }
+  const sym={EUR:'€',USD:'$',CHF:'₣',GBP:'£'}[S.currency];
+  const labels=timeline.map(h=>{
+    const d=new Date(h.date);
+    return d.toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit',year:timeline.length>180?'2-digit':undefined});
+  });
+  const hasGold=allItems.some(i=>i.metal==='gold');
+  const hasSilver=allItems.some(i=>i.metal==='silver');
+  const mainDataset={
+    label:'Valeur portefeuille',
+    data:timeline.map(h=>Math.round(toDisplay(h.val)*100)/100),
+    borderColor:'rgba(201,168,76,.9)',backgroundColor:'rgba(201,168,76,.08)',
+    borderWidth:2,pointRadius:timeline.map(h=>h.simulated?0:3),
+    pointBackgroundColor:'rgba(201,168,76,.9)',tension:.4,fill:true,yAxisID:'y'
+  };
+  const baseOpts={
+    scales:{
+      x:{ticks:{color:'rgba(240,237,232,.4)',font:{size:10},maxRotation:35},grid:{color:'rgba(201,168,76,.05)'}},
+      y:{position:'left',ticks:{color:'rgba(240,237,232,.4)',font:{size:10},callback:v=>f2(v)+' '+sym},grid:{color:'rgba(201,168,76,.05)'}},
+      y2:{display:false,position:'right',grid:{display:false}}
+    },
+    plugins:{
+      legend:{labels:{color:'rgba(240,237,232,.5)',font:{size:11},boxWidth:12}},
+      tooltip:{callbacks:{
+        label:ctx=>{
+          if(ctx.datasetIndex===0){const pt=timeline[ctx.dataIndex];return (pt?.simulated?'Estimé':'Réel')+' : '+f2(ctx.parsed.y)+' '+sym;}
+          return ctx.dataset.label+' : '+f2(ctx.parsed.y)+' '+sym+'/Oz';
+        },
+        title:ctx=>{const pt=timeline[ctx[0]?.dataIndex];return pt?new Date(pt.date).toLocaleDateString('fr-FR',{weekday:undefined,day:'2-digit',month:'long',year:'numeric'}):''}
+      }}
+    }
+  };
+  // Afficher d'abord le graphique de base
+  mkChart('chart-history','line',{labels,datasets:[mainDataset]},baseOpts);
+  // Puis charger les cours historiques en arrière-plan
+  fetchPriceHistory().then(priceHist=>{
+    if(!priceHist||!priceHist.length) return;
+    const ag=[]; const au=[];
+    labels.forEach((lbl,i)=>{
+      const tDate=new Date(timeline[i].date);
+      let bestAu=null,bestAg=null,bestDiff=Infinity;
+      priceHist.forEach(ph=>{
+        const diff=Math.abs(new Date(ph.date)-tDate);
+        if(diff<bestDiff){bestDiff=diff;bestAu=ph.goldEurOz;bestAg=ph.silverEurOz;}
+      });
+      au.push(bestAu!=null?Math.round(toDisplay(bestAu)*100)/100:null);
+      ag.push(bestAg!=null?Math.round(toDisplay(bestAg)*100)/100:null);
+    });
+    const newDatasets=[mainDataset];
+    if(hasGold&&au.some(v=>v!=null)){
+      newDatasets.push({label:'Cours Or (€/Oz)',data:au,
+        borderColor:'rgba(255,215,0,.4)',backgroundColor:'transparent',
+        borderWidth:1.5,borderDash:[5,5],pointRadius:2,
+        pointBackgroundColor:'rgba(255,215,0,.5)',tension:.4,fill:false,yAxisID:'y2',spanGaps:true});
+    }
+    if(hasSilver&&ag.some(v=>v!=null)){
+      newDatasets.push({label:'Cours Argent (€/Oz)',data:ag,
+        borderColor:'rgba(155,165,180,.4)',backgroundColor:'transparent',
+        borderWidth:1.5,borderDash:[5,5],pointRadius:2,
+        pointBackgroundColor:'rgba(155,165,180,.5)',tension:.4,fill:false,yAxisID:'y2',spanGaps:true});
+    }
+    const allY2=[...au,...ag].filter(v=>v!=null);
+    const newOpts=JSON.parse(JSON.stringify(baseOpts));
+    if(allY2.length){
+      newOpts.scales.y2={display:true,position:'right',
+        min:Math.min(...allY2)*0.97,max:Math.max(...allY2)*1.03,
+        ticks:{color:'rgba(240,237,232,.22)',font:{size:9},callback:v=>Math.round(v)+sym+'/Oz'},
+        grid:{display:false}};
+    }
+    mkChart('chart-history','line',{labels,datasets:newDatasets},newOpts);
+    // Marquer les dates d'achat avec des points sur l'axe
+    allItems.forEach(item=>{
+      if(!item.date) return;
+      const buyDate=new Date(item.date);
+      let bestIdx=-1,bestDiff=Infinity;
+      timeline.forEach((t,i)=>{const diff=Math.abs(new Date(t.date)-buyDate);if(diff<bestDiff){bestDiff=diff;bestIdx=i;}});
+      if(bestIdx>=0){
+        const key=item.metal==='gold'?0:1;
+        const ds=newDatasets[key];
+        if(ds&&ds.pointRadius){
+          if(Array.isArray(ds.pointRadius)) ds.pointRadius[bestIdx]=5;
+        }
+      }
+    });
+  }).catch(()=>{});
 }
 
 function buildSplitChart(){
@@ -2427,6 +2614,8 @@ function selectWeight(id){
       grams:selWeight.grams, fineness:selMaker.fineness,
       country:selMaker.country, maker:selMaker.name
     };
+    // Auto-remplir photos depuis un lingot du même fondeur+poids
+    autoFillPhotos('lingot-'+selMaker.id+'-'+selWeight.id);
   }
   updatePreview();
 }
@@ -2472,11 +2661,28 @@ function selectPiece(id){
   $('f-name').value=isCustom?'':item.name;
   $('f-desc').value=isCustom?'':item.desc||'';
   if(isCustom) setTimeout(()=>$('f-name').focus(),150);
+  // Auto-remplir photos depuis un item existant avec le même catId
+  autoFillPhotos(item.id);
   renderCatalog(CATALOG[S.page].pieces||[]);
   updatePreview();
 }
 
 function getCatItems(){return CATALOG[S.page];}
+function autoFillPhotos(catId){
+  // Chercher dans tous les items (or + argent) un exemplaire avec photos
+  const allItems=[...(S.items.gold||[]),...(S.items.silver||[])];
+  const match=allItems.find(i=>i.catId===catId&&(i.imgPile||i.imgFace));
+  if(!match) return;
+  // Ne pré-remplir que les slots vides
+  if(!S.photoData.pile&&match.imgPile){
+    setPhoto('pile',match.imgPile);
+    toast('Photos récupérées depuis un exemplaire existant','info');
+  }
+  if(!S.photoData.face&&match.imgFace){
+    setPhoto('face',match.imgFace);
+  }
+}
+
 function updatePreview(){
   let g=0;const qty=parseInt($('f-qty').value)||1;
   if(S.selectedCat){
