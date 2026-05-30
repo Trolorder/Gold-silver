@@ -1167,7 +1167,7 @@ let S={
 // ╚══════════════════════════════════════════════════════╝
 const SITE_CONFIG = {
   owner:  'Trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
-  repo:   'Gold-silver',        // ← Nom du dépôt      (ex: 'gold-silver')
+  repo:   'gold-silver',        // ← Nom du dépôt      (ex: 'gold-silver')
   branch: 'main',   // ← Branche (laisser 'main')
   mode:   'private', // ← 'private' ou 'public'
 };
@@ -1401,7 +1401,7 @@ function setCurrency(c){S.currency=$('currency-sel').value=c;ls.set('pm_currency
     const ok=await loadFromGH();
     if(!ok){
       // Afficher quand même le site avec données vides + bouton config
-      toast('Impossible de joindre GitHub — vérifiez la configuration ⚙️','error');
+      if(cfg.owner&&cfg.repo) toast('Impossible de joindre GitHub — vérifiez la configuration ⚙️','error');
     }
   }catch(e){
     console.error('Init error:',e);
@@ -1564,33 +1564,78 @@ function toggleAdmin(){
     if(cfg.mode==='private')S.isVisitor=true;
     render();return;
   }
-  // Token déjà en mémoire dans cette session → déverrouiller directement
+  // Token déjà en mémoire (même session) → déverrouiller sans redemander
   if(cfg.token){unlockAdmin();return;}
-  // Vérifier qu'on peut s'authentifier
-  const hasAuth=(S.authHash||cfg.authHash)&&(S.encToken||cfg.encToken);
   if(!cfg.owner||!cfg.repo){
     toast('Remplissez SITE_CONFIG dans le fichier HTML puis re-uploadez','error');
     openSetup();return;
   }
-  // Ouvrir le modal d'auth avec null-checks
-  const ae=$('auth-err'); if(ae){ae.style.display='none'; ae.style.color=''; ae.style.background=''; ae.style.borderColor='';}
-  const ti=$('tok-input'); if(ti)ti.value='';
-  const et=$('emergency-token'); if(et)et.value='';
-  const ab=$('auth-btn'); if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}
+  // Réinitialiser modal
+  ['auth-err','tok-input','emergency-token'].forEach(id=>{
+    const el=$(id); if(!el)return;
+    if(id==='auth-err'){el.style.display='none';}
+    else el.value='';
+  });
+  const ab=$('auth-btn');if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}
   openModal('auth-modal');
-  setTimeout(()=>{const ti=$('tok-input');if(ti)ti.focus();},150);
+  setTimeout(()=>{const el=$('tok-input');if(el)el.focus();},150);
+}
+
+async function doMasterAuth(){
+  const ti=$('tok-input'); const ae=$('auth-err'); const ab=$('auth-btn');
+  const pass=ti?ti.value:'';
+  if(!pass){if(ae){ae.textContent='Entrez votre mot de passe.';ae.style.display='block';}return;}
+  if(ab){ab.disabled=true;ab.textContent='Vérification…';}
+  const storedHash=S.authHash||cfg.authHash;
+  const storedEnc=S.encToken||cfg.encToken;
+  const ok=msg=>{if(ae){ae.textContent=msg;ae.style.display='block';}if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}};
+  if(!storedHash||!storedEnc){ok('Aucune configuration — utilisez ⚙️ pour configurer.');return;}
+  try{
+    const inputHash=await sha256hex(pass);
+    if(inputHash!==storedHash){ok('Mot de passe incorrect.');return;}
+    if(ab)ab.textContent='Déchiffrement…';
+    const token=await decryptWithPassword(storedEnc,pass);
+    if(!token){ok('Erreur de déchiffrement.');return;}
+    cfg.token=token;
+    if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}
+    unlockAdmin();
+  }catch(e){ok('Erreur : '+e.message);}
+}
+
+async function doTokenAuth(){
+  const etEl=$('emergency-token');const tiEl=$('tok-input');
+  const t=(etEl&&etEl.value.trim())?etEl.value.trim():(tiEl?tiEl.value.trim():'');
+  if(!t)return;
+  const ae=$('auth-err');const ab=$('auth-btn');
+  if(ab){ab.disabled=true;ab.textContent='Vérification…';}
+  try{
+    const r=await fetchTimeout('https://api.github.com/repos/'+cfg.owner+'/'+cfg.repo,
+      {headers:{Authorization:'token '+t,'Accept':'application/vnd.github.v3+json'}},8000);
+    if(r.ok){
+      cfg.token=t;
+      if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}
+      unlockAdmin();
+      toast('Connecté par token — reconfigurez via ⚙️ pour utiliser un mot de passe','info');
+    }else{
+      if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}
+      if(ae){ae.textContent='Token invalide ou expiré ('+r.status+').';ae.style.display='block';}
+    }
+  }catch(e){
+    if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}
+    if(ae){ae.textContent='Erreur réseau : '+e.message;ae.style.display='block';}
+  }
+}
+
+function unlockAdmin(){
+  S.isAdmin=true;S.isVisitor=false;
+  const vb=$('visitor-bar');if(vb)vb.style.display='none';
+  const cw=$('config-warn');if(cw)cw.style.display='none';
+  closeModal('auth-modal');render();
+  toast('Mode admin activé ✓','success');
 }
 // PIN remplacé par mot de passe maître
-async function doTokenAuth(){
-  const t=$('tok-input').value.trim();if(!t)return;
-  if(t===cfg.token){unlockAdmin();return;}
-  try{
-    const r=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}`,{headers:{Authorization:`token ${t}`,'Accept':'application/vnd.github.v3+json'}});
-    if(r.ok){cfg.token=t;ls.set('pm_cfg',cfg);unlockAdmin();}
-    else{$('auth-err').textContent='Token invalide.';$('auth-err').style.display='block';}
-  }catch(e){$('auth-err').textContent='Erreur réseau.';$('auth-err').style.display='block';}
-}
-function unlockAdmin(){S.isAdmin=true;S.isVisitor=false;$('visitor-bar').style.display='none';closeModal('auth-modal');render();toast('Mode admin activé','success');}
+// doTokenAuth défini plus haut
+// unlockAdmin défini plus haut
 
 // ════════════════════════════════════════════════════════════
 //  SIDEBAR
