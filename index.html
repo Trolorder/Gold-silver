@@ -683,23 +683,27 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
   <div class="modal-sub">Vos données sont stockées dans <code>data.json</code> de votre dépôt, synchronisées partout.</div>
   <div class="setup-steps">
     <div class="step"><div class="step-num">1</div><span>Créez un dépôt <strong>public</strong> sur GitHub.</span></div>
-    <div class="step"><div class="step-num">2</div><span>Générez un PAT sur <a href="https://github.com/settings/tokens/new" target="_blank">github.com/settings/tokens</a> → <code>public_repo</code>.</span></div>
-    <div class="step"><div class="step-num">3</div><span>Définissez aussi un <strong>code PIN à 6 chiffres</strong> pour débloquer rapidement sur mobile.</span></div>
+    <div class="step"><div class="step-num">2</div><span>Générez un PAT sur <a href="https://github.com/settings/tokens/new" target="_blank">github.com/settings/tokens</a> → permission <code>public_repo</code>.</span></div>
+    <div class="step"><div class="step-num">3</div><span>Choisissez un <strong>mot de passe maître</strong>. Il chiffre votre token et vous permettra de vous connecter depuis <strong>n'importe quel appareil</strong> sans avoir le token sur vous.</span></div>
   </div>
   <div class="err-msg" id="setup-err" style="display:none"></div>
   <div class="form-row">
-    <div class="form-group"><label class="form-label">Utilisateur GitHub</label><input type="text" class="form-input" id="cfg-owner" placeholder="jean-dupont"></div>
-    <div class="form-group"><label class="form-label">Dépôt</label><input type="text" class="form-input" id="cfg-repo" placeholder="patrimoine"></div>
+    <div class="form-group"><label class="form-label">Utilisateur GitHub</label><input type="text" class="form-input" id="cfg-owner" placeholder="jean-dupont" autocomplete="off"></div>
+    <div class="form-group"><label class="form-label">Dépôt</label><input type="text" class="form-input" id="cfg-repo" placeholder="patrimoine" autocomplete="off"></div>
   </div>
   <div class="form-row">
     <div class="form-group"><label class="form-label">Branche</label><input type="text" class="form-input" id="cfg-branch" value="main"></div>
-    <div class="form-group"><label class="form-label">Token (PAT)</label><input type="password" class="form-input" id="cfg-token" placeholder="ghp_…"></div>
+    <div class="form-group"><label class="form-label">Token GitHub (PAT)</label><input type="password" class="form-input" id="cfg-token" placeholder="ghp_…" autocomplete="off"></div>
   </div>
   <div class="form-row">
-    <div class="form-group"><label class="form-label">Code PIN (6 chiffres)</label><input type="password" class="form-input" id="cfg-pin" placeholder="······" maxlength="6" pattern="[0-9]{6}"></div>
-    <div class="form-group"><label class="form-label">Mode</label>
+    <div class="form-group">
+      <label class="form-label">Mot de passe maître 🔑</label>
+      <input type="password" class="form-input" id="cfg-masterpass" placeholder="Mot de passe mémorisable" autocomplete="new-password">
+      <div style="font-size:.75rem;color:var(--tm);margin-top:.25rem">Nécessaire pour admin depuis n'importe quel appareil</div>
+    </div>
+    <div class="form-group"><label class="form-label">Mode d'affichage</label>
       <select class="form-select" id="cfg-mode">
-        <option value="private">Privé (valeurs masquées aux visiteurs)</option>
+        <option value="private">Privé (valeurs masquées)</option>
         <option value="public">Public (tout visible)</option>
       </select>
     </div>
@@ -711,37 +715,32 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
 </div>
 </div>
 
-<!-- AUTH / PIN -->
+<!-- AUTH -->
 <div class="overlay" id="auth-modal" onclick="closeModal('auth-modal')">
 <div class="modal modal-sm" onclick="event.stopPropagation()">
-  <div class="modal-title" id="auth-title">🔐 Accès admin</div>
-  <div class="modal-sub" id="auth-sub">Entrez votre PIN ou votre Token GitHub.</div>
+  <div class="modal-title">🔑 Accès administration</div>
+  <div class="modal-sub">Entrez votre mot de passe maître — fonctionne depuis n'importe quel appareil.</div>
   <div class="err-msg" id="auth-err" style="display:none"></div>
-  <div id="pin-section">
-    <div class="pin-dots" id="pin-dots">
-      <div class="pin-dot" id="pd0"></div><div class="pin-dot" id="pd1"></div>
-      <div class="pin-dot" id="pd2"></div><div class="pin-dot" id="pd3"></div>
-      <div class="pin-dot" id="pd4"></div><div class="pin-dot" id="pd5"></div>
-    </div>
-    <div class="pin-grid">
-      <button class="pin-key" onclick="pinKey('1')">1</button>
-      <button class="pin-key" onclick="pinKey('2')">2</button>
-      <button class="pin-key" onclick="pinKey('3')">3</button>
-      <button class="pin-key" onclick="pinKey('4')">4</button>
-      <button class="pin-key" onclick="pinKey('5')">5</button>
-      <button class="pin-key" onclick="pinKey('6')">6</button>
-      <button class="pin-key" onclick="pinKey('7')">7</button>
-      <button class="pin-key" onclick="pinKey('8')">8</button>
-      <button class="pin-key" onclick="pinKey('9')">9</button>
-      <button class="pin-key" onclick="pinKey('del')" style="font-size:.8rem">⌫</button>
-      <button class="pin-key" onclick="pinKey('0')">0</button>
-      <button class="pin-key" onclick="pinKey('ok')" style="font-size:.75rem;color:var(--a)">OK</button>
-    </div>
+  <div class="form-group">
+    <label class="form-label">Mot de passe maître</label>
+    <input type="password" class="form-input" id="tok-input"
+      placeholder="Votre mot de passe maître"
+      onkeydown="if(event.key==='Enter')doMasterAuth()"
+      autocomplete="current-password">
   </div>
-  <div id="tok-section" style="margin-top:.5rem">
-    <div class="form-group"><label class="form-label">ou Token GitHub</label>
-    <input type="password" class="form-input" id="tok-input" placeholder="ghp_…" onkeydown="if(event.key==='Enter')doTokenAuth()"></div>
-    <button class="btn-primary" style="width:100%" onclick="doTokenAuth()">Connexion par token</button>
+  <div class="form-actions">
+    <button class="btn-secondary" onclick="closeModal('auth-modal')">Annuler</button>
+    <button class="btn-primary" id="auth-btn" onclick="doMasterAuth()">Déverrouiller</button>
+  </div>
+  <div style="margin-top:.9rem;padding-top:.8rem;border-top:1px solid var(--br)">
+    <div style="font-size:.78rem;color:var(--tm);margin-bottom:.5rem">Accès d'urgence (si mot de passe oublié)</div>
+    <div class="form-group" style="margin:0">
+      <input type="password" class="form-input" id="emergency-token"
+        placeholder="Token GitHub (ghp_…)"
+        onkeydown="if(event.key==='Enter')doTokenAuth()"
+        style="font-size:.88rem" autocomplete="off">
+    </div>
+    <button class="btn-secondary" style="width:100%;margin-top:.4rem;font-size:.82rem" onclick="doTokenAuth()">Connexion par token</button>
   </div>
 </div>
 </div>
@@ -1161,6 +1160,39 @@ let S={
 // ════════════════════════════════════════════════════════════
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2);
 
+// ── SHA-256 simple (pour vérifier le mot de passe) ──────────────
+async function sha256hex(str){
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));
+  return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+// ── Chiffre une string avec un mot de passe (AES-GCM + PBKDF2) ──
+async function encryptWithPassword(plaintext, password){
+  const enc=new TextEncoder();
+  const salt=crypto.getRandomValues(new Uint8Array(16));
+  const iv=crypto.getRandomValues(new Uint8Array(12));
+  const keyMat=await crypto.subtle.importKey('raw',enc.encode(password),{name:'PBKDF2'},false,['deriveKey']);
+  const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:200000,hash:'SHA-256'},keyMat,{name:'AES-GCM',length:256},false,['encrypt']);
+  const ct=await crypto.subtle.encrypt({name:'AES-GCM',iv},key,enc.encode(plaintext));
+  // Concaténer salt(16) + iv(12) + ct
+  const result=new Uint8Array(16+12+ct.byteLength);
+  result.set(salt,0);result.set(iv,16);result.set(new Uint8Array(ct),28);
+  return btoa(String.fromCharCode(...result));
+}
+
+// ── Déchiffre avec le mot de passe ──────────────────────────────
+async function decryptWithPassword(b64, password){
+  try{
+    const enc=new TextEncoder();
+    const buf=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));
+    const salt=buf.slice(0,16);const iv=buf.slice(16,28);const ct=buf.slice(28);
+    const keyMat=await crypto.subtle.importKey('raw',enc.encode(password),{name:'PBKDF2'},false,['deriveKey']);
+    const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:200000,hash:'SHA-256'},keyMat,{name:'AES-GCM',length:256},false,['decrypt']);
+    const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv},key,ct);
+    return new TextDecoder().decode(pt);
+  }catch(e){return null;}
+}
+
 // ── AES-GCM ENCRYPTION ──────────────────────────────────────
 async function deriveKey(secret){
   const enc=new TextEncoder();
@@ -1249,6 +1281,14 @@ async function loadFromGH(){
     S.history=content.history||[];
     S.alerts=content.alerts||[];
     S.encrypted=!!(content.encrypted);
+    // Récupérer les credentials stockés dans le JSON
+    if(content.authHash) S.authHash=content.authHash;
+    if(content.encToken) S.encToken=content.encToken;
+    // Mettre à jour cfg local avec les credentials du JSON
+    if(S.authHash&&S.encToken&&!cfg.authHash){
+      cfg.authHash=S.authHash;cfg.encToken=S.encToken;
+      ls.set('pm_cfg',{owner:cfg.owner,repo:cfg.repo,branch:cfg.branch,mode:cfg.mode,authHash:S.authHash,encToken:S.encToken});
+    }
     setSS('ok','Synchronisé');setTimeout(()=>setSS('',''),3000);
     return true;
   }catch(e){
@@ -1269,7 +1309,9 @@ async function saveToGH(){
   if(!lastSnap||lastSnap.date!==today) S.history.push({date:today,val:Math.round(totV*100)/100});
   if(S.history.length>365) S.history=S.history.slice(-365);
   try{
-    const payload={items:S.items,history:S.history,alerts:S.alerts,updatedAt:new Date().toISOString()};
+    const payload={items:S.items,history:S.history,alerts:S.alerts,updatedAt:new Date().toISOString(),
+      authHash:S.authHash||cfg.authHash||null,
+      encToken:S.encToken||cfg.encToken||null};
     let jsonStr=JSON.stringify(payload,null,2);
     let finalStr=jsonStr;
     if(isEncEnabled()){
@@ -1317,7 +1359,13 @@ function setCurrency(c){S.currency=$('currency-sel').value=c;ls.set('pm_currency
 // ════════════════════════════════════════════════════════════
 (async function init(){
   try{
-    const sc=ls.get('pm_cfg');if(sc)cfg=sc;
+    const sc=ls.get('pm_cfg');
+    if(sc){
+      // cfg en localStorage ne contient jamais le token en clair
+      cfg={owner:sc.owner||'',repo:sc.repo||'',branch:sc.branch||'main',
+           mode:sc.mode||'private',token:'',
+           authHash:sc.authHash||'',encToken:sc.encToken||''};
+    }
     const sp=ls.get('pm_prices');if(sp)S.prices=sp;
     const scur=ls.get('pm_currency');if(scur){S.currency=scur;$('currency-sel').value=scur;}
     const sfx=ls.get('pm_fx');if(sfx)S.fxRates=sfx;
@@ -1435,33 +1483,57 @@ function setupSwipe(){
 //  SETUP
 // ════════════════════════════════════════════════════════════
 function openSetup(){
-  $('cfg-owner').value=cfg.owner||'';$('cfg-repo').value=cfg.repo||'';
-  $('cfg-branch').value=cfg.branch||'main';$('cfg-token').value=cfg.token||'';
-  $('cfg-pin').value=cfg.pin||'';$('cfg-mode').value=cfg.mode||'private';
-  $('setup-err').style.display='none';openModal('setup-modal');
+  $('cfg-owner').value=cfg.owner||'';
+  $('cfg-repo').value=cfg.repo||'';
+  $('cfg-branch').value=cfg.branch||'main';
+  $('cfg-token').value=''; // Jamais pré-rempli pour sécurité
+  $('cfg-masterpass').value='';
+  $('cfg-mode').value=cfg.mode||'private';
+  $('setup-err').style.display='none';
+  // Afficher info si déjà configuré
+  if(cfg.authHash){
+    $('setup-err').style.display='block';
+    $('setup-err').style.color='var(--a)';
+    $('setup-err').style.background='rgba(201,168,76,.07)';
+    $('setup-err').style.borderColor='rgba(201,168,76,.2)';
+    $('setup-err').textContent='Configuration existante — saisissez un nouveau token et mot de passe pour mettre à jour.';
+  }
+  openModal('setup-modal');
 }
 async function saveSetup(){
   const owner=$('cfg-owner').value.trim(),repo=$('cfg-repo').value.trim();
   const branch=$('cfg-branch').value.trim()||'main',token=$('cfg-token').value.trim();
-  const pin=$('cfg-pin').value.trim(),mode=$('cfg-mode').value;
+  const masterpass=$('cfg-masterpass').value,mode=$('cfg-mode').value;
   if(!owner||!repo){$('setup-err').textContent='Utilisateur et dépôt requis.';$('setup-err').style.display='block';return;}
-  if(pin&&(pin.length!==6||!/^\d+$/.test(pin))){$('setup-err').textContent='PIN doit être 6 chiffres.';$('setup-err').style.display='block';return;}
-  $('setup-save').disabled=true;$('setup-save').textContent='Connexion…';
+  if(!token){$('setup-err').textContent='Le token GitHub est requis.';$('setup-err').style.display='block';return;}
+  if(!masterpass||masterpass.length<4){$('setup-err').textContent='Mot de passe maître requis (4 caractères min).';$('setup-err').style.display='block';return;}
+  $('setup-save').disabled=true;$('setup-save').textContent='Vérification…';
+  // Vérifier le token
   try{
-    const h={'Accept':'application/vnd.github.v3+json'};if(token)h['Authorization']=`token ${token}`;
+    const h={'Accept':'application/vnd.github.v3+json','Authorization':'token '+token};
     const r=await fetchTimeout(`https://api.github.com/repos/${owner}/${repo}`,{headers:h},7000);
-    if(r.status===404)throw new Error('Dépôt introuvable.');
-    if(r.status===401)throw new Error('Token invalide.');
-    if(!r.ok)throw new Error(`GitHub API: ${r.status}`);
+    if(r.status===404)throw new Error('Dépôt introuvable (doit être public).');
+    if(r.status===401)throw new Error('Token GitHub invalide ou expiré.');
+    if(!r.ok)throw new Error('GitHub API: '+r.status);
   }catch(e){$('setup-err').textContent=e.message;$('setup-err').style.display='block';$('setup-save').disabled=false;$('setup-save').textContent='Connecter';return;}
-  cfg={owner,repo,branch,token,pin,mode};ls.set('pm_cfg',cfg);
+  $('setup-save').textContent='Chiffrement…';
+  // Chiffrer le token avec le mot de passe maître
+  const authHash=await sha256hex(masterpass);
+  const encToken=await encryptWithPassword(token,masterpass);
+  // Stocker cfg localement (avec token en clair pour cette session)
+  cfg={owner,repo,branch,token,mode,authHash,encToken};
+  ls.set('pm_cfg',{owner,repo,branch,mode,authHash,encToken}); // PAS le token en clair dans localStorage
   $('setup-save').textContent='Chargement…';
   await loadFromGH();
+  // Sauvegarder authHash + encToken dans le data.json GitHub
+  S.authHash=authHash;S.encToken=encToken;
+  await saveToGH();
   $('setup-save').disabled=false;$('setup-save').textContent='Connecter';
   $('setup-cancel').style.display='';
-  if(mode==='private'){S.isVisitor=true;$('visitor-bar').style.display='flex';}
-  else{S.isVisitor=false;$('visitor-bar').style.display='none';}
-  closeModal('setup-modal');render();toast('Connecté à '+owner+'/'+repo,'success');
+  S.isAdmin=true;S.isVisitor=false;
+  if($('visitor-bar'))$('visitor-bar').style.display='none';
+  closeModal('setup-modal');render();
+  toast('Configuration sauvegardée ! Token chiffré sur GitHub.','success');
 }
 
 // ════════════════════════════════════════════════════════════
