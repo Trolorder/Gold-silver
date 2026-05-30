@@ -313,37 +313,6 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
 .lightbox.open{display:flex}
 .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px}
 .swipe-hint{display:none}
-/* CONTRÔLES */
-.list-controls{margin-bottom:1rem}
-.sort-row{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
-.sort-sel{background:#0A0A0C;border:1px solid var(--br);border-radius:4px;color:var(--td);
-  font-size:.82rem;padding:.3rem .55rem;cursor:pointer;font-family:'Inter',system-ui,sans-serif;outline:none}
-.sort-sel:focus{border-color:var(--a)}
-.sort-sel option{background:#0A0A0C}
-.view-toggle{display:flex;border:1px solid var(--br);border-radius:4px;overflow:hidden;margin-left:auto}
-.view-btn{width:30px;height:28px;border:none;background:transparent;color:var(--tm);cursor:pointer;
-  font-size:1rem;transition:all .2s;display:flex;align-items:center;justify-content:center}
-.view-btn+.view-btn{border-left:1px solid var(--br)}
-.view-btn.active{background:var(--s);color:var(--a)}
-/* VUE LISTE */
-.list-view{display:flex;flex-direction:column;gap:.5rem}
-.list-item{display:flex;align-items:center;gap:.9rem;border:1px solid var(--br);border-radius:6px;
-  padding:.6rem .85rem;background:var(--s);transition:all .2s;cursor:default}
-.list-item:hover{border-color:var(--bs);background:var(--sh)}
-.list-thumb{width:48px;height:48px;border-radius:4px;object-fit:cover;flex-shrink:0;
-  background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(255,215,0,.04));
-  display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--a);opacity:.4;overflow:hidden}
-.list-thumb img{width:100%;height:100%;object-fit:cover;opacity:1}
-.list-main{flex:1;min-width:0}
-.list-name{font-size:.95rem;font-weight:600;color:var(--tx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.list-meta{font-size:.76rem;color:var(--td);margin-top:.08rem}
-.list-val{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--b);flex-shrink:0;text-align:right}
-.list-pnl{font-size:.72rem;text-align:right;flex-shrink:0;width:80px}
-.list-actions{display:flex;gap:.3rem;flex-shrink:0}
-/* DUPLIQUE BTN */
-.dup-btn{width:26px;height:26px;border-radius:3px;border:1px solid var(--br);background:transparent;
-  cursor:pointer;color:var(--td);font-size:.8rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.dup-btn:hover{border-color:var(--bs);color:var(--a);background:var(--s)}
 /* SIMULATEUR FISCAL */
 .simu-card{border:1px solid var(--br);border-radius:7px;background:var(--s);padding:1.2rem;margin-bottom:1rem}
 .simu-item-btn{display:flex;align-items:center;gap:.8rem;width:100%;text-align:left;padding:.6rem .8rem;
@@ -620,25 +589,7 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
       <div class="swipe-hint">← Balayez pour naviguer →</div>
       <h1 class="page-title">Patrimoine en <em id="metal-name">Or</em></h1>
       <p class="page-sub" id="page-sub">Chargement…</p>
-      <div class="list-controls">
-        <div class="sort-row">
-          <span style="font-size:.75rem;color:var(--tm)">Trier par</span>
-          <select class="sort-sel" id="sort-sel" onchange="setSort(this.value)">
-            <option value="date_desc">Date (récent)</option>
-            <option value="date_asc">Date (ancien)</option>
-            <option value="val_desc">Valeur (haute)</option>
-            <option value="val_asc">Valeur (basse)</option>
-            <option value="pnl_desc">Plus-value (haute)</option>
-            <option value="weight_desc">Poids (lourd)</option>
-            <option value="name_asc">Nom (A→Z)</option>
-          </select>
-          <div class="view-toggle">
-            <button class="view-btn active" id="view-grid-btn" onclick="setView('grid')" title="Grille">⊞</button>
-            <button class="view-btn" id="view-list-btn" onclick="setView('list')" title="Liste">≡</button>
-          </div>
-        </div>
-      </div>
-      <div id="cards-grid" class="cards-grid"></div>
+      <div class="cards-grid" id="cards-grid"></div>
     </div>
   </div>
 
@@ -659,10 +610,6 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
         <div class="chart-card">
           <div class="chart-title">Répartition Lingots / Pièces</div>
           <div class="chart-wrap"><canvas id="chart-types"></canvas></div>
-        </div>
-        <div class="chart-card chart-full">
-          <div class="chart-title">Ratio Or / Argent</div>
-          <div class="chart-wrap"><canvas id="chart-ratio"></canvas></div>
         </div>
         <div class="chart-card chart-full">
           <div class="chart-title">Valeur par possession (top 10)</div>
@@ -1012,13 +959,7 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
 </div>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img" src="" alt="" style="max-width:88vw;max-height:82vh">
-  <div id="lightbox-caption" style="position:absolute;bottom:2rem;left:0;right:0;text-align:center;
-    font-family:'Playfair Display',serif;font-size:1rem;color:rgba(240,237,232,.75);
-    text-shadow:0 1px 6px rgba(0,0,0,.8);pointer-events:none"></div>
-  <div style="position:absolute;top:1rem;right:1.2rem;font-size:.75rem;color:rgba(240,237,232,.4);pointer-events:none" id="lightbox-side"></div>
-</div>
+<div class="lightbox" id="lightbox" onclick="closeLightbox()"><img id="lightbox-img" src="" alt=""></div>
 
 <!-- QR CODE -->
 <div class="overlay" id="qr-modal" onclick="closeModal('qr-modal')">
@@ -1215,7 +1156,7 @@ let S={
   
   currentPageView:'portfolio',
   sidebarOpen:true,
-  charts:{history:null,split:null,types:null,top:null,ratio:null}
+  charts:{history:null,split:null,types:null,top:null}
 };
 
 // ════════════════════════════════════════════════════════════
@@ -1317,37 +1258,12 @@ function fmtVal(eur){
   const sym={EUR:'€',USD:'$',CHF:'₣',GBP:'£'}[S.currency];
   return v.toLocaleString('fr-FR',{minimumFractionDigits:2,maximumFractionDigits:2})+' '+sym;
 }
-let _sortBy='date_desc';
-let _viewMode='grid';
-
-function setSort(v){_sortBy=v;renderStats();renderCards();}
-function setView(v){
-  _viewMode=v;
-  $('view-grid-btn')?.classList.toggle('active',v==='grid');
-  $('view-list-btn')?.classList.toggle('active',v==='list');
-  renderCards();
-}
-
 function getShown(){
-  const items=(S.items[S.page]||[]).filter(i=>{
+  return(S.items[S.page]||[]).filter(i=>{
     if(S.filter.type!=='all'&&i.type!==S.filter.type)return false;
     if(S.filter.wt!=='all'&&i.type==='lingot'&&i.wt!==S.filter.wt)return false;
     return true;
   });
-  // Tri
-  items.sort((a,b)=>{
-    switch(_sortBy){
-      case 'date_asc':  return (a.date||'').localeCompare(b.date||'');
-      case 'date_desc': return (b.date||'').localeCompare(a.date||'');
-      case 'val_desc':  return getVal(b)-getVal(a);
-      case 'val_asc':   return getVal(a)-getVal(b);
-      case 'pnl_desc':  return ((b.buy!=null?getVal(b)-b.buy:-Infinity)-(a.buy!=null?getVal(a)-a.buy:-Infinity));
-      case 'weight_desc':return getTotal(b)-getTotal(a);
-      case 'name_asc':  return (a.name||'').localeCompare(b.name||'');
-      default: return 0;
-    }
-  });
-  return items;
 }
 
 // ════════════════════════════════════════════════════════════
@@ -1852,43 +1768,18 @@ function renderStats(){
 function renderCards(){
   const grid=$('cards-grid'),shown=getShown(),G=S.page==='gold';
   const blur=S.isVisitor&&cfg.mode==='private';
-  // Synchro classe grille/liste
-  grid.className=_viewMode==='list'?'list-view':'cards-grid';
   if(!shown.length){
-    grid.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="empty-icon">${G?'◆':'◇'}</div><h3>Aucune possession</h3><p>${S.isAdmin?'Cliquez sur "+ Ajouter" pour commencer.':'Authentifiez-vous pour gérer votre portefeuille.'}</p></div>`;
-    return;
-  }
-  if(_viewMode==='list'){
-    const sym={EUR:'€',USD:'$',CHF:'₣',GBP:'£'}[S.currency];
-    grid.innerHTML=shown.map(item=>{
-      const vl=getVal(item),pnl=item.buy!=null?vl-item.buy:null;
-      const g=getGrams(item);
-      const dupBtn=S.isAdmin?`<button class="dup-btn" onclick="duplicateItem('${item.id}')" title="Dupliquer">⧉</button>`:'';
-      const editBtn=S.isAdmin?`<button class="edit-btn" onclick="openEdit('${item.id}')" title="Modifier">✎</button>`:'';
-      const delBtn=S.isAdmin?`<button class="del-btn" onclick="openDelete('${item.id}')" title="Supprimer">✕</button>`:'';
-      const thumb=item.imgPile?`<div class="list-thumb"><img src="${item.imgPile}" onerror="this.style.display='none'"></div>`:`<div class="list-thumb">${item.type==='lingot'?'▬':'◎'}</div>`;
-      return `<div class="list-item">
-        ${thumb}
-        <div class="list-main">
-          <div class="list-name">${item.name}</div>
-          <div class="list-meta">${item.type==='lingot'?'Lingot':'Pièce'} · ${f3(g)}g fin · ×${item.qty}${item.date?' · '+fmtDate(item.date):''}</div>
-        </div>
-        <div class="list-val">${blur?'●●●':fmtVal(vl)}</div>
-        <div class="list-pnl" style="color:${!pnl?'var(--tm)':pnl>=0?'#22c55e':'#ef4444'}">${pnl!=null?(pnl>=0?'▲':'▼')+fmtVal(Math.abs(pnl)):'—'}</div>
-        <div class="list-actions">${dupBtn}${editBtn}${delBtn}</div>
-      </div>`;
-    }).join('');
+    grid.innerHTML=`<div class="empty"><div class="empty-icon">${G?'◆':'◇'}</div><h3>Aucune possession</h3><p>${S.isAdmin?'Cliquez sur "+ Ajouter" pour commencer.':'Authentifiez-vous pour gérer votre portefeuille.'}</p></div>`;
     return;
   }
   grid.innerHTML=shown.map((item,idx)=>{
     const tg=getTotal(item),vl=getVal(item);
     const pnl=item.buy!=null?vl-item.buy:null;
     const pnlHtml=!blur&&pnl!=null?`<div class="card-pnl" style="color:${pnl>=0?'#22c55e':'#ef4444'}">${pnl>=0?'▲':'▼'} ${fmtVal(Math.abs(pnl))}</div>`:'';
-    const ms=item.imgPile?`<div class="cis" onclick="openLightbox('${item.imgPile}','${item.name.replace(/'/g,'')}','⬤ Pile / Avers')"><img src="${item.imgPile}" onerror="this.parentNode.innerHTML='<div class=cph>⬤</div>'"><span class="ilbl">Pile</span></div>`:`<div class="cis"><div class="cph">${item.type==='lingot'?'▬':'◎'}</div><span class="ilbl">Pile</span></div>`;
-    const mf=item.imgFace?`<div class="cis" onclick="openLightbox('${item.imgFace}','${item.name.replace(/'/g,'')}','◎ Face / Revers')"><img src="${item.imgFace}" onerror="this.parentNode.innerHTML='<div class=cph>◎</div>'"><span class="ilbl">Face</span></div>`:`<div class="cis"><div class="cph">${item.type==='lingot'?'▬':'◎'}</div><span class="ilbl">Face</span></div>`;
+    const ms=item.imgPile?`<div class="cis" onclick="openLightbox('${item.imgPile}')"><img src="${item.imgPile}" onerror="this.parentNode.innerHTML='<div class=cph>⬤</div>'"><span class="ilbl">Pile</span></div>`:`<div class="cis"><div class="cph">${item.type==='lingot'?'▬':'◎'}</div><span class="ilbl">Pile</span></div>`;
+    const mf=item.imgFace?`<div class="cis" onclick="openLightbox('${item.imgFace}')"><img src="${item.imgFace}" onerror="this.parentNode.innerHTML='<div class=cph>◎</div>'"><span class="ilbl">Face</span></div>`:`<div class="cis"><div class="cph">${item.type==='lingot'?'▬':'◎'}</div><span class="ilbl">Face</span></div>`;
     const delBtn=S.isAdmin?`
-      <div style="display:flex;gap:.3rem">
-        <button class="dup-btn"  onclick="duplicateItem('${item.id}')" title="Dupliquer">⧉</button>
+      <div style="display:flex;gap:.35rem">
         <button class="edit-btn" onclick="openEdit('${item.id}')" title="Modifier">✎</button>
         <button class="del-btn"  onclick="openDelete('${item.id}')" title="Supprimer">✕</button>
       </div>`:'';
@@ -1912,10 +1803,7 @@ function renderCards(){
         ${item.serial?`<div class="card-vals" style="margin-top:.12rem">Réf : ${item.serial}</div>`:''}
         <div class="card-foot">
           <div class="card-meta"><span class="card-qty">× ${item.qty}</span>${item.date?`<span class="card-date">${fmtDate(item.date)}</span>`:''}</div>
-          <div style="display:flex;align-items:center;gap:.25rem">
-            <button class="dup-btn" onclick="exportItemPDF('${item.id}')" title="Exporter fiche PDF" style="font-size:.65rem">PDF</button>
-            ${delBtn}
-          </div>
+          ${delBtn}
         </div>
       </div>
     </div>`;
@@ -1928,7 +1816,7 @@ function renderCards(){
 const CHARTCFG={color:'rgba(201,168,76,.7)',colorSilver:'rgba(155,165,180,.7)',bg:'rgba(201,168,76,.1)'};
 
 function buildCharts(){
-  buildKPIs();buildHistoryChart();buildSplitChart();buildTypesChart();buildTopChart();buildRatioChart();
+  buildKPIs();buildHistoryChart();buildSplitChart();buildTypesChart();buildTopChart();
 }
 
 function buildKPIs(){
@@ -1965,35 +1853,55 @@ function mkChart(id,type,data,options={}){
 let _priceHistoryCache = null;
 
 async function fetchPriceHistory(){
-  if(_priceHistoryCache&&_priceHistoryCache.length>12) return _priceHistoryCache;
-  const today=new Date();
-  const dates=[];
-  // ~5 ans de données (un point par mois depuis jan 2020)
-  for(let m=60;m>=0;m--){
-    const d=new Date(today.getFullYear(),today.getMonth()-m,1);
-    dates.push(d.toISOString().split('T')[0]);
+  if(_priceHistoryCache) return _priceHistoryCache;
+  const OZ = 31.1035;
+  const today = new Date();
+  const points = [];
+  // Récupérer ~13 points mensuels sur 1 an
+  const promises = [];
+  for(let m = 12; m >= 0; m--){
+    const d = new Date(today.getFullYear(), today.getMonth()-m, 1);
+    const dateStr = d.toISOString().split('T')[0];
+    promises.push(
+      fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${dateStr}/v1/currencies/xau.json`)
+        .then(r => r.ok ? r.json() : null)
+        .then(j => {
+          if(!j?.xau?.eur) return null;
+          return {
+            date: dateStr,
+            goldEurOz: j.xau.eur,   // 1 XAU = X EUR (= prix 1 Oz d'or)
+          };
+        })
+        .catch(() => null)
+    );
   }
-  // jsdelivr currency-api : 1 XAU/XAG = X EUR
-  const batchSize=6;
-  const points=[];
-  for(let i=0;i<dates.length;i+=batchSize){
-    const batch=dates.slice(i,i+batchSize);
-    await Promise.all(batch.map(async dateStr=>{
-      try{
-        const [rAu,rAg]=await Promise.all([
-          fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${dateStr}/v1/currencies/xau.json`),
-          fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${dateStr}/v1/currencies/xag.json`)
-        ]);
-        const [jAu,jAg]=await Promise.all([rAu.ok?rAu.json():null,rAg.ok?rAg.json():null]);
-        if(jAu?.xau?.eur){
-          points.push({date:dateStr,goldEurOz:jAu.xau.eur,silverEurOz:jAg?.xag?.eur||null});
-        }
-      }catch(e){}
-    }));
+  const results = await Promise.all(promises);
+  // Ajouter aussi les cours argent (XAG)
+  const agPromises = [];
+  for(let m = 12; m >= 0; m--){
+    const d = new Date(today.getFullYear(), today.getMonth()-m, 1);
+    const dateStr = d.toISOString().split('T')[0];
+    agPromises.push(
+      fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@${dateStr}/v1/currencies/xag.json`)
+        .then(r => r.ok ? r.json() : null)
+        .then(j => ({date: dateStr, silverEurOz: j?.xag?.eur || null}))
+        .catch(() => ({date: dateStr, silverEurOz: null}))
+    );
   }
-  points.sort((a,b)=>a.date.localeCompare(b.date));
-  _priceHistoryCache=points;
-  return points;
+  const agResults = await Promise.all(agPromises);
+
+  results.forEach((pt, i) => {
+    if(!pt) return;
+    const ag = agResults[i];
+    points.push({
+      date: pt.date,
+      goldEurOz:   pt.goldEurOz,
+      silverEurOz: ag?.silverEurOz || null,
+    });
+  });
+
+  _priceHistoryCache = points.filter(Boolean);
+  return _priceHistoryCache;
 }
 
 function buildHistoryChart(){
@@ -2005,8 +1913,8 @@ function buildHistoryChart(){
     return;
   }
   const startDate=allDates.length
-    ? new Date(Math.max(new Date(allDates[0]),new Date(Date.now()-365*5*24*3600*1000)))
-    : new Date(Date.now()-365*24*3600*1000);
+    ? new Date(Math.max(new Date(allDates[0]),new Date(Date.now()-365*2*24*3600*1000)))
+    : new Date(Date.now()-90*24*3600*1000);
   const today=new Date(); today.setHours(0,0,0,0);
   const timeline=[]; let cur=new Date(startDate); cur.setHours(0,0,0,0);
   const totalDays=Math.ceil((today-cur)/(24*3600*1000));
@@ -2086,10 +1994,9 @@ function buildHistoryChart(){
     const allY2=[...au,...ag].filter(v=>v!=null);
     const newOpts=JSON.parse(JSON.stringify(baseOpts));
     if(allY2.length){
-      newOpts.scales.y2={display:true,position:'right',type:'logarithmic',
-        min:Math.min(...allY2)*0.9,max:Math.max(...allY2)*1.1,
-        ticks:{color:'rgba(240,237,232,.22)',font:{size:9},callback:v=>Math.round(v)+sym+'/Oz',
-          maxTicksLimit:6},
+      newOpts.scales.y2={display:true,position:'right',
+        min:Math.min(...allY2)*0.97,max:Math.max(...allY2)*1.03,
+        ticks:{color:'rgba(240,237,232,.22)',font:{size:9},callback:v=>Math.round(v)+sym+'/Oz'},
         grid:{display:false}};
     }
     mkChart('chart-history','line',{labels,datasets:newDatasets},newOpts);
@@ -2120,66 +2027,6 @@ function buildSplitChart(){
       backgroundColor:['rgba(201,168,76,.75)','rgba(155,165,180,.75)'],
       borderColor:['rgba(201,168,76,.4)','rgba(155,165,180,.4)'],borderWidth:1}]
   },{plugins:{legend:{position:'bottom'}}});
-}
-
-async function buildRatioChart(){
-  const canvas=$('chart-ratio'); if(!canvas) return;
-  const sym={EUR:'€',USD:'$',CHF:'₣',GBP:'£'}[S.currency];
-  // Récupérer l'historique
-  canvas.parentNode.querySelector('.chart-title').textContent='Chargement du ratio…';
-  const hist=await fetchPriceHistory().catch(()=>[]);
-  canvas.parentNode.querySelector('.chart-title').textContent='Ratio Or / Argent — Opportunité d'achat argent';
-  if(!hist||!hist.length) return;
-  const labels=hist.map(h=>new Date(h.date).toLocaleDateString('fr-FR',{month:'2-digit',year:'2-digit'}));
-  const ratios=hist.map(h=>h.silverEurOz&&h.goldEurOz?(h.goldEurOz/h.silverEurOz):null);
-  const validRatios=ratios.filter(v=>v!=null);
-  const avgRatio=validRatios.reduce((a,b)=>a+b,0)/validRatios.length;
-  // Zone "bon achat argent" : ratio > 80 (historiquement très élevé)
-  const SEUIL_BON=80, SEUIL_NEUTRE=65;
-  const bgColors=ratios.map(r=>!r?'transparent':r>=SEUIL_BON?'rgba(34,197,94,.15)':r>=SEUIL_NEUTRE?'rgba(251,191,36,.07)':'rgba(239,68,68,.07)');
-  // Ratio actuel
-  const lastRatio=ratios.filter(v=>v).slice(-1)[0]?.toFixed(1)||'?';
-  if(S.charts.ratio) S.charts.ratio.destroy();
-  S.charts.ratio=new Chart(canvas,{type:'line',data:{
-    labels,
-    datasets:[
-      {label:'Ratio Or/Argent',data:ratios,
-        borderColor:'rgba(201,168,76,.8)',backgroundColor:bgColors,
-        borderWidth:2,pointRadius:1,tension:.4,fill:'origin',spanGaps:true},
-      {label:'Ratio moyen '+Math.round(avgRatio),
-        data:ratios.map(()=>Math.round(avgRatio)),
-        borderColor:'rgba(240,237,232,.2)',borderDash:[6,4],borderWidth:1,
-        pointRadius:0,fill:false,spanGaps:true},
-      {label:'Seuil bon achat (80)',
-        data:ratios.map(()=>SEUIL_BON),
-        borderColor:'rgba(34,197,94,.4)',borderDash:[3,3],borderWidth:1,
-        pointRadius:0,fill:false,spanGaps:true},
-    ]
-  },options:{
-    responsive:true,maintainAspectRatio:false,
-    scales:{
-      x:{ticks:{color:'rgba(240,237,232,.35)',font:{size:9},maxRotation:30},grid:{color:'rgba(201,168,76,.04)'}},
-      y:{ticks:{color:'rgba(240,237,232,.35)',font:{size:10}},grid:{color:'rgba(201,168,76,.04)'},
-        title:{display:true,text:'Ratio (Oz or / Oz argent)',color:'rgba(240,237,232,.3)',font:{size:9}}}
-    },
-    plugins:{
-      legend:{labels:{color:'rgba(240,237,232,.4)',font:{size:10},boxWidth:10}},
-      tooltip:{callbacks:{
-        label:ctx=>{
-          const r=ctx.parsed.y;
-          if(ctx.datasetIndex===0&&r){
-            const interp=r>=SEUIL_BON?'🟢 Bon achat argent':r>=SEUIL_NEUTRE?'🟡 Neutre':'🔴 Argent cher';
-            return `Ratio ${r.toFixed(1)} — ${interp}`;
-          }
-          return ctx.dataset.label;
-        },
-        title:ctx=>{const pt=hist[ctx[0]?.dataIndex];return pt?new Date(pt.date).toLocaleDateString('fr-FR',{month:'long',year:'numeric'}):''}
-      }}
-    }
-  }});
-  // Afficher le ratio actuel
-  const info=canvas.parentNode.querySelector('.chart-title');
-  if(info) info.innerHTML=`Ratio Or / Argent <span style="color:var(--a);font-weight:600">${lastRatio}:1</span> — <span style="color:${lastRatio>=SEUIL_BON?'#22c55e':lastRatio>=SEUIL_NEUTRE?'#fbbf24':'#ef4444'}">${lastRatio>=SEUIL_BON?'🟢 Bon achat argent':lastRatio>=SEUIL_NEUTRE?'🟡 Neutre':'🔴 Argent cher'}</span>`;
 }
 
 function buildTypesChart(){
@@ -2946,17 +2793,6 @@ async function addItem(){
   else{S.items[S.page].pop();$('add-confirm').disabled=false;$('add-confirm').textContent='Ajouter';}
 }
 
-// DUPLICATE
-async function duplicateItem(id){
-  const item=(S.items[S.page]||[]).find(i=>i.id===id);
-  if(!item) return;
-  const copy={...item, id:uid(), name:item.name+' (copie)', addedAt:new Date().toISOString()};
-  S.items[S.page].push(copy);
-  const ok=await saveToGH();
-  if(ok){ render(); toast('Possession dupliquée','success'); }
-  else { S.items[S.page].pop(); }
-}
-
 // EDIT
 let _editId = null;
 let _editPhotos = {pile:null, face:null};
@@ -3068,79 +2904,6 @@ async function saveEdit(){
   }
 }
 
-// EXPORT PDF FICHE INDIVIDUELLE
-function exportItemPDF(id){
-  const item=(S.items[S.page]||[]).find(i=>i.id===id);
-  if(!item) return;
-  const sym={EUR:'€',USD:'$',CHF:'₣',GBP:'£'}[S.currency];
-  const vl=getGrams(item)*item.qty*(S.prices[S.page]||0);
-  const pnl=item.buy!=null?vl-item.buy:null;
-  const years=fiscalYears(item.date);
-  const abat=abattementPV(years);
-  const tf=taxeForfaitaire(vl);
-  const tv=pnl!=null&&pnl>0?taxePlusValue(pnl,years):null;
-  const imgPile=item.imgPile?`<img src="${item.imgPile}" style="width:47%;border-radius:4px;object-fit:cover" onerror="this.style.display='none'">`:'<div style="width:47%;height:160px;background:#f5f0e8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#999;font-size:2rem">${item.type==="lingot"?"▬":"◎"}</div>';
-  const imgFace=item.imgFace?`<img src="${item.imgFace}" style="width:47%;border-radius:4px;object-fit:cover" onerror="this.style.display='none'">`:'<div style="width:47%;height:160px;background:#f5f0e8;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#999;font-size:2rem">◎</div>';
-  const html=`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">
-  <style>
-    body{font-family:Georgia,serif;max-width:700px;margin:2cm auto;color:#1a1a1a;font-size:10pt}
-    h1{font-size:18pt;margin-bottom:4pt;color:#7A5C10}
-    .meta{font-size:9pt;color:#666;margin-bottom:1.2cm}
-    .photos{display:flex;gap:4%;margin:1cm 0}
-    .lbl{font-size:7pt;text-transform:uppercase;letter-spacing:.1em;color:#999;text-align:center;margin-top:4pt}
-    table{width:100%;border-collapse:collapse;font-size:9pt;margin-top:.8cm}
-    th{background:#f5f0e8;padding:5pt 8pt;text-align:left;border-bottom:2px solid #C9A84C;font-size:8pt;text-transform:uppercase;letter-spacing:.05em}
-    td{padding:5pt 8pt;border-bottom:1px solid #e8e2d8;vertical-align:top}
-    .fiscal{margin-top:.8cm;padding:.7cm;background:#fffdf8;border:1px solid #C9A84C;border-radius:4pt}
-    .fiscal h3{font-size:10pt;margin-bottom:.4cm;color:#7A5C10}
-    .row{display:flex;justify-content:space-between;margin-bottom:.25cm;font-size:9pt}
-    .best{background:#f0fdf4;padding:.4cm;border-radius:3pt;border-left:3pt solid #16a34a;margin-top:.4cm}
-    .footer{margin-top:1.5cm;font-size:7.5pt;color:#999;border-top:1pt solid #eee;padding-top:.4cm}
-    @media print{body{margin:1cm}}
-  </style></head><body>
-  <h1>${item.name}</h1>
-  <div class="meta">
-    Fiche générée le ${new Date().toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'})} · 
-    ${item.metal==='gold'?'Or':'Argent'} · ${item.type==='lingot'?'Lingot':'Pièce'}
-    ${item.fineness?'· '+item.fineness+'/1000':''}
-  </div>
-  <div class="photos">
-    <div style="width:47%">${imgPile}<div class="lbl">⬤ Pile / Avers</div></div>
-    <div style="width:47%">${imgFace}<div class="lbl">◎ Face / Revers</div></div>
-  </div>
-  <table>
-    <thead><tr><th>Caractéristique</th><th>Valeur</th></tr></thead>
-    <tbody>
-      <tr><td>Quantité</td><td>${item.qty} unité${item.qty>1?'s':''}</td></tr>
-      <tr><td>Poids fin total</td><td>${f3(getTotal(item))} g (${f3(getTotal(item)/31.1035)} Oz troy)</td></tr>
-      <tr><td>Finesse</td><td>${item.fineness?item.fineness+'/1000':'—'}</td></tr>
-      <tr><td>Fondeur / Émetteur</td><td>${item.maker||item.country||'—'}</td></tr>
-      <tr><td>Numéro de série</td><td>${item.serial||'—'}</td></tr>
-      <tr><td>Date d'acquisition</td><td>${fmtDate(item.date)||'—'}</td></tr>
-      <tr><td>Prix d'achat total</td><td>${item.buy!=null?f2(item.buy)+' €':'—'}</td></tr>
-      <tr><td>Valeur estimée</td><td>${f2(toDisplay(vl))} ${sym} (cours ${f2(toDisplay(S.prices[S.page]))} ${sym}/g)</td></tr>
-      <tr><td>Plus-value latente</td><td style="color:${pnl==null?'inherit':pnl>=0?'#16a34a':'#dc2626'}">${pnl!=null?(pnl>=0?'+':'')+f2(toDisplay(pnl))+' '+sym:'—'}</td></tr>
-      ${item.desc?'<tr><td>Notes</td><td>'+item.desc+'</td></tr>':''}
-    </tbody>
-  </table>
-  <div class="fiscal">
-    <h3>⚖️ Situation fiscale estimée</h3>
-    <div class="row"><span>Durée de détention</span><span>${years!=null?years+' an'+(years>1?'s':''):'Inconnue'}</span></div>
-    <div class="row"><span>Abattement (régime PV)</span><span>${abat!=null?(abat===100?'100% — Exonéré':abat+'%'):'—'}</span></div>
-    <div class="row"><span>Taxe forfaitaire (11,5%)</span><span>${f2(toDisplay(tf))} ${sym}</span></div>
-    <div class="row"><span>Taxe PV (36,2% après abatt.)</span><span>${tv!=null?f2(toDisplay(tv))+' '+sym:'—'}</span></div>
-    ${tv!=null?'<div class="best">Régime conseillé : <strong>'+(tv<tf?'Plus-Value — économie '+f2(toDisplay(tf-tv))+' '+sym:'Taxe forfaitaire')+'</strong></div>':''}
-  </div>
-  <div class="footer">
-    Données à titre indicatif — Art. 150 VI et 150 UA CGI. Consultez un conseiller fiscal pour votre situation personnelle.
-  </div>
-  </body></html>`;
-  const w=window.open('','_blank');
-  if(!w){toast('Autorisez les popups pour exporter le PDF','error');return;}
-  w.document.write(html);w.document.close();
-  setTimeout(()=>{w.focus();w.print();},600);
-}
-
 // DELETE
 function openDelete(id){S.pendingDel=id;openModal('del-modal');}
 async function confirmDelete(){
@@ -3178,12 +2941,7 @@ function savePrice(){
 }
 
 // LIGHTBOX
-function openLightbox(src,caption,side){
-  $('lightbox-img').src=src;
-  const cap=$('lightbox-caption'); if(cap) cap.textContent=caption||'';
-  const sid=$('lightbox-side'); if(sid) sid.textContent=side||'';
-  $('lightbox').classList.add('open');
-}
+function openLightbox(src){$('lightbox-img').src=src;$('lightbox').classList.add('open');}
 function closeLightbox(){$('lightbox').classList.remove('open');}
 
 function openQR(){
