@@ -3,29 +3,7 @@
   "encToken": "vYh9UD1BMoK3FuideSTuJuBaIR/rEYQ2jVyC05lITLwo0drSPz/ygom24CtZ3MvteGKq3sT00Ns0hzjSgZRPPftPF7GPIdo7UPIBcgY6E02IKS3q",
   "items": {
     "gold": [],
-    "silver": [
-      {
-        "id": "mpsjpcqoibmoq2r7goo",
-        "type": "piece",
-        "catId": "s-p-016",
-        "metal": "silver",
-        "name": "50 F Hercule",
-        "qty": 6,
-        "date": "2026-05-30",
-        "desc": "",
-        "serial": "",
-        "buy": 455,
-        "grams": 27,
-        "fg": 27,
-        "wt": "",
-        "fineness": 900,
-        "country": "France",
-        "maker": "",
-        "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpsjotfhvcgvg7h0v-pile.jpg",
-        "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpsjp015oeu51ykxh8a-face.jpg",
-        "addedAt": "2026-05-30T16:08:37.056Z"
-      }
-    ]
+    "silver": []
   },
   "history": [
     {
@@ -34,5 +12,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-05-30T16:09:44.275Z"
+  "updatedAt": "2026-05-30T16:09:46.262Z"
 }
