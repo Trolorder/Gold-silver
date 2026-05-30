@@ -24,6 +24,27 @@
         "imgPile": null,
         "imgFace": null,
         "addedAt": "2026-05-30T14:03:51.230Z"
+      },
+      {
+        "id": "mpsf93zhw7gd1qt58lr",
+        "type": "piece",
+        "catId": "s-p-016",
+        "metal": "silver",
+        "name": "50 F Hercule",
+        "qty": 6,
+        "date": "2026-05-30",
+        "desc": "",
+        "serial": "",
+        "buy": null,
+        "grams": 27,
+        "fg": 27,
+        "wt": "",
+        "fineness": 900,
+        "country": "France",
+        "maker": "",
+        "imgPile": null,
+        "imgFace": null,
+        "addedAt": "2026-05-30T14:04:00.749Z"
       }
     ]
   },
@@ -34,5 +55,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-05-30T14:03:51.230Z"
+  "updatedAt": "2026-05-30T14:04:00.749Z"
 }
