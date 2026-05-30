@@ -540,6 +540,10 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
   👁 Mode visiteur — les valeurs sont masquées
   <button onclick="toggleAdmin()">Se connecter</button>
 </div>
+<div id="config-warn" class="visitor-bar" style="display:none;border-color:rgba(239,68,68,.3);background:rgba(239,68,68,.06);color:rgba(239,68,68,.8)">
+  ⚠️ SITE_CONFIG non rempli — ouvrez index.html et renseignez owner et repo, puis re-uploadez.
+  <button onclick="openSetup()" style="border-color:rgba(239,68,68,.4);color:rgba(239,68,68,.8)">⚙️ Config</button>
+</div>
 
 <div class="stats-bar">
   <div class="stat"><div class="stat-lbl">Valeur totale</div><div class="stat-val" id="s-val">—</div><div class="stat-sub" id="s-live">—</div></div>
@@ -1158,6 +1162,17 @@ let S={
 // ════════════════════════════════════════════════════════════
 //  UTILS
 // ════════════════════════════════════════════════════════════
+// ╔══════════════════════════════════════════════════════╗
+// ║  CONFIGURATION — À remplir une seule fois            ║
+// ╚══════════════════════════════════════════════════════╝
+const SITE_CONFIG = {
+  owner:  '',        // ← Votre pseudo GitHub (ex: 'trolorder')
+  repo:   '',        // ← Nom du dépôt      (ex: 'gold-silver')
+  branch: 'main',   // ← Branche (laisser 'main')
+  mode:   'private', // ← 'private' ou 'public'
+};
+// ═══════════════════════════════════════════════════════
+
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2);
 
 // ── SHA-256 simple (pour vérifier le mot de passe) ──────────────
@@ -1284,10 +1299,11 @@ async function loadFromGH(){
     // Récupérer les credentials stockés dans le JSON
     if(content.authHash) S.authHash=content.authHash;
     if(content.encToken) S.encToken=content.encToken;
-    // Mettre à jour cfg local avec les credentials du JSON
-    if(S.authHash&&S.encToken&&!cfg.authHash){
+    // Toujours mettre à jour localStorage avec authHash+encToken du JSON
+    if(S.authHash&&S.encToken){
       cfg.authHash=S.authHash;cfg.encToken=S.encToken;
-      ls.set('pm_cfg',{owner:cfg.owner,repo:cfg.repo,branch:cfg.branch,mode:cfg.mode,authHash:S.authHash,encToken:S.encToken});
+      ls.set('pm_cfg',{owner:cfg.owner,repo:cfg.repo,branch:cfg.branch,
+        mode:cfg.mode,authHash:S.authHash,encToken:S.encToken});
     }
     setSS('ok','Synchronisé');setTimeout(()=>setSS('',''),3000);
     return true;
@@ -1359,12 +1375,18 @@ function setCurrency(c){S.currency=$('currency-sel').value=c;ls.set('pm_currency
 // ════════════════════════════════════════════════════════════
 (async function init(){
   try{
+    // Priorité : localStorage > SITE_CONFIG
     const sc=ls.get('pm_cfg');
-    if(sc){
-      // cfg en localStorage ne contient jamais le token en clair
-      cfg={owner:sc.owner||'',repo:sc.repo||'',branch:sc.branch||'main',
+    if(sc&&sc.owner){
+      cfg={owner:sc.owner,repo:sc.repo,branch:sc.branch||'main',
            mode:sc.mode||'private',token:'',
            authHash:sc.authHash||'',encToken:sc.encToken||''};
+    } else if(SITE_CONFIG.owner&&SITE_CONFIG.repo){
+      // Nouveau navigateur : charger depuis SITE_CONFIG (infos publiques)
+      cfg={owner:SITE_CONFIG.owner,repo:SITE_CONFIG.repo,
+           branch:SITE_CONFIG.branch||'main',
+           mode:SITE_CONFIG.mode||'private',token:'',
+           authHash:'',encToken:''};
     }
     const sp=ls.get('pm_prices');if(sp)S.prices=sp;
     const scur=ls.get('pm_currency');if(scur){S.currency=scur;$('currency-sel').value=scur;}
@@ -1386,6 +1408,10 @@ function setCurrency(c){S.currency=$('currency-sel').value=c;ls.set('pm_currency
     toast('Erreur au démarrage','error');
   }finally{
     $('loading-screen').style.display='none';
+    // Afficher avertissement si SITE_CONFIG pas rempli
+    if(!SITE_CONFIG.owner||!SITE_CONFIG.repo){
+      const cw=$('config-warn');if(cw)cw.style.display='flex';
+    }
     render();
     fetchLivePrices();
     fetchFX();
@@ -1522,7 +1548,10 @@ async function saveSetup(){
   const encToken=await encryptWithPassword(token,masterpass);
   // Stocker cfg localement (avec token en clair pour cette session)
   cfg={owner,repo,branch,token,mode,authHash,encToken};
-  ls.set('pm_cfg',{owner,repo,branch,mode,authHash,encToken}); // PAS le token en clair dans localStorage
+  // Jamais le token en clair dans localStorage
+  ls.set('pm_cfg',{owner,repo,branch,mode,authHash,encToken});
+  // Rappel : mettre à jour SITE_CONFIG dans le HTML aussi
+  toast('⚠️ Pensez à remplir SITE_CONFIG dans index.html avec owner='+owner+' repo='+repo,'info');
   $('setup-save').textContent='Chargement…';
   await loadFromGH();
   // Sauvegarder authHash + encToken dans le data.json GitHub
