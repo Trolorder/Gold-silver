@@ -1153,7 +1153,7 @@ let S={
   dataSha:null,syncing:false,
   photoData:{pile:null,face:null},
   history:[],alerts:[],
-  pinBuffer:'',
+  
   currentPageView:'portfolio',
   sidebarOpen:true,
   charts:{history:null,split:null,types:null,top:null}
@@ -1166,8 +1166,8 @@ let S={
 // ║  CONFIGURATION — À remplir une seule fois            ║
 // ╚══════════════════════════════════════════════════════╝
 const SITE_CONFIG = {
-  owner:  '',        // ← Votre pseudo GitHub (ex: 'trolorder')
-  repo:   '',        // ← Nom du dépôt      (ex: 'gold-silver')
+  owner:  'Trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
+  repo:   'gold-silver',        // ← Nom du dépôt      (ex: 'gold-silver')
   branch: 'main',   // ← Branche (laisser 'main')
   mode:   'private', // ← 'private' ou 'public'
 };
@@ -1424,61 +1424,56 @@ function setCurrency(c){S.currency=$('currency-sel').value=c;ls.set('pm_currency
 async function fetchLivePrices(){
   const OZ = 31.1035;
 
-  // ── API 1 : Coinbase (CORS OK, pas de clé, XAU/XAG = or/argent en oz troy) ──
+  // ── API 1 : Open Exchange Rates — XAU/XAG natif, CORS OK, gratuit ────────
   try{
-    const [rGold, rSilver] = await Promise.all([
-      fetchTimeout('https://api.coinbase.com/v2/exchange-rates?currency=XAU',{},7000),
-      fetchTimeout('https://api.coinbase.com/v2/exchange-rates?currency=XAG',{},7000),
+    const [rG, rS] = await Promise.all([
+      fetchTimeout('https://open.er-api.com/v6/latest/XAU',{},7000),
+      fetchTimeout('https://open.er-api.com/v6/latest/XAG',{},7000),
     ]);
-    if(rGold.ok && rSilver.ok){
-      const dG = await rGold.json();
-      const dS = await rSilver.json();
-      const goldEurOz  = parseFloat(dG?.data?.rates?.EUR);  // € par oz d'or
-      const silverEurOz= parseFloat(dS?.data?.rates?.EUR);  // € par oz d'argent
-      if(goldEurOz > 500){
-        S.prices = {
-          gold:   goldEurOz  / OZ,
-          silver: silverEurOz? silverEurOz / OZ : S.prices.silver,
-        };
-        S.live = true;
-        ls.set('pm_prices', S.prices);
+    if(rG.ok){
+      const dG=await rG.json();
+      const goldEurOz=parseFloat(dG?.rates?.EUR); // 1 XAU = X EUR = prix d'1 oz d'or en EUR
+      if(goldEurOz>500){
+        let silverEurOz=S.prices.silver*OZ;
+        if(rS.ok){ const dS=await rS.json(); const v=parseFloat(dS?.rates?.EUR); if(v>5) silverEurOz=v; }
+        S.prices={gold:goldEurOz/OZ, silver:silverEurOz/OZ};
+        S.live=true; ls.set('pm_prices',S.prices);
         renderPriceBar(); renderStats();
-        console.log('Prix via Coinbase — Or:', goldEurOz.toFixed(2), '€/Oz · Argent:', silverEurOz.toFixed(2), '€/Oz');
+        console.log('Prix via open.er-api — Or:',goldEurOz.toFixed(2),'€/Oz · Argent:',silverEurOz.toFixed(2),'€/Oz');
         return;
       }
     }
-  }catch(e){ console.warn('Coinbase KO:', e.message); }
+  }catch(e){ console.warn('open.er-api KO:',e.message); }
 
-  // ── API 2 : Frankfurter (taux de change XAU en EUR via ECB) ──────────────
+  // ── API 2 : Yahoo Finance via proxy public (GC=F = or, SI=F = argent) ────
   try{
-    const r = await fetchTimeout('https://api.frankfurter.app/latest?from=XAU&to=EUR,USD',{},6000);
+    // Récupérer le taux EUR/USD d'abord
+    let eurUsd=S.fxRates?.USD||1.08;
+    try{const fx=await fetchTimeout('https://api.exchangerate-api.com/v4/latest/EUR',{},5000);if(fx.ok){const fd=await fx.json();eurUsd=fd.rates?.USD||eurUsd;}}catch(e){}
+    const r=await fetchTimeout(`https://query1.finance.yahoo.com/v8/finance/chart/GC%3DF?range=1d&interval=1m`,{},8000);
     if(r.ok){
-      const d = await r.json();
-      const goldEurOz = parseFloat(d?.rates?.EUR); // € pour 1 oz d'or
-      if(goldEurOz > 500){
-        // Pour l'argent, ratio or/argent moyen ~85
-        S.prices = {
-          gold:   goldEurOz / OZ,
-          silver: S.prices.silver, // conserver le dernier connu
-        };
-        // Essayer d'avoir l'argent aussi
+      const d=await r.json();
+      const goldUsd=d?.chart?.result?.[0]?.meta?.regularMarketPrice;
+      if(goldUsd>1000){
+        const goldEurOz=goldUsd/eurUsd;
+        // Argent via Yahoo
+        let silverEurOz=S.prices.silver*OZ;
         try{
-          const rAg = await fetchTimeout('https://api.frankfurter.app/latest?from=XAG&to=EUR',{},5000);
-          if(rAg.ok){ const dAg=await rAg.json(); const agEur=parseFloat(dAg?.rates?.EUR); if(agEur>0) S.prices.silver=agEur/OZ; }
+          const rS=await fetchTimeout(`https://query1.finance.yahoo.com/v8/finance/chart/SI%3DF?range=1d&interval=1m`,{},6000);
+          if(rS.ok){const dS=await rS.json();const sv=dS?.chart?.result?.[0]?.meta?.regularMarketPrice;if(sv>5)silverEurOz=sv/eurUsd;}
         }catch(e){}
-        S.live = true;
-        ls.set('pm_prices', S.prices);
+        S.prices={gold:goldEurOz/OZ, silver:silverEurOz/OZ};
+        S.live=true; ls.set('pm_prices',S.prices);
         renderPriceBar(); renderStats();
-        console.log('Prix via Frankfurter — Or:', goldEurOz.toFixed(2), '€/Oz');
+        console.log('Prix via Yahoo — Or:',goldEurOz.toFixed(2),'€/Oz');
         return;
       }
     }
-  }catch(e){ console.warn('Frankfurter KO:', e.message); }
+  }catch(e){ console.warn('Yahoo KO:',e.message); }
 
-  // ── Fallback : conserver derniers prix connus ─────────────────────────────
-  setSS('', '');
-  toast('Cours non disponibles — entrez le prix manuellement via [modifier]', 'warn');
-  console.warn('Toutes les APIs de prix ont échoué.');
+  // ── Fallback : garder les derniers prix connus ────────────────────────────
+  setSS('','');
+  toast('Cours auto indisponibles — cliquez sur le prix pour le saisir manuellement','warn');
 }
 
 // ════════════════════════════════════════════════════════════
@@ -1570,25 +1565,12 @@ async function saveSetup(){
 // ════════════════════════════════════════════════════════════
 function toggleAdmin(){
   if(S.isAdmin){S.isAdmin=false;if(cfg.mode==='private')S.isVisitor=true;render();return;}
-  S.pinBuffer='';updatePinDots();
   $('auth-err').style.display='none';$('tok-input').value='';
   $('pin-section').style.display=cfg.pin?'block':'none';
   $('tok-section').style.display='block';
   openModal('auth-modal');
 }
-function pinKey(k){
-  if(k==='del'){S.pinBuffer=S.pinBuffer.slice(0,-1);}
-  else if(k==='ok'){checkPin();}
-  else if(S.pinBuffer.length<6){S.pinBuffer+=k;if(S.pinBuffer.length===6)checkPin();}
-  updatePinDots();
-}
-function updatePinDots(){
-  for(let i=0;i<6;i++) $(`pd${i}`).classList.toggle('filled',i<S.pinBuffer.length);
-}
-function checkPin(){
-  if(S.pinBuffer===cfg.pin){unlockAdmin();}
-  else{$('auth-err').textContent='PIN incorrect.';$('auth-err').style.display='block';S.pinBuffer='';updatePinDots();}
-}
+// PIN remplacé par mot de passe maître
 async function doTokenAuth(){
   const t=$('tok-input').value.trim();if(!t)return;
   if(t===cfg.token){unlockAdmin();return;}
