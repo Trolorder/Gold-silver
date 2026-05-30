@@ -1166,8 +1166,8 @@ let S={
 // ║  CONFIGURATION — À remplir une seule fois            ║
 // ╚══════════════════════════════════════════════════════╝
 const SITE_CONFIG = {
-  owner:  'Trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
-  repo:   'gold-silver',        // ← Nom du dépôt      (ex: 'gold-silver')
+  owner:  '',        // ← Votre pseudo GitHub (ex: 'trolorder')
+  repo:   '',        // ← Nom du dépôt      (ex: 'gold-silver')
   branch: 'main',   // ← Branche (laisser 'main')
   mode:   'private', // ← 'private' ou 'public'
 };
@@ -1445,31 +1445,26 @@ async function fetchLivePrices(){
     }
   }catch(e){ console.warn('open.er-api KO:',e.message); }
 
-  // ── API 2 : Yahoo Finance via proxy public (GC=F = or, SI=F = argent) ────
+  // ── API 2 : jsdelivr currency-api (XAU/XAG, CORS OK, gratuit, CDN rapide) ─
   try{
-    // Récupérer le taux EUR/USD d'abord
-    let eurUsd=S.fxRates?.USD||1.08;
-    try{const fx=await fetchTimeout('https://api.exchangerate-api.com/v4/latest/EUR',{},5000);if(fx.ok){const fd=await fx.json();eurUsd=fd.rates?.USD||eurUsd;}}catch(e){}
-    const r=await fetchTimeout(`https://query1.finance.yahoo.com/v8/finance/chart/GC%3DF?range=1d&interval=1m`,{},8000);
-    if(r.ok){
-      const d=await r.json();
-      const goldUsd=d?.chart?.result?.[0]?.meta?.regularMarketPrice;
-      if(goldUsd>1000){
-        const goldEurOz=goldUsd/eurUsd;
-        // Argent via Yahoo
+    const [rG,rS]=await Promise.all([
+      fetchTimeout('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/xau.json',{},7000),
+      fetchTimeout('https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/xag.json',{},7000),
+    ]);
+    if(rG.ok){
+      const dG=await rG.json();
+      const goldEurOz=parseFloat(dG?.xau?.eur); // 1 XAU = prix en EUR
+      if(goldEurOz>500){
         let silverEurOz=S.prices.silver*OZ;
-        try{
-          const rS=await fetchTimeout(`https://query1.finance.yahoo.com/v8/finance/chart/SI%3DF?range=1d&interval=1m`,{},6000);
-          if(rS.ok){const dS=await rS.json();const sv=dS?.chart?.result?.[0]?.meta?.regularMarketPrice;if(sv>5)silverEurOz=sv/eurUsd;}
-        }catch(e){}
+        if(rS.ok){const dS=await rS.json();const v=parseFloat(dS?.xag?.eur);if(v>5)silverEurOz=v;}
         S.prices={gold:goldEurOz/OZ, silver:silverEurOz/OZ};
         S.live=true; ls.set('pm_prices',S.prices);
         renderPriceBar(); renderStats();
-        console.log('Prix via Yahoo — Or:',goldEurOz.toFixed(2),'€/Oz');
+        console.log('Prix via jsdelivr — Or:',goldEurOz.toFixed(2),'€/Oz · Argent:',silverEurOz.toFixed(2),'€/Oz');
         return;
       }
     }
-  }catch(e){ console.warn('Yahoo KO:',e.message); }
+  }catch(e){ console.warn('jsdelivr KO:',e.message); }
 
   // ── Fallback : garder les derniers prix connus ────────────────────────────
   setSS('','');
@@ -1564,11 +1559,26 @@ async function saveSetup(){
 //  AUTH (PIN + TOKEN)
 // ════════════════════════════════════════════════════════════
 function toggleAdmin(){
-  if(S.isAdmin){S.isAdmin=false;if(cfg.mode==='private')S.isVisitor=true;render();return;}
-  $('auth-err').style.display='none';$('tok-input').value='';
-  $('pin-section').style.display=cfg.pin?'block':'none';
-  $('tok-section').style.display='block';
+  if(S.isAdmin){
+    S.isAdmin=false;
+    if(cfg.mode==='private')S.isVisitor=true;
+    render();return;
+  }
+  // Token déjà en mémoire dans cette session → déverrouiller directement
+  if(cfg.token){unlockAdmin();return;}
+  // Vérifier qu'on peut s'authentifier
+  const hasAuth=(S.authHash||cfg.authHash)&&(S.encToken||cfg.encToken);
+  if(!cfg.owner||!cfg.repo){
+    toast('Remplissez SITE_CONFIG dans le fichier HTML puis re-uploadez','error');
+    openSetup();return;
+  }
+  // Ouvrir le modal d'auth avec null-checks
+  const ae=$('auth-err'); if(ae){ae.style.display='none'; ae.style.color=''; ae.style.background=''; ae.style.borderColor='';}
+  const ti=$('tok-input'); if(ti)ti.value='';
+  const et=$('emergency-token'); if(et)et.value='';
+  const ab=$('auth-btn'); if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}
   openModal('auth-modal');
+  setTimeout(()=>{const ti=$('tok-input');if(ti)ti.focus();},150);
 }
 // PIN remplacé par mot de passe maître
 async function doTokenAuth(){
