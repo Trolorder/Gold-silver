@@ -2,7 +2,29 @@
   "authHash": "27bd4066e5ee2c2775297bfc6ac9b3a79ad71c9d63070c6b78a762a8d44c96ed",
   "encToken": "vYh9UD1BMoK3FuideSTuJuBaIR/rEYQ2jVyC05lITLwo0drSPz/ygom24CtZ3MvteGKq3sT00Ns0hzjSgZRPPftPF7GPIdo7UPIBcgY6E02IKS3q",
   "items": {
-    "gold": [],
+    "gold": [
+      {
+        "id": "mpssotg97yqcj7iso1b",
+        "type": "piece",
+        "catId": "g-p-001",
+        "metal": "gold",
+        "name": "Napoléon 20 F",
+        "qty": 3,
+        "date": "2022-10-20",
+        "desc": "Coq ou effigie, 900/1000",
+        "serial": "",
+        "buy": 900,
+        "grams": 5.8064,
+        "fg": 5.8064,
+        "wt": "",
+        "fineness": 900,
+        "country": "France",
+        "maker": "",
+        "imgPile": null,
+        "imgFace": null,
+        "addedAt": "2026-05-30T20:20:08.601Z"
+      }
+    ],
     "silver": [
       {
         "id": "mpssltqce5zuvzmf5lt",
@@ -56,5 +78,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-05-30T20:19:04.640Z"
+  "updatedAt": "2026-05-30T20:20:08.601Z"
 }
