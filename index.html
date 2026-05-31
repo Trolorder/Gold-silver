@@ -1258,7 +1258,7 @@ let S={
 // ║  CONFIGURATION — À remplir une seule fois            ║
 // ╚══════════════════════════════════════════════════════╝
 const SITE_CONFIG = {
-  owner:  'Trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
+  owner:  'trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
   repo:   'Gold-silver',        // ← Nom du dépôt      (ex: 'gold-silver')
   branch: 'main',   // ← Branche (laisser 'main')
   mode:   'private', // ← 'private' ou 'public'
@@ -1266,6 +1266,47 @@ const SITE_CONFIG = {
 // ═══════════════════════════════════════════════════════
 
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2);
+
+// ── Clé de session (dérivée du mot de passe, jamais stockée) ──
+let _sessionKey = null; // CryptoKey AES-GCM
+
+async function deriveSessionKey(password){
+  const enc = new TextEncoder();
+  const keyMat = await crypto.subtle.importKey(
+    'raw', enc.encode(password), {name:'PBKDF2'}, false, ['deriveKey']
+  );
+  _sessionKey = await crypto.subtle.deriveKey(
+    {name:'PBKDF2', salt:enc.encode('patrimoine-fields-v1'),
+     iterations:100000, hash:'SHA-256'},
+    keyMat, {name:'AES-GCM', length:256}, false, ['encrypt','decrypt']
+  );
+}
+
+async function encryptField(value){
+  if(!_sessionKey||value===null||value===undefined) return value;
+  try{
+    const enc = new TextEncoder();
+    const iv = crypto.getRandomValues(new Uint8Array(12));
+    const ct = await crypto.subtle.encrypt({name:'AES-GCM',iv}, _sessionKey, enc.encode(String(value)));
+    const buf = new Uint8Array(12+ct.byteLength);
+    buf.set(iv,0); buf.set(new Uint8Array(ct),12);
+    return '__enc__'+btoa(String.fromCharCode(...buf));
+  }catch(e){ return value; }
+}
+
+async function decryptField(value){
+  if(!_sessionKey||typeof value!=='string'||!value.startsWith('__enc__')) return value;
+  try{
+    const buf = Uint8Array.from(atob(value.slice(7)), c=>c.charCodeAt(0));
+    const iv = buf.slice(0,12); const ct = buf.slice(12);
+    const pt = await crypto.subtle.decrypt({name:'AES-GCM',iv}, _sessionKey, ct);
+    return new TextDecoder().decode(pt);
+  }catch(e){ return null; } // Mauvaise clé → null
+}
+
+function isEncrypted(value){
+  return typeof value==='string'&&value.startsWith('__enc__');
+}
 
 // ── SHA-256 simple (pour vérifier le mot de passe) ──────────────
 async function sha256hex(str){
@@ -1452,11 +1493,13 @@ async function saveToGH(){
   if(!lastSnap||lastSnap.date!==today) S.history.push({date:today,val:Math.round(totV*100)/100});
   if(S.history.length>365) S.history=S.history.slice(-365);
   try{
-    // Données toujours en clair (repo public) — seul le token est chiffré
+    // Chiffrer les champs sensibles de chaque item avant envoi
+    const encGold=await Promise.all((S.items.gold||[]).map(encryptItemFields));
+    const encSilver=await Promise.all((S.items.silver||[]).map(encryptItemFields));
     const payload={
       authHash: S.authHash||cfg.authHash||null,
       encToken: S.encToken||cfg.encToken||null,
-      items:    S.items,
+      items:    {gold:encGold, silver:encSilver},
       history:  S.history,
       alerts:   S.alerts,
       updatedAt:new Date().toISOString()
@@ -1613,12 +1656,12 @@ const PAGES=['portfolio','charts','fiscal','alerts','journal'];
 // ── JOURNAL D'ACTIVITÉ ─────────────────────────────────────
 function logActivity(type, detail, metal){
   try{
+    // Stocker localement sans l'IP (sera chiffrée sur GitHub)
     const entry={
       ts: new Date().toISOString(),
-      type,       // 'visit','add','edit','delete','auth','export'
-      detail,
+      type,
+      detail: detail||'',
       metal: metal||null,
-      page: window.location.href,
     };
     const log=ls.get('pm_journal')||[];
     log.unshift(entry);
@@ -1630,6 +1673,17 @@ function logActivity(type, detail, metal){
 }
 
 async function saveJournalToGH(log){
+  // Chiffrer chaque entrée avant envoi
+  if(_sessionKey){
+    log=await Promise.all(log.map(async e=>{
+      return {...e,
+        detail:isEncrypted(e.detail)?e.detail:(await encryptField(e.detail||'')),
+      };
+    }));
+  } else {
+    // Sans clé : anonymiser les données sensibles
+    log=log.map(e=>({...e, detail:'[activité]'}));
+  }
   if(!cfg.owner||!cfg.repo||!cfg.token) return;
   const url=`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/journal.json`;
   try{
@@ -1677,7 +1731,7 @@ async function getClientIP(){
   return '?';
 }
 
-function buildJournal(){
+async function buildJournal(){
   if(S.isVisitor&&cfg.mode==='private'){
     const pages=['journal'];
     const el=document.getElementById('page-'+pages[0]);
@@ -1698,12 +1752,23 @@ function buildJournal(){
     visit:'badge-visit',add:'badge-add',edit:'badge-edit',delete:'badge-del',
     auth:'badge-auth',export:'badge-export',report:'badge-export'
   };
+  // Déchiffrer les détails si on est admin
+  const decLog=await Promise.all(log.map(async e=>{
+    let detail=e.detail||'—';
+    if(_sessionKey&&isEncrypted(detail)){
+      const dec=await decryptField(detail);
+      detail=dec||'[chiffré]';
+    }else if(isEncrypted(detail)){
+      detail='🔒 [connectez-vous pour voir]';
+    }
+    return {...e,detail};
+  }));
   el.innerHTML=`<table class="journal-table">
     <thead><tr>
       <th>Date & Heure</th><th>Type</th><th>Détail</th><th>Métal</th>
     </tr></thead>
     <tbody>
-      ${log.map(e=>`<tr>
+      ${decLog.map(e=>`<tr>
         <td style="white-space:nowrap;font-size:.8rem">${new Date(e.ts).toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})}</td>
         <td><span class="journal-badge ${typeCss[e.type]||'badge-visit'}">${typeLabel[e.type]||e.type}</span></td>
         <td style="font-size:.83rem">${e.detail||'—'}</td>
@@ -1907,6 +1972,55 @@ async function doTokenAuth(){
   }
 }
 
+// Déchiffrer tous les champs sensibles après connexion
+async function decryptAllItems(){
+  if(!_sessionKey) return;
+  const allPages=['gold','silver'];
+  for(const page of allPages){
+    const items=S.items[page]||[];
+    for(let i=0;i<items.length;i++){
+      const item=items[i];
+      if(isEncrypted(item.buy)){
+        const dec=await decryptField(item.buy);
+        items[i]={...item, buy: dec!=null?parseFloat(dec):null, _buyDecrypted:true};
+      }
+      if(isEncrypted(item.serial)){
+        const dec=await decryptField(item.serial);
+        items[i]={...items[i], serial:dec||''};
+      }
+      if(isEncrypted(item.desc)){
+        const dec=await decryptField(item.desc);
+        items[i]={...items[i], desc:dec||''};
+      }
+    }
+  }
+}
+
+// Chiffrer les champs sensibles d'un item avant sauvegarde
+async function encryptItemFields(item){
+  if(!_sessionKey) return item;
+  const encrypted={...item};
+  if(item.buy!=null&&!isEncrypted(item.buy)){
+    encrypted.buy=await encryptField(String(item.buy));
+  }
+  if(item.serial&&!isEncrypted(item.serial)){
+    encrypted.serial=await encryptField(item.serial);
+  }
+  if(item.desc&&!isEncrypted(item.desc)){
+    encrypted.desc=await encryptField(item.desc);
+  }
+  return encrypted;
+}
+
+// Chiffrer le journal avant sauvegarde
+async function encryptJournalEntry(entry){
+  if(!_sessionKey) return {...entry, detail:'[activité]', ip:undefined};
+  return {...entry,
+    detail: await encryptField(entry.detail||''),
+    ip: entry.ip ? await encryptField(entry.ip) : undefined
+  };
+}
+
 function unlockAdmin(){
   S.isAdmin=true;S.isVisitor=false;
   const vb=$('visitor-bar');if(vb)vb.style.display='none';
@@ -2057,8 +2171,8 @@ function renderCards(){
   }
   grid.innerHTML=shown.map((item,idx)=>{
     const tg=getTotal(item),vl=getVal(item);
-    const pnl=item.buy!=null?vl-item.buy:null;
-    const pnlHtml=!blur&&pnl!=null?`<div class="card-pnl" style="color:${pnl>=0?'#22c55e':'#ef4444'}">${pnl>=0?'▲':'▼'} ${fmtVal(Math.abs(pnl))}</div>`:'';
+    const pnl=(item.buy!=null&&!isEncrypted(item.buy))?vl-item.buy:null;
+    const pnlHtml=!blur&&pnl!=null&&!isEncrypted(item.buy)?`<div class="card-pnl" style="color:${pnl>=0?'#22c55e':'#ef4444'}">${pnl>=0?'▲':'▼'} ${fmtVal(Math.abs(pnl))}</div>`:'';
     const ms=item.imgPile?`<div class="cis" onclick="openLightbox('${item.imgPile}','${item.name.replace(/'/g,'')}','⬤ Pile / Avers')"><img src="${item.imgPile}" onerror="this.parentNode.innerHTML='<div class=cph>⬤</div>'"><span class="ilbl">Pile</span></div>`:`<div class="cis"><div class="cph">${item.type==='lingot'?'▬':'◎'}</div><span class="ilbl">Pile</span></div>`;
     const mf=item.imgFace?`<div class="cis" onclick="openLightbox('${item.imgFace}','${item.name.replace(/'/g,'')}','◎ Face / Revers')"><img src="${item.imgFace}" onerror="this.parentNode.innerHTML='<div class=cph>◎</div>'"><span class="ilbl">Face</span></div>`:`<div class="cis"><div class="cph">${item.type==='lingot'?'▬':'◎'}</div><span class="ilbl">Face</span></div>`;
     const delBtn=S.isAdmin?`
