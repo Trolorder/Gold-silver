@@ -1258,7 +1258,7 @@ let S={
 // ║  CONFIGURATION — À remplir une seule fois            ║
 // ╚══════════════════════════════════════════════════════╝
 const SITE_CONFIG = {
-  owner:  'Trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
+  owner:  'trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
   repo:   'Gold-silver',        // ← Nom du dépôt      (ex: 'gold-silver')
   branch: 'main',   // ← Branche (laisser 'main')
   mode:   'private', // ← 'private' ou 'public'
@@ -1732,10 +1732,17 @@ async function getClientIP(){
 }
 
 async function buildJournal(){
+  const _ov=document.getElementById('priv-overlay-journal');
+  if(_ov) _ov.remove();
   if(S.isVisitor&&cfg.mode==='private'){
-    const pages=['journal'];
-    const el=document.getElementById('page-'+pages[0]);
-    if(el) el.innerHTML='<div style="text-align:center;padding:4rem 2rem"><div style="font-size:3rem;opacity:.12;margin-bottom:1rem">🔒</div><h3 style="font-family:\'Playfair Display\',serif;font-size:1.1rem;color:var(--td);margin-bottom:.5rem">Contenu privé</h3><p style="font-size:.85rem;color:var(--tm)">Authentifiez-vous pour accéder à cette section.</p><button class="add-btn" style="margin-top:1.2rem;max-width:200px;display:inline-block" onclick="toggleAdmin()">🔒 Se connecter</button></div>';
+    const _cont=$('journal-content');
+    if(_cont&&!document.getElementById('priv-overlay-journal')){
+      const _div=document.createElement('div');
+      _div.id='priv-overlay-journal';
+      _div.style.cssText='text-align:center;padding:4rem 2rem';
+      _div.innerHTML='<div style="font-size:3rem;opacity:.12;margin-bottom:1rem">🔒</div><h3 style="font-family:\'Playfair Display\',serif;font-size:1.1rem;color:var(--td);margin-bottom:.5rem">Contenu privé</h3><p style="font-size:.85rem;color:var(--tm)">Authentifiez-vous pour accéder à cette section.</p><button style="margin-top:1.2rem;padding:.6rem 1.5rem;background:linear-gradient(135deg,var(--d),var(--a));border:none;border-radius:4px;color:#000;font-weight:700;cursor:pointer;font-family:Inter,sans-serif" onclick="toggleAdmin()">🔒 Se connecter</button>';
+      _cont.parentNode.insertBefore(_div,_cont);
+    }
     return;
   }
   const log=ls.get('pm_journal')||[];
@@ -1969,7 +1976,11 @@ async function doMasterAuth(){
     const token=await decryptWithPassword(storedEnc,pass);
     if(!token){ok('Erreur de déchiffrement.');return;}
     cfg.token=token;
-    if(ab){ab.disabled=false;ab.textContent='Chargement…';}
+    if(ab){ab.disabled=false;ab.textContent='Chiffrement…';}
+    // Dériver la clé de session MAINTENANT (avant toute sauvegarde)
+    await deriveSessionKey(pass);
+    // Déchiffrer les items déjà chargés
+    await decryptAllItems();
     if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}
     unlockAdmin();
   }catch(e){ok('Erreur : '+e.message);}
@@ -2054,7 +2065,15 @@ function unlockAdmin(){
   S.isAdmin=true;S.isVisitor=false;
   const vb=$('visitor-bar');if(vb)vb.style.display='none';
   const cw=$('config-warn');if(cw)cw.style.display='none';
-  closeModal('auth-modal');render();
+  // Retirer tous les overlays de protection
+  document.querySelectorAll('[id^="priv-overlay-"]').forEach(el=>el.remove());
+  closeModal('auth-modal');
+  render();
+  // Reconstruire la page courante pour retirer le "Contenu privé"
+  const p=S.currentPageView;
+  if(p==='charts') buildCharts();
+  else if(p==='fiscal') buildFiscal();
+  else if(p==='journal') buildJournal();
   toast('Mode admin activé ✓','success');
   getClientIP().then(ip=>logActivity('auth','Connexion admin ('+ip+')'));
 }
@@ -2246,10 +2265,18 @@ function renderCards(){
 const CHARTCFG={color:'rgba(201,168,76,.7)',colorSilver:'rgba(155,165,180,.7)',bg:'rgba(201,168,76,.1)'};
 
 function buildCharts(){
+  // Retirer l'overlay de protection si présent
+  const _ov=document.getElementById('priv-overlay-charts');
+  if(_ov) _ov.remove();
   if(S.isVisitor&&cfg.mode==='private'){
-    const pages=['charts'];
-    const el=document.getElementById('page-'+pages[0]);
-    if(el) el.innerHTML='<div style="text-align:center;padding:4rem 2rem"><div style="font-size:3rem;opacity:.12;margin-bottom:1rem">🔒</div><h3 style="font-family:\'Playfair Display\',serif;font-size:1.1rem;color:var(--td);margin-bottom:.5rem">Contenu privé</h3><p style="font-size:.85rem;color:var(--tm)">Authentifiez-vous pour accéder à cette section.</p><button class="add-btn" style="margin-top:1.2rem;max-width:200px;display:inline-block" onclick="toggleAdmin()">🔒 Se connecter</button></div>';
+    const _cont=$('kpi-grid');
+    if(_cont&&!document.getElementById('priv-overlay-charts')){
+      const _div=document.createElement('div');
+      _div.id='priv-overlay-charts';
+      _div.style.cssText='text-align:center;padding:4rem 2rem';
+      _div.innerHTML='<div style="font-size:3rem;opacity:.12;margin-bottom:1rem">🔒</div><h3 style="font-family:\'Playfair Display\',serif;font-size:1.1rem;color:var(--td);margin-bottom:.5rem">Contenu privé</h3><p style="font-size:.85rem;color:var(--tm)">Authentifiez-vous pour accéder à cette section.</p><button style="margin-top:1.2rem;padding:.6rem 1.5rem;background:linear-gradient(135deg,var(--d),var(--a));border:none;border-radius:4px;color:#000;font-weight:700;cursor:pointer;font-family:Inter,sans-serif" onclick="toggleAdmin()">🔒 Se connecter</button>';
+      _cont.parentNode.insertBefore(_div,_cont);
+    }
     return;
   }
   buildKPIs();buildHistoryChart();buildSplitChart();buildTypesChart();buildTopChart();buildRatioChart();
@@ -2257,8 +2284,13 @@ function buildCharts(){
 
 function buildKPIs(){
   if(S.isVisitor&&cfg.mode==='private'){
-    const g=$('kpi-grid');if(g)g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:1.5rem;color:var(--tm);font-size:.85rem">🔒 Connectez-vous pour voir les statistiques</div>';return;
+    const g=$('kpi-grid');
+    if(g) g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:1.5rem;color:var(--tm);font-size:.85rem">🔒 Connectez-vous pour voir les statistiques</div>';
+    return;
   }
+  // Effacer le message de protection si présent
+  const g=$('kpi-grid');
+  if(g&&g.innerHTML.includes('Connectez-vous')) g.innerHTML='';
   const allItems=[...(S.items.gold||[]),...(S.items.silver||[])];
   const totGoldV=(S.items.gold||[]).reduce((s,i)=>s+getGrams(i)*i.qty*S.prices.gold,0);
   const totSilverV=(S.items.silver||[]).reduce((s,i)=>s+getGrams(i)*i.qty*S.prices.silver,0);
@@ -2585,10 +2617,18 @@ function switchFTab(tab){
 }
 
 function buildFiscal(){
+  // Retirer l'overlay de protection si présent
+  const _ov=document.getElementById('priv-overlay-fiscal');
+  if(_ov) _ov.remove();
   if(S.isVisitor&&cfg.mode==='private'){
-    const pages=['fiscal'];
-    const el=document.getElementById('page-'+pages[0]);
-    if(el) el.innerHTML='<div style="text-align:center;padding:4rem 2rem"><div style="font-size:3rem;opacity:.12;margin-bottom:1rem">🔒</div><h3 style="font-family:\'Playfair Display\',serif;font-size:1.1rem;color:var(--td);margin-bottom:.5rem">Contenu privé</h3><p style="font-size:.85rem;color:var(--tm)">Authentifiez-vous pour accéder à cette section.</p><button class="add-btn" style="margin-top:1.2rem;max-width:200px;display:inline-block" onclick="toggleAdmin()">🔒 Se connecter</button></div>';
+    const _cont=$('fiscal-global');
+    if(_cont&&!document.getElementById('priv-overlay-fiscal')){
+      const _div=document.createElement('div');
+      _div.id='priv-overlay-fiscal';
+      _div.style.cssText='text-align:center;padding:4rem 2rem';
+      _div.innerHTML='<div style="font-size:3rem;opacity:.12;margin-bottom:1rem">🔒</div><h3 style="font-family:\'Playfair Display\',serif;font-size:1.1rem;color:var(--td);margin-bottom:.5rem">Contenu privé</h3><p style="font-size:.85rem;color:var(--tm)">Authentifiez-vous pour accéder à cette section.</p><button style="margin-top:1.2rem;padding:.6rem 1.5rem;background:linear-gradient(135deg,var(--d),var(--a));border:none;border-radius:4px;color:#000;font-weight:700;cursor:pointer;font-family:Inter,sans-serif" onclick="toggleAdmin()">🔒 Se connecter</button>';
+      _cont.parentNode.insertBefore(_div,_cont);
+    }
     return;
   }
   buildFiscalGlobal();
