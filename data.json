@@ -22,8 +22,9 @@
         "country": "France",
         "maker": "",
         "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpu6lb4kbtyl7b26bno-pile.jpg",
-        "imgFace": null,
-        "addedAt": "2026-05-31T19:37:11.745Z"
+        "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpu6oc7j6cuquqmw44v-face.jpg",
+        "addedAt": "2026-05-31T19:37:11.745Z",
+        "editedAt": "2026-05-31T19:39:29.640Z"
       }
     ]
   },
@@ -34,5 +35,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-05-31T19:37:11.745Z"
+  "updatedAt": "2026-05-31T19:39:29.641Z"
 }
