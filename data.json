@@ -12,9 +12,9 @@
         "name": "50 F Hercule",
         "qty": 11,
         "date": "2021-11-23",
-        "desc": "__enc__Zy8aPzkWF40HkOT+3g/6l275HMhHrjmbEUZHmUO96fSwx2fOGA==",
-        "serial": "__enc__Et89b08vv8e1abZDSdcsjbWTMm6VTY9k8ciJ79PShV9A",
-        "buy": "__enc__vZmLTlb5YKFC0BlDRMZo6ytvN0oRQJQDa3XuwyVNug==",
+        "desc": "__enc__mV/BnM4APwR1lNiGsiTHc7NnwRCKMw6tKOhbIV6v4XXPYHUR2Q==",
+        "serial": "__enc__xojgWKAWk5lh5xChnpL+bW/i5r7tvIkiEFbCEROfi45/",
+        "buy": "__enc__joAzoGK4MBIOKy73VrvpHLSwZLrFsr2jDujK0FAMFA==",
         "grams": 27,
         "fg": 27,
         "wt": "",
@@ -24,6 +24,29 @@
         "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpu7d44nqoxerzbcvzs-pile.jpg",
         "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpu7q2ef63f8nhu2x5u-face.jpg",
         "addedAt": "2026-05-31T19:58:52.675Z",
+        "_buyDecrypted": true,
+        "editedAt": "2026-05-31T20:08:50.768Z"
+      },
+      {
+        "id": "mpu7qzh8f60idirzsd5",
+        "type": "piece",
+        "catId": "s-p-016",
+        "metal": "silver",
+        "name": "50 F Hercule (copie)",
+        "qty": 11,
+        "date": "2021-11-23",
+        "desc": "__enc__qdK2YBk8OiXinuvHQ93lhE70rSK7nyoSFQl9IROBmAxrsBM8Ug==",
+        "serial": "__enc__3L8eKvmtNzB+kHJ8ac1m7FCiiWe+Pa5i4mwqxnSI+bqk",
+        "buy": "__enc__XexpZpqqeIYeq6cIvX9+RqnXxsZ61Az+g4AlPFlqNw==",
+        "grams": 27,
+        "fg": 27,
+        "wt": "",
+        "fineness": 900,
+        "country": "France",
+        "maker": "",
+        "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpu7d44nqoxerzbcvzs-pile.jpg",
+        "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpu7q2ef63f8nhu2x5u-face.jpg",
+        "addedAt": "2026-05-31T20:09:30.140Z",
         "_buyDecrypted": true,
         "editedAt": "2026-05-31T20:08:50.768Z"
       }
@@ -36,5 +59,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-05-31T20:08:50.768Z"
+  "updatedAt": "2026-05-31T20:09:30.142Z"
 }
