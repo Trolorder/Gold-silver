@@ -12,9 +12,9 @@
         "name": "50 F Hercule",
         "qty": 11,
         "date": "2021-11-23",
-        "desc": "__enc__d/Fw/99g5RtErXCZbtqiblwe93ZyAkBFlqBBPgjXxon2Y95hZg==",
-        "serial": "__enc__mUDSE+gtN3Y6dKW5jCFksSL28Ut39wpQB0p9/ClmQj3l",
-        "buy": "__enc__wg8ZRwGdohawrpHYJQPwZx+GA8Q/PPZOe7nkWd3Vjw==",
+        "desc": "__enc__Zy8aPzkWF40HkOT+3g/6l275HMhHrjmbEUZHmUO96fSwx2fOGA==",
+        "serial": "__enc__Et89b08vv8e1abZDSdcsjbWTMm6VTY9k8ciJ79PShV9A",
+        "buy": "__enc__vZmLTlb5YKFC0BlDRMZo6ytvN0oRQJQDa3XuwyVNug==",
         "grams": 27,
         "fg": 27,
         "wt": "",
@@ -22,8 +22,10 @@
         "country": "France",
         "maker": "",
         "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpu7d44nqoxerzbcvzs-pile.jpg",
-        "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpu7d7sd4wjus8j1vek-face.jpg",
-        "addedAt": "2026-05-31T19:58:52.675Z"
+        "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpu7q2ef63f8nhu2x5u-face.jpg",
+        "addedAt": "2026-05-31T19:58:52.675Z",
+        "_buyDecrypted": true,
+        "editedAt": "2026-05-31T20:08:50.768Z"
       }
     ]
   },
@@ -34,5 +36,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-05-31T19:58:52.678Z"
+  "updatedAt": "2026-05-31T20:08:50.768Z"
 }
