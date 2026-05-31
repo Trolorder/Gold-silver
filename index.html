@@ -1399,7 +1399,12 @@ async function loadFromGH(){
     if(!r.ok)throw new Error(`GitHub ${r.status}`);
     const d=await r.json();
     S.dataSha=d.sha;
-    let rawJson=atob(d.content.replace(/\n/g,''));
+    // Décodage UTF-8 correct
+    const rawB64=d.content.replace(/\n/g,'');
+    const rawBytes=Uint8Array.from(atob(rawB64),ch=>ch.charCodeAt(0));
+    let rawJson;
+    try{ rawJson=new TextDecoder('utf-8').decode(rawBytes); }
+    catch(e){ rawJson=atob(rawB64); }
     let parsed={items:{gold:[],silver:[]},history:[],alerts:[]};
     try{
       const j=JSON.parse(rawJson);
@@ -1456,7 +1461,11 @@ async function saveToGH(){
       alerts:   S.alerts,
       updatedAt:new Date().toISOString()
     };
-    const content=btoa(unescape(encodeURIComponent(JSON.stringify(payload,null,2))));
+    // Encodage UTF-8 correct pour les caractères accentués
+    const jsonStr=JSON.stringify(payload,null,2);
+    const bytes=new TextEncoder().encode(jsonStr);
+    let binary='';bytes.forEach(b=>binary+=String.fromCharCode(b));
+    const content=btoa(binary);
     const body={message:`chore: update ${new Date().toISOString()}`,content,branch:cfg.branch};
     if(S.dataSha)body.sha=S.dataSha;
     const r=await fetchTimeout(ghUrl(),{method:'PUT',headers:{...ghH(),'Content-Type':'application/json'},body:JSON.stringify(body)},12000);
@@ -1628,7 +1637,7 @@ async function saveJournalToGH(log){
     const ck=await fetchTimeout(url+'?ref='+cfg.branch,{headers:ghH()},4000);
     if(ck.ok){const d=await ck.json();sha=d.sha;}
     const body={message:'journal: '+new Date().toISOString(),
-      content:btoa(unescape(encodeURIComponent(JSON.stringify(log,null,2)))),
+      content:(()=>{const s=JSON.stringify(log,null,2);const b=new TextEncoder().encode(s);let r='';b.forEach(x=>r+=String.fromCharCode(x));return btoa(r);})(),
       branch:cfg.branch};
     if(sha)body.sha=sha;
     await fetchTimeout(url,{method:'PUT',headers:{...ghH(),'Content-Type':'application/json'},body:JSON.stringify(body)},10000);
@@ -1642,7 +1651,11 @@ async function loadJournalFromGH(){
     const r=await fetchTimeout(url,{headers:ghH()},6000);
     if(r.ok){
       const d=await r.json();
-      const ghLog=JSON.parse(atob(d.content.replace(/\n/g,'')));
+      const b64j=d.content.replace(/\n/g,'');
+      const bytesJ=Uint8Array.from(atob(b64j),ch=>ch.charCodeAt(0));
+      let jsonJ;
+      try{ jsonJ=new TextDecoder('utf-8').decode(bytesJ); }catch(e){ jsonJ=atob(b64j); }
+      const ghLog=JSON.parse(jsonJ);
       if(Array.isArray(ghLog)&&ghLog.length>0){
         // Fusionner avec le journal local
         const localLog=ls.get('pm_journal')||[];
@@ -1665,6 +1678,12 @@ async function getClientIP(){
 }
 
 function buildJournal(){
+  if(S.isVisitor&&cfg.mode==='private'){
+    const pages=['journal'];
+    const el=document.getElementById('page-'+pages[0]);
+    if(el) el.innerHTML='<div style="text-align:center;padding:4rem 2rem"><div style="font-size:3rem;opacity:.12;margin-bottom:1rem">🔒</div><h3 style="font-family:\'Playfair Display\',serif;font-size:1.1rem;color:var(--td);margin-bottom:.5rem">Contenu privé</h3><p style="font-size:.85rem;color:var(--tm)">Authentifiez-vous pour accéder à cette section.</p><button class="add-btn" style="margin-top:1.2rem;max-width:200px;display:inline-block" onclick="toggleAdmin()">🔒 Se connecter</button></div>';
+    return;
+  }
   const log=ls.get('pm_journal')||[];
   const el=$('journal-content'); if(!el)return;
   if(!log.length){
@@ -2084,10 +2103,19 @@ function renderCards(){
 const CHARTCFG={color:'rgba(201,168,76,.7)',colorSilver:'rgba(155,165,180,.7)',bg:'rgba(201,168,76,.1)'};
 
 function buildCharts(){
+  if(S.isVisitor&&cfg.mode==='private'){
+    const pages=['charts'];
+    const el=document.getElementById('page-'+pages[0]);
+    if(el) el.innerHTML='<div style="text-align:center;padding:4rem 2rem"><div style="font-size:3rem;opacity:.12;margin-bottom:1rem">🔒</div><h3 style="font-family:\'Playfair Display\',serif;font-size:1.1rem;color:var(--td);margin-bottom:.5rem">Contenu privé</h3><p style="font-size:.85rem;color:var(--tm)">Authentifiez-vous pour accéder à cette section.</p><button class="add-btn" style="margin-top:1.2rem;max-width:200px;display:inline-block" onclick="toggleAdmin()">🔒 Se connecter</button></div>';
+    return;
+  }
   buildKPIs();buildHistoryChart();buildSplitChart();buildTypesChart();buildTopChart();buildRatioChart();
 }
 
 function buildKPIs(){
+  if(S.isVisitor&&cfg.mode==='private'){
+    const g=$('kpi-grid');if(g)g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:1.5rem;color:var(--tm);font-size:.85rem">🔒 Connectez-vous pour voir les statistiques</div>';return;
+  }
   const allItems=[...(S.items.gold||[]),...(S.items.silver||[])];
   const totGoldV=(S.items.gold||[]).reduce((s,i)=>s+getGrams(i)*i.qty*S.prices.gold,0);
   const totSilverV=(S.items.silver||[]).reduce((s,i)=>s+getGrams(i)*i.qty*S.prices.silver,0);
@@ -2221,7 +2249,8 @@ function buildHistoryChart(){
     labels.forEach((lbl,i)=>{
       const tDate=new Date(timeline[i].date);
       let bestAu=null,bestAg=null,bestDiff=Infinity;
-      priceHist.forEach(ph=>{
+      const validPH=priceHist.filter(ph=>ph.goldEurOz>0&&ph.silverEurOz&&ph.silverEurOz>0);
+  validPH.forEach(ph=>{
         const diff=Math.abs(new Date(ph.date)-tDate);
         if(diff<bestDiff){bestDiff=diff;bestAu=ph.goldEurOz;bestAg=ph.silverEurOz;}
       });
@@ -2284,19 +2313,30 @@ async function buildRatioChart(){
   const canvas=$('chart-ratio'); if(!canvas) return;
   const sym={EUR:'€',USD:'$',CHF:'₣',GBP:'£'}[S.currency];
   // Récupérer l'historique
-  canvas.parentNode.querySelector('.chart-title').textContent='Chargement du ratio…';
+  const titleEl=canvas.parentNode.querySelector('.chart-title');
+  if(titleEl) titleEl.textContent='Chargement du ratio…';
   const hist=await fetchPriceHistory().catch(()=>[]);
-  canvas.parentNode.querySelector('.chart-title').textContent='Ratio Or / Argent — Opportunité d’achat argent';
+  if(!hist||!hist.length){
+    if(titleEl) titleEl.textContent='Ratio Or / Argent — données indisponibles';
+    return;
+  }
+  // Filtrer les points sans argent
+  const validHist=hist.filter(h=>h.silverEurOz&&h.silverEurOz>0&&h.goldEurOz>0);
+  if(!validHist.length){
+    if(titleEl) titleEl.textContent='Ratio Or / Argent — données argent manquantes';
+    return;
+  }
+  if(titleEl) titleEl.textContent='Ratio Or / Argent — Opportunité d’achat argent';
   if(!hist||!hist.length) return;
-  const labels=hist.map(h=>new Date(h.date).toLocaleDateString('fr-FR',{month:'2-digit',year:'2-digit'}));
-  const ratios=hist.map(h=>h.silverEurOz&&h.goldEurOz?(h.goldEurOz/h.silverEurOz):null);
-  const validRatios=ratios.filter(v=>v!=null);
+  const labels=validHist.map(h=>new Date(h.date).toLocaleDateString('fr-FR',{month:'2-digit',year:'2-digit'}));
+  const ratios=validHist.map(h=>h.goldEurOz/h.silverEurOz);
+  const validRatios=ratios.filter(v=>v!=null&&isFinite(v));
   const avgRatio=validRatios.reduce((a,b)=>a+b,0)/validRatios.length;
   // Zone "bon achat argent" : ratio > 80 (historiquement très élevé)
   const SEUIL_BON=80, SEUIL_NEUTRE=65;
   const bgColors=ratios.map(r=>!r?'transparent':r>=SEUIL_BON?'rgba(34,197,94,.15)':r>=SEUIL_NEUTRE?'rgba(251,191,36,.07)':'rgba(239,68,68,.07)');
   // Ratio actuel
-  const lastRatio=ratios.filter(v=>v).slice(-1)[0]?.toFixed(1)||'?';
+  const lastRatio=ratios.filter(v=>v&&isFinite(v)).slice(-1)[0]?.toFixed(1)||'?';
   if(S.charts.ratio) S.charts.ratio.destroy();
   S.charts.ratio=new Chart(canvas,{type:'line',data:{
     labels,
@@ -2402,6 +2442,12 @@ function switchFTab(tab){
 }
 
 function buildFiscal(){
+  if(S.isVisitor&&cfg.mode==='private'){
+    const pages=['fiscal'];
+    const el=document.getElementById('page-'+pages[0]);
+    if(el) el.innerHTML='<div style="text-align:center;padding:4rem 2rem"><div style="font-size:3rem;opacity:.12;margin-bottom:1rem">🔒</div><h3 style="font-family:\'Playfair Display\',serif;font-size:1.1rem;color:var(--td);margin-bottom:.5rem">Contenu privé</h3><p style="font-size:.85rem;color:var(--tm)">Authentifiez-vous pour accéder à cette section.</p><button class="add-btn" style="margin-top:1.2rem;max-width:200px;display:inline-block" onclick="toggleAdmin()">🔒 Se connecter</button></div>';
+    return;
+  }
   buildFiscalGlobal();
   buildFiscalSimu();
 }
