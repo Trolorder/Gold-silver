@@ -1,5 +1,26 @@
 [
   {
+    "ts": "2026-05-31T14:57:57.781Z",
+    "type": "auth",
+    "detail": "Connexion admin (89.80.222.52)",
+    "metal": null,
+    "page": "https://trolorder.github.io/Gold-silver/"
+  },
+  {
+    "ts": "2026-05-31T14:57:51.531Z",
+    "type": "visit",
+    "detail": "Visite du site (89.80.222.52)",
+    "metal": null,
+    "page": "https://trolorder.github.io/Gold-silver/"
+  },
+  {
+    "ts": "2026-05-31T14:57:50.745Z",
+    "type": "visit",
+    "detail": "Visite du site (89.80.222.52)",
+    "metal": null,
+    "page": "https://trolorder.github.io/Gold-silver/"
+  },
+  {
     "ts": "2026-05-31T14:57:47.645Z",
     "type": "auth",
     "detail": "Connexion admin (89.80.222.52)",
