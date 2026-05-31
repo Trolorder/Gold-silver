@@ -1,0 +1,16 @@
+[
+  {
+    "ts": "2026-05-31T15:28:51.000Z",
+    "type": "auth",
+    "detail": "Connexion admin (?)",
+    "metal": null,
+    "page": "https://trolorder.github.io/Gold-silver/"
+  },
+  {
+    "ts": "2026-05-31T15:28:44.062Z",
+    "type": "visit",
+    "detail": "Visite du site (?)",
+    "metal": null,
+    "page": "https://trolorder.github.io/Gold-silver/"
+  }
+]
