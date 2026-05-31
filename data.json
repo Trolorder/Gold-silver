@@ -12,9 +12,9 @@
         "name": "50 F Hercule",
         "qty": 11,
         "date": "2021-11-23",
-        "desc": "__enc__t7J4j+NGy06AAuHDeQugci+j0vkl0PbQ1g46w6Tf9jyTewxO/g==",
-        "serial": "__enc__Sbvw9eUyq+kdZQfzrb3dbx5JhnPTWP0OOOTX7o7RjWUL",
-        "buy": "__enc__8JaUKJRCFElgHzojef+/n8w91wueVnhmCibhPoDaGA==",
+        "desc": "__enc__BNhVy3DbK3BTu1tQZIvbJKATMpww73Oa1u80HbytKZ4qzULGzg==",
+        "serial": "__enc__RDSWHU7rrQpvasjiQw/enQw9yYjJtJqmeIZPMysYIq2+",
+        "buy": "__enc__bTQntPu2GQ7nV4uh+605hybmL4aYec6pAijm5qlGiA==",
         "grams": 27,
         "fg": 27,
         "wt": "",
@@ -32,12 +32,12 @@
         "type": "piece",
         "catId": "s-p-016",
         "metal": "silver",
-        "name": "50 F Hercule (copie)",
+        "name": "50 F Hercule",
         "qty": 9,
         "date": "2021-10-01",
-        "desc": "__enc__9I9lpjv+s13pwtlSWrf0Vw/MbdTzpqja3WjdH1fOjf3iokUDzw==",
-        "serial": "__enc__jsbRE/v0dCh0+QDRRv9vp5tUUJaDwXkzUeMyrqOASn//",
-        "buy": "__enc__5WfmRN3+8/TbgL114k0i5kkORRDa1Cwi/Y4HGnZYKg==",
+        "desc": "__enc__AqhQ1i3kEturH3we3DDypUxdHwFrtcqlfutrzmUy3PeNSYnwpA==",
+        "serial": "__enc__DKhFz4W2uG5mHAdSmcWmFuF4c6/I91hMmuXu/MdzsLj9",
+        "buy": "__enc__tVG0YIuM3IVT4fn4sJo3rF5LsW7/mfCR7pUo6A5mmw==",
         "grams": 27,
         "fg": 27,
         "wt": "",
@@ -48,7 +48,7 @@
         "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpu7q2ef63f8nhu2x5u-face.jpg",
         "addedAt": "2026-05-31T20:09:30.140Z",
         "_buyDecrypted": true,
-        "editedAt": "2026-05-31T20:10:18.814Z"
+        "editedAt": "2026-05-31T20:13:48.292Z"
       }
     ]
   },
@@ -59,5 +59,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-05-31T20:10:18.815Z"
+  "updatedAt": "2026-05-31T20:13:48.295Z"
 }
