@@ -313,6 +313,25 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
 .lightbox.open{display:flex}
 .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px}
 .swipe-hint{display:none}
+/* JOURNAL */
+.journal-table{width:100%;border-collapse:collapse;font-size:.88rem}
+.journal-table th{text-align:left;padding:.5rem .8rem;font-size:.65rem;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--tm);border-bottom:1px solid var(--br)}
+.journal-table td{padding:.5rem .8rem;border-bottom:1px solid rgba(201,168,76,.06);color:var(--td)}
+.journal-table tr:hover td{background:var(--s)}
+.journal-badge{display:inline-block;font-size:.6rem;padding:.1rem .35rem;border-radius:3px;
+  text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.badge-visit{background:rgba(59,130,246,.12);color:#93c5fd;border:1px solid rgba(59,130,246,.2)}
+.badge-add{background:rgba(34,197,94,.1);color:#86efac;border:1px solid rgba(34,197,94,.2)}
+.badge-edit{background:rgba(251,191,36,.1);color:#fcd34d;border:1px solid rgba(251,191,36,.2)}
+.badge-del{background:rgba(239,68,68,.1);color:#fca5a5;border:1px solid rgba(239,68,68,.2)}
+.badge-auth{background:rgba(168,85,247,.1);color:#d8b4fe;border:1px solid rgba(168,85,247,.2)}
+.badge-export{background:rgba(20,184,166,.1);color:#5eead4;border:1px solid rgba(20,184,166,.2)}
+.journal-empty{text-align:center;padding:3rem;color:var(--tm);font-size:.88rem}
+/* RAPPORT ANNUEL */
+.report-year-btn{padding:.45rem 1rem;border:1px solid var(--br);border-radius:4px;background:transparent;
+  color:var(--td);cursor:pointer;font-size:.88rem;font-family:'Inter',system-ui,sans-serif;transition:all .2s}
+.report-year-btn:hover{border-color:var(--bs);color:var(--a);background:var(--s)}
 /* CONTRÔLES */
 .list-controls{margin-bottom:1rem}
 .sort-row{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
@@ -504,6 +523,7 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
     <button class="nav-page-tab" onclick="showPage('charts')">Graphiques</button>
     <button class="nav-page-tab" onclick="showPage('fiscal')">Fiscal</button>
     <button class="nav-page-tab" onclick="showPage('alerts')">Alertes</button>
+    <button class="nav-page-tab" onclick="showPage('journal')">Journal</button>
   </div>
   <div class="price-area" id="price-area" onclick="openPriceEdit()">
     <div class="dot" id="live-dot"></div>
@@ -545,6 +565,7 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
       <button class="mob-ptab" id="mob-ptab-charts"   onclick="showPage('charts')">Graphiques</button>
       <button class="mob-ptab" id="mob-ptab-fiscal"   onclick="showPage('fiscal')">Fiscal</button>
       <button class="mob-ptab" id="mob-ptab-alerts"   onclick="showPage('alerts')">Alertes</button>
+      <button class="mob-ptab" id="mob-ptab-journal"  onclick="showPage('journal')">Journal</button>
     </div>
   </div>
   <!-- Menu déroulant -->
@@ -716,6 +737,18 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
       <div id="fp-guide" style="display:none">
         <div id="fiscal-guide-content"></div>
       </div>
+    </div>
+  </div>
+
+  <!-- JOURNAL -->
+  <div class="page" id="page-journal" style="flex:1;min-width:0">
+    <div class="fiscal-page">
+      <h2 class="section-title">Journal <em>d'activité</em></h2>
+      <div class="export-row" id="journal-export-row">
+        <button class="export-btn" onclick="clearJournal()">🗑 Effacer le journal</button>
+        <button class="export-btn" onclick="exportJournalCSV()">⬇ Exporter CSV</button>
+      </div>
+      <div id="journal-content"></div>
     </div>
   </div>
 
@@ -1497,6 +1530,10 @@ function setCurrency(c){S.currency=$('currency-sel').value=c;ls.set('pm_currency
     toast('Erreur au démarrage','error');
   }finally{
     $('loading-screen').style.display='none';
+    // Log visite
+    getClientIP().then(ip=>logActivity('visit','Visite du site ('+ip+')'));
+    // Charger le journal depuis GitHub si possible
+    loadJournalFromGH().catch(()=>{});
     // Afficher avertissement si SITE_CONFIG pas rempli
     if(!SITE_CONFIG.owner||!SITE_CONFIG.repo){
       const cw=$('config-warn');if(cw)cw.style.display='flex';
@@ -1563,7 +1600,124 @@ async function fetchLivePrices(){
 // ════════════════════════════════════════════════════════════
 //  SWIPE (mobile)
 // ════════════════════════════════════════════════════════════
-const PAGES=['portfolio','charts','fiscal','alerts'];
+const PAGES=['portfolio','charts','fiscal','alerts','journal'];
+// ── JOURNAL D'ACTIVITÉ ─────────────────────────────────────
+function logActivity(type, detail, metal){
+  try{
+    const entry={
+      ts: new Date().toISOString(),
+      type,       // 'visit','add','edit','delete','auth','export'
+      detail,
+      metal: metal||null,
+      page: window.location.href,
+    };
+    const log=ls.get('pm_journal')||[];
+    log.unshift(entry);
+    if(log.length>500) log.splice(500);
+    ls.set('pm_journal',log);
+    // Sauvegarder aussi dans GitHub si admin (pour accès multi-appareils)
+    if(S.isAdmin&&cfg.token) saveJournalToGH(log).catch(()=>{});
+  }catch(e){}
+}
+
+async function saveJournalToGH(log){
+  if(!cfg.owner||!cfg.repo||!cfg.token) return;
+  const url=`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/journal.json`;
+  try{
+    let sha=null;
+    const ck=await fetchTimeout(url+'?ref='+cfg.branch,{headers:ghH()},4000);
+    if(ck.ok){const d=await ck.json();sha=d.sha;}
+    const body={message:'journal: '+new Date().toISOString(),
+      content:btoa(unescape(encodeURIComponent(JSON.stringify(log,null,2)))),
+      branch:cfg.branch};
+    if(sha)body.sha=sha;
+    await fetchTimeout(url,{method:'PUT',headers:{...ghH(),'Content-Type':'application/json'},body:JSON.stringify(body)},10000);
+  }catch(e){}
+}
+
+async function loadJournalFromGH(){
+  if(!cfg.owner||!cfg.repo) return;
+  try{
+    const url=`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/journal.json?ref=${cfg.branch}&t=${Date.now()}`;
+    const r=await fetchTimeout(url,{headers:ghH()},6000);
+    if(r.ok){
+      const d=await r.json();
+      const ghLog=JSON.parse(atob(d.content.replace(/\n/g,'')));
+      if(Array.isArray(ghLog)&&ghLog.length>0){
+        // Fusionner avec le journal local
+        const localLog=ls.get('pm_journal')||[];
+        const merged=[...ghLog,...localLog];
+        merged.sort((a,b)=>b.ts.localeCompare(a.ts));
+        const uniq=[];const seen=new Set();
+        merged.forEach(e=>{const k=e.ts+e.type+e.detail;if(!seen.has(k)){seen.add(k);uniq.push(e);}});
+        ls.set('pm_journal',uniq.slice(0,500));
+      }
+    }
+  }catch(e){}
+}
+
+async function getClientIP(){
+  try{
+    const r=await fetchTimeout('https://api.ipify.org?format=json',{},4000);
+    if(r.ok){const d=await r.json();return d.ip||'?';}
+  }catch(e){}
+  return '?';
+}
+
+function buildJournal(){
+  const log=ls.get('pm_journal')||[];
+  const el=$('journal-content'); if(!el)return;
+  if(!log.length){
+    el.innerHTML='<div class="journal-empty">📋 Aucune activité enregistrée.<br><small>Les visites et modifications apparaîtront ici.</small></div>';
+    return;
+  }
+  const typeLabel={
+    visit:'Visite',add:'Ajout',edit:'Modification',delete:'Suppression',
+    auth:'Authentification',export:'Export',report:'Rapport'
+  };
+  const typeCss={
+    visit:'badge-visit',add:'badge-add',edit:'badge-edit',delete:'badge-del',
+    auth:'badge-auth',export:'badge-export',report:'badge-export'
+  };
+  el.innerHTML=`<table class="journal-table">
+    <thead><tr>
+      <th>Date & Heure</th><th>Type</th><th>Détail</th><th>Métal</th>
+    </tr></thead>
+    <tbody>
+      ${log.map(e=>`<tr>
+        <td style="white-space:nowrap;font-size:.8rem">${new Date(e.ts).toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})}</td>
+        <td><span class="journal-badge ${typeCss[e.type]||'badge-visit'}">${typeLabel[e.type]||e.type}</span></td>
+        <td style="font-size:.83rem">${e.detail||'—'}</td>
+        <td style="font-size:.78rem;color:var(--a)">${e.metal==='gold'?'◆ Or':e.metal==='silver'?'◇ Argent':'—'}</td>
+      </tr>`).join('')}
+    </tbody>
+  </table>`;
+}
+
+function clearJournal(){
+  if(!confirm('Effacer tout le journal ?')) return;
+  ls.set('pm_journal',[]);
+  buildJournal();
+  toast('Journal effacé','info');
+}
+
+function exportJournalCSV(){
+  const log=ls.get('pm_journal')||[];
+  if(!log.length){toast('Journal vide','info');return;}
+  const rows=[['Date','Heure','Type','Détail','Métal']];
+  log.forEach(e=>{
+    const d=new Date(e.ts);
+    rows.push([d.toLocaleDateString('fr-FR'),d.toLocaleTimeString('fr-FR'),
+      e.type,e.detail||'',e.metal||'']);
+  });
+  const csv=rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n');
+  const blob=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='journal_patrimoine.csv';a.click();
+  logActivity('export','Export journal CSV');
+  toast('Journal exporté','success');
+}
+
 function toggleMobMenu(){
   const menu=$('mob-menu'), btn=$('mob-menu-btn');
   if(!menu)return;
@@ -1740,6 +1894,7 @@ function unlockAdmin(){
   const cw=$('config-warn');if(cw)cw.style.display='none';
   closeModal('auth-modal');render();
   toast('Mode admin activé ✓','success');
+  getClientIP().then(ip=>logActivity('auth','Connexion admin ('+ip+')'));
 }
 // PIN remplacé par mot de passe maître
 // doTokenAuth défini plus haut
@@ -1771,6 +1926,7 @@ function showPage(p){
   if(p==='charts')buildCharts();
   if(p==='fiscal')buildFiscal();
   if(p==='alerts')buildAlerts();
+  if(p==='journal'){loadJournalFromGH().then(()=>buildJournal());}
 }
 
 // ════════════════════════════════════════════════════════════
@@ -2026,7 +2182,9 @@ function buildHistoryChart(){
   const sym={EUR:'€',USD:'$',CHF:'₣',GBP:'£'}[S.currency];
   const labels=timeline.map(h=>{
     const d=new Date(h.date);
-    return d.toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit',year:timeline.length>180?'2-digit':undefined});
+    // Toujours afficher l'année si historique > 90 jours
+    if(timeline.length>90) return d.toLocaleDateString('fr-FR',{month:'short',year:'numeric'});
+    return d.toLocaleDateString('fr-FR',{day:'2-digit',month:'2-digit'});
   });
   const hasGold=allItems.some(i=>i.metal==='gold');
   const hasSilver=allItems.some(i=>i.metal==='silver');
@@ -2564,6 +2722,163 @@ function buildFiscalGuide(){
 
 
 
+// ── RAPPORT ANNUEL PDF ─────────────────────────────────────
+function exportAnnualReport(){
+  const year=new Date().getFullYear();
+  const allItems=[...(S.items.gold||[]).map(i=>({...i,metal:'gold'})),
+                  ...(S.items.silver||[]).map(i=>({...i,metal:'silver'}))];
+  const sym={EUR:'€',USD:'$',CHF:'₣',GBP:'£'}[S.currency];
+  const totV=allItems.reduce((s,i)=>s+getGrams(i)*i.qty*(S.prices[i.metal]||0),0);
+  const totBuy=allItems.filter(i=>i.buy).reduce((s,i)=>s+i.buy,0);
+  const totPnl=totBuy>0?totV-totBuy:null;
+  const totTF=taxeForfaitaire(totV);
+  const totTV=allItems.reduce((s,i)=>{
+    const vl=getGrams(i)*i.qty*(S.prices[i.metal]||0);
+    const pnl=i.buy!=null?vl-i.buy:null;
+    return s+(pnl!=null&&pnl>0?taxePlusValue(pnl,fiscalYears(i.date)):0);
+  },0);
+  const rows=allItems.map(item=>{
+    const g=getTotal(item),vl=getGrams(item)*item.qty*(S.prices[item.metal]||0);
+    const pnl=item.buy!=null?vl-item.buy:null;
+    const yrs=fiscalYears(item.date);
+    const abat=abattementPV(yrs);
+    const tf=taxeForfaitaire(vl);
+    const tv=pnl!=null&&pnl>0?taxePlusValue(pnl,yrs):null;
+    return `<tr>
+      <td>${item.name}</td>
+      <td>${item.type==='lingot'?'Lingot':'Pièce'}<br><small>${item.metal==='gold'?'Or':'Argent'}</small></td>
+      <td>${item.qty}</td>
+      <td>${f3(g)}g</td>
+      <td>${fmtDate(item.date)||'—'}</td>
+      <td>${yrs!=null?yrs+' an'+(yrs>1?'s':''):'—'}</td>
+      <td>${item.buy!=null?f2(item.buy)+sym:'—'}</td>
+      <td>${f2(toDisplay(vl))}${sym}</td>
+      <td style="color:${!pnl?'inherit':pnl>=0?'#16a34a':'#dc2626'}">${pnl!=null?(pnl>=0?'+':'')+f2(toDisplay(Math.abs(pnl)))+sym:'—'}</td>
+      <td>${abat===100?'<span style="color:#16a34a">Exon.</span>':abat!=null?abat+'%':'—'}</td>
+      <td>${f2(toDisplay(Math.min(tf,tv||tf)))}${sym}</td>
+    </tr>`;
+  }).join('');
+  const html=`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">
+  <style>
+    *{box-sizing:border-box}
+    body{font-family:Georgia,serif;color:#1a1a1a;font-size:9pt;margin:1.5cm}
+    h1{font-size:20pt;color:#7A5C10;margin-bottom:2pt}
+    .subtitle{font-size:9pt;color:#888;margin-bottom:1cm}
+    .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8pt;margin-bottom:1cm}
+    .kpi{border:1pt solid #e8e2d8;border-radius:4pt;padding:8pt;background:#fffdf8}
+    .kpi-l{font-size:7pt;text-transform:uppercase;letter-spacing:.08em;color:#999;margin-bottom:3pt}
+    .kpi-v{font-size:14pt;color:#7A5C10;font-weight:bold}
+    .kpi-s{font-size:7.5pt;color:#aaa;margin-top:2pt}
+    h2{font-size:11pt;color:#7A5C10;margin:1cm 0 .3cm;border-bottom:1pt solid #C9A84C;padding-bottom:3pt}
+    table{width:100%;border-collapse:collapse;font-size:8pt}
+    th{background:#f5f0e8;padding:4pt 6pt;text-align:left;border-bottom:1.5pt solid #C9A84C;
+       font-size:7pt;text-transform:uppercase;letter-spacing:.05em;color:#7A5C10}
+    td{padding:4pt 6pt;border-bottom:1pt solid #f0ece4;vertical-align:top}
+    tr:nth-child(even) td{background:#fafaf8}
+    .fiscal-box{margin-top:.8cm;display:grid;grid-template-columns:1fr 1fr;gap:10pt}
+    .fbox{border:1pt solid #e8e2d8;border-radius:4pt;padding:10pt;background:#fffdf8}
+    .fbox-title{font-size:9pt;font-weight:bold;color:#7A5C10;margin-bottom:.4cm}
+    .frow{display:flex;justify-content:space-between;font-size:8.5pt;margin-bottom:4pt;color:#555}
+    .frow strong{color:#1a1a1a}
+    .best-regime{background:#f0fdf4;border:1pt solid #86efac;padding:8pt;border-radius:3pt;margin-top:.5cm;font-size:8.5pt}
+    .footer{margin-top:1.5cm;padding-top:.4cm;border-top:1pt solid #e8e2d8;font-size:7pt;color:#aaa;line-height:1.6}
+    @media print{body{margin:.8cm}.kpi-grid{grid-template-columns:repeat(4,1fr)}}
+  </style></head><body>
+  <h1>Rapport Patrimoine ${year}</h1>
+  <div class="subtitle">Généré le ${new Date().toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'})} · Cours Or : ${f2(toDisplay(S.prices.gold*31.1035))} ${sym}/Oz · Argent : ${f2(toDisplay(S.prices.silver*31.1035))} ${sym}/Oz</div>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-l">Valeur totale</div><div class="kpi-v">${f2(toDisplay(totV))} ${sym}</div><div class="kpi-s">${allItems.length} biens</div></div>
+    <div class="kpi"><div class="kpi-l">Plus-value latente</div><div class="kpi-v" style="color:${totPnl!=null?(totPnl>=0?'#16a34a':'#dc2626'):'#7A5C10'}">${totPnl!=null?(totPnl>=0?'+':'')+f2(toDisplay(totPnl))+' '+sym:'N/A'}</div><div class="kpi-s">${totBuy>0?'Achat : '+f2(toDisplay(totBuy))+' '+sym:'Prix achat non renseigné'}</div></div>
+    <div class="kpi"><div class="kpi-l">Or total</div><div class="kpi-v">${f3((S.items.gold||[]).reduce((s,i)=>s+getTotal(i),0)/31.1035)} Oz</div><div class="kpi-s">${f2(toDisplay((S.items.gold||[]).reduce((s,i)=>s+getGrams(i)*i.qty*(S.prices.gold||0),0)))} ${sym}</div></div>
+    <div class="kpi"><div class="kpi-l">Argent total</div><div class="kpi-v">${f3((S.items.silver||[]).reduce((s,i)=>s+getTotal(i),0)/31.1035)} Oz</div><div class="kpi-s">${f2(toDisplay((S.items.silver||[]).reduce((s,i)=>s+getGrams(i)*i.qty*(S.prices.silver||0),0)))} ${sym}</div></div>
+  </div>
+  <h2>Inventaire complet</h2>
+  <table>
+    <thead><tr><th>Possession</th><th>Type</th><th>Qté</th><th>Poids fin</th><th>Achat</th><th>Détention</th><th>Prix achat</th><th>Valeur</th><th>+/- Value</th><th>Abatt.</th><th>Taxe est.</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table>
+  <h2>Analyse fiscale</h2>
+  <div class="fiscal-box">
+    <div class="fbox">
+      <div class="fbox-title">📄 Taxe forfaitaire (art. 150 VI CGI)</div>
+      <div class="frow"><span>Taux</span><strong>11,5% du prix de cession</strong></div>
+      <div class="frow"><span>Base de calcul</span><strong>${f2(toDisplay(totV))} ${sym}</strong></div>
+      <div class="frow"><span>Taxe totale estimée</span><strong>${f2(toDisplay(totTF))} ${sym}</strong></div>
+      <div class="frow"><span>Formulaire</span><strong>2091</strong></div>
+    </div>
+    <div class="fbox">
+      <div class="fbox-title">📈 Régime Plus-Value (art. 150 UA CGI)</div>
+      <div class="frow"><span>Taux de base</span><strong>36,2% sur PV nette</strong></div>
+      <div class="frow"><span>Abattement</span><strong>5%/an dès la 3ème année</strong></div>
+      <div class="frow"><span>Taxe totale estimée</span><strong>${totTV>0?f2(toDisplay(totTV))+' '+sym:'N/A'}</strong></div>
+      <div class="frow"><span>Formulaire</span><strong>2092</strong></div>
+    </div>
+  </div>
+  <div class="best-regime">
+    <strong>Régime conseillé :</strong> ${totTV>0&&totTV<totTF?'Plus-Value — économie estimée : '+f2(toDisplay(totTF-totTV))+' '+sym:'Taxe forfaitaire'}${totTV>0&&totTV<totTF?' — nécessite justificatif d’achat pour chaque bien':''}
+  </div>
+  <div class="footer">
+    Rapport généré automatiquement par Patrimoine Métaux Précieux.<br>
+    Données à titre indicatif — cours ${S.live?'en temps réel':'manuels'}. Ces estimations ne constituent pas un conseil fiscal. Consultez un expert-comptable ou conseiller fiscal pour votre situation personnelle.<br>
+    Articles de référence : 150 VI, 150 UA à 150 VH du Code Général des Impôts.
+  </div>
+  </body></html>`;
+  const w=window.open('','_blank');
+  if(!w){toast('Autorisez les popups pour exporter','error');return;}
+  w.document.write(html);w.document.close();
+  setTimeout(()=>{w.focus();w.print();},700);
+  logActivity('report','Rapport annuel PDF '+year);
+  toast('Rapport prêt à imprimer','success');
+}
+
+// ── EXPORT GESTION DE PATRIMOINE (CSV étendu + OFX simplifié) ──────────────
+function exportPatrimoine(){
+  const allItems=[...(S.items.gold||[]).map(i=>({...i,metal:'gold'})),
+                  ...(S.items.silver||[]).map(i=>({...i,metal:'silver'}))];
+  const sym={EUR:'€',USD:'$',CHF:'₣',GBP:'£'}[S.currency];
+  // CSV enrichi compatible avec Excel, LibreOffice, et logiciels patrimoine
+  const headers=['ID','Nom','Categorie','Type','Metal','Pays','Fondeur','Finesse',
+    'Poids_fin_g','Poids_fin_oz','Quantite','Date_acquisition','Prix_achat_EUR',
+    'Valeur_actuelle_EUR','Cours_EUR_g','Plus_value_EUR','Annees_detention',
+    'Abattement_pct','Taxe_forfaitaire_EUR','Taxe_PV_EUR','Regime_optimal',
+    'N_serie','Description','Statut'];
+  const rows=allItems.map(item=>{
+    const g=getGrams(item),tot=getTotal(item);
+    const vl=tot*(S.prices[item.metal]||0);
+    const pnl=item.buy!=null?vl-item.buy:null;
+    const yrs=fiscalYears(item.date);
+    const abat=abattementPV(yrs);
+    const tf=taxeForfaitaire(vl);
+    const tv=pnl!=null&&pnl>0?taxePlusValue(pnl,yrs):null;
+    return [item.id,item.name,
+      item.metal==='gold'?'Or':'Argent',
+      item.type==='lingot'?'Lingot':'Pièce',
+      item.metal==='gold'?'XAU':'XAG',
+      item.country||'',item.maker||'',
+      item.fineness||'',
+      tot.toFixed(4),(tot/31.1035).toFixed(6),item.qty,
+      item.date||'',
+      item.buy!=null?item.buy.toFixed(2):'',
+      vl.toFixed(2),
+      (S.prices[item.metal]||0).toFixed(4),
+      pnl!=null?pnl.toFixed(2):'',
+      yrs!=null?yrs:'',
+      abat!=null?abat:'',
+      tf.toFixed(2),
+      tv!=null?tv.toFixed(2):'',
+      tv!=null?(tv<tf?'PV':'Forfait'):'Forfait',
+      item.serial||'',item.desc||'','Actif'
+    ];
+  });
+  const csv=[headers,...rows].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n');
+  const blob=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download=`patrimoine_metaux_${new Date().toISOString().split('T')[0]}.csv`;
+  a.click();
+  logActivity('export','Export CSV patrimoine '+allItems.length+' biens');
+  toast('Export patrimoine généré','success');
+}
+
 function exportCSV(){
   const allItems=[...(S.items.gold||[]).map(i=>({...i,metal:'gold'})),...(S.items.silver||[]).map(i=>({...i,metal:'silver'}))];
   const sym={EUR:'€',USD:'$',CHF:'₣',GBP:'£'}[S.currency];
@@ -3061,6 +3376,7 @@ async function saveEdit(){
     closeModal('edit-modal');
     render();
     toast('Modifications enregistrées','success');
+    logActivity('edit','Modification : '+S.items[S.page][idx]?.name,S.page);
   } else {
     // Rollback
     S.items[S.page][idx] = item;
