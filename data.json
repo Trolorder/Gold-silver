@@ -8,7 +8,7 @@
         "type": "piece",
         "catId": "g-p-001",
         "metal": "gold",
-        "name": "NapolÃÂ©on 20 F",
+        "name": "NapolÃÂÃÂ©on 20 F",
         "qty": 3,
         "date": "2022-10-20",
         "desc": "Coq ou effigie, 900/1000",
@@ -103,15 +103,6 @@
       "val": 2957.67
     }
   ],
-  "alerts": [
-    {
-      "id": "mpsum9f16lfvdwti6pu",
-      "metal": "gold",
-      "cond": "above",
-      "val": 50,
-      "name": "tete",
-      "notified": true
-    }
-  ],
-  "updatedAt": "2026-05-31T09:23:43.816Z"
+  "alerts": [],
+  "updatedAt": "2026-05-31T14:38:06.165Z"
 }
