@@ -8,7 +8,7 @@
         "type": "piece",
         "catId": "g-p-001",
         "metal": "gold",
-        "name": "NapolÃ©on 20 F",
+        "name": "NapolÃÂ©on 20 F",
         "qty": 3,
         "date": "2022-10-20",
         "desc": "Coq ou effigie, 900/1000",
@@ -68,6 +68,28 @@
         "imgPile": null,
         "imgFace": null,
         "addedAt": "2026-05-30T20:19:04.640Z"
+      },
+      {
+        "id": "mptkoimgpsly3mq9yem",
+        "type": "piece",
+        "catId": "s-p-016",
+        "metal": "silver",
+        "name": "50 F Hercule (copie)",
+        "qty": 4,
+        "date": "2021-10-20",
+        "desc": "",
+        "serial": "",
+        "buy": 665,
+        "grams": 27,
+        "fg": 27,
+        "wt": "",
+        "fineness": 900,
+        "country": "France",
+        "maker": "",
+        "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpsslscsf9gn13e86p9-pile.jpg",
+        "imgFace": null,
+        "addedAt": "2026-05-31T09:23:43.816Z",
+        "editedAt": "2026-05-30T20:18:14.948Z"
       }
     ]
   },
@@ -75,6 +97,10 @@
     {
       "date": "2026-05-30",
       "val": 0
+    },
+    {
+      "date": "2026-05-31",
+      "val": 2957.67
     }
   ],
   "alerts": [
@@ -83,8 +109,9 @@
       "metal": "gold",
       "cond": "above",
       "val": 50,
-      "name": "tete"
+      "name": "tete",
+      "notified": true
     }
   ],
-  "updatedAt": "2026-05-30T21:14:08.557Z"
+  "updatedAt": "2026-05-31T09:23:43.816Z"
 }
