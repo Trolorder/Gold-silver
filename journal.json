@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "ts": "2026-05-31T19:59:39.012Z",
+    "type": "auth",
+    "detail": "__enc__RoODF/rrtJzZukIV51mFJL9YLVC5+njiD6r0Md0drwfv5k5ULJtcD7l1sjh3p8ih0MlyPKAV3+1qVg==",
+    "metal": null
+  },
+  {
+    "ts": "2026-05-31T19:59:13.921Z",
+    "type": "visit",
+    "detail": "__enc__8MRV6KZhsuq+Wr0NjgkKhHRvsT37qiXIv0X940X5UMXTMIgcNM8AYb32wLXmOtgni++ZFWSNJk9z",
+    "metal": null
+  }
+]
