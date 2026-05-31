@@ -1258,7 +1258,7 @@ let S={
 // ║  CONFIGURATION — À remplir une seule fois            ║
 // ╚══════════════════════════════════════════════════════╝
 const SITE_CONFIG = {
-  owner:  'trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
+  owner:  'Trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
   repo:   'Gold-silver',        // ← Nom du dépôt      (ex: 'gold-silver')
   branch: 'main',   // ← Branche (laisser 'main')
   mode:   'private', // ← 'private' ou 'public'
@@ -1778,11 +1778,38 @@ async function buildJournal(){
   </table>`;
 }
 
-function clearJournal(){
+async function clearJournal(){
   if(!confirm('Effacer tout le journal ?')) return;
   ls.set('pm_journal',[]);
   buildJournal();
-  toast('Journal effacé','info');
+  // Vider aussi journal.json sur GitHub
+  if(cfg.token&&cfg.owner&&cfg.repo){
+    try{
+      const url=`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/journal.json`;
+      // Récupérer le sha du fichier actuel
+      const ck=await fetchTimeout(url+'?ref='+cfg.branch,{headers:ghH()},5000);
+      if(ck.ok){
+        const d=await ck.json();
+        // Écrire un tableau vide
+        const empty=btoa('[]');
+        await fetchTimeout(url,{method:'PUT',
+          headers:{...ghH(),'Content-Type':'application/json'},
+          body:JSON.stringify({
+            message:'journal: clear',
+            content:empty,
+            sha:d.sha,
+            branch:cfg.branch
+          })},10000);
+        toast('Journal effacé (local + GitHub)','success');
+      } else {
+        toast('Journal local effacé (fichier GitHub introuvable)','info');
+      }
+    }catch(e){
+      toast('Journal local effacé (erreur GitHub : '+e.message+')','info');
+    }
+  } else {
+    toast('Journal effacé','info');
+  }
 }
 
 function exportJournalCSV(){
@@ -1903,12 +1930,14 @@ async function saveSetup(){
 // ════════════════════════════════════════════════════════════
 function toggleAdmin(){
   if(S.isAdmin){
+    // Verrouiller : effacer token et clé de session de la mémoire
     S.isAdmin=false;
+    cfg.token='';        // Supprimer le token de la mémoire
+    _sessionKey=null;    // Supprimer la clé de session
     if(cfg.mode==='private')S.isVisitor=true;
     render();return;
   }
-  // Token déjà en mémoire (même session) → déverrouiller sans redemander
-  if(cfg.token){unlockAdmin();return;}
+  // Plus de token en mémoire → toujours demander le mot de passe
   if(!cfg.owner||!cfg.repo){
     toast('Remplissez SITE_CONFIG dans le fichier HTML puis re-uploadez','error');
     openSetup();return;
