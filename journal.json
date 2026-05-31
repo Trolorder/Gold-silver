@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "ts": "2026-05-31T20:08:21.926Z",
+    "type": "auth",
+    "detail": "__enc__BTBs5GS6gZR4cyhgHeFQkEfENX/gBDGPLsR3msJY96mHVKzd/CVgDK360CPJ1NGgeWKixqOOhDXR9A==",
+    "metal": null
+  },
+  {
+    "ts": "2026-05-31T20:02:22.119Z",
+    "type": "visit",
+    "detail": "__enc__1XQpAse3JmgeYbNR89KfBAC9YGUuBHXeZBRUyCxm2P21vSyKf6rVm+zuMU8ZLiKldB+gNFjMwg2W",
+    "metal": null
+  },
+  {
+    "ts": "2026-05-31T20:02:16.958Z",
+    "type": "auth",
+    "detail": "__enc__DQR1lGZKfn7oXr0mllxoyTT/+YiPUCR3LvU5vp/qZaPsQyldRL1JkkvVzcHEL1zzcOZVBCWdpYjQUA==",
+    "metal": null
+  }
+]
