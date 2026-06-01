@@ -11,9 +11,9 @@
         "name": "Lingot Metalor 1 Oz troy (31,10 g)",
         "qty": 1,
         "date": "2026-06-01",
-        "desc": "__enc__Vlh/3wgFGbbINdx9BEb8bkgSeoAAVoa8J56axgXBIuzruUKuf2Ci2kNBnVUSz4ssSk6UM1kiI/tJnJmoBHsD1u6EeDV9CNAtOQC3lsbdcw==",
-        "serial": "__enc__fTs7u3WypnHgpOuz5HCC8jlEpJIs+zC1RSH8BwRYZuY4",
-        "buy": "__enc__TzBBji9TupcxcDqpl0djnJCRm/sCcGSOXs9fikLHbnM=",
+        "desc": "__enc__+nqKt1vgOcmQoyrzXAAKf225wHZ9e57njTqw0FGhm5/YUU3AAh2knPWgs12Pb9XbjmYVoVX32lr4Vn5yRdhNkxqfydbB43uRQbe2cH1RYg==",
+        "serial": "__enc__upSIEcDVOIXloJeSiuq2YNxiFv8cHsrcUEqk4Is2Q148",
+        "buy": "__enc__wIl65rw7zB7papt7oow7pjHVBCCO5I6LFys8SmLBlrQ=",
         "grams": 31.1035,
         "fg": 31.1035,
         "wt": "1oz",
@@ -25,7 +25,29 @@
         "addedAt": "2026-06-01T20:49:12.372Z"
       }
     ],
-    "silver": []
+    "silver": [
+      {
+        "id": "mpvompoojj4xalym4i",
+        "type": "piece",
+        "catId": "s-p-016",
+        "metal": "silver",
+        "name": "50 F Hercule",
+        "qty": 13,
+        "date": "",
+        "desc": "",
+        "serial": "__enc__+uGf8L4p7BdvkUQaHAkNWI/E4fjFYftVAdgta/YQAeXP",
+        "buy": "__enc__7+6cAjCR7h0SQTMtu9oN3XRabLsNPHPSmgJKqj150w==",
+        "grams": 27,
+        "fg": 27,
+        "wt": "",
+        "fineness": 900,
+        "country": "France",
+        "maker": "",
+        "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpvoml7q7totwjr0zvq-pile.jpg",
+        "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpvomn0ti18kyytz1im-face.jpg",
+        "addedAt": "2026-06-01T20:49:50.472Z"
+      }
+    ]
   },
   "history": [
     {
@@ -34,5 +56,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-01T20:49:12.375Z"
+  "updatedAt": "2026-06-01T20:49:50.475Z"
 }
