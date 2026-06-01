@@ -1734,7 +1734,8 @@ async function getClientIP(){
 async function buildJournal(){
   const _ov=document.getElementById('priv-overlay-journal');
   if(_ov) _ov.remove();
-  if(S.isVisitor&&cfg.mode==='private'){
+  // Journal visible UNIQUEMENT en mode admin
+  if(!S.isAdmin){
     const _cont=$('journal-content');
     if(_cont&&!document.getElementById('priv-overlay-journal')){
       const _div=document.createElement('div');
@@ -2191,6 +2192,8 @@ function renderStats(){
   }else{$('s-pnl').textContent='—';$('s-pnl-pct').textContent='Saisir prix d\'achat';}
   const n=shown.length;
   $('page-sub').innerHTML=`${n} élément${n>1?'s':''} · Valeur filtrée : <strong>${blur?'●●●':fmtVal(shownV)}</strong>`;
+  // Masquer aussi s-wt (poids) si visiteur
+  const wtEl=$('s-wt');if(wtEl&&blur){wtEl.textContent='●●● g';$('s-oz').textContent='●●● Oz troy';}
 }
 
 function renderCards(){
@@ -2215,10 +2218,10 @@ function renderCards(){
         ${thumb}
         <div class="list-main">
           <div class="list-name">${item.name}</div>
-          <div class="list-meta">${item.type==='lingot'?'Lingot':'Pièce'} · ${f3(g)}g fin · ×${item.qty}${item.date?' · '+fmtDate(item.date):''}</div>
+          <div class="list-meta">${item.type==='lingot'?'Lingot':'Pièce'}${blur?'':' · '+f3(g)+'g fin · ×'+item.qty+(item.date?' · '+fmtDate(item.date):'')}</div>
         </div>
         <div class="list-val">${blur?'●●●':fmtVal(vl)}</div>
-        <div class="list-pnl" style="color:${!pnl?'var(--tm)':pnl>=0?'#22c55e':'#ef4444'}">${pnl!=null?(pnl>=0?'▲':'▼')+fmtVal(Math.abs(pnl)):'—'}</div>
+        <div class="list-pnl" style="color:${!pnl?'var(--tm)':pnl>=0?'#22c55e':'#ef4444'}">${blur?'●●●':(pnl!=null?(pnl>=0?'▲':'▼')+fmtVal(Math.abs(pnl)):'—')}</div>
         <div class="list-actions">${dupBtn}${editBtn}${delBtn}</div>
       </div>`;
     }).join('');
@@ -2572,6 +2575,11 @@ function buildTypesChart(){
 }
 
 function buildTopChart(){
+  if(S.isVisitor&&cfg.mode==='private'){
+    const canvas=$('chart-top');
+    if(canvas) canvas.parentNode.innerHTML='<div class="chart-title">Valeur par possession (top 10)</div><div style="text-align:center;padding:2rem;color:var(--tm);font-size:.85rem">🔒 Contenu privé</div>';
+    return;
+  }
   const allItems=[...(S.items.gold||[]).map(i=>({...i,metal:'gold'})),...(S.items.silver||[]).map(i=>({...i,metal:'silver'}))];
   const sorted=allItems.sort((a,b)=>getGrams(b)*b.qty*S.prices[b.metal]-getGrams(a)*a.qty*S.prices[a.metal]).slice(0,10);
   if(!sorted.length)return;
@@ -2672,12 +2680,13 @@ function buildFiscalSimu(){
   const list=$('simu-item-list');
   if(!list)return;
   if(!all.length){list.innerHTML='<div style="color:var(--tm);font-size:.85rem">Aucune possession enregistrée.</div>';return;}
+  const blurS=S.isVisitor&&cfg.mode==='private';
   list.innerHTML=all.map(item=>{
     const vl=getGrams(item)*item.qty*S.prices[item.metal];
     const years=fiscalYears(item.date);
-    const yStr=years!==null?years+' an'+(years>1?'s':''):'date inconnue';
-    const pnl=item.buy!=null?vl-item.buy:null;
-    const pnlStr=pnl!=null?(pnl>=0?'+':'')+fmtVal(Math.abs(pnl)):'PV inconnue';
+    const yStr=blurS?'●●●':(years!==null?years+' an'+(years>1?'s':''):'date inconnue');
+    const pnl=(!blurS&&item.buy!=null&&!isEncrypted(item.buy))?vl-item.buy:null;
+    const pnlStr=blurS?'●●●':(pnl!=null?(pnl>=0?'+':'')+fmtVal(Math.abs(pnl)):'PV inconnue');
     const icon=item.type==='lingot'?'▬':'◎';
     const active=_simuSelectedId===item.id?' active':'';
     return `<button class="simu-item-btn${active}" onclick="selectSimuItem('${item.id}')">
@@ -2686,7 +2695,7 @@ function buildFiscalSimu(){
         <span class="simu-item-name">${item.name}</span>
         <span class="simu-item-meta">${item.metal==='gold'?'◆ Or':'◇ Argent'} · ${item.qty} unité${item.qty>1?'s':''} · ${yStr} · ${pnlStr}</span>
       </span>
-      <span class="simu-item-val">${fmtVal(vl)}</span>
+      <span class="simu-item-val">${blurS?'●●●':fmtVal(vl)}</span>
     </button>`;
   }).join('');
   if(_simuSelectedId){
