@@ -1258,7 +1258,7 @@ let S={
 // ║  CONFIGURATION — À remplir une seule fois            ║
 // ╚══════════════════════════════════════════════════════╝
 const SITE_CONFIG = {
-  owner:  'Trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
+  owner:  'trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
   repo:   'Gold-silver',        // ← Nom du dépôt      (ex: 'gold-silver')
   branch: 'main',   // ← Branche (laisser 'main')
   mode:   'private', // ← 'private' ou 'public'
@@ -1937,12 +1937,19 @@ async function saveSetup(){
 // ════════════════════════════════════════════════════════════
 function toggleAdmin(){
   if(S.isAdmin){
-    // Verrouiller : effacer token et clé de session de la mémoire
+    // Verrouiller
     S.isAdmin=false;
-    cfg.token='';        // Supprimer le token de la mémoire
-    _sessionKey=null;    // Supprimer la clé de session
-    if(cfg.mode==='private')S.isVisitor=true;
-    render();return;
+    cfg.token='';
+    _sessionKey=null;
+    if(cfg.mode==='private') S.isVisitor=true;
+    // Reconstruire TOUTES les pages immédiatement pour masquer les données
+    render();
+    buildKPIs();
+    buildCharts();
+    buildFiscal();
+    buildJournal();
+    buildAlerts();
+    return;
   }
   // Plus de token en mémoire → toujours demander le mot de passe
   if(!cfg.owner||!cfg.repo){
@@ -2283,11 +2290,7 @@ function buildCharts(){
 }
 
 function buildKPIs(){
-  if(S.isVisitor&&cfg.mode==='private'){
-    const g=$('kpi-grid');
-    if(g) g.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:1.5rem;color:var(--tm);font-size:.85rem">🔒 Connectez-vous pour voir les statistiques</div>';
-    return;
-  }
+  const blurK=S.isVisitor&&cfg.mode==='private';
   // Effacer le message de protection si présent
   const g=$('kpi-grid');
   if(g&&g.innerHTML.includes('Connectez-vous')) g.innerHTML='';
@@ -2301,7 +2304,7 @@ function buildKPIs(){
   const totOzS=(S.items.silver||[]).reduce((s,i)=>s+getTotal(i),0)/31.1035;
   const blur=S.isVisitor&&cfg.mode==='private';
   $('kpi-grid').innerHTML=[
-    {l:'Valeur totale',v:blur?'●●●●':fmtVal(totV),s:'Or + Argent'},
+    {l:'Valeur totale',v:blurK?'●●●●':fmtVal(totV),s:'Or + Argent'},
     {l:'Poids Or',v:f3(totOzG)+' Oz',s:f3(totOzG*31.1035)+' g'},
     {l:'Poids Argent',v:f3(totOzS)+' Oz',s:f3(totOzS*31.1035)+' g'},
     {l:'+/- Value totale',v:pnl!=null?(blur?'●●●':(pnl>=0?'+':'')+fmtVal(pnl)):'—',s:totBuy>0?'Basé sur prix d\'achat':'Saisir prix d\'achat',c:pnl!=null?(pnl>=0?'#22c55e':'#ef4444'):null},
@@ -2864,9 +2867,10 @@ function buildFiscalDetail(){
   const tbody=$('fiscal-tbody');
   if(!tbody)return;
   if(!all.length){tbody.innerHTML=`<tr><td colspan="9" style="text-align:center;color:var(--tm);padding:2rem">Aucune possession enregistrée</td></tr>`;return;}
+  const blurFD=S.isVisitor&&cfg.mode==='private';
   tbody.innerHTML=all.map((item,idx)=>{
     const g=getTotal(item),vl=getGrams(item)*item.qty*S.prices[item.metal];
-    const pnl=item.buy!=null?vl-item.buy:null;
+    const pnl=(!blurFD&&item.buy!=null&&!isEncrypted(item.buy))?vl-item.buy:null;
     const years=fiscalYears(item.date);
     const abat=abattementPV(years);
     const tf=taxeForfaitaire(vl);
