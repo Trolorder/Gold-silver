@@ -12,9 +12,9 @@
         "name": "50 F Hercule",
         "qty": 11,
         "date": "2021-11-23",
-        "desc": "",
-        "serial": "__enc__LUmAt8lxfmaPpb2XjI7oJ+af3zTh0mC9iwluVX4zx+gr",
-        "buy": "__enc__HeCGVMeL80ig12EmVPIY0LzWe0NEWQMp06bWju2kYA==",
+        "desc": "__enc__QRY0RwbAebEqCXqkz25QpUEZXMvTTHk8bqimgy02Do2bkkBGIpW8VTdt77nJBHIlRavAXHL+09eRmbZrP/GV/cM=",
+        "serial": "__enc__b9VN+fI73Kj0wpQJUmZ6TCMhnRm+iNVN0BlKpwuMccwQ",
+        "buy": "__enc__ThyCoLCG3zBqHmnpHY6C0u3RVQCJnuRa1HkwcyMKsw==",
         "grams": 27,
         "fg": 27,
         "wt": "",
@@ -24,7 +24,8 @@
         "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpx5bkd0tqpnly30mt-pile.jpg",
         "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpx5bn5x14sxehgukoo-face.jpg",
         "addedAt": "2026-06-02T21:24:56.447Z",
-        "_buyDecrypted": true
+        "_buyDecrypted": true,
+        "editedAt": "2026-06-02T21:41:09.675Z"
       },
       {
         "id": "mpx5p3h2i0x2bji6uk9",
@@ -34,9 +35,9 @@
         "name": "5 Fr Ecu",
         "qty": 1,
         "date": "2021-11-23",
-        "desc": "__enc__uVZCKToRJ4hlUQ6II0nSYg08Uk5eIMU5QAdxIDEigWA4ub45KtQAY4yQyaa/9uvFEciWzuOPusLX4AvyHb7OVlo=",
-        "serial": "__enc__iRrZ69DeXawHg0lbqxuL9z8Ybv3d80Rk+z3V92UAHa05",
-        "buy": "__enc__DFqITtlotfoJGaDzJS4Qa2l7zf3aKyX5oS4dIFn6",
+        "desc": "__enc__jWoPh3I0jd4hVWhK3iOjxTaqDidfukQyou7B38htpK3V+CBgfrjyRMBA5g3DLOGkgSY/KHPhWGQSue1mMihhZnw=",
+        "serial": "__enc__B4/DF/HbucBJH6L5GocnhL0H2+Gw7+litVQ9VIoF3MDt",
+        "buy": "__enc__uAUULts/cZh9XcTfrhFMbJQwHB2oSbZlPmvq5mDg",
         "grams": 22.5,
         "fg": 22.5,
         "wt": "",
@@ -56,9 +57,9 @@
         "name": "Pièce personnalisée",
         "qty": 1,
         "date": "2021-11-23",
-        "desc": "__enc__4jB3ii+eTMhKy78b31cx0DAnYADMo8uQy6v1+4l2diVf6irTc8ERKX+HkpaKijh8pTRje9SDM4fyex4kmP/cSgI=",
-        "serial": "__enc__2hevkw7itOD+zfSHJeQh6sKasInsQHX6VMi4SdtZSeyx",
-        "buy": "__enc__wuEfy9Ab+YdrDXmm+80ewZnF+smg2e/s4pexcHTq",
+        "desc": "__enc__y4Gipu02Pes3yhPRllJ7Ig+Ev9BbGFoURuHjNDABXqOg5Wbi4iQBcaf5TvT3+AfIchPRKi2PsPG6tdI/azNoUzc=",
+        "serial": "__enc__QXfEJOHoKZNq1aMk1/uIcRAtXu6h/0r63YhJbW3AStxX",
+        "buy": "__enc__gSIrrKP15RGVIM2MZwhRf3DnGYnYmKhJ1y81tDx5",
         "grams": 13.5,
         "fg": 13.5,
         "wt": "",
@@ -79,5 +80,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-02T21:40:53.831Z"
+  "updatedAt": "2026-06-02T21:41:09.678Z"
 }
