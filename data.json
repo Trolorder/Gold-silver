@@ -12,9 +12,9 @@
         "name": "50 F Hercule",
         "qty": 11,
         "date": "2021-11-23",
-        "desc": "__enc__QRY0RwbAebEqCXqkz25QpUEZXMvTTHk8bqimgy02Do2bkkBGIpW8VTdt77nJBHIlRavAXHL+09eRmbZrP/GV/cM=",
-        "serial": "__enc__b9VN+fI73Kj0wpQJUmZ6TCMhnRm+iNVN0BlKpwuMccwQ",
-        "buy": "__enc__ThyCoLCG3zBqHmnpHY6C0u3RVQCJnuRa1HkwcyMKsw==",
+        "desc": "__enc__QFDSLFOHMIAiN9Y6E4UBVvDnqAiok8tYdElkeYKX9U+6qkbugUQzEud/rICuXd83bGrhmxiA/Lkhf+FmUUhWZGU=",
+        "serial": "__enc__JsoScEOStvdgP29Y5Tr85oM3OI/yxo5SEHMlPqLWR1I/",
+        "buy": "__enc__F7p1DOyBrWUBEGptkIXZEPPqSNx35Pd7v3C8wSyrlg==",
         "grams": 27,
         "fg": 27,
         "wt": "",
@@ -35,9 +35,9 @@
         "name": "5 Fr Ecu",
         "qty": 1,
         "date": "2021-11-23",
-        "desc": "__enc__jWoPh3I0jd4hVWhK3iOjxTaqDidfukQyou7B38htpK3V+CBgfrjyRMBA5g3DLOGkgSY/KHPhWGQSue1mMihhZnw=",
-        "serial": "__enc__B4/DF/HbucBJH6L5GocnhL0H2+Gw7+litVQ9VIoF3MDt",
-        "buy": "__enc__uAUULts/cZh9XcTfrhFMbJQwHB2oSbZlPmvq5mDg",
+        "desc": "__enc__pPwmBYJpElinHTDDekstns1Q+J5BBDgXVn8lwsc9nyWbIBSFlknN94bcD5nZiye2H2EJV0343hac5JGvjDF1KBE=",
+        "serial": "__enc__GKNBTbBvI+nS/iPR8kfn08ohbkNqbucLH5bsAK25MPC7",
+        "buy": "__enc__yLI08BUhclJXKipsDPH3jApq3fcP0ZsakxUxkRT6",
         "grams": 22.5,
         "fg": 22.5,
         "wt": "",
@@ -54,12 +54,12 @@
         "type": "piece",
         "catId": "s-p-027",
         "metal": "silver",
-        "name": "Pièce personnalisée",
+        "name": "100 Fr",
         "qty": 1,
         "date": "2021-11-23",
-        "desc": "__enc__y4Gipu02Pes3yhPRllJ7Ig+Ev9BbGFoURuHjNDABXqOg5Wbi4iQBcaf5TvT3+AfIchPRKi2PsPG6tdI/azNoUzc=",
-        "serial": "__enc__QXfEJOHoKZNq1aMk1/uIcRAtXu6h/0r63YhJbW3AStxX",
-        "buy": "__enc__gSIrrKP15RGVIM2MZwhRf3DnGYnYmKhJ1y81tDx5",
+        "desc": "__enc__Xi4bDlGmIMUdh59SceCrXZnxi+WHgivL5KBYVbW2+KNJKe50+A8wrKiE7M1o6T9dlH5lj2g0d4wHVWw9ceX9rs8=",
+        "serial": "__enc__klQ09aO+Rh3LMc3h85/M7fJs36OOlBrdO1Tto8E84DEw",
+        "buy": "__enc__kG9Dyzm/qK29MtR/L1wj2JZnsep0+yZMsNg7cK8d",
         "grams": 13.5,
         "fg": 13.5,
         "wt": "",
@@ -69,7 +69,7 @@
         "imgPile": null,
         "imgFace": null,
         "addedAt": "2026-06-02T21:38:42.308Z",
-        "editedAt": "2026-06-02T21:40:17.153Z"
+        "editedAt": "2026-06-02T21:44:33.550Z"
       }
     ]
   },
@@ -80,5 +80,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-02T21:41:09.678Z"
+  "updatedAt": "2026-06-02T21:44:33.550Z"
 }
