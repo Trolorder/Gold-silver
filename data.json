@@ -13,8 +13,8 @@
         "qty": 11,
         "date": "2021-11-23",
         "desc": "",
-        "serial": "__enc__YxMbt0ZJsTPtWRGs9OSygJLfBeKuMNhkwtt362VdSHFq",
-        "buy": "__enc__QRS+zDT35YDs5bldaMUw+OV7I/x6thfeP4xf8DKVeg==",
+        "serial": "__enc__EwhsvvoU7Fo8pM6ptoDHo2i1wTkVzGjcumBiXd9Y6KAn",
+        "buy": "__enc__oQ2UmlLDTh7vhrceT766bXqKfhaE/tTbYOcu4aqz/g==",
         "grams": 27,
         "fg": 27,
         "wt": "",
@@ -23,7 +23,29 @@
         "maker": "",
         "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpx5bkd0tqpnly30mt-pile.jpg",
         "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpx5bn5x14sxehgukoo-face.jpg",
-        "addedAt": "2026-06-02T21:24:56.447Z"
+        "addedAt": "2026-06-02T21:24:56.447Z",
+        "_buyDecrypted": true
+      },
+      {
+        "id": "mpx5p3h2i0x2bji6uk9",
+        "type": "piece",
+        "catId": "s-p-027",
+        "metal": "silver",
+        "name": "Pièce personnalisée",
+        "qty": 1,
+        "date": "2021-11-23",
+        "desc": "",
+        "serial": "__enc__fxXHuVJrdTl5t2xFGnSJBwgDzG/L69DlQxVh4QGuW2Qf",
+        "buy": "__enc__o5FQc5t8QdEpqArTEnE4rD5Rt5Y8Vy99O1ZN/nWj",
+        "grams": 22.5,
+        "fg": 22.5,
+        "wt": "",
+        "fineness": null,
+        "country": "",
+        "maker": "",
+        "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpx5ivcpb6hhmzwnsk-pile.jpg",
+        "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpx5iys9duo8srwq6q5-face.jpg",
+        "addedAt": "2026-06-02T21:35:21.302Z"
       }
     ]
   },
@@ -34,5 +56,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-02T21:24:56.447Z"
+  "updatedAt": "2026-06-02T21:35:21.303Z"
 }
