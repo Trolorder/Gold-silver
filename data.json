@@ -13,8 +13,8 @@
         "qty": 11,
         "date": "2021-11-23",
         "desc": "",
-        "serial": "__enc__RT54+6fwNhCVTY6dT9Bbwqhs/i+xzJBY3Bhi9XhWJEBY",
-        "buy": "__enc__bMnumfSUtO305OXj7xNm+ZoAevZV7UdQ5eOLjg0/vA==",
+        "serial": "__enc__KZwkRMpb3rmmbtu7YyUZTbyJvSzqsT8D0juFdVpOYJgy",
+        "buy": "__enc__tyuqWnevXF3kEtg4YIr1TYJC+jlJ+GzSTPN5ifoBGA==",
         "grams": 27,
         "fg": 27,
         "wt": "",
@@ -34,9 +34,9 @@
         "name": "5 Fr Ecu",
         "qty": 1,
         "date": "2021-11-23",
-        "desc": "",
-        "serial": "__enc__oisEqZrpiV56yZv5h7ZTPt9aJ751E1XpbTItFcvE5TXP",
-        "buy": "__enc__q2/LY5o4FMFDRkzezGYH26WOc72br2skLPGzWX11",
+        "desc": "__enc__Ewi9SwQ+2hW6E7MdoqCS/meYUhRenXcQdIt37l8YsZStb7axfHbttdcDCCK9AoIlDwbcKvJMPzVNlrbpAbDRtDXAtDMRTWPR8Q==",
+        "serial": "__enc__01IzC52Wa/OFGntc5PiWw7GccC1qy7BUbhxt2XlTxFky",
+        "buy": "__enc__XOSbSXUUT+gFL1XDCZ6N7F++UCMg6TGVNIjvJY7z",
         "grams": 22.5,
         "fg": 22.5,
         "wt": "",
@@ -46,7 +46,7 @@
         "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpx5ivcpb6hhmzwnsk-pile.jpg",
         "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpx5iys9duo8srwq6q5-face.jpg",
         "addedAt": "2026-06-02T21:35:21.302Z",
-        "editedAt": "2026-06-02T21:39:20.601Z"
+        "editedAt": "2026-06-02T21:40:43.981Z"
       },
       {
         "id": "mpx5tekkr25g60cnwlc",
@@ -56,9 +56,9 @@
         "name": "Pièce personnalisée",
         "qty": 1,
         "date": "2021-11-23",
-        "desc": "__enc__BDehZ+TT8sFiVIWyc8aWANiDG32DB0DAH+/FpnnlHSsrrbT/ERYq6rdL49WjviCf7y2MgEtfoZoHMXOSkCDpXfY=",
-        "serial": "__enc__05OE7u67CtlZ6l72Aw+M2DjwkPu75HQVM36yCsVNgwYb",
-        "buy": "__enc__8vEnp2Vw2IBW4Goobsq3VsGo+eO0S2+WAy/XdK8E",
+        "desc": "__enc__y0Woem8D38CNgdrBQxe6j/rWuXEly3hVGbj8iaGFs2Mcs7ju3kO6nsl28VLLCsX0f/il50WTKsDHq/lZKyYC1CQ=",
+        "serial": "__enc__DLlgVe7XuMLPFL8VZjWLAXuXaZoUqIvN4tW58ZoWleMt",
+        "buy": "__enc__ptR3vY9oG56d0gA/VD4cq2PGz8tM1cXNvkktv0p8",
         "grams": 13.5,
         "fg": 13.5,
         "wt": "",
@@ -79,5 +79,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-02T21:40:17.154Z"
+  "updatedAt": "2026-06-02T21:40:43.982Z"
 }
