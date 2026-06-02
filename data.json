@@ -1,0 +1,38 @@
+{
+  "authHash": "27bd4066e5ee2c2775297bfc6ac9b3a79ad71c9d63070c6b78a762a8d44c96ed",
+  "encToken": "Br78N20DaDBKGdYWOhePwtpKnEQAJGotpCYFtJHSuReZ1/6KshmVbSdE4ZwvY8Ix6IjTbFta73L8Umr340kCYTWncKxUoqtUcbkZysJmVTPqjZz5",
+  "items": {
+    "gold": [],
+    "silver": [
+      {
+        "id": "mpx5bpbzo1h1l7ga9za",
+        "type": "piece",
+        "catId": "s-p-016",
+        "metal": "silver",
+        "name": "50 F Hercule",
+        "qty": 11,
+        "date": "2021-11-23",
+        "desc": "",
+        "serial": "__enc__YxMbt0ZJsTPtWRGs9OSygJLfBeKuMNhkwtt362VdSHFq",
+        "buy": "__enc__QRS+zDT35YDs5bldaMUw+OV7I/x6thfeP4xf8DKVeg==",
+        "grams": 27,
+        "fg": 27,
+        "wt": "",
+        "fineness": 900,
+        "country": "France",
+        "maker": "",
+        "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpx5bkd0tqpnly30mt-pile.jpg",
+        "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpx5bn5x14sxehgukoo-face.jpg",
+        "addedAt": "2026-06-02T21:24:56.447Z"
+      }
+    ]
+  },
+  "history": [
+    {
+      "date": "2026-06-02",
+      "val": 620.25
+    }
+  ],
+  "alerts": [],
+  "updatedAt": "2026-06-02T21:24:56.447Z"
+}
