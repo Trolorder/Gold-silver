@@ -12,9 +12,9 @@
         "name": "50 F Hercule",
         "qty": 11,
         "date": "2021-11-23",
-        "desc": "__enc__QFDSLFOHMIAiN9Y6E4UBVvDnqAiok8tYdElkeYKX9U+6qkbugUQzEud/rICuXd83bGrhmxiA/Lkhf+FmUUhWZGU=",
-        "serial": "__enc__JsoScEOStvdgP29Y5Tr85oM3OI/yxo5SEHMlPqLWR1I/",
-        "buy": "__enc__F7p1DOyBrWUBEGptkIXZEPPqSNx35Pd7v3C8wSyrlg==",
+        "desc": "__enc__tten43708GsN0KlMQJgvvECMZhDHP0aD5FzgvkIIOL8vCPyfOzxJtgdItor95NlZd++EmROo5tihLAK1+vlBA54=",
+        "serial": "__enc__oBEaDSh3yukqD8WJQKmSf4zYqHDEI5N6XMLrVIs7VOWV",
+        "buy": "__enc__U8q60IVqkOC5ym4luY29sg7GkQJ5qR8ttlnFOHIA6w==",
         "grams": 27,
         "fg": 27,
         "wt": "",
@@ -35,9 +35,9 @@
         "name": "5 Fr Ecu",
         "qty": 1,
         "date": "2021-11-23",
-        "desc": "__enc__pPwmBYJpElinHTDDekstns1Q+J5BBDgXVn8lwsc9nyWbIBSFlknN94bcD5nZiye2H2EJV0343hac5JGvjDF1KBE=",
-        "serial": "__enc__GKNBTbBvI+nS/iPR8kfn08ohbkNqbucLH5bsAK25MPC7",
-        "buy": "__enc__yLI08BUhclJXKipsDPH3jApq3fcP0ZsakxUxkRT6",
+        "desc": "__enc__/jliPER209IcTaih/IPbe8G7BO9oX5sKDOT/49Y5xlbRV+NUkKTpkLb0x2DhIpapAlttfFt8vTl4gCaMEeRafVY=",
+        "serial": "__enc__Y+936Ye1Id7+WugmL0FefS6iUJXPT/t2rMdylKZ84Ji0",
+        "buy": "__enc__QHvrC+TBmO9m0GBM534cjC+qn8QxP5ECTrTSaSy5",
         "grams": 22.5,
         "fg": 22.5,
         "wt": "",
@@ -57,9 +57,9 @@
         "name": "100 Fr",
         "qty": 1,
         "date": "2021-11-23",
-        "desc": "__enc__Xi4bDlGmIMUdh59SceCrXZnxi+WHgivL5KBYVbW2+KNJKe50+A8wrKiE7M1o6T9dlH5lj2g0d4wHVWw9ceX9rs8=",
-        "serial": "__enc__klQ09aO+Rh3LMc3h85/M7fJs36OOlBrdO1Tto8E84DEw",
-        "buy": "__enc__kG9Dyzm/qK29MtR/L1wj2JZnsep0+yZMsNg7cK8d",
+        "desc": "__enc__NPq07YSHYp4FRP1OK+9a6haSh0ZX4OD1UyHkhtTMHx8Z/3eEn0gOMPimvDKqMFWeKWLayvsZnoNpj40GqF/n2ZQ=",
+        "serial": "__enc__u+axl/yt0Y1dz1Hv3hlmZBatSsCKYdLXG7xDWMa7zo+P",
+        "buy": "__enc__P4xrEY5yVmkB2NSR2XHrWji2dRheOQ1Xy/q5HLZz",
         "grams": 13.5,
         "fg": 13.5,
         "wt": "",
@@ -70,6 +70,27 @@
         "imgFace": null,
         "addedAt": "2026-06-02T21:38:42.308Z",
         "editedAt": "2026-06-02T21:44:33.550Z"
+      },
+      {
+        "id": "mpx64zcgdc5x64jz1t",
+        "type": "piece",
+        "catId": "s-p-027",
+        "metal": "silver",
+        "name": "10 F Turin",
+        "qty": 1,
+        "date": "2021-11-23",
+        "desc": "__enc__Qr3Ytr0rOqyfOlALGXFOxz9yjImqVh5b3x2nVhRBQjjC+KadGNnD6ZI1YVL0WyXU2sPYRaQltlk5JSIgHnFo",
+        "serial": "__enc__NXAlxYDFmSS2Q0jnPWWk1Vj1Ps/osqUhhR22F3j+ybet",
+        "buy": "__enc__RtrKLtfQ8ZC2HGJAYt04xxcblOaZIvIPyNfD/0Y=",
+        "grams": 6.8,
+        "fg": 6.8,
+        "wt": "",
+        "fineness": null,
+        "country": "",
+        "maker": "",
+        "imgPile": null,
+        "imgFace": null,
+        "addedAt": "2026-06-02T21:47:42.448Z"
       }
     ]
   },
@@ -80,5 +101,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-02T21:44:33.550Z"
+  "updatedAt": "2026-06-02T21:47:42.449Z"
 }
