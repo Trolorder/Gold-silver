@@ -1,5 +1,17 @@
 [
   {
+    "ts": "2026-06-02T13:12:14.682Z",
+    "type": "auth",
+    "detail": "__enc__h5IoyzPAdMReJLjNRMFtI3hARLm33xnjtyplw6tOvwXXDPumAoeM4iO+LZEXoQn3rav+8EdtLJTCAs1w",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T13:09:36.497Z",
+    "type": "visit",
+    "detail": "__enc__Edeql8GtHPBUGkFPlsDhTurogf7Z3RqoYxCW86rJUYByiPhGdl5dLkRNYk1wWxHX1jRb6LmNoD2f9Z4=",
+    "metal": null
+  },
+  {
     "ts": "2026-06-02T09:26:23.649Z",
     "type": "auth",
     "detail": "__enc__Vk9kWh7Yj1MkdNk+36MCiT2zT7FhzlakTL6pfihhJzEXhNJ3riPcwlZfiWqR2QPm5OsW76wiCefqtA==",
