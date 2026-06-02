@@ -13,8 +13,8 @@
         "qty": 11,
         "date": "2021-11-23",
         "desc": "",
-        "serial": "__enc__KZwkRMpb3rmmbtu7YyUZTbyJvSzqsT8D0juFdVpOYJgy",
-        "buy": "__enc__tyuqWnevXF3kEtg4YIr1TYJC+jlJ+GzSTPN5ifoBGA==",
+        "serial": "__enc__LUmAt8lxfmaPpb2XjI7oJ+af3zTh0mC9iwluVX4zx+gr",
+        "buy": "__enc__HeCGVMeL80ig12EmVPIY0LzWe0NEWQMp06bWju2kYA==",
         "grams": 27,
         "fg": 27,
         "wt": "",
@@ -34,9 +34,9 @@
         "name": "5 Fr Ecu",
         "qty": 1,
         "date": "2021-11-23",
-        "desc": "__enc__Ewi9SwQ+2hW6E7MdoqCS/meYUhRenXcQdIt37l8YsZStb7axfHbttdcDCCK9AoIlDwbcKvJMPzVNlrbpAbDRtDXAtDMRTWPR8Q==",
-        "serial": "__enc__01IzC52Wa/OFGntc5PiWw7GccC1qy7BUbhxt2XlTxFky",
-        "buy": "__enc__XOSbSXUUT+gFL1XDCZ6N7F++UCMg6TGVNIjvJY7z",
+        "desc": "__enc__uVZCKToRJ4hlUQ6II0nSYg08Uk5eIMU5QAdxIDEigWA4ub45KtQAY4yQyaa/9uvFEciWzuOPusLX4AvyHb7OVlo=",
+        "serial": "__enc__iRrZ69DeXawHg0lbqxuL9z8Ybv3d80Rk+z3V92UAHa05",
+        "buy": "__enc__DFqITtlotfoJGaDzJS4Qa2l7zf3aKyX5oS4dIFn6",
         "grams": 22.5,
         "fg": 22.5,
         "wt": "",
@@ -46,7 +46,7 @@
         "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpx5ivcpb6hhmzwnsk-pile.jpg",
         "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpx5iys9duo8srwq6q5-face.jpg",
         "addedAt": "2026-06-02T21:35:21.302Z",
-        "editedAt": "2026-06-02T21:40:43.981Z"
+        "editedAt": "2026-06-02T21:40:53.830Z"
       },
       {
         "id": "mpx5tekkr25g60cnwlc",
@@ -56,9 +56,9 @@
         "name": "Pièce personnalisée",
         "qty": 1,
         "date": "2021-11-23",
-        "desc": "__enc__y0Woem8D38CNgdrBQxe6j/rWuXEly3hVGbj8iaGFs2Mcs7ju3kO6nsl28VLLCsX0f/il50WTKsDHq/lZKyYC1CQ=",
-        "serial": "__enc__DLlgVe7XuMLPFL8VZjWLAXuXaZoUqIvN4tW58ZoWleMt",
-        "buy": "__enc__ptR3vY9oG56d0gA/VD4cq2PGz8tM1cXNvkktv0p8",
+        "desc": "__enc__4jB3ii+eTMhKy78b31cx0DAnYADMo8uQy6v1+4l2diVf6irTc8ERKX+HkpaKijh8pTRje9SDM4fyex4kmP/cSgI=",
+        "serial": "__enc__2hevkw7itOD+zfSHJeQh6sKasInsQHX6VMi4SdtZSeyx",
+        "buy": "__enc__wuEfy9Ab+YdrDXmm+80ewZnF+smg2e/s4pexcHTq",
         "grams": 13.5,
         "fg": 13.5,
         "wt": "",
@@ -79,5 +79,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-02T21:40:43.982Z"
+  "updatedAt": "2026-06-02T21:40:53.831Z"
 }
