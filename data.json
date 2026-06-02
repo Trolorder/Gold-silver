@@ -13,8 +13,8 @@
         "qty": 11,
         "date": "2021-11-23",
         "desc": "",
-        "serial": "__enc__gOHkcghKGB673W0y/gRGPGWFDntZW0ueMKs4xqM/gpKy",
-        "buy": "__enc__WR70wweqXbD39HmNhofYI7220yZZBcHqG1JagcQXIA==",
+        "serial": "__enc__ZXVW2HUm/hlyLDIKHy7nilkZeVZU37G3Ygr+JjwVLe/I",
+        "buy": "__enc__8s/8fYyzt9Zt8tQ1gpJ4N7MXopDIKdzaDYy3Ko9i3Q==",
         "grams": 27,
         "fg": 27,
         "wt": "",
@@ -31,12 +31,12 @@
         "type": "piece",
         "catId": "s-p-027",
         "metal": "silver",
-        "name": "Pièce personnalisée",
+        "name": "5 Fr Ecu",
         "qty": 1,
         "date": "2021-11-23",
         "desc": "",
-        "serial": "__enc__JT1dwfO2fPilm0rfBJkVenEYVDQtFqsbWUqR3RbYveDR",
-        "buy": "__enc__YQUy1B4AbRJ+tzaKsRFp08JP+CvbjAjmlOlTQJyJ",
+        "serial": "__enc__zQTSAPHU5ryqe5yuPLbmI/yzUO7T42b29viXsgdO+te8",
+        "buy": "__enc__bAV2JNeilOP0MCxpsZYcX3zsYB+63xrxoJ3mozVF",
         "grams": 22.5,
         "fg": 22.5,
         "wt": "",
@@ -45,7 +45,8 @@
         "maker": "",
         "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpx5ivcpb6hhmzwnsk-pile.jpg",
         "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpx5iys9duo8srwq6q5-face.jpg",
-        "addedAt": "2026-06-02T21:35:21.302Z"
+        "addedAt": "2026-06-02T21:35:21.302Z",
+        "editedAt": "2026-06-02T21:39:20.601Z"
       },
       {
         "id": "mpx5tekkr25g60cnwlc",
@@ -56,8 +57,8 @@
         "qty": 1,
         "date": "2021-11-23",
         "desc": "",
-        "serial": "__enc__pp+ONlstsGxs1qpsKoRIiHA7iZWNToKikt+5PQ6FbTsM",
-        "buy": "__enc__nf2xsjLR4v7eZe0HBSSNCp1tSukISdQSmVOvDVkD",
+        "serial": "__enc__ors/EH+f65nOw8mVgZ8WDSuyrF5apfRqOdJJnMyNY26E",
+        "buy": "__enc__QBu10ZCyEt+FOR7kJrmPeUndvvT85Uipz9pci7Ib",
         "grams": 13.5,
         "fg": 13.5,
         "wt": "",
@@ -77,5 +78,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-02T21:38:42.311Z"
+  "updatedAt": "2026-06-02T21:39:20.604Z"
 }
