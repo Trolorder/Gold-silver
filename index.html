@@ -313,6 +313,17 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
 .lightbox.open{display:flex}
 .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px}
 .swipe-hint{display:none}
+/* ── MODE VISITEUR ─────────────────────────────── */
+.priv-lock{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:320px;text-align:center;padding:3rem 2rem}
+.priv-lock-icon{font-size:2.8rem;margin-bottom:1rem;opacity:.35;filter:grayscale(1)}
+.priv-lock h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--td);margin-bottom:.5rem}
+.priv-lock p{font-size:.85rem;color:var(--tm);margin-bottom:1.2rem}
+.priv-lock button{padding:.6rem 1.5rem;background:linear-gradient(135deg,var(--d),var(--a));
+  border:none;border-radius:4px;color:#000;font-weight:700;cursor:pointer;
+  font-family:'Inter',system-ui,sans-serif;font-size:.9rem}
+/* Stats bar en mode privé */
+body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
 /* JOURNAL */
 .journal-table{width:100%;border-collapse:collapse;font-size:.88rem}
 .journal-table th{text-align:left;padding:.5rem .8rem;font-size:.65rem;text-transform:uppercase;
@@ -1267,6 +1278,18 @@ const SITE_CONFIG = {
 
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2);
 
+function privLock(containerId){
+  const el=$(containerId);
+  if(!el) return;
+  el.innerHTML=`<div class="priv-lock">
+    <div class="priv-lock-icon">🔒</div>
+    <h3>Contenu privé</h3>
+    <p>Authentifiez-vous pour accéder à cette section.</p>
+    <button onclick="toggleAdmin()">🔒 Se connecter</button>
+  </div>`;
+}
+function isPrivate(){ return S.isVisitor && cfg.mode==='private'; }
+
 // ── Clé de session (dérivée du mot de passe, jamais stockée) ──
 let _sessionKey = null; // CryptoKey AES-GCM
 
@@ -1732,18 +1755,8 @@ async function getClientIP(){
 }
 
 async function buildJournal(){
-  const _ov=document.getElementById('priv-overlay-journal');
-  if(_ov) _ov.remove();
-  // Journal visible UNIQUEMENT en mode admin
   if(!S.isAdmin){
-    const _cont=$('journal-content');
-    if(_cont&&!document.getElementById('priv-overlay-journal')){
-      const _div=document.createElement('div');
-      _div.id='priv-overlay-journal';
-      _div.style.cssText='text-align:center;padding:4rem 2rem';
-      _div.innerHTML='<div style="font-size:3rem;opacity:.12;margin-bottom:1rem">🔒</div><h3 style="font-family:\'Playfair Display\',serif;font-size:1.1rem;color:var(--td);margin-bottom:.5rem">Contenu privé</h3><p style="font-size:.85rem;color:var(--tm)">Authentifiez-vous pour accéder à cette section.</p><button style="margin-top:1.2rem;padding:.6rem 1.5rem;background:linear-gradient(135deg,var(--d),var(--a));border:none;border-radius:4px;color:#000;font-weight:700;cursor:pointer;font-family:Inter,sans-serif" onclick="toggleAdmin()">🔒 Se connecter</button>';
-      _cont.parentNode.insertBefore(_div,_cont);
-    }
+    privLock('journal-content');
     return;
   }
   const log=ls.get('pm_journal')||[];
@@ -1945,11 +1958,13 @@ function toggleAdmin(){
     if(cfg.mode==='private') S.isVisitor=true;
     // Reconstruire TOUTES les pages immédiatement pour masquer les données
     render();
+    // Reconstruire toutes les pages immédiatement pour masquer
+    const curPage=S.currentPageView;
+    if(curPage==='charts') buildCharts();
+    else if(curPage==='fiscal') buildFiscal();
+    else if(curPage==='journal') buildJournal();
+    else if(curPage==='alerts') buildAlerts();
     buildKPIs();
-    buildCharts();
-    buildFiscal();
-    buildJournal();
-    buildAlerts();
     return;
   }
   // Plus de token en mémoire → toujours demander le mot de passe
@@ -2077,11 +2092,13 @@ function unlockAdmin(){
   document.querySelectorAll('[id^="priv-overlay-"]').forEach(el=>el.remove());
   closeModal('auth-modal');
   render();
-  // Reconstruire la page courante pour retirer le "Contenu privé"
+  // Reconstruire la page courante
   const p=S.currentPageView;
   if(p==='charts') buildCharts();
   else if(p==='fiscal') buildFiscal();
   else if(p==='journal') buildJournal();
+  else if(p==='alerts') buildAlerts();
+  else renderCards();
   toast('Mode admin activé ✓','success');
   getClientIP().then(ip=>logActivity('auth','Connexion admin ('+ip+')'));
 }
@@ -2123,7 +2140,8 @@ function showPage(p){
 // ════════════════════════════════════════════════════════════
 function render(){
   const G=S.page==='gold';
-  document.body.className=G?'':'silver';
+  const privMode=isPrivate();
+  document.body.className=(G?'':'silver')+(privMode?' priv':'');
   // Desktop tabs
   const tg=$('tab-gold'); if(tg) tg.classList.toggle('active',G);
   const ts=$('tab-silver'); if(ts) ts.classList.toggle('active',!G);
@@ -2218,10 +2236,10 @@ function renderCards(){
         ${thumb}
         <div class="list-main">
           <div class="list-name">${item.name}</div>
-          <div class="list-meta">${item.type==='lingot'?'Lingot':'Pièce'}${blur?'':' · '+f3(g)+'g fin · ×'+item.qty+(item.date?' · '+fmtDate(item.date):'')}</div>
+          <div class="list-meta" style="${blur?'filter:blur(5px);user-select:none':''}">${item.type==='lingot'?'Lingot':'Pièce'} · ${f3(g)}g fin · ×${item.qty}${item.date?' · '+fmtDate(item.date):''}</div>
         </div>
-        <div class="list-val">${blur?'●●●':fmtVal(vl)}</div>
-        <div class="list-pnl" style="color:${!pnl?'var(--tm)':pnl>=0?'#22c55e':'#ef4444'}">${blur?'●●●':(pnl!=null?(pnl>=0?'▲':'▼')+fmtVal(Math.abs(pnl)):'—')}</div>
+        <div class="list-val" style="${blur?'filter:blur(6px);user-select:none':''}">${fmtVal(vl)}</div>
+        <div class="list-pnl" style="color:${!pnl?'var(--tm)':pnl>=0?'#22c55e':'#ef4444'};${blur?'filter:blur(5px);user-select:none':''}">${pnl!=null?(pnl>=0?'▲':'▼')+fmtVal(Math.abs(pnl)):'—'}</div>
         <div class="list-actions">${dupBtn}${editBtn}${delBtn}</div>
       </div>`;
     }).join('');
@@ -2275,18 +2293,8 @@ function renderCards(){
 const CHARTCFG={color:'rgba(201,168,76,.7)',colorSilver:'rgba(155,165,180,.7)',bg:'rgba(201,168,76,.1)'};
 
 function buildCharts(){
-  // Retirer l'overlay de protection si présent
-  const _ov=document.getElementById('priv-overlay-charts');
-  if(_ov) _ov.remove();
-  if(S.isVisitor&&cfg.mode==='private'){
-    const _cont=$('kpi-grid');
-    if(_cont&&!document.getElementById('priv-overlay-charts')){
-      const _div=document.createElement('div');
-      _div.id='priv-overlay-charts';
-      _div.style.cssText='text-align:center;padding:4rem 2rem';
-      _div.innerHTML='<div style="font-size:3rem;opacity:.12;margin-bottom:1rem">🔒</div><h3 style="font-family:\'Playfair Display\',serif;font-size:1.1rem;color:var(--td);margin-bottom:.5rem">Contenu privé</h3><p style="font-size:.85rem;color:var(--tm)">Authentifiez-vous pour accéder à cette section.</p><button style="margin-top:1.2rem;padding:.6rem 1.5rem;background:linear-gradient(135deg,var(--d),var(--a));border:none;border-radius:4px;color:#000;font-weight:700;cursor:pointer;font-family:Inter,sans-serif" onclick="toggleAdmin()">🔒 Se connecter</button>';
-      _cont.parentNode.insertBefore(_div,_cont);
-    }
+  if(isPrivate()){
+    privLock('page-charts');
     return;
   }
   buildKPIs();buildHistoryChart();buildSplitChart();buildTypesChart();buildTopChart();buildRatioChart();
@@ -2629,11 +2637,11 @@ function switchFTab(tab){
 
 function buildFiscal(){
   // Retirer l'overlay de protection si présent
-  const _ov=document.getElementById('priv-overlay-fiscal');
+  const _ov=null;
   if(_ov) _ov.remove();
   if(S.isVisitor&&cfg.mode==='private'){
     const _cont=$('fiscal-global');
-    if(_cont&&!document.getElementById('priv-overlay-fiscal')){
+    if(_cont&&!null){
       const _div=document.createElement('div');
       _div.id='priv-overlay-fiscal';
       _div.style.cssText='text-align:center;padding:4rem 2rem';
@@ -3170,6 +3178,11 @@ function exportPDF(){
 //  ALERTS
 // ════════════════════════════════════════════════════════════
 function buildAlerts(){
+  if(isPrivate()){
+    const al=$('alert-list');
+    if(al) al.innerHTML='<div style="font-size:.85rem;color:var(--tm);padding:.5rem">🔒 Connectez-vous pour voir les alertes.</div>';
+    return;
+  }
   const list=$('alert-list');
   if(!S.alerts.length){list.innerHTML='<div style="font-size:.82rem;color:var(--tm);padding:.5rem">Aucune alerte configurée.</div>';return;}
   list.innerHTML=S.alerts.map((a,i)=>{
