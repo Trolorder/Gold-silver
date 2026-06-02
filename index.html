@@ -678,6 +678,8 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   <div class="page" id="page-charts" style="flex:1;min-width:0">
     <div class="charts-page">
       <h2 class="section-title">Analyse <em>graphique</em></h2>
+      <div id="charts-lock-overlay"></div>
+      <div id="charts-real-content">
       <div class="kpi-grid" id="kpi-grid"></div>
       <div class="charts-grid">
         <div class="chart-card chart-full">
@@ -701,6 +703,7 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
           <div class="chart-wrap"><canvas id="chart-top"></canvas></div>
         </div>
       </div>
+      </div><!-- /charts-real-content -->
     </div>
   </div>
 
@@ -2195,16 +2198,16 @@ function renderStats(){
   const nLingotUnits= cur.filter(i=>i.type==='lingot').reduce((s,i)=>s+i.qty,0);
   const nPieceUnits = cur.filter(i=>i.type==='piece').reduce((s,i)=>s+i.qty,0);
   const totalUnits  = nLingotUnits + nPieceUnits;
-  // Ligne principale : total d'unités physiques
-  $('s-count').textContent = totalUnits;
-  // Détail : références (lots) et unités
+  // Ligne principale : masquer les unites si visiteur
+  $('s-count').textContent = blur ? '●●' : totalUnits;
+  // Detail : references (lots) et unites
   const lingotDetail = nLingotRef>0
     ? nLingotUnits+' lingot'+(nLingotUnits>1?'s':'')+' ('+nLingotRef+' lot'+(nLingotRef>1?'s':'')+')'
     : '0 lingot';
   const pieceDetail  = nPieceRef>0
-    ? nPieceUnits+' pièce'+(nPieceUnits>1?'s':'')+' ('+nPieceRef+' lot'+(nPieceRef>1?'s':'')+')'
-    : '0 pièce';
-  $('s-detail').textContent = lingotDetail + ' · ' + pieceDetail;
+    ? nPieceUnits+' piece'+(nPieceUnits>1?'s':'')+' ('+nPieceRef+' lot'+(nPieceRef>1?'s':'')+')'
+    : '0 piece';
+  $('s-detail').textContent = blur ? '●●● · ●●●' : (lingotDetail + ' · ' + pieceDetail);
   $('s-price').textContent=f2(toDisplay(S.prices[S.page]))+' '+(({EUR:'€',USD:'$',CHF:'₣',GBP:'£'})[S.currency]);
   $('s-source').textContent=S.live?'Cours en direct':'Valeur estimée';
   $('s-live').textContent='Prix '+(S.live?'temps réel':'manuel');
@@ -2238,15 +2241,19 @@ function renderCards(){
       const editBtn=S.isAdmin?`<button class="edit-btn" onclick="openEdit('${item.id}')" title="Modifier">✎</button>`:'';
       const delBtn=S.isAdmin?`<button class="del-btn" onclick="openDelete('${item.id}')" title="Supprimer">✕</button>`:'';
       const thumb=item.imgPile?`<div class="list-thumb"><img src="${item.imgPile}" onerror="this.style.display='none'"></div>`:`<div class="list-thumb">${item.type==='lingot'?'▬':'◎'}</div>`;
+      const listPdfBtn=S.isAdmin?`<button class="dup-btn" onclick="exportItemPDF('${item.id}')" title="Exporter fiche PDF" style="font-size:.65rem">PDF</button>`:'';
+      const listMeta=blur
+        ? `${item.type==='lingot'?'Lingot':'Pièce'}${item.date?' · '+fmtDate(item.date):''}`
+        : `${item.type==='lingot'?'Lingot':'Pièce'} · ${f3(g)}g fin · ×${item.qty}${item.date?' · '+fmtDate(item.date):''}`;
       return `<div class="list-item">
         ${thumb}
         <div class="list-main">
           <div class="list-name">${item.name}</div>
-          <div class="list-meta" style="${blur?'filter:blur(5px);user-select:none':''}">${item.type==='lingot'?'Lingot':'Pièce'} · ${f3(g)}g fin · ×${item.qty}${item.date?' · '+fmtDate(item.date):''}</div>
+          <div class="list-meta">${listMeta}</div>
         </div>
         <div class="list-val" style="${blur?'filter:blur(6px);user-select:none':''}">${fmtVal(vl)}</div>
         <div class="list-pnl" style="color:${!pnl?'var(--tm)':pnl>=0?'#22c55e':'#ef4444'};${blur?'filter:blur(5px);user-select:none':''}">${pnl!=null?(pnl>=0?'▲':'▼')+fmtVal(Math.abs(pnl)):'—'}</div>
-        <div class="list-actions">${dupBtn}${editBtn}${delBtn}</div>
+        <div class="list-actions">${listPdfBtn}${dupBtn}${editBtn}${delBtn}</div>
       </div>`;
     }).join('');
     return;
@@ -2264,8 +2271,9 @@ function renderCards(){
         <button class="del-btn"  onclick="openDelete('${item.id}')" title="Supprimer">✕</button>
       </div>`:'';
     const g=getGrams(item);
-    const wtInfo=item.type==='lingot'?`${item.wt} · ${f3(g)}g fin`:`${f3(g)}g fin${item.fineness?' · '+item.fineness+'/1000':''}`;
+    const wtInfo=blur?'●●● g fin':(item.type==='lingot'?`${item.wt} · ${f3(g)}g fin`:`${f3(g)}g fin${item.fineness?' · '+item.fineness+'/1000':''}`);
     const valDisplay=blur?'<span class="blurred">●●●●●</span>':fmtVal(vl);
+    const pdfBtn=S.isAdmin?`<button class="dup-btn" onclick="exportItemPDF('${item.id}')" title="Exporter fiche PDF" style="font-size:.65rem">PDF</button>`:'';
     return `<div class="card" style="animation-delay:${idx*0.04}s">
       <div class="card-imgs">${ms}${mf}</div>
       <div class="card-body">
@@ -2278,13 +2286,13 @@ function renderCards(){
         <div class="card-ref">${wtInfo}</div>
         ${item.desc?`<div class="card-desc">${item.desc}</div>`:''}
         <div class="card-val">${valDisplay}</div>
-        <div class="card-vals">${f3(tg)}g · ${f2(toDisplay(S.prices[S.page]))} ${({EUR:'€',USD:'$',CHF:'₣',GBP:'£'})[S.currency]}/g</div>
+        <div class="card-vals">${blur?'●●● g · ':f3(tg)+'g · '}${f2(toDisplay(S.prices[S.page]))} ${({EUR:'€',USD:'$',CHF:'₣',GBP:'£'})[S.currency]}/g</div>
         ${pnlHtml}
         ${item.serial?`<div class="card-vals" style="margin-top:.12rem">Réf : ${item.serial}</div>`:''}
         <div class="card-foot">
-          <div class="card-meta"><span class="card-qty">× ${item.qty}</span>${item.date?`<span class="card-date">${fmtDate(item.date)}</span>`:''}</div>
+          <div class="card-meta">${blur?'':`<span class="card-qty">× ${item.qty}</span>`}${item.date?`<span class="card-date">${fmtDate(item.date)}</span>`:''}</div>
           <div style="display:flex;align-items:center;gap:.25rem">
-            <button class="dup-btn" onclick="exportItemPDF('${item.id}')" title="Exporter fiche PDF" style="font-size:.65rem">PDF</button>
+            ${pdfBtn}
             ${delBtn}
           </div>
         </div>
@@ -2299,10 +2307,16 @@ function renderCards(){
 const CHARTCFG={color:'rgba(201,168,76,.7)',colorSilver:'rgba(155,165,180,.7)',bg:'rgba(201,168,76,.1)'};
 
 function buildCharts(){
+  const overlay=$('charts-lock-overlay');
+  const realContent=$('charts-real-content');
   if(isPrivate()){
-    privLock('page-charts');
+    if(overlay) privLock('charts-lock-overlay');
+    if(realContent) realContent.style.display='none';
     return;
   }
+  // Connecte : effacer l'overlay et afficher le contenu reel
+  if(overlay) overlay.innerHTML='';
+  if(realContent) realContent.style.display='';
   buildKPIs();buildHistoryChart();buildSplitChart();buildTypesChart();buildTopChart();buildRatioChart();
 }
 
@@ -2653,14 +2667,17 @@ function buildFiscal(){
     const zones=['fiscal-global','simu-item-list','simu-result','fiscal-alert-box','fiscal-tbody','fiscal-guide-content'];
     zones.forEach(id=>{const el=$(id);if(el)el.innerHTML='';});
     const simuResult=$('simu-result'); if(simuResult) simuResult.style.display='none';
-    // Afficher le cadenas dans fiscal-global
+    // Afficher le cadenas uniquement dans fiscal-global (un seul suffit)
     const g=$('fiscal-global');
     if(g) g.innerHTML=_privLockHTML();
-    // Afficher un second cadenas dans la zone simulation
-    const simuCard=$('simu-selector-card');
-    if(simuCard) simuCard.innerHTML=_privLockHTML();
+    // Cacher completement la zone simulation (pas de second cadenas)
+    const fpSimu=$('fp-simu');
+    if(fpSimu) fpSimu.style.display='none';
     return;
   }
+  // Reassurer que fp-simu est visible
+  const fpSimu=$('fp-simu');
+  if(fpSimu) fpSimu.style.display='';
   buildFiscalGlobal();
   buildFiscalSimu();
 }
