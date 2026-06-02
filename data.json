@@ -13,8 +13,8 @@
         "qty": 11,
         "date": "2021-11-23",
         "desc": "",
-        "serial": "__enc__ZXVW2HUm/hlyLDIKHy7nilkZeVZU37G3Ygr+JjwVLe/I",
-        "buy": "__enc__8s/8fYyzt9Zt8tQ1gpJ4N7MXopDIKdzaDYy3Ko9i3Q==",
+        "serial": "__enc__RT54+6fwNhCVTY6dT9Bbwqhs/i+xzJBY3Bhi9XhWJEBY",
+        "buy": "__enc__bMnumfSUtO305OXj7xNm+ZoAevZV7UdQ5eOLjg0/vA==",
         "grams": 27,
         "fg": 27,
         "wt": "",
@@ -35,8 +35,8 @@
         "qty": 1,
         "date": "2021-11-23",
         "desc": "",
-        "serial": "__enc__zQTSAPHU5ryqe5yuPLbmI/yzUO7T42b29viXsgdO+te8",
-        "buy": "__enc__bAV2JNeilOP0MCxpsZYcX3zsYB+63xrxoJ3mozVF",
+        "serial": "__enc__oisEqZrpiV56yZv5h7ZTPt9aJ751E1XpbTItFcvE5TXP",
+        "buy": "__enc__q2/LY5o4FMFDRkzezGYH26WOc72br2skLPGzWX11",
         "grams": 22.5,
         "fg": 22.5,
         "wt": "",
@@ -56,9 +56,9 @@
         "name": "Pièce personnalisée",
         "qty": 1,
         "date": "2021-11-23",
-        "desc": "",
-        "serial": "__enc__ors/EH+f65nOw8mVgZ8WDSuyrF5apfRqOdJJnMyNY26E",
-        "buy": "__enc__QBu10ZCyEt+FOR7kJrmPeUndvvT85Uipz9pci7Ib",
+        "desc": "__enc__BDehZ+TT8sFiVIWyc8aWANiDG32DB0DAH+/FpnnlHSsrrbT/ERYq6rdL49WjviCf7y2MgEtfoZoHMXOSkCDpXfY=",
+        "serial": "__enc__05OE7u67CtlZ6l72Aw+M2DjwkPu75HQVM36yCsVNgwYb",
+        "buy": "__enc__8vEnp2Vw2IBW4Goobsq3VsGo+eO0S2+WAy/XdK8E",
         "grams": 13.5,
         "fg": 13.5,
         "wt": "",
@@ -67,7 +67,8 @@
         "maker": "",
         "imgPile": null,
         "imgFace": null,
-        "addedAt": "2026-06-02T21:38:42.308Z"
+        "addedAt": "2026-06-02T21:38:42.308Z",
+        "editedAt": "2026-06-02T21:40:17.153Z"
       }
     ]
   },
@@ -78,5 +79,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-02T21:39:20.604Z"
+  "updatedAt": "2026-06-02T21:40:17.154Z"
 }
