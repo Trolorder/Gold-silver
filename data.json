@@ -11,9 +11,9 @@
         "name": "Napoléon 20 F",
         "qty": 1,
         "date": "2021-11-23",
-        "desc": "__enc__sL5rPvMSNsOzGS4maLJuocQ3oBRKFXg0CGENePRA+jgSaH/CoBBTt7G9iuntH3ncHK/ySN+qM0T3VBVY/+lJhOIvKAhugXlwSMEExOmgt75uV91kYeh/IWHRYvz73kBbW3+7KUit/ETCEXbo0mTBD4VuXyHfZxBRn6WlLvkm+WRlMA==",
-        "serial": "__enc__NNbckX/3yJtuDdFXrpPY0rtsUB5hEQKDHVPqvImr6DQ9",
-        "buy": "__enc__wYYqc5JZcXOmmaYQdkdGHWi6phy5bkbdTYasFQHdTA==",
+        "desc": "__enc__xCJnUlB6MZ+6Kv/h9nEkLF8OKNajQ2egbJammlT82U67f9c+zX1cLq6TyEqiJ6h/F/p8w5/ATxZMhk3w8pOxOMiYV0J2XqFMVnMhw0gbF29XlsBZFfqeJjNK4EKuvLP2LcTNjXpsWwQ/gDLUG2CnpwHxmdAxXkH9n9rWE/3svKS0sw==",
+        "serial": "__enc__HRGzwgw120gtpq/bXDT5XUONyyF0cY3wLaZa1CoT7Ci0",
+        "buy": "__enc__hXjUpUbZBQn+uOSt51nWjIvsYBIQRa9kkjZM4hfG4A==",
         "grams": 5.8064,
         "fg": 5.8064,
         "wt": "",
@@ -23,7 +23,8 @@
         "imgPile": null,
         "imgFace": null,
         "addedAt": "2026-06-02T21:50:06.980Z",
-        "editedAt": "2026-06-02T21:53:14.261Z"
+        "editedAt": "2026-06-02T21:53:14.261Z",
+        "_buyDecrypted": true
       },
       {
         "id": "mpx6cqj5lw9517e7wii",
@@ -33,9 +34,9 @@
         "name": "Napoléon 20 F",
         "qty": 1,
         "date": "2021-11-23",
-        "desc": "__enc__4h/VD6TwzrXcUelW2zMay+GK27ao6GYp8qxz27CZ069FdXO1FFun3S71FCvEqkbtvVDKGj5MYptA1PhVW2vFERgNa4VcndY5l0nVtnCJPpPVRes22EfR3RosILqNmhnsXX8viWIfofX0ie623JcbeVpssSR5FYHQQ4wDBk4M4zeGGg==",
-        "serial": "__enc__HdVk+/co3NBKc0lfVi0hbJ0eevMDuF+cICF6I980M1W3",
-        "buy": "__enc__mWI7+8aoHELClgnzxWSqyEJF/N6CKICznWZJyJTqTA==",
+        "desc": "__enc__0VXiLL9M+JPCnGYw1M5e9yuJsEocWAL0XehGO5x0uQIjZyUanrsgJjeL//spLenn1AiNmgbGaXyzmtv4kNAZaMxp00GCISi4vRTIA8Q0i/sscAEkmLafESSZtbBEbkqFAXCzqNcH4KtUR3c8xanE3RfcSgZyPY7diu7vaQ+ky7Lcww==",
+        "serial": "__enc__ZODq5M4ZhaUoov0AUxMGBNIDV/RKxHnN09nIbDc1nwNZ",
+        "buy": "__enc__S+N8LTmtLxmx9D8QRVlVLKNV6ISzdsZHlgj6MvzCrQ==",
         "grams": 5.8064,
         "fg": 5.8064,
         "wt": "",
@@ -45,28 +46,8 @@
         "imgPile": null,
         "imgFace": null,
         "addedAt": "2026-06-02T21:53:44.273Z",
-        "editedAt": "2026-06-02T21:54:01.043Z"
-      },
-      {
-        "id": "mpx6hrhlpk1yi77w6es",
-        "type": "piece",
-        "catId": "g-p-039",
-        "metal": "gold",
-        "name": "10 Florin",
-        "qty": 1,
-        "date": "2021-10-14",
-        "desc": "",
-        "serial": "__enc__TWUk/jEZgSzOGXpWUoTqtHa5C41xz53k2Vwh81nUx5e6",
-        "buy": "__enc__rf4fgUHfX28VE3pJpfPnqNHMTad50BOENnIsgtwwQw==",
-        "grams": 6.05,
-        "fg": 6.05,
-        "wt": "",
-        "fineness": null,
-        "country": "",
-        "maker": "",
-        "imgPile": null,
-        "imgFace": null,
-        "addedAt": "2026-06-02T21:57:38.793Z"
+        "editedAt": "2026-06-02T21:54:01.043Z",
+        "_buyDecrypted": true
       }
     ],
     "silver": [
@@ -78,9 +59,9 @@
         "name": "50 F Hercule",
         "qty": 11,
         "date": "2021-11-23",
-        "desc": "__enc__G35dCd5bA2PJK5Tu3DSxGpz1hWxReWZX5sDompM+bEVl/+eZLHk8+W90j+RctUhieTm4t/a7HiWZEnlrjEES8W8=",
-        "serial": "__enc__AMCcsIIiR53K1/wHcxXkNrbdsLydqVdb48GVAnlNOvFD",
-        "buy": "__enc__gLJlyG2fwI9vniaafVrJAmfdq443Zx98pOpB8OPOdA==",
+        "desc": "__enc__Bc2w2y/ipkaGYPsR6UJoiMVm252YAk62ACvttVFAEkGXM2GQfN1P03OEALe7fnwqunuWMKK85R7p357+CA4Jz7I=",
+        "serial": "__enc__kLVzhfc/1GnMpS4XMBt3sRC3IafycnOR8bKsK0ZsVtiI",
+        "buy": "__enc__wiXnS6GL8ercrNJhbiZeSVdHje4U1AG1Ql6RgaSpnQ==",
         "grams": 27,
         "fg": 27,
         "wt": "",
@@ -101,9 +82,9 @@
         "name": "5 Fr Ecu",
         "qty": 1,
         "date": "2021-11-23",
-        "desc": "__enc__/BN0YbYp1sWWl+/ovIOb8j5UIEanw41wsbCOYnt0lkaAxevAtAWa/oGSab6yI4xOr3b9k4zgQmxe6anDJ7HuTRQ=",
-        "serial": "__enc__TbMiSKHlQoBMPrmKHWGFVv0eIGPgEEW8sSt1uZj/bFRV",
-        "buy": "__enc__ihG1xBekvq2FLGjkX0CR0m/gNCTp9F0dfxnHafAy",
+        "desc": "__enc__hEp2HIcf3QG6J7u6ZJO1P5ngT6O6t0pmA+0L6rGzcUESNLUw3GWF2BdWT7N2T4g23Kj0/sNwSO79BTX+nfo9shk=",
+        "serial": "__enc__QdWrSRxVhy5np61rOVOaI2UOeEAzVmnqBVlIPlGhOk/R",
+        "buy": "__enc__9k1jaiDwp8CfQBjOBsVUngllSET5TAx2uFd8gvy3",
         "grams": 22.5,
         "fg": 22.5,
         "wt": "",
@@ -113,7 +94,8 @@
         "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpx5ivcpb6hhmzwnsk-pile.jpg",
         "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mpx5iys9duo8srwq6q5-face.jpg",
         "addedAt": "2026-06-02T21:35:21.302Z",
-        "editedAt": "2026-06-02T21:40:53.830Z"
+        "editedAt": "2026-06-02T21:40:53.830Z",
+        "_buyDecrypted": true
       },
       {
         "id": "mpx5tekkr25g60cnwlc",
@@ -123,9 +105,9 @@
         "name": "100 Fr",
         "qty": 1,
         "date": "2021-11-23",
-        "desc": "__enc__64KvjotHTh8VBg5qDGTdYWEW2tg6rioDW/MqtdRsgCh/B1I5DAj1qYZKIgG89FOzXJ/cLHj7H4QxpUyT32CCs08=",
-        "serial": "__enc__X/WaUvjxgBln7UFiA5Sf2TAt0iC0FbU5mdtjDf/inP9L",
-        "buy": "__enc__44pmPg3ImzueVJ5QpXfbhPAkrWhg0Iw53S9dx21l",
+        "desc": "__enc__QxTIaEVdt3FcAT0ckYKItrYd2ABoMQxvYqmGSjBr4IpBtnCpqgo8AbBkQ4jJDZVEjllBV7AUlquGkTtFFOx0xyg=",
+        "serial": "__enc__dYV6cZv1i154rFoJX56TBGJeIVsiuvF5bT7AqcRV+1Hh",
+        "buy": "__enc__7Sikz3yf7mN+6SBloSBhKWyDoilrXSFMeI4IjQ1J",
         "grams": 13.5,
         "fg": 13.5,
         "wt": "",
@@ -135,7 +117,8 @@
         "imgPile": null,
         "imgFace": null,
         "addedAt": "2026-06-02T21:38:42.308Z",
-        "editedAt": "2026-06-02T21:44:33.550Z"
+        "editedAt": "2026-06-02T21:44:33.550Z",
+        "_buyDecrypted": true
       },
       {
         "id": "mpx64zcgdc5x64jz1t",
@@ -145,9 +128,9 @@
         "name": "10 F Turin",
         "qty": 1,
         "date": "2021-11-23",
-        "desc": "__enc__KtFMUqsH5bfTGaOTyoGbyH8AVq6LwBOkh+66RfAuQ8vsndASrflTFqkjwrJFHiUfMkSmcD6DjZ96BGnfOqoe",
-        "serial": "__enc__tYfY07LEuoRvq+lB5sbZSn2JDiTJleoNBGyJ3hwr+DMg",
-        "buy": "__enc__yhZMV3JLklJzGiOpCIFM+Z65s4yB5mh5NRcimzU=",
+        "desc": "__enc__NUP9OxWwj9QJJhrxeFIy2ZiprSrLurD4Sy3UYb9L/SiLGde6a217vVt0EJeQm0oBF/N0EHSJaEmInEW9+fCl",
+        "serial": "__enc__La8nuCzq5zaxc4Wo744W+b0yRIrH6vkBJ1eAOg5BhAOI",
+        "buy": "__enc__ej/10Z0Ezwn719EVPB6AbVOlaG7VZEi5pWoiaFw=",
         "grams": 6.8,
         "fg": 6.8,
         "wt": "",
@@ -156,7 +139,8 @@
         "maker": "",
         "imgPile": null,
         "imgFace": null,
-        "addedAt": "2026-06-02T21:47:42.448Z"
+        "addedAt": "2026-06-02T21:47:42.448Z",
+        "_buyDecrypted": true
       }
     ]
   },
@@ -164,8 +148,12 @@
     {
       "date": "2026-06-02",
       "val": 620.25
+    },
+    {
+      "date": "2026-06-03",
+      "val": 2164.17
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-02T21:57:38.796Z"
+  "updatedAt": "2026-06-03T08:05:41.430Z"
 }
