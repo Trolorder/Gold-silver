@@ -1096,7 +1096,7 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
 
 <script>
 // ════════════════════════════════════════════════════════════
-//  CATALOGUE (102 entrées)
+//  CATALOGUE (123 entrées)
 // ════════════════════════════════════════════════════════════
 const CATALOG={
   gold:{
@@ -1170,6 +1170,19 @@ const CATALOG={
       {id:'g-p-036',name:'Vreneli 10 CHF',fg:2.9032,fineness:900,weight:3.2258,country:'Suisse',years:'1911-1922'},
       {id:'g-p-037',name:'Peso mexicain 5 P',fg:3.75,fineness:900,weight:4.167,country:'Mexique',years:'1905-1955'},
       {id:'g-p-038',name:'Lunaire Perth Mint 1 Oz',fg:31.1035,fineness:999.9,weight:31.1035,country:'Australie',years:'Série Lunaire'},
+      {id:'g-p-040',name:'10 Fr Hercule or',fg:2.9032,fineness:900,weight:3.226,country:'France',years:'1850-1869',desc:'900/1000 — effigie Napoléon III'},
+      {id:'g-p-041',name:'5 Fr Semeuse or',fg:1.4516,fineness:900,weight:1.613,country:'France',years:'1854-1860',desc:'900/1000'},
+      {id:'g-p-042',name:'20 Fr Croix Suisse',fg:5.8064,fineness:900,weight:6.452,country:'Suisse',years:'1883-1949',desc:'Helvetia, 900/1000 — équivalent Napoléon'},
+      {id:'g-p-043',name:'20 Fr Union Latine',fg:5.8064,fineness:900,weight:6.452,country:'Union Latine',years:'1861-1914',desc:'Belgique/Italie/Suisse/Grèce — même module que Napoléon 20F'},
+      {id:'g-p-044',name:'20 $ Double Eagle',fg:30.0932,fineness:900,weight:33.437,country:'États-Unis',years:'1850-1933',desc:'Double Eagle Liberty/Saint-Gaudens, 900/1000'},
+      {id:'g-p-045',name:'10 Florin or',fg:6.0773,fineness:900,weight:6.775,country:'Pays-Bas',years:'1875-1933',desc:'Wilhelmina/Guillaume, 900/1000'},
+      {id:'g-p-046',name:'4 Florin / 10 Fr or',fg:3.2581,fineness:900,weight:3.622,country:'Autriche',years:'1892-1915 restrike',desc:'900/1000 — module Union Latine'},
+      {id:'g-p-047',name:'5 $ Half Eagle',fg:7.5217,fineness:900,weight:8.359,country:'États-Unis',years:'1795-1929',desc:'Liberty / Indian Head, 900/1000'},
+      {id:'g-p-048',name:'½ Peso mexicain or',fg:0.375,fineness:900,weight:0.417,country:'Mexique',years:'1905-1955',desc:'900/1000 — petite pièce de circulation'},
+      {id:'g-p-049',name:'5 Roubles russes',fg:3.8707,fineness:900,weight:4.301,country:'Russie',years:'1897-1911',desc:'900/1000 — effigie Nicolas II'},
+      {id:'g-p-050',name:'20 DM or',fg:7.1652,fineness:900,weight:7.965,country:'Allemagne',years:'1871-1915',desc:'900/1000 — Wilhelm II / Friedrich III'},
+      {id:'g-p-051',name:'10 Colones Costa Rica or',fg:4.3163,fineness:900,weight:4.796,country:'Costa Rica',years:'1900-1928',desc:'900/1000'},
+      {id:'g-p-052',name:'20 Pesos mexicain or',fg:14.999,fineness:900,weight:16.666,country:'Mexique',years:'1917-1959',desc:'900/1000 — Calendario Azteca'},
       {id:'g-p-039',name:'Pièce personnalisée',fg:null,fineness:null,weight:null,country:'',years:''},
     ]
   },
@@ -1240,6 +1253,14 @@ const CATALOG={
       {id:'s-p-037',name:'Piastre Indochine',fg:24.49,fineness:900,weight:27.21,country:'France/Indochine',years:'1885-1928',desc:'900/1000'},
       {id:'s-p-038',name:'Trade Dollar US',fg:24.9,fineness:900,weight:27.0,country:'États-Unis',years:'1873-1878',desc:'900/1000'},
       {id:'s-p-039',name:'5 Pesos mexicain argent',fg:12.0,fineness:720,weight:18.0,country:'Mexique',years:'1947-1948',desc:'720/1000'},
+      {id:'s-p-040',name:'5 Fr Écu argent',fg:22.5,fineness:900,weight:25.0,country:'France',years:'1795-1878',desc:'900/1000 — Écu républicain puis impérial'},
+      {id:'s-p-041',name:'100 Fr argent',fg:14.95,fineness:835,weight:17.9,country:'France',years:'1954-1958',desc:'835/1000 — Cochet ou Bonaparte'},
+      {id:'s-p-042',name:'1 Oz Tube Philharmonique Ag',fg:31.1035,fineness:999,weight:31.1035,country:'Autriche',years:'2008-présent',desc:'Tube de 20 pièces — lot standard'},
+      {id:'s-p-043',name:'1 Oz Tube Maple Leaf Ag',fg:31.1035,fineness:999.9,weight:31.1035,country:'Canada',years:'1988-présent',desc:'Tube de 25 pièces — lot standard'},
+      {id:'s-p-044',name:'10 Colones Costa Rica Ag',fg:24.0,fineness:900,weight:26.666,country:'Costa Rica',years:'1902-1914',desc:'900/1000'},
+      {id:'s-p-045',name:'1 Kg Kookaburra Ag',fg:1000.0,fineness:999,weight:1000.0,country:'Australie',years:'1993-présent',desc:'Perth Mint, 999/1000 — 1 kg'},
+      {id:'s-p-046',name:'500g Lingotin Fiji',fg:500.0,fineness:999,weight:500.0,country:'Fiji',years:'—',desc:'Émission type Fiji 5$ — 999/1000'},
+      {id:'s-p-047',name:'1 Kg Lingotin Fiji',fg:1000.0,fineness:999,weight:1000.0,country:'Fiji',years:'—',desc:'Émission type Fiji 10$ — 999/1000'},
       {id:'s-p-027',name:'Pièce personnalisée',fg:null,fineness:null,weight:null,country:'',years:''},
     ]
   }
