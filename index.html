@@ -2324,7 +2324,7 @@ function renderCards(){
         </div>
         <div class="card-name">${item.name}</div>
         <div class="card-ref">${wtInfo}</div>
-        ${item.desc?`<div class="card-desc">${item.desc}</div>`:''}
+        ${item.desc?`<div class="card-desc">${item.desc.replace(/\n/g,'<br>')}</div>`:''}
         <div class="card-val">${valDisplay}</div>
         <div class="card-vals">${blur?'●●● g · ':f3(tg)+'g · '}${f2(toDisplay(S.prices[S.page]))} ${({EUR:'€',USD:'$',CHF:'₣',GBP:'£'})[S.currency]}/g</div>
         ${pnlHtml}
@@ -3236,7 +3236,7 @@ function exportPatrimoine(){
       tf.toFixed(2),
       tv!=null?tv.toFixed(2):'',
       tv!=null?(tv<tf?'PV':'Forfait'):'Forfait',
-      item.serial||'',item.desc||'','Actif'
+      item.serial||'',(item.desc||'').replace(/\n/g,' '),'Actif'
     ];
   });
   const csv=[headers,...rows].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n');
@@ -3819,7 +3819,7 @@ function exportItemPDF(id){
       <tr><td>Prix d&#39;achat total</td><td>${item.buy!=null?f2(item.buy)+' €':'—'}</td></tr>
       <tr><td>Valeur estimée</td><td>${f2(toDisplay(vl))} ${sym} (cours ${f2(toDisplay(S.prices[S.page]))} ${sym}/g)</td></tr>
       <tr><td>Plus-value latente</td><td style="color:${pnl==null?'inherit':pnl>=0?'#16a34a':'#dc2626'}">${pnl!=null?(pnl>=0?'+':'')+f2(toDisplay(pnl))+' '+sym:'—'}</td></tr>
-      ${item.desc?'<tr><td>Notes</td><td>'+item.desc+'</td></tr>':''}
+      ${item.desc?'<tr><td>Notes</td><td>'+(item.desc.replace(/\n/g,'<br>'))+'</td></tr>':''}
     </tbody>
   </table>
   <div class="fiscal">
