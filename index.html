@@ -324,6 +324,15 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
   font-family:'Inter',system-ui,sans-serif;font-size:.9rem}
 /* Stats bar en mode privé */
 body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
+/* Infobulle ratio Or/Argent */
+.chart-title{position:relative}
+.ratio-tooltip-box{display:none;position:absolute;top:calc(100% + .3rem);left:0;z-index:30;
+  background:#1a1812;border:1px solid rgba(201,168,76,.25);border-radius:6px;
+  padding:.8rem 1rem;font-size:.78rem;color:var(--tm);line-height:1.55;
+  width:300px;max-width:90vw;box-shadow:0 6px 24px rgba(0,0,0,.55);text-align:left;
+  font-family:'Inter',system-ui,sans-serif;font-weight:400}
+.ratio-tooltip-box.visible{display:block}
+.ratio-tooltip-box strong{color:var(--td)}
 /* JOURNAL */
 .journal-table{width:100%;border-collapse:collapse;font-size:.88rem}
 .journal-table th{text-align:left;padding:.5rem .8rem;font-size:.65rem;text-transform:uppercase;
@@ -695,7 +704,17 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
           <div class="chart-wrap"><canvas id="chart-types"></canvas></div>
         </div>
         <div class="chart-card chart-full">
-          <div class="chart-title">Ratio Or / Argent</div>
+          <div class="chart-title" id="chart-ratio-title">Ratio Or / Argent
+            <span class="ratio-info-btn" title="" onclick="this.nextElementSibling.classList.toggle('visible')" style="cursor:pointer;font-size:.75rem;opacity:.5;margin-left:.4rem;vertical-align:middle">ℹ️</span>
+            <div class="ratio-tooltip-box">
+              <strong>Qu'est-ce que le ratio Or/Argent ?</strong><br>
+              Le ratio indique combien d'onces d'argent il faut pour acheter une once d'or.<br>
+              Ex : ratio 85 = 1 oz d'or vaut 85 oz d'argent.<br><br>
+              <strong>Historiquement</strong> (depuis 1970), la moyenne est autour de 65–70.<br>
+              • Ratio élevé (&gt;80) → l'argent est <em>sous-évalué</em> par rapport à l'or → bon moment pour acheter de l'argent.<br>
+              • Ratio bas (&lt;50) → l'or est <em>sous-évalué</em> → bon moment pour acheter de l'or.
+            </div>
+          </div>
           <div class="chart-wrap"><canvas id="chart-ratio"></canvas></div>
         </div>
         <div class="chart-card chart-full">
@@ -2579,7 +2598,7 @@ async function buildRatioChart(){
         data:ratios.map(()=>Math.round(avgRatio)),
         borderColor:'rgba(240,237,232,.2)',borderDash:[6,4],borderWidth:1,
         pointRadius:0,fill:false,spanGaps:true},
-      {label:'Seuil bon achat (80)',
+      {label:'Seuil bon achat argent (80)',
         data:ratios.map(()=>SEUIL_BON),
         borderColor:'rgba(34,197,94,.4)',borderDash:[3,3],borderWidth:1,
         pointRadius:0,fill:false,spanGaps:true},
@@ -2597,7 +2616,13 @@ async function buildRatioChart(){
         label:ctx=>{
           const r=ctx.parsed.y;
           if(ctx.datasetIndex===0&&r){
-            const interp=r>=SEUIL_BON?'🟢 Bon achat argent':r>=SEUIL_NEUTRE?'🟡 Neutre':'🔴 Argent cher';
+            const goldTab=S.page==='gold';
+            let interp;
+            if(goldTab){
+              interp=r>=SEUIL_BON?'🔴 Pas idéal pour acheter de l\'or':r>=SEUIL_NEUTRE?'🟡 Neutre':'🟢 Bon moment pour acheter de l\'or';
+            } else {
+              interp=r>=SEUIL_BON?'🟢 Bon moment pour acheter de l\'argent':r>=SEUIL_NEUTRE?'🟡 Neutre':'🔴 Pas idéal pour acheter de l\'argent';
+            }
             return `Ratio ${r.toFixed(1)} — ${interp}`;
           }
           return ctx.dataset.label;
@@ -2607,8 +2632,38 @@ async function buildRatioChart(){
     }
   }});
   // Afficher le ratio actuel
+  // Texte contextuel selon le métal actif
+  const isGoldTab = S.page === 'gold';
+  const ratioNum = parseFloat(lastRatio);
+  let signal, signalColor;
+  if(isGoldTab){
+    // Sur Or : ratio élevé = argent sous-évalué (pas le bon moment pour acheter or), ratio bas = bon achat or
+    signal = ratioNum >= SEUIL_BON
+      ? '🔴 Pas le moment idéal pour acheter de l'or'
+      : ratioNum >= SEUIL_NEUTRE
+        ? '🟡 Neutre'
+        : '🟢 Bon moment pour acheter de l'or';
+    signalColor = ratioNum >= SEUIL_BON ? '#ef4444' : ratioNum >= SEUIL_NEUTRE ? '#fbbf24' : '#22c55e';
+  } else {
+    // Sur Argent : ratio élevé = argent sous-évalué = bon achat argent
+    signal = ratioNum >= SEUIL_BON
+      ? '🟢 Bon moment pour acheter de l'argent'
+      : ratioNum >= SEUIL_NEUTRE
+        ? '🟡 Neutre'
+        : '🔴 Pas le moment idéal pour acheter de l'argent';
+    signalColor = ratioNum >= SEUIL_BON ? '#22c55e' : ratioNum >= SEUIL_NEUTRE ? '#fbbf24' : '#ef4444';
+  }
   const info=canvas.parentNode.querySelector('.chart-title');
-  if(info) info.innerHTML=`Ratio Or / Argent <span style="color:var(--a);font-weight:600">${lastRatio}:1</span> — <span style="color:${lastRatio>=SEUIL_BON?'#22c55e':lastRatio>=SEUIL_NEUTRE?'#fbbf24':'#ef4444'}">${lastRatio>=SEUIL_BON?'🟢 Bon achat argent':lastRatio>=SEUIL_NEUTRE?'🟡 Neutre':'🔴 Argent cher'}</span>`;
+  if(info) info.innerHTML=`Ratio Or / Argent <span style="color:var(--a);font-weight:600">${lastRatio}:1</span> — <span style="color:${signalColor}">${signal}</span>
+    <span class="ratio-info-btn" onclick="this.nextElementSibling.classList.toggle('visible')" style="cursor:pointer;font-size:.75rem;opacity:.5;margin-left:.4rem;vertical-align:middle">ℹ️</span>
+    <div class="ratio-tooltip-box">
+      <strong>Qu'est-ce que le ratio Or/Argent ?</strong><br>
+      Le ratio indique combien d'onces d'argent il faut pour acheter une once d'or.<br>
+      Ex : ratio 85 = 1 oz d'or vaut 85 oz d'argent.<br><br>
+      <strong>Historiquement</strong> (depuis 1970), la moyenne est autour de 65–70.<br>
+      • Ratio &gt;80 → argent <em>sous-évalué</em> → bon moment pour acheter de l'argent.<br>
+      • Ratio &lt;50 → or <em>sous-évalué</em> → bon moment pour acheter de l'or.
+    </div>`;
 }
 
 function buildTypesChart(){
@@ -2679,7 +2734,13 @@ function switchFTab(tab){
 }
 
 function _privLockHTML(){
-  return '<div style="text-align:center;padding:4rem 2rem"><div style="font-size:3rem;opacity:.12;margin-bottom:1rem">🔒</div><h3 style="font-family:\'Playfair Display\',serif;font-size:1.1rem;color:var(--td);margin-bottom:.5rem">Contenu privé</h3><p style="font-size:.85rem;color:var(--tm)">Authentifiez-vous pour accéder à cette section.</p><button style="margin-top:1.2rem;padding:.6rem 1.5rem;background:linear-gradient(135deg,var(--d),var(--a));border:none;border-radius:4px;color:#000;font-weight:700;cursor:pointer;font-family:Inter,sans-serif" onclick="toggleAdmin()">🔒 Se connecter</button></div>';
+  // Utilise la même classe .priv-lock que privLock() → apparence identique partout
+  return `<div class="priv-lock">
+    <div class="priv-lock-icon">🔒</div>
+    <h3>Contenu privé</h3>
+    <p>Authentifiez-vous pour accéder à cette section.</p>
+    <button onclick="toggleAdmin()">🔒 Se connecter</button>
+  </div>`;
 }
 
 function buildFiscal(){
