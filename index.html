@@ -2639,18 +2639,18 @@ async function buildRatioChart(){
   if(isGoldTab){
     // Sur Or : ratio élevé = argent sous-évalué (pas le bon moment pour acheter or), ratio bas = bon achat or
     signal = ratioNum >= SEUIL_BON
-      ? '🔴 Pas le moment idéal pour acheter de l'or'
+      ? '🔴 Pas le moment idéal pour acheter de l\'or'
       : ratioNum >= SEUIL_NEUTRE
         ? '🟡 Neutre'
-        : '🟢 Bon moment pour acheter de l'or';
+        : '🟢 Bon moment pour acheter de l\'or';
     signalColor = ratioNum >= SEUIL_BON ? '#ef4444' : ratioNum >= SEUIL_NEUTRE ? '#fbbf24' : '#22c55e';
   } else {
     // Sur Argent : ratio élevé = argent sous-évalué = bon achat argent
     signal = ratioNum >= SEUIL_BON
-      ? '🟢 Bon moment pour acheter de l'argent'
+      ? '🟢 Bon moment pour acheter de l\'argent'
       : ratioNum >= SEUIL_NEUTRE
         ? '🟡 Neutre'
-        : '🔴 Pas le moment idéal pour acheter de l'argent';
+        : '🔴 Pas le moment idéal pour acheter de l\'argent';
     signalColor = ratioNum >= SEUIL_BON ? '#22c55e' : ratioNum >= SEUIL_NEUTRE ? '#fbbf24' : '#ef4444';
   }
   const info=canvas.parentNode.querySelector('.chart-title');
