@@ -1,14 +1,38 @@
 [
   {
+    "ts": "2026-06-05T16:17:13.443Z",
+    "type": "auth",
+    "detail": "__enc__Rd8R0xCY3xrUkEyWj9E26nlu2cH2bFD4bU5fOIYFjROS1CZD1u0efwjjbkDzD30YdwTgNNmeEWtLxcIJ",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-05T16:17:02.727Z",
+    "type": "visit",
+    "detail": "__enc__ov9GeH3Xy85ncWpUdfr0qR/Y1YnTesFsNyj4aIB2BpC8FyWGmpKNxNQIu8WoBQbNN+gKcuwxA8dkAHQ=",
+    "metal": null
+  },
+  {
     "ts": "2026-06-04T13:41:13.602Z",
     "type": "auth",
     "detail": "__enc__gUNgncDDVghcNerN/BqIKlDY2I8P+/512dxUbs8hudQSLcFAvkosRsFGbYxC6cP98EsjmPVb7zUm/J0=",
     "metal": null
   },
   {
+    "ts": "2026-06-04T13:41:13.602Z",
+    "type": "auth",
+    "detail": "__enc__oeZ5gUcJ6OUVONL/QY7M3Pym6iYbUxJlyTtiyJc3ocaFRloLSuqq5zSwMuJTfySAWjBUVkip9P9JdqE=",
+    "metal": null
+  },
+  {
     "ts": "2026-06-04T13:40:56.258Z",
     "type": "visit",
     "detail": "__enc__31602zXGW8tXNrUh4uk2mxEynZrb5ihe8IbuCGi76llJdryK/HERcj+Ux2chvGBNTlm6yTvgKqjV2w==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-04T13:40:56.258Z",
+    "type": "visit",
+    "detail": "__enc__Inh5UMGIfhB17UILKZoTvk9GD3Ukd5isMRB5XTYSAQjjADL6e4W46wv/OOpUVxV/BoPCiOQDLiVRgA==",
     "metal": null
   },
   {
@@ -2973,30 +2997,6 @@
     "ts": "2026-06-02T21:23:36.433Z",
     "type": "auth",
     "detail": "__enc__xuFUE0MIqjskuakbVvv4DrOceQozrcnXQUh1ytoEahtxW7BRUSDMSjrhGa6KXBFM6HEaW47RjPUp7Q==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-02T21:23:10.712Z",
-    "type": "visit",
-    "detail": "__enc__T6DYLATqgO00P3vKu9c8LER7sJnVd7PP1MXvI919rLOx8LNMdV9CRjlDSTJD/8xUe6M5f3lRvLpM",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-02T21:23:02.871Z",
-    "type": "visit",
-    "detail": "__enc__b7AxFRyp25jhRZbxxSJtqDGtdlbgj/SQQQq5x7e7vHiSMiOMmWBG93XGe6+40FWcQP6KTDGbzoKV",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-02T21:12:06.675Z",
-    "type": "auth",
-    "detail": "__enc__US+7BUUabAVforjYBCOTESMqEyl26zAmm44nqEGVipTrE9RreqlFOFX0i1Va6JGU97ap5mVxp7SQEA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-02T21:12:06.675Z",
-    "type": "auth",
-    "detail": "__enc__Jd1ZvFL2+CwQ0la/EyW6PSYgRVCiqVpLFt2ZBIfOgmkh4VtGMROh4+udwaCjL5GAe1BWkn0eCpctYw==",
     "metal": null
   }
 ]
