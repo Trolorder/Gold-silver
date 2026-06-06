@@ -1,7 +1,29 @@
 {
   "encToken": "tdVdeiaqlU6ASxBS+lKpXzmoiw5hvjgrruboXheKackRqDyVXV6d7zoDIYCld4nVWRcBmJTbQNOlCngOVCEu1x05Z+FbchOXGEh9/QBHmwH0Zvw3",
   "items": {
-    "gold": [],
+    "gold": [
+      {
+        "id": "mq2qiy7cfvr5tthnuej",
+        "type": "lingot",
+        "catId": "lingot-metalor-31g",
+        "metal": "gold",
+        "name": "__enc__NHaV0Ic2DC066Hq/kzbWrlJDiqrbIP4isl7+rN74VESchKK8AMclUn1KHm58Xu8J/uEpUiEItt99nFH0oVI=",
+        "qty": "__enc__rB0O1lkyjN5oOZjIaWgxAAjwXoqh55KkYn5MzAE=",
+        "date": "",
+        "desc": "__enc__Jm8mv7SeDp4vrFMpqX7jwiKLjnNxXvZdh28hWRvj1+OtmKN3UytY9IbT747nDQkQ8DD0YENEzpot7o4XtNziNMJOoWNqcnQTtjA07CENQA==",
+        "serial": "__enc__GSdzggmIo7cAbReBwOvRxiMsRH/39LGkpMHWjeDl1EmT",
+        "buy": "__enc__0Ch1lvUWfC+5WE17MouBAZShGzoWJycXtiMcGvZSHTU=",
+        "grams": "__enc__z+7x7kp7yRGmTiQGO8vL2X4F6CqB3Fcy1q0xskbLFoIflXk=",
+        "fg": "__enc__0Ge83AyKIxmtrid/y+oIOCVGS5mRjeFmqbNdk2D8s06I08A=",
+        "wt": "__enc__HPPPGstvsDxwb4nkLtEwjMproaPKQSsAJ14xHw/cEQ==",
+        "fineness": 999.9,
+        "country": "Suisse",
+        "maker": "__enc__ZyHPExXqwJwZi8RGS8VR0WzCOpeHEQ4AnyxaCN/fZX3ONDc=",
+        "imgPile": null,
+        "imgFace": null,
+        "addedAt": "2026-06-06T19:17:17.352Z"
+      }
+    ],
     "silver": []
   },
   "history": [
@@ -11,5 +33,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-06T19:16:15.507Z"
+  "updatedAt": "2026-06-06T19:17:17.355Z"
 }
