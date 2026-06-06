@@ -1343,7 +1343,7 @@ let S={
 // ║  CONFIGURATION — À remplir une seule fois            ║
 // ╚══════════════════════════════════════════════════════╝
 const SITE_CONFIG = {
-  owner:  'Trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
+  owner:  'trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
   repo:   'gold-silver',        // ← Nom du dépôt      (ex: 'gold-silver')
   branch: 'main',   // ← Branche (laisser 'main')
   mode:   'private', // ← 'private' ou 'public'
@@ -1999,43 +1999,52 @@ function openSetup(){
   openModal('setup-modal');
 }
 async function saveSetup(){
-  const owner=$('cfg-owner').value.trim(),repo=$('cfg-repo').value.trim();
-  const branch=$('cfg-branch').value.trim()||'main',token=$('cfg-token').value.trim();
-  const masterpass=$('cfg-masterpass').value,mode=$('cfg-mode').value;
-  if(!owner||!repo){$('setup-err').textContent='Utilisateur et dépôt requis.';$('setup-err').style.display='block';return;}
-  if(!token){$('setup-err').textContent='Le token GitHub est requis.';$('setup-err').style.display='block';return;}
-  if(!masterpass||masterpass.length<4){$('setup-err').textContent='Mot de passe maître requis (4 caractères min).';$('setup-err').style.display='block';return;}
-  $('setup-save').disabled=true;$('setup-save').textContent='Vérification…';
-  // Vérifier le token
+  const owner=$('cfg-owner').value.trim(), repo=$('cfg-repo').value.trim();
+  const branch=$('cfg-branch').value.trim()||'main', token=$('cfg-token').value.trim();
+  const masterpass=$('cfg-masterpass').value, mode=$('cfg-mode').value;
+  const errEl=$('setup-err');
+  const showErr=msg=>{if(errEl){errEl.textContent=msg;errEl.style.display='block';errEl.style.color='#ef4444';}$('setup-save').disabled=false;$('setup-save').textContent='Connecter';};
+  if(!owner||!repo){showErr('Utilisateur et dépôt requis.');return;}
+  if(!token){showErr('Le token GitHub est requis.');return;}
+  if(!masterpass||masterpass.length<4){showErr('Mot de passe maître requis (4 caractères min).');return;}
+  $('setup-save').disabled=true; $('setup-save').textContent='Vérification…';
+  if(errEl) errEl.style.display='none';
+  // 1 — Vérifier le token GitHub
   try{
-    const h={'Accept':'application/vnd.github.v3+json','Authorization':'token '+token};
-    const r=await fetchTimeout(`https://api.github.com/repos/${owner}/${repo}`,{headers:h},7000);
-    if(r.status===404)throw new Error('Dépôt introuvable (doit être public).');
-    if(r.status===401)throw new Error('Token GitHub invalide ou expiré.');
-    if(!r.ok)throw new Error('GitHub API: '+r.status);
-  }catch(e){$('setup-err').textContent=e.message;$('setup-err').style.display='block';$('setup-save').disabled=false;$('setup-save').textContent='Connecter';return;}
+    const r=await fetchTimeout('https://api.github.com/repos/'+owner+'/'+repo,
+      {headers:{Authorization:'token '+token,'Accept':'application/vnd.github.v3+json'}},8000);
+    if(r.status===404){showErr('Dépôt introuvable.');return;}
+    if(r.status===401){showErr('Token GitHub invalide ou expiré.');return;}
+    if(!r.ok){showErr('GitHub API: '+r.status);return;}
+  }catch(e){showErr('Erreur réseau : '+e.message);return;}
+  // 2 — Chiffrer le token avec le mot de passe
   $('setup-save').textContent='Chiffrement…';
-  // Chiffrer le token avec le mot de passe maître
-  const authSalt=genSalt();
-  const authHash=await hashPassword(masterpass,authSalt);
-  const encToken=await encryptWithPassword(token,masterpass);
-  // Stocker cfg localement (avec token en clair pour cette session)
-  cfg={owner,repo,branch,token,mode,authHash,encToken};
-  // Jamais le token en clair dans localStorage
-  ls.set('pm_cfg',{owner,repo,branch,mode,authHash,encToken});
-  // Rappel : mettre à jour SITE_CONFIG dans le HTML aussi
-  toast('⚠️ Pensez à remplir SITE_CONFIG dans index.html avec owner='+owner+' repo='+repo,'info');
-  $('setup-save').textContent='Chargement…';
-  await loadFromGH();
-  // Sauvegarder authHash + encToken dans le data.json GitHub
-  S.encToken=encToken;
-  await saveToGH();
-  $('setup-save').disabled=false;$('setup-save').textContent='Connecter';
-  $('setup-cancel').style.display='';
-  S.isAdmin=true;S.isVisitor=false;
-  if($('visitor-bar'))$('visitor-bar').style.display='none';
-  closeModal('setup-modal');render();
-  toast('Configuration sauvegardée ! Token chiffré sur GitHub.','success');
+  try{
+    const encToken=await encryptWithPassword(token, masterpass);
+    // Tester que le déchiffrement fonctionne immédiatement
+    const testDec=await decryptWithPassword(encToken, masterpass);
+    if(!testDec||testDec!==token){showErr('Erreur de chiffrement — réessayez.');return;}
+    // Dériver la clé de session
+    await deriveSessionKey(masterpass);
+    // Stocker
+    cfg={owner,repo,branch,token,mode,encToken};
+    ls.set('pm_cfg',{owner,repo,branch,mode,encToken});
+    S.encToken=encToken;
+    // 3 — Sauvegarder sur GitHub
+    $('setup-save').textContent='Sauvegarde…';
+    await loadFromGH();
+    S.encToken=encToken; // réaffirmer après loadFromGH
+    cfg.token=token;     // s'assurer que le token est en mémoire
+    const ok=await saveToGH();
+    if(!ok){showErr('Erreur de sauvegarde GitHub.');return;}
+    // Succès
+    $('setup-save').disabled=false; $('setup-save').textContent='Connecter';
+    $('setup-cancel').style.display='';
+    S.isAdmin=true; S.isVisitor=false;
+    const vb=$('visitor-bar'); if(vb) vb.style.display='none';
+    closeModal('setup-modal'); render();
+    toast('✓ Configuration sauvegardée — mot de passe vérifié','success');
+  }catch(e){showErr('Erreur : '+e.message);}
 }
 
 // ════════════════════════════════════════════════════════════
