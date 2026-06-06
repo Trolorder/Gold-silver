@@ -873,7 +873,15 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   <div class="form-row">
     <div class="form-group">
       <label class="form-label">Mot de passe maître 🔑</label>
-      <input type="password" class="form-input" id="cfg-masterpass" placeholder="Mot de passe mémorisable" autocomplete="new-password">
+      <div style="position:relative">
+        <input type="password" class="form-input" id="cfg-masterpass"
+          placeholder="Mot de passe mémorisable"
+          autocomplete="off" autocorrect="off" spellcheck="false"
+          style="padding-right:2.8rem">
+        <button type="button" onclick="togglePwdVis('cfg-masterpass',this)"
+          style="position:absolute;right:.6rem;top:50%;transform:translateY(-50%);
+          background:none;border:none;cursor:pointer;color:var(--tm);font-size:1rem">👁</button>
+      </div>
       <div style="font-size:.75rem;color:var(--tm);margin-top:.25rem">Nécessaire pour admin depuis n'importe quel appareil</div>
     </div>
     <div class="form-group"><label class="form-label">Mode d'affichage</label>
@@ -898,10 +906,16 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   <div class="err-msg" id="auth-err" style="display:none"></div>
   <div class="form-group">
     <label class="form-label">Mot de passe maître</label>
-    <input type="password" class="form-input" id="tok-input"
-      placeholder="Votre mot de passe maître"
-      onkeydown="if(event.key==='Enter')doMasterAuth()"
-      autocomplete="current-password">
+    <div style="position:relative">
+      <input type="password" class="form-input" id="tok-input"
+        placeholder="Votre mot de passe maître"
+        onkeydown="if(event.key==='Enter')doMasterAuth()"
+        autocomplete="off" autocorrect="off" spellcheck="false"
+        style="padding-right:2.8rem">
+      <button type="button" onclick="togglePwdVis('tok-input',this)"
+        style="position:absolute;right:.6rem;top:50%;transform:translateY(-50%);
+        background:none;border:none;cursor:pointer;color:var(--tm);font-size:1rem">👁</button>
+    </div>
   </div>
   <div class="form-actions">
     <button class="btn-secondary" onclick="closeModal('auth-modal')">Annuler</button>
@@ -1343,8 +1357,8 @@ let S={
 // ║  CONFIGURATION — À remplir une seule fois            ║
 // ╚══════════════════════════════════════════════════════╝
 const SITE_CONFIG = {
-  owner:  'trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
-  repo:   'gold-silver',        // ← Nom du dépôt      (ex: 'gold-silver')
+  owner:  'Trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
+  repo:   'Gold-silver',        // ← Nom du dépôt      (ex: 'gold-silver')
   branch: 'main',   // ← Branche (laisser 'main')
   mode:   'private', // ← 'private' ou 'public'
 };
@@ -1931,6 +1945,13 @@ function exportJournalCSV(){
   a.download='journal_patrimoine.csv';a.click();
   logActivity('export','Export journal CSV');
   toast('Journal exporté','success');
+}
+
+function togglePwdVis(inputId, btn){
+  const inp=$(inputId); if(!inp) return;
+  const show=inp.type==='password';
+  inp.type=show?'text':'password';
+  if(btn) btn.textContent=show?'🙈':'👁';
 }
 
 function toggleTheme(){
