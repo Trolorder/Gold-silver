@@ -7,21 +7,22 @@
         "type": "lingot",
         "catId": "lingot-metalor-31g",
         "metal": "gold",
-        "name": "__enc__NHaV0Ic2DC066Hq/kzbWrlJDiqrbIP4isl7+rN74VESchKK8AMclUn1KHm58Xu8J/uEpUiEItt99nFH0oVI=",
-        "qty": "__enc__rB0O1lkyjN5oOZjIaWgxAAjwXoqh55KkYn5MzAE=",
+        "name": "__enc__joAsO8HHEuOj1AawngaCTdWerJPFVB99pn+XmnuQxAzUkRDqtVD3MuiSdhJZn2I+y5ak/fwneJKPHT3SX+U=",
+        "qty": "__enc__sVWrrISLuUnQmPWD/FDPcx5nRlgrcHS5SUo7PKM=",
         "date": "",
-        "desc": "__enc__Jm8mv7SeDp4vrFMpqX7jwiKLjnNxXvZdh28hWRvj1+OtmKN3UytY9IbT747nDQkQ8DD0YENEzpot7o4XtNziNMJOoWNqcnQTtjA07CENQA==",
-        "serial": "__enc__GSdzggmIo7cAbReBwOvRxiMsRH/39LGkpMHWjeDl1EmT",
-        "buy": "__enc__0Ch1lvUWfC+5WE17MouBAZShGzoWJycXtiMcGvZSHTU=",
-        "grams": "__enc__z+7x7kp7yRGmTiQGO8vL2X4F6CqB3Fcy1q0xskbLFoIflXk=",
-        "fg": "__enc__0Ge83AyKIxmtrid/y+oIOCVGS5mRjeFmqbNdk2D8s06I08A=",
-        "wt": "__enc__HPPPGstvsDxwb4nkLtEwjMproaPKQSsAJ14xHw/cEQ==",
+        "desc": "__enc__MuEFqOfAcTCZV06BSYdEFChJhbAC5/2Wg4E8HZ7bP9JXsGGPu56dwXdFDwfV1q4aEUch2IRbLF77KB8lbydNHyspctFC5kxZ2aHpw5EfjzU=",
+        "serial": "__enc__PbjbhSTXkBODoaDq0y6RGA5F5eq9ONT2PM6+I/VusO/v",
+        "buy": "__enc__OEH+QvQzUwds42Ua/5Hlh4hSynX8Tx7500q7yxqtPFs=",
+        "grams": "__enc__nPSA9d2jDRdIw4HznutULFoFNeVG16GfEZIbnd1oDTRxUUU=",
+        "fg": "__enc__xaN/7YIshQHbDxLLDdzBF5SFct/UuFaB2KQcHTdby3+sDb4=",
+        "wt": "__enc__oLUdgHSKn8263YzLkamAGeW8uwfL7UfGyLWav1iW4w==",
         "fineness": 999.9,
         "country": "Suisse",
-        "maker": "__enc__ZyHPExXqwJwZi8RGS8VR0WzCOpeHEQ4AnyxaCN/fZX3ONDc=",
+        "maker": "__enc__aRUPIGrVhkAmn71oY/kIDTK0Y+2andD516YaYSI4B2HMSAk=",
         "imgPile": null,
         "imgFace": null,
-        "addedAt": "2026-06-06T19:17:17.352Z"
+        "addedAt": "2026-06-06T19:17:17.352Z",
+        "editedAt": "2026-06-06T19:19:18.276Z"
       }
     ],
     "silver": []
@@ -33,5 +34,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-06T19:17:17.355Z"
+  "updatedAt": "2026-06-06T19:19:18.279Z"
 }
