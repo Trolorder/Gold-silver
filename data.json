@@ -7,25 +7,47 @@
         "type": "lingot",
         "catId": "lingot-metalor-31g",
         "metal": "gold",
-        "name": "__enc__joAsO8HHEuOj1AawngaCTdWerJPFVB99pn+XmnuQxAzUkRDqtVD3MuiSdhJZn2I+y5ak/fwneJKPHT3SX+U=",
-        "qty": "__enc__sVWrrISLuUnQmPWD/FDPcx5nRlgrcHS5SUo7PKM=",
+        "name": "__enc__2pd2u3vbGMwOzgCRAEOev6mti81zzHF7rTNIJ+Lk/98TBUloGVyBDPstv2SKC3BM1e8QarQeeAb2mYRcFOU=",
+        "qty": "__enc__Q9yqkzj/XiV5MM5x2p5qr1SHCbzuXNHbhB57IOs=",
         "date": "",
-        "desc": "__enc__MuEFqOfAcTCZV06BSYdEFChJhbAC5/2Wg4E8HZ7bP9JXsGGPu56dwXdFDwfV1q4aEUch2IRbLF77KB8lbydNHyspctFC5kxZ2aHpw5EfjzU=",
-        "serial": "__enc__PbjbhSTXkBODoaDq0y6RGA5F5eq9ONT2PM6+I/VusO/v",
-        "buy": "__enc__OEH+QvQzUwds42Ua/5Hlh4hSynX8Tx7500q7yxqtPFs=",
-        "grams": "__enc__nPSA9d2jDRdIw4HznutULFoFNeVG16GfEZIbnd1oDTRxUUU=",
-        "fg": "__enc__xaN/7YIshQHbDxLLDdzBF5SFct/UuFaB2KQcHTdby3+sDb4=",
-        "wt": "__enc__oLUdgHSKn8263YzLkamAGeW8uwfL7UfGyLWav1iW4w==",
+        "desc": "__enc__zmWRTr1Vs0Yn23xQ5sSEFpKUL1vSZ1hA7eOC605uC5s7AfDi9pps9Rinz+JoPDxQm7NxFY4QA7nqy+hpQNdEehTWFVDrgAXrdxYqlL7FwV4=",
+        "serial": "__enc__DHZmFU1Wp4xBuQ1sL9chNkdjwAtRauemspPYYdrECu+0",
+        "buy": "__enc__VFBMHl6/pT5kt+JsI3elanSK6pCCD1SBhrcBSDhTz9M=",
+        "grams": "__enc__hKShrGkxu8vKRxmI9Fh+nTxBJt5cdXHnUT2kxcMirrxJVks=",
+        "fg": "__enc__zjKP0a1faPGxHNxoWJkDUqvC81oaj2NFo4qDD1GreBRDklk=",
+        "wt": "__enc__9XnG6JyT/7C+afE1zS6/2nVHqlVa6fm4ry6pco1B5Q==",
         "fineness": 999.9,
         "country": "Suisse",
-        "maker": "__enc__aRUPIGrVhkAmn71oY/kIDTK0Y+2andD516YaYSI4B2HMSAk=",
+        "maker": "__enc__PxwE9Ni4vdK2+ZLJIB+NOITcEnns26edqZxzJbvwwrXFURs=",
         "imgPile": null,
         "imgFace": null,
         "addedAt": "2026-06-06T19:17:17.352Z",
         "editedAt": "2026-06-06T19:19:18.276Z"
       }
     ],
-    "silver": []
+    "silver": [
+      {
+        "id": "mq2qo3tmx6w48tm9h7l",
+        "type": "piece",
+        "catId": "s-p-002",
+        "metal": "silver",
+        "name": "__enc__XpAINWIuRaSCB1A2IqVcGuQclgZvjfessAWbUA6aSkSxomRWVgEbbHLqxg==",
+        "qty": "__enc__gZ93KNYhOlPHE4x1SHi/iHtqlCO7d2OH+YyMDhQH",
+        "date": "__enc__nzzmFOcHg3dOO6ppj20JAqnl9nCI5S2A+Z4NWF+AHrNkLx0z64A=",
+        "desc": "",
+        "serial": "__enc__Pii99zQ9O4y8y0MWMqcaWixSnZDJTRx3LueprRTY2AhgYg==",
+        "buy": "__enc__jLG5g8RDEEYoejNXq7i8vT4vURRP/WJZVpYedQfXfA==",
+        "grams": "__enc__ufLcOU88qS/4gHz+XnxKLGHCd051TpjvUOAavl09qo/PAFY=",
+        "fg": "__enc__ma6M+f6dGJ4q82siiSd0Um+NYU90KQIKJE1Y3QvGc5JZT5Y=",
+        "wt": "",
+        "fineness": 999.9,
+        "country": "Canada",
+        "maker": "",
+        "imgPile": null,
+        "imgFace": null,
+        "addedAt": "2026-06-06T19:21:17.914Z"
+      }
+    ]
   },
   "history": [
     {
@@ -34,5 +56,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-06T19:19:18.279Z"
+  "updatedAt": "2026-06-06T19:21:17.917Z"
 }
