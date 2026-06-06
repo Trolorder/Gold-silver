@@ -1,6 +1,7 @@
 {
-  "authHash": "27bd4066e5ee2c2775297bfc6ac9b3a79ad71c9d63070c6b78a762a8d44c96ed",
-  "encToken": "Br78N20DaDBKGdYWOhePwtpKnEQAJGotpCYFtJHSuReZ1/6KshmVbSdE4ZwvY8Ix6IjTbFta73L8Umr340kCYTWncKxUoqtUcbkZysJmVTPqjZz5",
+  "authHash": "4p4Bk4sCbUh+/73buWULqnW3ROdyhbZwg6DN+2ADwlc=",
+  "authSalt": null,
+  "encToken": "ZOtLzhRjRCaEGa/eDP5w7rX5ZXRnt337eu7yGXfgDym3bm7oxMzCInvGNkli1H4VRQctWjid3/UPqKpxhrR8PEaM9HPPApMAKepC6/+a/8Wc1gwg",
   "items": {
     "gold": [
       {
@@ -200,8 +201,12 @@
     {
       "date": "2026-06-05",
       "val": 8779.04
+    },
+    {
+      "date": "2026-06-06",
+      "val": 8845.17
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-05T16:18:05.361Z"
+  "updatedAt": "2026-06-06T08:06:21.877Z"
 }
