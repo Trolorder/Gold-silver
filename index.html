@@ -1344,7 +1344,7 @@ let S={
 // ╚══════════════════════════════════════════════════════╝
 const SITE_CONFIG = {
   owner:  'Trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
-  repo:   'Gold-silver',        // ← Nom du dépôt      (ex: 'gold-silver')
+  repo:   'gold-silver',        // ← Nom du dépôt      (ex: 'gold-silver')
   branch: 'main',   // ← Branche (laisser 'main')
   mode:   'private', // ← 'private' ou 'public'
 };
@@ -1405,22 +1405,7 @@ function isEncrypted(value){
   return typeof value==='string'&&value.startsWith('__enc__');
 }
 
-// ── PBKDF2 pour authHash (200 000 itérations, sel aléatoire) ──────
-async function hashPassword(password, salt){
-  const enc=new TextEncoder();
-  const keyMat=await crypto.subtle.importKey('raw',enc.encode(password),{name:'PBKDF2'},false,['deriveBits']);
-  const bits=await crypto.subtle.deriveBits(
-    {name:'PBKDF2',salt:enc.encode(salt),iterations:200000,hash:'SHA-256'},
-    keyMat, 256
-  );
-  return btoa(String.fromCharCode(...new Uint8Array(bits)));
-}
-function genSalt(){ return [...crypto.getRandomValues(new Uint8Array(16))].map(b=>b.toString(16).padStart(2,'0')).join(''); }
-// Compatibilité ancienne version (SHA-256 sans sel)
-async function sha256hex(str){
-  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));
-  return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');
-}
+// ── Auth : plus de hash stocké, on vérifie en déchiffrant le token ──
 
 // ── Chiffre une string avec un mot de passe (AES-GCM + PBKDF2) ──
 async function encryptWithPassword(plaintext, password){
@@ -1607,8 +1592,6 @@ async function saveToGH(){
     const encGold=await Promise.all((S.items.gold||[]).map(encryptItemFields));
     const encSilver=await Promise.all((S.items.silver||[]).map(encryptItemFields));
     const payload={
-      authHash: S.authHash||cfg.authHash||null,
-      authSalt: S.authSalt||cfg.authSalt||null,
       encToken: S.encToken||cfg.encToken||null,
       items:    {gold:encGold, silver:encSilver},
       history:  _sessionKey
@@ -1670,9 +1653,7 @@ function setCurrency(c){S.currency=$('currency-sel').value=c;ls.set('pm_currency
     if(sc&&sc.owner){
       cfg={owner:sc.owner,repo:sc.repo,branch:sc.branch||'main',
            mode:sc.mode||'private',token:'',
-           authHash:sc.authHash||'',
-           authSalt:sc.authSalt||'',   // ← était manquant
-           encToken:sc.encToken||''};
+           authHash:sc.authHash||'',encToken:sc.encToken||''};
     } else if(SITE_CONFIG.owner&&SITE_CONFIG.repo){
       // Nouveau navigateur : charger depuis SITE_CONFIG (infos publiques)
       cfg={owner:SITE_CONFIG.owner,repo:SITE_CONFIG.repo,
@@ -2005,17 +1986,15 @@ function openSetup(){
   $('cfg-owner').value=cfg.owner||'';
   $('cfg-repo').value=cfg.repo||'';
   $('cfg-branch').value=cfg.branch||'main';
-  $('cfg-token').value=''; // Jamais pré-rempli pour sécurité
+  $('cfg-token').value='';
   $('cfg-masterpass').value='';
   $('cfg-mode').value=cfg.mode||'private';
   $('setup-err').style.display='none';
-  // Afficher info si déjà configuré
-  if(cfg.authHash){
-    $('setup-err').style.display='block';
-    $('setup-err').style.color='var(--a)';
-    $('setup-err').style.background='rgba(201,168,76,.07)';
-    $('setup-err').style.borderColor='rgba(201,168,76,.2)';
-    $('setup-err').textContent='Configuration existante — saisissez un nouveau token et mot de passe pour mettre à jour.';
+  if(cfg.encToken||S.encToken){
+    const ae=$('setup-err');
+    if(ae){ae.style.display='block';ae.style.color='var(--a)';
+      ae.style.background='rgba(201,168,76,.07)';ae.style.borderColor='rgba(201,168,76,.2)';
+      ae.textContent='Configuration existante — entrez à nouveau token + mot de passe pour mettre à jour.';}
   }
   openModal('setup-modal');
 }
@@ -2049,7 +2028,7 @@ async function saveSetup(){
   $('setup-save').textContent='Chargement…';
   await loadFromGH();
   // Sauvegarder authHash + encToken dans le data.json GitHub
-  S.authHash=authHash;S.encToken=encToken;
+  S.encToken=encToken;
   await saveToGH();
   $('setup-save').disabled=false;$('setup-save').textContent='Connecter';
   $('setup-cancel').style.display='';
@@ -2107,12 +2086,10 @@ async function doMasterAuth(){
   const ok=msg=>{if(ae){ae.textContent=msg;ae.style.display='block';}if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}};
   if(!storedHash||!storedEnc){ok('Aucune configuration — utilisez ⚙️ pour configurer.');return;}
   try{
-    // Détecter le format du hash stocké
-    // SHA-256 hex = 64 chars [0-9a-f] | PBKDF2 base64 = ~44 chars avec +/=
-    const isSHA256=/^[0-9a-f]{64}$/.test(storedHash);
-    const inputHash= isSHA256
-      ? await sha256hex(pass)                    // ancienne config SHA-256
-      : await hashPassword(pass, storedSalt||'patrimoine-default-salt'); // PBKDF2
+    // PBKDF2 si sel disponible, sinon fallback SHA-256 (ancienne config)
+    const inputHash=storedSalt
+      ? await hashPassword(pass, storedSalt)
+      : await sha256hex(pass);
     if(inputHash!==storedHash){ok('Mot de passe incorrect.');return;}
     if(ab)ab.textContent='Déchiffrement…';
     const token=await decryptWithPassword(storedEnc,pass);
