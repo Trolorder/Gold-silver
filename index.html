@@ -1670,7 +1670,9 @@ function setCurrency(c){S.currency=$('currency-sel').value=c;ls.set('pm_currency
     if(sc&&sc.owner){
       cfg={owner:sc.owner,repo:sc.repo,branch:sc.branch||'main',
            mode:sc.mode||'private',token:'',
-           authHash:sc.authHash||'',encToken:sc.encToken||''};
+           authHash:sc.authHash||'',
+           authSalt:sc.authSalt||'',   // ← était manquant
+           encToken:sc.encToken||''};
     } else if(SITE_CONFIG.owner&&SITE_CONFIG.repo){
       // Nouveau navigateur : charger depuis SITE_CONFIG (infos publiques)
       cfg={owner:SITE_CONFIG.owner,repo:SITE_CONFIG.repo,
@@ -2105,10 +2107,12 @@ async function doMasterAuth(){
   const ok=msg=>{if(ae){ae.textContent=msg;ae.style.display='block';}if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}};
   if(!storedHash||!storedEnc){ok('Aucune configuration — utilisez ⚙️ pour configurer.');return;}
   try{
-    // PBKDF2 si sel disponible, sinon fallback SHA-256 (ancienne config)
-    const inputHash=storedSalt
-      ? await hashPassword(pass, storedSalt)
-      : await sha256hex(pass);
+    // Détecter le format du hash stocké
+    // SHA-256 hex = 64 chars [0-9a-f] | PBKDF2 base64 = ~44 chars avec +/=
+    const isSHA256=/^[0-9a-f]{64}$/.test(storedHash);
+    const inputHash= isSHA256
+      ? await sha256hex(pass)                    // ancienne config SHA-256
+      : await hashPassword(pass, storedSalt||'patrimoine-default-salt'); // PBKDF2
     if(inputHash!==storedHash){ok('Mot de passe incorrect.');return;}
     if(ab)ab.textContent='Déchiffrement…';
     const token=await decryptWithPassword(storedEnc,pass);
