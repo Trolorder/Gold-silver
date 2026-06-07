@@ -313,27 +313,6 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
 .lightbox.open{display:flex}
 .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px}
 .swipe-hint{display:none}
-/* RÉCAP GLOBAL */
-.global-recap-bar{
-  display:flex;align-items:center;gap:0;
-  background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(255,215,0,.03));
-  border-bottom:1px solid rgba(201,168,76,.18);
-  padding:.55rem 2rem;overflow-x:auto;
-}
-.global-recap-bar::-webkit-scrollbar{display:none}
-.gr-item{display:flex;flex-direction:column;padding:.1rem 1.1rem;flex-shrink:0}
-.gr-lbl{font-size:.6rem;text-transform:uppercase;letter-spacing:.13em;
-  color:rgba(201,168,76,.55);margin-bottom:.15rem}
-.gr-val{font-family:'Playfair Display',serif;font-size:1.05rem;
-  color:var(--tx);white-space:nowrap}
-.gr-sub{font-size:.7rem;color:var(--tm);margin-top:.1rem;white-space:nowrap}
-.gr-sep{width:1px;background:rgba(201,168,76,.15);align-self:stretch;flex-shrink:0;margin:0 .3rem}
-@media(max-width:720px){
-  .global-recap-bar{padding:.4rem .9rem;gap:0}
-  .gr-item{padding:.1rem .7rem}
-  .gr-val{font-size:.9rem}
-  .gr-lbl{font-size:.55rem}
-}
 /* ── MODE VISITEUR ─────────────────────────────── */
 .priv-lock{display:flex;flex-direction:column;align-items:center;justify-content:center;
   min-height:320px;text-align:center;padding:3rem 2rem}
@@ -570,7 +549,6 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
     </select>
     <span class="sync-lbl" id="sync-lbl"></span>
     <button class="icon-btn" id="lock-btn" onclick="toggleAdmin()" title="Administration">🔒</button>
-    <button class="icon-btn" id="theme-btn" onclick="toggleTheme()" title="Thème clair/sombre">🌙</button>
     <button class="icon-btn" onclick="openQR()" title="QR Code accès mobile">📱</button>
     <button class="icon-btn" onclick="openSetup()" title="Configuration GitHub">⚙️</button>
   </div>
@@ -618,48 +596,6 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
       <button class="mob-menu-action" onclick="openQR();toggleMobMenu()">📱 QR Code</button>
     </div>
     <div id="mob-sync-lbl" style="font-size:.75rem;color:var(--tm);padding:.3rem .8rem .5rem"></div>
-  </div>
-</div>
-
-<!-- RÉCAP GLOBAL ADMIN -->
-<div id="global-recap" style="display:none">
-  <div class="global-recap-bar">
-    <div class="gr-item">
-      <div class="gr-lbl">Portefeuille global</div>
-      <div class="gr-val" id="gr-total">—</div>
-      <div class="gr-sub" id="gr-total-sub">Or + Argent</div>
-    </div>
-    <div class="gr-sep"></div>
-    <div class="gr-item">
-      <div class="gr-lbl">Prix d'achat total</div>
-      <div class="gr-val" id="gr-buy">—</div>
-      <div class="gr-sub" id="gr-buy-sub">Capital investi</div>
-    </div>
-    <div class="gr-sep"></div>
-    <div class="gr-item">
-      <div class="gr-lbl">Plus-value latente</div>
-      <div class="gr-val" id="gr-pnl">—</div>
-      <div class="gr-sub" id="gr-pnl-sub">—</div>
-    </div>
-    <div class="gr-sep"></div>
-    <div class="gr-item">
-      <div class="gr-lbl">Or</div>
-      <div class="gr-val" id="gr-gold">—</div>
-      <div class="gr-sub" id="gr-gold-sub">—</div>
-    </div>
-    <div class="gr-sep"></div>
-    <div class="gr-item">
-      <div class="gr-lbl">Argent</div>
-      <div class="gr-val" id="gr-silver">—</div>
-      <div class="gr-sub" id="gr-silver-sub">—</div>
-    </div>
-    <div class="gr-sep"></div>
-    <div class="gr-item">
-      <div class="gr-lbl">Rendement</div>
-      <div class="gr-val" id="gr-yield">—</div>
-      <div class="gr-sub">Depuis acquisition</div>
-    </div>
-    <div id="gr-inflation" style="display:contents"></div>
   </div>
 </div>
 
@@ -772,15 +708,6 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   <div class="page" id="page-fiscal" style="flex:1;min-width:0">
     <div class="fiscal-page">
       <h2 class="section-title">Simulateur <em>fiscal</em></h2>
-      <div id="versioning-bar" style="display:none;margin-bottom:1rem;padding:.6rem .8rem;
-        background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.2);border-radius:5px;
-        display:flex;align-items:center;gap:.8rem;flex-wrap:wrap">
-        <span style="font-size:.82rem;color:var(--a)">📅 Historique</span>
-        <input type="date" id="version-date" class="form-input" style="max-width:180px;padding:.3rem .6rem;font-size:.82rem"
-          onchange="viewVersion(this.value)">
-        <span id="version-info" style="font-size:.8rem;color:var(--td)"></span>
-        <button class="btn-secondary" style="padding:.3rem .8rem;font-size:.8rem" onclick="resetVersion()">↩ Retour actuel</button>
-      </div>
 
       <!-- BARRE RÉSUMÉ GLOBAL -->
       <div id="fiscal-global"></div>
@@ -790,7 +717,6 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
         <button class="regime-tab active" id="ftab-simu"   onclick="switchFTab('simu')">🧮 Simulation de vente</button>
         <button class="regime-tab"        id="ftab-detail" onclick="switchFTab('detail')">📋 Détail par bien</button>
         <button class="regime-tab"        id="ftab-guide"  onclick="switchFTab('guide')">📖 Guide fiscal</button>
-        <button class="regime-tab"        onclick="openVersioning()">📅 Historique</button>
       </div>
 
       <!-- SIMULATION -->
@@ -873,15 +799,7 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   <div class="form-row">
     <div class="form-group">
       <label class="form-label">Mot de passe maître 🔑</label>
-      <div style="position:relative">
-        <input type="password" class="form-input" id="cfg-masterpass"
-          placeholder="Mot de passe mémorisable"
-          autocomplete="off" autocorrect="off" spellcheck="false"
-          style="padding-right:2.8rem">
-        <button type="button" onclick="togglePwdVis('cfg-masterpass',this)"
-          style="position:absolute;right:.6rem;top:50%;transform:translateY(-50%);
-          background:none;border:none;cursor:pointer;color:var(--tm);font-size:1rem">👁</button>
-      </div>
+      <input type="password" class="form-input" id="cfg-masterpass" placeholder="Mot de passe mémorisable" autocomplete="new-password">
       <div style="font-size:.75rem;color:var(--tm);margin-top:.25rem">Nécessaire pour admin depuis n'importe quel appareil</div>
     </div>
     <div class="form-group"><label class="form-label">Mode d'affichage</label>
@@ -906,16 +824,10 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   <div class="err-msg" id="auth-err" style="display:none"></div>
   <div class="form-group">
     <label class="form-label">Mot de passe maître</label>
-    <div style="position:relative">
-      <input type="password" class="form-input" id="tok-input"
-        placeholder="Votre mot de passe maître"
-        onkeydown="if(event.key==='Enter')doMasterAuth()"
-        autocomplete="off" autocorrect="off" spellcheck="false"
-        style="padding-right:2.8rem">
-      <button type="button" onclick="togglePwdVis('tok-input',this)"
-        style="position:absolute;right:.6rem;top:50%;transform:translateY(-50%);
-        background:none;border:none;cursor:pointer;color:var(--tm);font-size:1rem">👁</button>
-    </div>
+    <input type="password" class="form-input" id="tok-input"
+      placeholder="Votre mot de passe maître"
+      onkeydown="if(event.key==='Enter')doMasterAuth()"
+      autocomplete="current-password">
   </div>
   <div class="form-actions">
     <button class="btn-secondary" onclick="closeModal('auth-modal')">Annuler</button>
@@ -1419,7 +1331,11 @@ function isEncrypted(value){
   return typeof value==='string'&&value.startsWith('__enc__');
 }
 
-// ── Auth : plus de hash stocké, on vérifie en déchiffrant le token ──
+// ── SHA-256 simple (pour vérifier le mot de passe) ──────────────
+async function sha256hex(str){
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(str));
+  return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');
+}
 
 // ── Chiffre une string avec un mot de passe (AES-GCM + PBKDF2) ──
 async function encryptWithPassword(plaintext, password){
@@ -1558,7 +1474,6 @@ async function loadFromGH(){
       const j=JSON.parse(rawJson);
       // Récupérer credentials (toujours en clair)
       if(j.authHash){ S.authHash=j.authHash; cfg.authHash=j.authHash; }
-      if(j.authSalt){ S.authSalt=j.authSalt; cfg.authSalt=j.authSalt; }
       if(j.encToken){ S.encToken=j.encToken; cfg.encToken=j.encToken; }
       // Récupérer données — plusieurs formats supportés
       if(j.items)  parsed.items  = j.items;
@@ -1579,7 +1494,6 @@ async function loadFromGH(){
       ls.set('pm_cfg',{owner:cfg.owner,repo:cfg.repo,branch:cfg.branch,
         mode:cfg.mode||'private',
         authHash:S.authHash||cfg.authHash||'',
-        authSalt:S.authSalt||cfg.authSalt||'',
         encToken:S.encToken||cfg.encToken||''});
     }
     setSS('ok','Synchronisé');setTimeout(()=>setSS('',''),3000);
@@ -1606,14 +1520,10 @@ async function saveToGH(){
     const encGold=await Promise.all((S.items.gold||[]).map(encryptItemFields));
     const encSilver=await Promise.all((S.items.silver||[]).map(encryptItemFields));
     const payload={
+      authHash: S.authHash||cfg.authHash||null,
       encToken: S.encToken||cfg.encToken||null,
       items:    {gold:encGold, silver:encSilver},
-      history:  _sessionKey
-        ? await Promise.all(S.history.map(async h=>({
-            date:h.date, // date en clair (pas sensible)
-            val: isEncrypted(h.val)?h.val:await encryptField(String(h.val))
-          })))
-        : S.history,
+      history:  S.history,
       alerts:   S.alerts,
       updatedAt:new Date().toISOString()
     };
@@ -1695,13 +1605,6 @@ function setCurrency(c){S.currency=$('currency-sel').value=c;ls.set('pm_currency
     toast('Erreur au démarrage','error');
   }finally{
     $('loading-screen').style.display='none';
-    applyTheme();
-    // Enregistrer le service worker pour PWA
-    if('serviceWorker' in navigator){
-      navigator.serviceWorker.register('sw.js')
-        .then(()=>console.log('SW registered'))
-        .catch(e=>console.warn('SW error:',e));
-    }
     // Log visite
     getClientIP().then(ip=>logActivity('visit','Visite du site ('+ip+')'));
     // Charger le journal depuis GitHub si possible
@@ -1947,23 +1850,6 @@ function exportJournalCSV(){
   toast('Journal exporté','success');
 }
 
-function togglePwdVis(inputId, btn){
-  const inp=$(inputId); if(!inp) return;
-  const show=inp.type==='password';
-  inp.type=show?'text':'password';
-  if(btn) btn.textContent=show?'🙈':'👁';
-}
-
-function toggleTheme(){
-  const light=document.body.classList.toggle('light');
-  ls.set('pm_theme',light?'light':'dark');
-  const btn=$('theme-btn'); if(btn) btn.textContent=light?'☀️':'🌙';
-}
-function applyTheme(){
-  const t=ls.get('pm_theme');
-  if(t==='light'){document.body.classList.add('light');const b=$('theme-btn');if(b)b.textContent='☀️';}
-}
-
 function toggleMobMenu(){
   const menu=$('mob-menu'), btn=$('mob-menu-btn');
   if(!menu)return;
@@ -2007,65 +1893,57 @@ function openSetup(){
   $('cfg-owner').value=cfg.owner||'';
   $('cfg-repo').value=cfg.repo||'';
   $('cfg-branch').value=cfg.branch||'main';
-  $('cfg-token').value='';
+  $('cfg-token').value=''; // Jamais pré-rempli pour sécurité
   $('cfg-masterpass').value='';
   $('cfg-mode').value=cfg.mode||'private';
   $('setup-err').style.display='none';
-  if(cfg.encToken||S.encToken){
-    const ae=$('setup-err');
-    if(ae){ae.style.display='block';ae.style.color='var(--a)';
-      ae.style.background='rgba(201,168,76,.07)';ae.style.borderColor='rgba(201,168,76,.2)';
-      ae.textContent='Configuration existante — entrez à nouveau token + mot de passe pour mettre à jour.';}
+  // Afficher info si déjà configuré
+  if(cfg.authHash){
+    $('setup-err').style.display='block';
+    $('setup-err').style.color='var(--a)';
+    $('setup-err').style.background='rgba(201,168,76,.07)';
+    $('setup-err').style.borderColor='rgba(201,168,76,.2)';
+    $('setup-err').textContent='Configuration existante — saisissez un nouveau token et mot de passe pour mettre à jour.';
   }
   openModal('setup-modal');
 }
 async function saveSetup(){
-  const owner=$('cfg-owner').value.trim(), repo=$('cfg-repo').value.trim();
-  const branch=$('cfg-branch').value.trim()||'main', token=$('cfg-token').value.trim();
-  const masterpass=$('cfg-masterpass').value, mode=$('cfg-mode').value;
-  const errEl=$('setup-err');
-  const showErr=msg=>{if(errEl){errEl.textContent=msg;errEl.style.display='block';errEl.style.color='#ef4444';}$('setup-save').disabled=false;$('setup-save').textContent='Connecter';};
-  if(!owner||!repo){showErr('Utilisateur et dépôt requis.');return;}
-  if(!token){showErr('Le token GitHub est requis.');return;}
-  if(!masterpass||masterpass.length<4){showErr('Mot de passe maître requis (4 caractères min).');return;}
-  $('setup-save').disabled=true; $('setup-save').textContent='Vérification…';
-  if(errEl) errEl.style.display='none';
-  // 1 — Vérifier le token GitHub
+  const owner=$('cfg-owner').value.trim(),repo=$('cfg-repo').value.trim();
+  const branch=$('cfg-branch').value.trim()||'main',token=$('cfg-token').value.trim();
+  const masterpass=$('cfg-masterpass').value,mode=$('cfg-mode').value;
+  if(!owner||!repo){$('setup-err').textContent='Utilisateur et dépôt requis.';$('setup-err').style.display='block';return;}
+  if(!token){$('setup-err').textContent='Le token GitHub est requis.';$('setup-err').style.display='block';return;}
+  if(!masterpass||masterpass.length<4){$('setup-err').textContent='Mot de passe maître requis (4 caractères min).';$('setup-err').style.display='block';return;}
+  $('setup-save').disabled=true;$('setup-save').textContent='Vérification…';
+  // Vérifier le token
   try{
-    const r=await fetchTimeout('https://api.github.com/repos/'+owner+'/'+repo,
-      {headers:{Authorization:'token '+token,'Accept':'application/vnd.github.v3+json'}},8000);
-    if(r.status===404){showErr('Dépôt introuvable.');return;}
-    if(r.status===401){showErr('Token GitHub invalide ou expiré.');return;}
-    if(!r.ok){showErr('GitHub API: '+r.status);return;}
-  }catch(e){showErr('Erreur réseau : '+e.message);return;}
-  // 2 — Chiffrer le token avec le mot de passe
+    const h={'Accept':'application/vnd.github.v3+json','Authorization':'token '+token};
+    const r=await fetchTimeout(`https://api.github.com/repos/${owner}/${repo}`,{headers:h},7000);
+    if(r.status===404)throw new Error('Dépôt introuvable (doit être public).');
+    if(r.status===401)throw new Error('Token GitHub invalide ou expiré.');
+    if(!r.ok)throw new Error('GitHub API: '+r.status);
+  }catch(e){$('setup-err').textContent=e.message;$('setup-err').style.display='block';$('setup-save').disabled=false;$('setup-save').textContent='Connecter';return;}
   $('setup-save').textContent='Chiffrement…';
-  try{
-    const encToken=await encryptWithPassword(token, masterpass);
-    // Tester que le déchiffrement fonctionne immédiatement
-    const testDec=await decryptWithPassword(encToken, masterpass);
-    if(!testDec||testDec!==token){showErr('Erreur de chiffrement — réessayez.');return;}
-    // Dériver la clé de session
-    await deriveSessionKey(masterpass);
-    // Stocker
-    cfg={owner,repo,branch,token,mode,encToken};
-    ls.set('pm_cfg',{owner,repo,branch,mode,encToken});
-    S.encToken=encToken;
-    // 3 — Sauvegarder sur GitHub
-    $('setup-save').textContent='Sauvegarde…';
-    await loadFromGH();
-    S.encToken=encToken; // réaffirmer après loadFromGH
-    cfg.token=token;     // s'assurer que le token est en mémoire
-    const ok=await saveToGH();
-    if(!ok){showErr('Erreur de sauvegarde GitHub.');return;}
-    // Succès
-    $('setup-save').disabled=false; $('setup-save').textContent='Connecter';
-    $('setup-cancel').style.display='';
-    S.isAdmin=true; S.isVisitor=false;
-    const vb=$('visitor-bar'); if(vb) vb.style.display='none';
-    closeModal('setup-modal'); render();
-    toast('✓ Configuration sauvegardée — mot de passe vérifié','success');
-  }catch(e){showErr('Erreur : '+e.message);}
+  // Chiffrer le token avec le mot de passe maître
+  const authHash=await sha256hex(masterpass);
+  const encToken=await encryptWithPassword(token,masterpass);
+  // Stocker cfg localement (avec token en clair pour cette session)
+  cfg={owner,repo,branch,token,mode,authHash,encToken};
+  // Jamais le token en clair dans localStorage
+  ls.set('pm_cfg',{owner,repo,branch,mode,authHash,encToken});
+  // Rappel : mettre à jour SITE_CONFIG dans le HTML aussi
+  toast('⚠️ Pensez à remplir SITE_CONFIG dans index.html avec owner='+owner+' repo='+repo,'info');
+  $('setup-save').textContent='Chargement…';
+  await loadFromGH();
+  // Sauvegarder authHash + encToken dans le data.json GitHub
+  S.authHash=authHash;S.encToken=encToken;
+  await saveToGH();
+  $('setup-save').disabled=false;$('setup-save').textContent='Connecter';
+  $('setup-cancel').style.display='';
+  S.isAdmin=true;S.isVisitor=false;
+  if($('visitor-bar'))$('visitor-bar').style.display='none';
+  closeModal('setup-modal');render();
+  toast('Configuration sauvegardée ! Token chiffré sur GitHub.','success');
 }
 
 // ════════════════════════════════════════════════════════════
@@ -2111,15 +1989,11 @@ async function doMasterAuth(){
   if(!pass){if(ae){ae.textContent='Entrez votre mot de passe.';ae.style.display='block';}return;}
   if(ab){ab.disabled=true;ab.textContent='Vérification…';}
   const storedHash=S.authHash||cfg.authHash;
-  const storedSalt=S.authSalt||cfg.authSalt||null;
   const storedEnc=S.encToken||cfg.encToken;
   const ok=msg=>{if(ae){ae.textContent=msg;ae.style.display='block';}if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}};
   if(!storedHash||!storedEnc){ok('Aucune configuration — utilisez ⚙️ pour configurer.');return;}
   try{
-    // PBKDF2 si sel disponible, sinon fallback SHA-256 (ancienne config)
-    const inputHash=storedSalt
-      ? await hashPassword(pass, storedSalt)
-      : await sha256hex(pass);
+    const inputHash=await sha256hex(pass);
     if(inputHash!==storedHash){ok('Mot de passe incorrect.');return;}
     if(ab)ab.textContent='Déchiffrement…';
     const token=await decryptWithPassword(storedEnc,pass);
@@ -2128,8 +2002,8 @@ async function doMasterAuth(){
     if(ab){ab.disabled=false;ab.textContent='Chiffrement…';}
     // Dériver la clé de session MAINTENANT (avant toute sauvegarde)
     await deriveSessionKey(pass);
+    // Déchiffrer les items déjà chargés
     await decryptAllItems();
-    await decryptHistory();
     if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}
     unlockAdmin();
   }catch(e){ok('Erreur : '+e.message);}
@@ -2162,49 +2036,24 @@ async function doTokenAuth(){
 }
 
 // Déchiffrer tous les champs sensibles après connexion
-async function decryptHistory(){
-  if(!_sessionKey) return;
-  S.history=(S.history||[]).map(h=>{
-    // Les dates restent telles quelles, on déchiffre val en mémoire après auth
-    return h; // val sera déchiffré à la volée dans buildHistoryChart
-  });
-}
-
-async function decryptHistVal(encVal){
-  if(!_sessionKey||!isEncrypted(encVal)) return parseFloat(encVal)||0;
-  const dec=await decryptField(encVal);
-  return parseFloat(dec)||0;
-}
-
 async function decryptAllItems(){
   if(!_sessionKey) return;
-  for(const page of ['gold','silver']){
+  const allPages=['gold','silver'];
+  for(const page of allPages){
     const items=S.items[page]||[];
     for(let i=0;i<items.length;i++){
-      const it=items[i];
-      const d=async(v,parse)=>{
-        if(!isEncrypted(v))return v;
-        const dec=await decryptField(v);
-        return parse?parseFloat(dec):dec;
-      };
-      items[i]={...it,
-        buy:    isEncrypted(it.buy)    ?(()=>{const r=decryptField(it.buy);return r.then?r.then(v=>v!=null?parseFloat(v):null):it.buy})(): it.buy,
-        serial: await d(it.serial,false),
-        desc:   await d(it.desc,false),
-        name:   await d(it.name,false)||it.name,
-        qty:    isEncrypted(it.qty)    ?parseInt(await decryptField(it.qty))||1    :it.qty,
-        date:   await d(it.date,false),
-        grams:  isEncrypted(it.grams)  ?parseFloat(await decryptField(it.grams))  :it.grams,
-        fg:     isEncrypted(it.fg)     ?parseFloat(await decryptField(it.fg))     :it.fg,
-        wt:     await d(it.wt,false),
-        maker:  await d(it.maker,false),
-        imgPile:await d(it.imgPile,false),
-        imgFace:await d(it.imgFace,false),
-      };
-      // Corriger buy séparément (async dans objet)
-      if(isEncrypted(it.buy)){
-        const dec=await decryptField(it.buy);
-        items[i].buy=dec!=null?parseFloat(dec):null;
+      const item=items[i];
+      if(isEncrypted(item.buy)){
+        const dec=await decryptField(item.buy);
+        items[i]={...item, buy: dec!=null?parseFloat(dec):null, _buyDecrypted:true};
+      }
+      if(isEncrypted(item.serial)){
+        const dec=await decryptField(item.serial);
+        items[i]={...items[i], serial:dec||''};
+      }
+      if(isEncrypted(item.desc)){
+        const dec=await decryptField(item.desc);
+        items[i]={...items[i], desc:dec||''};
       }
     }
   }
@@ -2213,23 +2062,17 @@ async function decryptAllItems(){
 // Chiffrer les champs sensibles d'un item avant sauvegarde
 async function encryptItemFields(item){
   if(!_sessionKey) return item;
-  const e={...item};
-  const enc=async(v)=>v!=null&&!isEncrypted(String(v))?await encryptField(String(v)):v;
-  // Champs financiers
-  if(item.buy!=null)      e.buy    = await enc(item.buy);
-  if(item.serial)         e.serial = await enc(item.serial);
-  if(item.desc)           e.desc   = await enc(item.desc);
-  // Champs d'identification (révèlent ce que vous possédez)
-  if(item.name)           e.name   = await enc(item.name);
-  if(item.qty!=null)      e.qty    = await enc(item.qty);
-  if(item.date)           e.date   = await enc(item.date);
-  if(item.grams!=null)    e.grams  = await enc(item.grams);
-  if(item.fg!=null)       e.fg     = await enc(item.fg);
-  if(item.wt)             e.wt     = await enc(item.wt);
-  if(item.maker)          e.maker  = await enc(item.maker);
-  if(item.imgPile)        e.imgPile= await enc(item.imgPile);
-  if(item.imgFace)        e.imgFace= await enc(item.imgFace);
-  return e;
+  const encrypted={...item};
+  if(item.buy!=null&&!isEncrypted(item.buy)){
+    encrypted.buy=await encryptField(String(item.buy));
+  }
+  if(item.serial&&!isEncrypted(item.serial)){
+    encrypted.serial=await encryptField(item.serial);
+  }
+  if(item.desc&&!isEncrypted(item.desc)){
+    encrypted.desc=await encryptField(item.desc);
+  }
+  return encrypted;
 }
 
 // Chiffrer le journal avant sauvegarde
@@ -2241,119 +2084,14 @@ async function encryptJournalEntry(entry){
   };
 }
 
-function renderGlobalRecap(){
-  const bar=$('global-recap');
-  if(!bar) return;
-  if(!S.isAdmin){ bar.style.display='none'; return; }
-  bar.style.display='block';
-
-  const sym={EUR:'€',USD:'$',CHF:'₣',GBP:'£'}[S.currency];
-  const gold=S.items.gold||[];
-  const silver=S.items.silver||[];
-  const allItems=[...gold.map(i=>({...i,metal:'gold'})),...silver.map(i=>({...i,metal:'silver'}))];
-
-  // Valeurs actuelles
-  const totGold  =gold.reduce((s,i)=>s+getGrams(i)*i.qty*(S.prices.gold||0),0);
-  const totSilver=silver.reduce((s,i)=>s+getGrams(i)*i.qty*(S.prices.silver||0),0);
-  const totV=totGold+totSilver;
-
-  // Prix d'achat (champs éventuellement déchiffrés en mémoire)
-  const validBuy=allItems.filter(i=>i.buy!=null&&!isEncrypted(i.buy)&&!isNaN(i.buy));
-  const totBuy=validBuy.reduce((s,i)=>s+Number(i.buy),0);
-  const totPnl=totBuy>0?totV-totBuy:null;
-  const pnlPct=totBuy>0?(totPnl/totBuy)*100:null;
-
-  const fv=v=>f2(toDisplay(v))+' '+sym;
-
-  // Total
-  $('gr-total').textContent=fv(totV);
-  $('gr-total').style.color='var(--a)';
-  $('gr-total-sub').textContent='Or + Argent combinés';
-
-  // Achat
-  if(totBuy>0){
-    $('gr-buy').textContent=fv(totBuy);
-    $('gr-buy').style.color='var(--tx)';
-    $('gr-buy-sub').textContent=validBuy.length+' bien'+(validBuy.length>1?'s':'');
-  }else{
-    $('gr-buy').textContent='—';
-    $('gr-buy-sub').textContent='Saisir prix d’achat';
-  }
-
-  // PnL
-  if(totPnl!=null){
-    $('gr-pnl').textContent=(totPnl>=0?'+':'')+fv(totPnl);
-    $('gr-pnl').style.color=totPnl>=0?'#22c55e':'#ef4444';
-    $('gr-pnl-sub').textContent=(pnlPct>=0?'+':'')+f2(pnlPct)+'% sur capital';
-  }else{
-    $('gr-pnl').textContent='—';
-    $('gr-pnl').style.color='var(--td)';
-    $('gr-pnl-sub').textContent='Prix achat non renseigné';
-  }
-
-  // Or seul
-  const buyGold=gold.filter(i=>i.buy!=null&&!isEncrypted(i.buy)).reduce((s,i)=>s+Number(i.buy),0);
-  $('gr-gold').textContent=fv(totGold);
-  $('gr-gold').style.color=totGold>buyGold&&buyGold>0?'#22c55e':'var(--a)';
-  $('gr-gold-sub').textContent=buyGold>0?'Achat : '+fv(buyGold):(f3((S.items.gold||[]).reduce((s,i)=>s+getTotal(i),0)/31.1035))+' Oz';
-
-  // Argent seul
-  const buySilver=silver.filter(i=>i.buy!=null&&!isEncrypted(i.buy)).reduce((s,i)=>s+Number(i.buy),0);
-  $('gr-silver').textContent=fv(totSilver);
-  $('gr-silver').style.color=totSilver>buySilver&&buySilver>0?'#22c55e':'rgba(180,190,200,.9)';
-  $('gr-silver-sub').textContent=buySilver>0?'Achat : '+fv(buySilver):(f3((S.items.silver||[]).reduce((s,i)=>s+getTotal(i),0)/31.1035))+' Oz';
-
-  // Rendement
-  if(pnlPct!=null){
-    $('gr-yield').textContent=(pnlPct>=0?'+':'')+f2(pnlPct)+'%';
-    $('gr-yield').style.color=pnlPct>=0?'#22c55e':'#ef4444';
-  }else{
-    $('gr-yield').textContent='—';
-    $('gr-yield').style.color='var(--td)';
-  }
-  // Comparaison inflation
-  renderInflationComparison(allItems,totBuy,totV,sym);
-}
-
-async function renderInflationComparison(allItems,totBuy,totV,sym){
-  const el=$('gr-inflation'); if(!el) return;
-  if(totBuy<=0||!allItems.length){el.innerHTML='';return;}
-  // Calculer la date moyenne d'achat pondérée par valeur
-  const validDates=allItems.filter(i=>i.date&&i.buy&&!isEncrypted(i.date)&&!isEncrypted(i.buy));
-  if(!validDates.length){el.innerHTML='';return;}
-  const avgYear=validDates.reduce((s,i)=>s+new Date(i.date).getFullYear()*(Number(i.buy)/totBuy),0);
-  const yearsHeld=(new Date().getFullYear()-Math.round(avgYear));
-  if(yearsHeld<=0){el.innerHTML='';return;}
-  // Inflation française moyenne ~2.5%/an (2000-2024) — source INSEE
-  // On utilise une table simplifiée des taux par période
-  const inflRates={2000:1.8,2001:1.8,2002:1.9,2003:2.2,2004:2.3,2005:1.9,
-    2006:1.9,2007:1.6,2008:3.2,2009:0.1,2010:1.7,2011:2.3,2012:2.2,
-    2013:1.0,2014:0.6,2015:0.0,2016:0.2,2017:1.2,2018:1.8,2019:1.3,
-    2020:0.5,2021:1.6,2022:5.2,2023:4.9,2024:2.3,2025:1.5};
-  let cumInfl=1;
-  for(let y=Math.round(avgYear);y<new Date().getFullYear();y++){
-    cumInfl*=(1+(inflRates[y]||2)/100);
-  }
-  const inflatedBuy=totBuy*cumInfl;
-  const realGain=totV-inflatedBuy;
-  const realGainPct=((totV/inflatedBuy)-1)*100;
-  el.innerHTML=`
-    <div class="gr-sep"></div>
-    <div class="gr-item" title="Capital investi ${fmtVal(totBuy)} ajusté inflation INSEE sur ${yearsHeld} ans">
-      <div class="gr-lbl">Gain réel (vs inflation)</div>
-      <div class="gr-val" style="color:${realGain>=0?'#22c55e':'#ef4444'}">${realGain>=0?'+':''}${f2(toDisplay(realGain))} ${sym}</div>
-      <div class="gr-sub">${(realGainPct>=0?'+':'')+f2(realGainPct)}% · inflation cumulée ${f2((cumInfl-1)*100)}%</div>
-    </div>`;
-}
-
 function unlockAdmin(){
   S.isAdmin=true;S.isVisitor=false;
   const vb=$('visitor-bar');if(vb)vb.style.display='none';
   const cw=$('config-warn');if(cw)cw.style.display='none';
+  // Retirer tous les overlays de protection
   document.querySelectorAll('[id^="priv-overlay-"]').forEach(el=>el.remove());
   closeModal('auth-modal');
   render();
-  renderGlobalRecap();
   // Reconstruire la page courante
   const p=S.currentPageView;
   if(p==='charts') buildCharts();
@@ -2417,7 +2155,7 @@ function render(){
   const mlb=$('mob-lock-btn'); if(mlb) mlb.textContent=S.isAdmin?'🔓 Admin actif':'🔒 Se connecter';
   const sh=$('sidebar-hint'); if(sh) sh.style.display=S.isAdmin?'none':'block';
   const ws=$('wt-section'); if(ws) ws.style.display=S.filter.type==='piece'?'none':'block';
-  renderPriceBar();renderStats();renderCards();renderGlobalRecap();
+  renderPriceBar();renderStats();renderCards();
   if(S.currentPageView==='charts')buildCharts();
   if(S.currentPageView==='fiscal')buildFiscal();
   if(S.currentPageView==='alerts')buildAlerts();
@@ -2559,7 +2297,7 @@ function buildCharts(){
     privLock('page-charts');
     return;
   }
-  buildKPIs();buildHistoryChart().catch(()=>{});buildSplitChart();buildTypesChart();buildTopChart();buildRatioChart();
+  buildKPIs();buildHistoryChart();buildSplitChart();buildTypesChart();buildTopChart();buildRatioChart();
 }
 
 function buildKPIs(){
@@ -2631,7 +2369,7 @@ async function fetchPriceHistory(){
   return points;
 }
 
-async function buildHistoryChart(){
+function buildHistoryChart(){
   const allItems=[...(S.items.gold||[]).map(i=>({...i,metal:'gold'})),
                   ...(S.items.silver||[]).map(i=>({...i,metal:'silver'}))];
   const allDates=allItems.filter(i=>i.date).map(i=>i.date).sort();
@@ -2651,9 +2389,7 @@ async function buildHistoryChart(){
     let val=0;
     for(const item of allItems){ if(!item.date||item.date<=dateStr) val+=getGrams(item)*item.qty*(S.prices[item.metal]||0); }
     const snap=S.history.find(h=>h.date===dateStr);
-    let snapVal=val;
-    if(snap){snapVal=isEncrypted(snap.val)?(await decryptHistVal(snap.val)):snap.val;}
-    timeline.push({date:dateStr,val:snap?snapVal:val,simulated:!snap});
+    timeline.push({date:dateStr,val:snap?snap.val:val,simulated:!snap});
     cur=new Date(cur.getTime()+step*24*3600*1000);
   }
   if(!timeline.length||(timeline[timeline.length-1].date!==today.toISOString().split('T')[0])){
@@ -3391,100 +3127,6 @@ function exportPatrimoine(){
   a.click();
   logActivity('export','Export CSV patrimoine '+allItems.length+' biens');
   toast('Export patrimoine généré','success');
-}
-
-// ── EXPORT .VAULT (sauvegarde chiffrée locale) ─────────────────
-async function exportVault(){
-  if(!_sessionKey){toast('Connectez-vous pour exporter le vault','error');return;}
-  const data={
-    version:2,
-    createdAt:new Date().toISOString(),
-    items:S.items,
-    history:S.history,
-    alerts:S.alerts,
-    authHash:S.authHash||cfg.authHash,
-    authSalt:S.authSalt||cfg.authSalt,
-    encToken:S.encToken||cfg.encToken,
-  };
-  const json=JSON.stringify(data,null,2);
-  // Chiffrer avec la clé de session
-  const enc=new TextEncoder();
-  const iv=crypto.getRandomValues(new Uint8Array(12));
-  const ct=await crypto.subtle.encrypt({name:'AES-GCM',iv},_sessionKey,enc.encode(json));
-  const buf=new Uint8Array(12+ct.byteLength);
-  buf.set(iv,0);buf.set(new Uint8Array(ct),12);
-  const b64=btoa(String.fromCharCode(...buf));
-  const vault=JSON.stringify({vault:true,v:2,data:b64});
-  const blob=new Blob([vault],{type:'application/json'});
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download=`patrimoine_${new Date().toISOString().split('T')[0]}.vault`;
-  a.click();
-  logActivity('export','Export .vault local');
-  toast('Sauvegarde .vault téléchargée','success');
-}
-
-async function importVault(){
-  if(!_sessionKey){toast('Connectez-vous pour importer','error');return;}
-  const input=document.createElement('input');
-  input.type='file';input.accept='.vault,.json';
-  input.onchange=async()=>{
-    const file=input.files[0];if(!file)return;
-    try{
-      const text=await file.text();
-      const parsed=JSON.parse(text);
-      if(!parsed.vault||!parsed.data){toast('Fichier .vault invalide','error');return;}
-      const buf=Uint8Array.from(atob(parsed.data),c=>c.charCodeAt(0));
-      const iv=buf.slice(0,12);const ct=buf.slice(12);
-      const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv},_sessionKey,ct);
-      const data=JSON.parse(new TextDecoder().decode(pt));
-      if(!confirm(`Importer ${file.name} ?
-Cela remplacera toutes vos données actuelles.`))return;
-      S.items=data.items||{gold:[],silver:[]};
-      S.history=data.history||[];
-      S.alerts=data.alerts||[];
-      const ok=await saveToGH();
-      if(ok){render();toast('Import .vault réussi','success');logActivity('import','Import .vault: '+file.name);}
-    }catch(e){toast('Erreur import : '+e.message,'error');}
-  };
-  input.click();
-}
-
-// ── VERSIONING ─────────────────────────────────────────────────
-let _versionBackup=null;
-
-function openVersioning(){
-  const bar=$('versioning-bar');
-  if(bar) bar.style.display=bar.style.display==='none'?'flex':'none';
-}
-
-async function viewVersion(dateStr){
-  if(!dateStr)return;
-  const info=$('version-info');
-  // Trouver le snapshot historique le plus proche
-  const sorted=[...S.history].sort((a,b)=>a.date.localeCompare(b.date));
-  const snap=sorted.filter(h=>h.date<=dateStr).slice(-1)[0];
-  if(!snap){if(info)info.textContent='Aucun snapshot disponible avant cette date.';return;}
-  const val=isEncrypted(snap.val)?await decryptHistVal(snap.val):snap.val;
-  if(info)info.textContent=`Snapshot du ${new Date(snap.date).toLocaleDateString('fr-FR')} · Valeur : ${fmtVal(toDisplay(val))}`;
-  // Filtrer les items achetés avant cette date
-  if(!_versionBackup) _versionBackup={gold:[...S.items.gold],silver:[...S.items.silver]};
-  S.items.gold=(S.items.gold||[]).filter(i=>!i.date||isEncrypted(i.date)||i.date<=dateStr);
-  S.items.silver=(S.items.silver||[]).filter(i=>!i.date||isEncrypted(i.date)||i.date<=dateStr);
-  render();buildFiscal();
-  toast(`Portefeuille au ${new Date(snap.date).toLocaleDateString('fr-FR')}`,'info');
-}
-
-function resetVersion(){
-  if(_versionBackup){
-    S.items.gold=_versionBackup.gold;
-    S.items.silver=_versionBackup.silver;
-    _versionBackup=null;
-  }
-  const vd=$('version-date');if(vd)vd.value='';
-  const vi=$('version-info');if(vi)vi.textContent='';
-  render();buildFiscal();
-  toast('Retour aux données actuelles','info');
 }
 
 function exportCSV(){
