@@ -1,7 +1,5 @@
 {
-  "authHash": "MvYFw/8Gcl3kqvO9aZxzfQMevEWhOIzwrDkrOdHOHfc=",
-  "authSalt": null,
-  "encToken": "BpchkSAG0Eord0mVIXr7yHl91BNCfPoZleWu31mhfJmRF41HJuJHe8FWjuqNClv4sy5WSnLdyLZkAIOedlr78CXqmjvKWuYhaMBe2IDiXlukF6Fb",
+  "encToken": "tJrXLYErMk9uN+uSz58AznBRxNZp24wbz7GLxQEAVSMh9O7HS3D8+5UL/jZh3TmYGCQNelL1yU3yvBnaXTJ0UiHemBDZKGsIGZuNggbJ+3xvNJ9h",
   "items": {
     "gold": [],
     "silver": []
@@ -9,9 +7,9 @@
   "history": [
     {
       "date": "2026-06-07",
-      "val": 0
+      "val": "__enc__IkgH1sLifo3TuJ8XB2OYA2EUSFctB0IYEykOPoQ="
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-07T07:49:19.240Z"
+  "updatedAt": "2026-06-07T07:50:29.103Z"
 }
