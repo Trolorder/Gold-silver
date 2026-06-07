@@ -1,6 +1,42 @@
 [
   {
+    "ts": "2026-06-07T21:19:10.141Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T21:18:31.995Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T21:18:29.758Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T21:16:03.442Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
     "ts": "2026-06-07T20:55:48.775Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T20:55:48.775Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T20:53:48.601Z",
     "type": "auth",
     "detail": "[activité]",
     "metal": null
@@ -18,6 +54,18 @@
     "metal": null
   },
   {
+    "ts": "2026-06-07T20:53:11.022Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T20:53:07.466Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
     "ts": "2026-06-07T20:53:07.466Z",
     "type": "visit",
     "detail": "[activité]",
@@ -25,6 +73,18 @@
   },
   {
     "ts": "2026-06-07T20:53:05.726Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T20:53:05.726Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T20:52:49.340Z",
     "type": "visit",
     "detail": "[activité]",
     "metal": null
