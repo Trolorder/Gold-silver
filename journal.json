@@ -1,5 +1,35 @@
 [
   {
+    "ts": "2026-06-08T14:40:26.579Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-08T14:40:23.325Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-08T14:40:09.753Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-08T13:37:14.695Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-08T13:36:33.394Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
     "ts": "2026-06-08T13:36:14.713Z",
     "type": "auth",
     "detail": "[activité]",
