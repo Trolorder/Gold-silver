@@ -1,5 +1,29 @@
 [
   {
+    "ts": "2026-06-08T08:30:56.333Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-08T08:30:15.968Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-08T08:30:14.581Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-08T07:12:49.220Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
     "ts": "2026-06-07T21:19:10.141Z",
     "type": "auth",
     "detail": "[activité]",
@@ -30,25 +54,7 @@
     "metal": null
   },
   {
-    "ts": "2026-06-07T20:55:48.775Z",
-    "type": "auth",
-    "detail": "[activité]",
-    "metal": null
-  },
-  {
     "ts": "2026-06-07T20:53:48.601Z",
-    "type": "auth",
-    "detail": "[activité]",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-07T20:53:48.601Z",
-    "type": "auth",
-    "detail": "[activité]",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-07T20:53:11.022Z",
     "type": "auth",
     "detail": "[activité]",
     "metal": null
@@ -66,25 +72,7 @@
     "metal": null
   },
   {
-    "ts": "2026-06-07T20:53:07.466Z",
-    "type": "visit",
-    "detail": "[activité]",
-    "metal": null
-  },
-  {
     "ts": "2026-06-07T20:53:05.726Z",
-    "type": "visit",
-    "detail": "[activité]",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-07T20:53:05.726Z",
-    "type": "visit",
-    "detail": "[activité]",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-07T20:52:49.340Z",
     "type": "visit",
     "detail": "[activité]",
     "metal": null
@@ -102,32 +90,2912 @@
     "metal": null
   },
   {
-    "ts": "2026-06-07T20:51:43.660Z",
+    "ts": "2026-06-07T20:51:19.952Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T20:51:17.789Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:55:25.129Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:55:06.872Z",
     "type": "auth",
     "detail": "[activité]",
     "metal": null
   },
   {
-    "ts": "2026-06-07T20:51:19.952Z",
+    "ts": "2026-06-07T08:55:06.872Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:55:01.551Z",
     "type": "visit",
     "detail": "[activité]",
     "metal": null
   },
   {
-    "ts": "2026-06-07T20:51:19.952Z",
+    "ts": "2026-06-07T08:55:01.551Z",
     "type": "visit",
     "detail": "[activité]",
     "metal": null
   },
   {
-    "ts": "2026-06-07T20:51:17.789Z",
+    "ts": "2026-06-07T08:54:59.275Z",
     "type": "visit",
     "detail": "[activité]",
     "metal": null
   },
   {
-    "ts": "2026-06-07T20:51:17.789Z",
+    "ts": "2026-06-07T08:54:59.275Z",
     "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:22:43.405Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:22:39.269Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:22:07.701Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:21:26.663Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:21:22.963Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:21:16.395Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:21:12.783Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:21:09.171Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:21:03.615Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:20:56.501Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:20:56.501Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:20:18.373Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:20:18.373Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:20:00.167Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-07T08:20:00.167Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T13:41:15.246Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T13:41:15.246Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T13:41:15.246Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T13:40:42.423Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T13:40:42.423Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T13:40:42.423Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T12:49:19.254Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T12:48:49.988Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T10:47:23.468Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T10:43:43.156Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T10:39:32.831Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T10:39:32.831Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T10:38:51.191Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T10:38:51.191Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:55:24.871Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:55:24.871Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:55:17.696Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:55:17.696Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:55:17.696Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:52:03.046Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:52:03.046Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:52:03.046Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:51:55.233Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:51:55.233Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:51:55.233Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:49:06.047Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:49:06.047Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:49:06.047Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:48:51.270Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:48:51.270Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:48:51.270Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:47:11.352Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:47:11.352Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:47:11.352Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-03T08:40:36.572Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:40:36.572Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:40:36.572Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:40:30.003Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:40:30.003Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:40:30.003Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:40:11.947Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:40:11.947Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:40:11.947Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:40:11.947Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:40:00.937Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:40:00.937Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:40:00.937Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:40:00.937Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:29:50.424Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:29:50.424Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:29:50.424Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:29:50.424Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:29:50.424Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:25:32.468Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:25:32.468Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:25:32.468Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:25:32.468Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:25:32.468Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:24:38.006Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:24:38.006Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:24:38.006Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:24:38.006Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:24:38.006Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:24:38.006Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:54.617Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:54.617Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:54.617Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:54.617Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:54.617Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:54.617Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:48.345Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:48.345Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:48.345Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:48.345Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:48.345Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:48.345Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:39.624Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:39.624Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:39.624Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:39.624Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:39.624Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:39.624Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:39.624Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:31.358Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:31.358Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:31.358Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:31.358Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:31.358Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:31.358Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:19:31.358Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:15:15.532Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:15:15.532Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:15:15.532Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:15:15.532Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:15:15.532Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:15:15.532Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:15:15.532Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:15:15.532Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:11:17.123Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:11:17.123Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:11:17.123Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:11:17.123Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:11:17.123Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:11:17.123Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:11:17.123Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:11:17.123Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:11:02.014Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:11:02.014Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:11:02.014Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:11:02.014Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:11:02.014Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:11:02.014Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:11:02.014Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:11:02.014Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:30.706Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:30.706Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:30.706Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:30.706Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:30.706Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:30.706Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:30.706Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:30.706Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:30.706Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:26.010Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:26.010Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:26.010Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:26.010Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:26.010Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:26.010Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:26.010Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:26.010Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:26.010Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:23.442Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:23.442Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:23.442Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:23.442Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:23.442Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:23.442Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:23.442Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:23.442Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T08:05:23.442Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:36.354Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:36.354Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:36.354Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:36.354Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:36.354Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:36.354Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:36.354Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:36.354Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:36.354Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:36.354Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:26.555Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:26.555Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:26.555Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:26.555Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:26.555Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:26.555Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:26.555Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:26.555Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:26.555Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-03T07:56:26.555Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:59:10.874Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:59:10.874Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:59:10.874Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:59:10.874Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:59:10.874Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:59:10.874Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:59:10.874Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:59:10.874Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:59:10.874Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:59:10.874Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:59:10.874Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:54:01.717Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:54:01.717Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:54:01.717Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:54:01.717Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:54:01.717Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:54:01.717Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:54:01.717Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:54:01.717Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:54:01.717Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:54:01.717Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:54:01.717Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:54:01.717Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:15.163Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:15.163Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:15.163Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:15.163Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:15.163Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:15.163Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:15.163Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:15.163Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:15.163Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:15.163Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:15.163Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:15.163Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:09.563Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:09.563Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:09.563Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:09.563Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:09.563Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:09.563Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:09.563Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:09.563Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:09.563Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:09.563Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:09.563Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:09.563Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:04.429Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:04.429Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:04.429Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:04.429Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:04.429Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:04.429Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:04.429Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:04.429Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:04.429Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:04.429Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:04.429Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:53:04.429Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:56.852Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:56.852Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:56.852Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:56.852Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:56.852Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:56.852Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:56.852Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:56.852Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:56.852Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:56.852Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:56.852Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:56.852Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:32.639Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:32.639Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:32.639Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:32.639Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:32.639Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:32.639Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:32.639Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:32.639Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:32.639Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:32.639Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:32.639Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:32.639Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:25.833Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:25.833Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:25.833Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:25.833Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:25.833Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:25.833Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:25.833Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:25.833Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:25.833Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:25.833Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:25.833Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:25.833Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:14.916Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:14.916Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:14.916Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:14.916Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:14.916Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:14.916Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:14.916Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:14.916Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:14.916Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:14.916Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:14.916Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:52:14.916Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:59.355Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:59.355Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:59.355Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:59.355Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:59.355Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:59.355Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:59.355Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:59.355Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:59.355Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:59.355Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:59.355Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:59.355Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:39.157Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:39.157Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:39.157Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:39.157Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:39.157Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:39.157Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:39.157Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:39.157Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:39.157Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:39.157Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:39.157Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:51:39.157Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-02T21:44:34.568Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:44:34.568Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:44:34.568Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:44:34.568Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:44:34.568Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:44:34.568Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:44:34.568Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:44:34.568Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:44:34.568Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:44:34.568Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:44:34.568Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:44:34.568Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:41:10.377Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:41:10.377Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:41:10.377Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:41:10.377Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:41:10.377Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:41:10.377Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:41:10.377Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:41:10.377Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:41:10.377Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:41:10.377Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:41:10.377Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:41:10.377Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:54.757Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:54.757Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:54.757Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:54.757Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:54.757Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:54.757Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:54.757Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:54.757Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:54.757Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:54.757Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:54.757Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:54.757Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:44.924Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:44.924Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:44.924Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:44.924Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:44.924Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:44.924Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:44.924Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:44.924Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:44.924Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:44.924Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:44.924Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:44.924Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:17.898Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:17.898Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:17.898Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:17.898Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:17.898Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:17.898Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:17.898Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:17.898Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:17.898Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:17.898Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:17.898Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:40:17.898Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:39:21.465Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:39:21.465Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:39:21.465Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:39:21.465Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:39:21.465Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:39:21.465Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:39:21.465Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:39:21.465Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:39:21.465Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:39:21.465Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:39:21.465Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:39:21.465Z",
+    "type": "edit",
+    "detail": "[activité]",
+    "metal": "silver"
+  },
+  {
+    "ts": "2026-06-02T21:25:18.664Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:18.664Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:18.664Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:18.664Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:18.664Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:18.664Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:18.664Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:18.664Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:18.664Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:18.664Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:18.664Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:18.664Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:06.204Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:06.204Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:06.204Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:06.204Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:06.204Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:06.204Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:06.204Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:06.204Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:06.204Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:06.204Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:06.204Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:25:06.204Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:23:36.433Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:23:10.712Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:23:02.871Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:12:06.675Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T21:12:06.675Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T20:58:25.024Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T20:58:25.024Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T18:21:05.578Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T18:21:05.578Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T18:21:05.578Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T17:47:41.309Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T17:47:41.309Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T17:47:41.309Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T17:46:45.640Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T17:46:45.640Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T17:46:45.640Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T17:46:45.640Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T17:46:40.715Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T17:46:40.715Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T17:46:40.715Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T17:46:40.715Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:56:31.440Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:56:31.440Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:56:31.440Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:56:31.440Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:56:31.440Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:56:26.569Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:56:26.569Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:56:26.569Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:56:26.569Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:56:26.569Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:49:36.857Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:49:36.857Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:49:36.857Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:49:36.857Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:49:36.857Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:49:36.857Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:49:32.530Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:49:32.530Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:49:32.530Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:49:32.530Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:49:32.530Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T14:49:32.530Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T13:14:59.958Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T13:14:59.958Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T13:12:14.682Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T13:12:14.682Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T13:09:36.497Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T13:09:36.497Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T09:26:35.227Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T09:26:35.227Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T09:26:23.649Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T09:26:23.649Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T09:26:23.649Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T09:26:00.522Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T09:26:00.522Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T09:26:00.522Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T08:09:54.069Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T08:09:54.069Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T08:09:54.069Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T08:09:54.069Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T08:06:20.622Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T08:06:20.622Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T08:06:20.622Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T08:06:20.622Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T08:04:41.659Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T08:04:41.659Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T08:04:41.659Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T08:04:41.659Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T08:04:41.659Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T08:02:56.096Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T08:02:56.096Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-02T08:02:56.096Z",
+    "type": "auth",
     "detail": "[activité]",
     "metal": null
   }
