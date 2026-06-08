@@ -907,19 +907,6 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
     <button class="btn-secondary" onclick="closeModal('auth-modal')">Annuler</button>
     <button class="btn-primary" id="auth-btn" onclick="doMasterAuth()">Déverrouiller</button>
   </div>
-  <!-- Champ token (nouvel appareil) -->
-  <div id="tok-token-group" style="display:none;margin-top:.8rem;padding-top:.8rem;border-top:1px solid var(--br)">
-    <div style="font-size:.8rem;color:var(--tm);margin-bottom:.5rem">
-      📱 Nouvel appareil — saisissez votre token GitHub une seule fois :
-    </div>
-    <input type="password" class="form-input" id="tok-token-input"
-      placeholder="ghp_…" autocomplete="off"
-      onkeydown="if(event.key==='Enter')doMasterAuth()"
-      style="font-size:.9rem">
-    <div style="font-size:.72rem;color:var(--tm);margin-top:.3rem">
-      Il sera mémorisé localement sur cet appareil.
-    </div>
-  </div>
   <!-- Accès urgence -->
   <div style="margin-top:.8rem;padding-top:.8rem;border-top:1px solid var(--br)">
     <div style="font-size:.75rem;color:var(--tm);margin-bottom:.4rem">Accès d'urgence (mot de passe oublié)</div>
@@ -1357,7 +1344,7 @@ let S={
 // ║  CONFIGURATION — À remplir une seule fois            ║
 // ╚══════════════════════════════════════════════════════╝
 const SITE_CONFIG = {
-  owner:  'trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
+  owner:  'Trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
   repo:   'Gold-silver',        // ← Nom du dépôt      (ex: 'gold-silver')
   branch: 'main',   // ← Branche (laisser 'main')
   mode:   'private', // ← 'private' ou 'public'
@@ -1572,8 +1559,8 @@ async function loadFromGH(){
     try{
       const j=JSON.parse(rawJson);
       // Récupérer credentials (toujours en clair)
-      // Récupérer pwHash depuis GitHub (non sensible, juste un hash)
-      if(j.pwHash){ S.pwHash=j.pwHash; cfg.pwHash=cfg.pwHash||j.pwHash; }
+      if(j.pwHash)  { S.pwHash=j.pwHash;   cfg.pwHash=cfg.pwHash||j.pwHash; }
+      if(j.encToken){ S.encToken=j.encToken; cfg.encToken=cfg.encToken||j.encToken; }
       // Récupérer données — plusieurs formats supportés
       if(j.items)  parsed.items  = j.items;
       if(j.history)parsed.history= j.history;
@@ -1614,10 +1601,11 @@ async function saveToGH(){
     const encGold=await Promise.all((S.items.gold||[]).map(encryptItemFields));
     const encSilver=await Promise.all((S.items.silver||[]).map(encryptItemFields));
     const payload={
-      pwHash:  cfg.pwHash||S.pwHash||null,   // hash du mdp (non sensible)
-      items:   {gold:S.items.gold||[], silver:S.items.silver||[]},
-      history: S.history,
-      alerts:  S.alerts,
+      pwHash:   S.pwHash||cfg.pwHash||null,
+      encToken: S.encToken||cfg.encToken||null,
+      items:    {gold:S.items.gold||[], silver:S.items.silver||[]},
+      history:  S.history,
+      alerts:   S.alerts,
       updatedAt:new Date().toISOString()
     };
     // Encodage UTF-8 correct pour les caractères accentués
@@ -1671,7 +1659,8 @@ function setCurrency(c){S.currency=$('currency-sel').value=c;ls.set('pm_currency
       cfg={owner:sc.owner,repo:sc.repo,branch:sc.branch||'main',
            mode:sc.mode||'private',
            token:sc.token||'',
-           pwHash:sc.pwHash||''};
+           pwHash:sc.pwHash||'',
+           encToken:sc.encToken||''};
     } else if(SITE_CONFIG.owner&&SITE_CONFIG.repo){
       // Nouveau navigateur : charger depuis SITE_CONFIG (infos publiques)
       cfg={owner:SITE_CONFIG.owner,repo:SITE_CONFIG.repo,
@@ -2028,28 +2017,40 @@ async function saveSetup(){
   if(!owner||!repo){err('Utilisateur et dépôt requis.');return;}
   if(!token){err('Le token GitHub est requis.');return;}
   if(!masterpass||masterpass.length<4){err('Mot de passe requis (4 car. min).');return;}
-  $('setup-save').disabled=true;$('setup-save').textContent='Vérification…';
+  $('setup-save').disabled=true;$('setup-save').textContent='Vérification token…';
   if(ae)ae.style.display='none';
   try{
     const h={'Accept':'application/vnd.github.v3+json','Authorization':'token '+token};
-    const r=await fetchTimeout('https://api.github.com/repos/'+owner+'/'+repo,{headers:h},7000);
+    const r=await fetchTimeout('https://api.github.com/repos/'+owner+'/'+repo,{headers:h},8000);
     if(r.status===404){err('Dépôt introuvable.');return;}
-    if(r.status===401){err('Token invalide.');return;}
-    if(!r.ok){err('GitHub API: '+r.status);return;}
+    if(r.status===401){err('Token invalide ou expiré.');return;}
+    if(!r.ok){err('GitHub: '+r.status);return;}
   }catch(e){err('Réseau: '+e.message);return;}
-  $('setup-save').textContent='Enregistrement…';
-  // SHA-256 du mot de passe pour vérification locale
+  $('setup-save').textContent='Chiffrement…';
+  // Hash du mot de passe (vérification)
   const pwHash=await sha256hex(masterpass);
-  cfg={owner,repo,branch,token,mode,pwHash};
-  ls.set('pm_cfg',{owner,repo,branch,mode,pwHash,token});
+  // Token chiffré avec le mot de passe (récupération multi-appareils)
+  const encToken=await encryptWithPassword(token,masterpass);
+  // Vérifier immédiatement que le déchiffrement fonctionne
+  const check=await decryptWithPassword(encToken,masterpass);
+  if(check!==token){err('Erreur de chiffrement interne.');return;}
+  // Sauvegarder en mémoire
+  cfg={owner,repo,branch,token,mode};
+  S.pwHash=pwHash; S.encToken=encToken;
+  cfg.pwHash=pwHash; cfg.encToken=encToken;
+  // Aussi dans localStorage pour ce navigateur
+  ls.set('pm_cfg',{owner,repo,branch,mode,token,pwHash,encToken});
+  $('setup-save').textContent='Sauvegarde GitHub…';
   await loadFromGH();
-  await saveToGH();
+  S.pwHash=pwHash; S.encToken=encToken; // réaffirmer après loadFromGH
+  const ok=await saveToGH();
+  if(!ok){err('Erreur sauvegarde GitHub. Vérifiez votre token.');return;}
   $('setup-save').disabled=false;$('setup-save').textContent='Connecter';
   $('setup-cancel').style.display='';
   S.isAdmin=true;S.isVisitor=false;
   const vb=$('visitor-bar');if(vb)vb.style.display='none';
   closeModal('setup-modal');render();
-  toast('Configuration enregistrée ✓ — mot de passe vérifié','success');
+  toast('Configuration enregistrée ✓','success');
 }
 
 // ════════════════════════════════════════════════════════════
@@ -2091,43 +2092,30 @@ function toggleAdmin(){
 
 async function doMasterAuth(){
   const ti=$('tok-input');const ae=$('auth-err');const ab=$('auth-btn');
-  const tt=$('tok-token-input'); // champ token optionnel
   const pass=ti?ti.value:'';
   const fail=msg=>{if(ae){ae.textContent=msg;ae.style.display='block';}
     if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}};
   if(!pass){fail('Entrez votre mot de passe.');return;}
   if(ab){ab.disabled=true;ab.textContent='Vérification…';}
-  const stored=ls.get('pm_cfg');
-  const storedHash=stored?.pwHash||cfg.pwHash||S.pwHash||'';
-  if(!storedHash){fail('Aucune configuration — utilisez ⚙️');return;}
+  const storedHash=S.pwHash||cfg.pwHash||ls.get('pm_cfg')?.pwHash||'';
+  const storedEnc=S.encToken||cfg.encToken||ls.get('pm_cfg')?.encToken||'';
+  if(!storedHash||!storedEnc){
+    fail('Aucune configuration — utilisez ⚙️ pour configurer.');return;
+  }
   try{
+    // Étape 1 : vérifier le mot de passe
     const inputHash=await sha256hex(pass);
     if(inputHash!==storedHash){fail('Mot de passe incorrect.');return;}
-    // Récupérer le token (localStorage ou champ saisi)
-    let token=stored?.token||'';
-    if(!token&&tt&&tt.value.trim()) token=tt.value.trim();
-    if(!token){
-      // Afficher le champ token
-      const tg=$('tok-token-group');
-      if(tg){tg.style.display='block';if(tt)tt.focus();}
-      fail('Mot de passe correct ✓ — saisissez aussi votre token GitHub pour ce nouvel appareil :');
-      if(ae)ae.style.color='var(--a)';
-      if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}
-      return;
-    }
-    // Vérifier le token sur GitHub
-    if(ab)ab.textContent='Vérif. token…';
-    const r=await fetchTimeout('https://api.github.com/repos/'+cfg.owner+'/'+cfg.repo,
-      {headers:{Authorization:'token '+token,'Accept':'application/vnd.github.v3+json'}},7000);
-    if(!r.ok){fail('Token invalide ('+r.status+'). Vérifiez votre token GitHub.');return;}
+    // Étape 2 : déchiffrer le token
+    if(ab)ab.textContent='Déchiffrement…';
+    const token=await decryptWithPassword(storedEnc,pass);
+    if(!token||token.length<10){fail('Erreur de déchiffrement.');return;}
     cfg.token=token;
     // Mémoriser localement
-    const newCfg={...(stored||{}),owner:cfg.owner,repo:cfg.repo,
-      branch:cfg.branch,mode:cfg.mode,pwHash:storedHash,token};
-    ls.set('pm_cfg',newCfg);
+    const sc=ls.get('pm_cfg')||{};
+    ls.set('pm_cfg',{...sc,token,pwHash:storedHash,encToken:storedEnc});
     if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}
     unlockAdmin();
-    if(tt&&tt.value) toast('Token mémorisé sur cet appareil ✓','success');
   }catch(e){fail('Erreur: '+e.message);}
 }
 
