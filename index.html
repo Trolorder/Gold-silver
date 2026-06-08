@@ -335,6 +335,8 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
   .gr-lbl{font-size:.55rem}
 }
 /* ── MODE VISITEUR ─────────────────────────────── */
+.priv-lock-overlay{position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;background:var(--bg);z-index:10;min-height:200px}
 .priv-lock{display:flex;flex-direction:column;align-items:center;justify-content:center;
   min-height:320px;text-align:center;padding:3rem 2rem}
 .priv-lock-icon{font-size:2.8rem;margin-bottom:1rem;opacity:.35;filter:grayscale(1)}
@@ -739,7 +741,7 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   </div>
 
   <!-- CHARTS -->
-  <div class="page" id="page-charts" style="flex:1;min-width:0">
+  <div class="page" id="page-charts" style="flex:1;min-width:0;position:relative">
     <div class="charts-page">
       <h2 class="section-title">Analyse <em>graphique</em></h2>
       <div class="kpi-grid" id="kpi-grid"></div>
@@ -769,7 +771,7 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   </div>
 
   <!-- FISCAL -->
-  <div class="page" id="page-fiscal" style="flex:1;min-width:0">
+  <div class="page" id="page-fiscal" style="flex:1;min-width:0;position:relative">
     <div class="fiscal-page">
       <h2 class="section-title">Simulateur <em>fiscal</em></h2>
       <div id="versioning-bar" style="display:none;margin-bottom:1rem;padding:.6rem .8rem;
@@ -826,10 +828,10 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   </div>
 
   <!-- JOURNAL -->
-  <div class="page" id="page-journal" style="flex:1;min-width:0">
+  <div class="page" id="page-journal" style="flex:1;min-width:0;position:relative">
     <div class="fiscal-page">
       <h2 class="section-title">Journal <em>d'activité</em></h2>
-      <div class="export-row" id="journal-export-row">
+      <div class="export-row" id="journal-export-row" style="display:none">
         <button class="export-btn" onclick="clearJournal()">🗑 Effacer le journal</button>
         <button class="export-btn" onclick="exportJournalCSV()">⬇ Exporter CSV</button>
       </div>
@@ -838,7 +840,7 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   </div>
 
   <!-- ALERTS -->
-  <div class="page" id="page-alerts" style="flex:1;min-width:0">
+  <div class="page" id="page-alerts" style="flex:1;min-width:0;position:relative">
     <div class="alerts-page">
       <h2 class="section-title">Alertes <em>de cours</em></h2>
       <div class="info-box" id="notif-info">
@@ -1344,7 +1346,7 @@ let S={
 // ║  CONFIGURATION — À remplir une seule fois            ║
 // ╚══════════════════════════════════════════════════════╝
 const SITE_CONFIG = {
-  owner:  'Trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
+  owner:  'trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
   repo:   'Gold-silver',        // ← Nom du dépôt      (ex: 'gold-silver')
   branch: 'main',   // ← Branche (laisser 'main')
   mode:   'private', // ← 'private' ou 'public'
@@ -1353,15 +1355,31 @@ const SITE_CONFIG = {
 
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2);
 
-function privLock(containerId){
-  const el=$(containerId);
-  if(!el) return;
-  el.innerHTML=`<div class="priv-lock">
+function privLock(pageId){
+  const page=$(pageId); if(!page) return;
+  // Ne pas détruire le HTML — ajouter un overlay par-dessus
+  if(page.querySelector('.priv-lock-overlay')) return; // déjà là
+  // Cacher le contenu existant
+  Array.from(page.children).forEach(el=>{ el.dataset.privHidden='1'; el.style.display='none'; });
+  const ov=document.createElement('div');
+  ov.className='priv-lock-overlay';
+  ov.innerHTML=`<div class="priv-lock">
     <div class="priv-lock-icon">🔒</div>
     <h3>Contenu privé</h3>
     <p>Authentifiez-vous pour accéder à cette section.</p>
     <button onclick="toggleAdmin()">🔒 Se connecter</button>
   </div>`;
+  page.appendChild(ov);
+}
+function privUnlock(pageId){
+  const page=$(pageId); if(!page) return;
+  // Supprimer l'overlay
+  const ov=page.querySelector('.priv-lock-overlay');
+  if(ov) ov.remove();
+  // Réafficher le contenu
+  Array.from(page.children).forEach(el=>{
+    if(el.dataset.privHidden){ el.style.display=''; delete el.dataset.privHidden; }
+  });
 }
 function isPrivate(){ return S.isVisitor && cfg.mode==='private'; }
 
@@ -1846,9 +1864,12 @@ async function getClientIP(){
 
 async function buildJournal(){
   if(!S.isAdmin){
-    privLock('journal-content');
+    privLock('page-journal');
+    const er=$('journal-export-row');if(er)er.style.display='none';
     return;
   }
+  privUnlock('page-journal');
+  const er=$('journal-export-row');if(er)er.style.display='flex';
   const log=ls.get('pm_journal')||[];
   const el=$('journal-content'); if(!el)return;
   if(!log.length){
@@ -1890,6 +1911,7 @@ async function buildJournal(){
 }
 
 async function clearJournal(){
+  if(!S.isAdmin){toast('Connexion requise','error');return;}
   if(!confirm('Effacer tout le journal ?')) return;
   ls.set('pm_journal',[]);
   buildJournal();
@@ -1924,6 +1946,7 @@ async function clearJournal(){
 }
 
 function exportJournalCSV(){
+  if(!S.isAdmin){toast('Connexion requise','error');return;}
   const log=ls.get('pm_journal')||[];
   if(!log.length){toast('Journal vide','info');return;}
   const rows=[['Date','Heure','Type','Détail','Métal']];
@@ -2548,6 +2571,7 @@ function buildCharts(){
     privLock('page-charts');
     return;
   }
+  privUnlock('page-charts');
   buildKPIs();buildHistoryChart().catch(()=>{});buildSplitChart();buildTypesChart();buildTopChart();buildRatioChart();
 }
 
@@ -3526,10 +3550,10 @@ function exportPDF(){
 // ════════════════════════════════════════════════════════════
 function buildAlerts(){
   if(isPrivate()){
-    const al=$('alert-list');
-    if(al) al.innerHTML='<div style="font-size:.85rem;color:var(--tm);padding:.5rem">🔒 Connectez-vous pour voir les alertes.</div>';
+    privLock('page-alerts');
     return;
   }
+  privUnlock('page-alerts');
   const list=$('alert-list');
   if(!S.alerts.length){list.innerHTML='<div style="font-size:.82rem;color:var(--tm);padding:.5rem">Aucune alerte configurée.</div>';return;}
   list.innerHTML=S.alerts.map((a,i)=>{
