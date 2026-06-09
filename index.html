@@ -343,9 +343,53 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
 .priv-lock button{padding:.6rem 1.5rem;background:linear-gradient(135deg,var(--d),var(--a));
   border:none;border-radius:4px;color:#000;font-weight:700;cursor:pointer;
   font-family:'Inter',system-ui,sans-serif;font-size:.9rem}
-/* Overlay privé géré en JS */
-.priv-overlay{position:absolute;inset:0;background:var(--bg);z-index:5;
-  display:flex;align-items:center;justify-content:center;min-height:50vh}
+/* ── PAGE DE CONNEXION ──────────────────────────────── */
+.priv-overlay{
+  position:absolute;inset:0;z-index:5;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(ellipse at 50% 30%,rgba(201,168,76,.06) 0%,var(--bg) 70%);
+  min-height:60vh;padding:2rem
+}
+.login-card{
+  width:100%;max-width:400px;
+  background:rgba(14,14,16,.95);
+  border:1px solid rgba(201,168,76,.2);
+  border-radius:12px;
+  padding:2.5rem 2rem;
+  box-shadow:0 24px 80px rgba(0,0,0,.6),0 0 0 1px rgba(201,168,76,.08);
+  display:flex;flex-direction:column;align-items:center;
+  animation:fadeUp .35s ease
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.login-diamond{font-size:2.2rem;color:var(--a);margin-bottom:1rem;
+  text-shadow:0 0 30px rgba(201,168,76,.4)}
+.login-title{font-family:'Playfair Display',serif;font-size:1.5rem;
+  color:var(--tx);margin-bottom:.3rem;text-align:center}
+.login-sub{font-size:.82rem;color:var(--tm);margin-bottom:1.8rem;text-align:center;line-height:1.5}
+.login-input-wrap{position:relative;width:100%;margin-bottom:1rem}
+.login-input{width:100%;padding:.75rem 2.8rem .75rem 1rem;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(201,168,76,.2);border-radius:6px;
+  color:var(--tx);font-size:1rem;font-family:'Inter',system-ui,sans-serif;
+  outline:none;transition:border-color .2s;box-sizing:border-box}
+.login-input:focus{border-color:rgba(201,168,76,.55)}
+.login-eye{position:absolute;right:.75rem;top:50%;transform:translateY(-50%);
+  background:none;border:none;cursor:pointer;color:var(--tm);font-size:1rem;padding:0}
+.login-btn{width:100%;padding:.8rem;
+  background:linear-gradient(135deg,#7A5C10,#C9A84C);
+  border:none;border-radius:6px;color:#000;
+  font-weight:700;font-size:.95rem;cursor:pointer;
+  font-family:'Inter',system-ui,sans-serif;letter-spacing:.04em;
+  transition:opacity .2s;margin-bottom:.9rem}
+.login-btn:hover{opacity:.88}
+.login-btn:disabled{opacity:.45;cursor:not-allowed}
+.login-err{width:100%;padding:.55rem .8rem;
+  background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);
+  border-radius:5px;color:#fca5a5;font-size:.82rem;
+  margin-bottom:.8rem;display:none;text-align:center}
+.login-hint{font-size:.72rem;color:rgba(201,168,76,.45);text-align:center;
+  line-height:1.6;margin-top:.3rem}
+@media(max-width:720px){.login-card{padding:2rem 1.25rem}}
 /* Stats bar en mode privé */
 body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
 /* JOURNAL */
@@ -1363,7 +1407,7 @@ let S={
 // ║  CONFIGURATION — À remplir une seule fois            ║
 // ╚══════════════════════════════════════════════════════╝
 const SITE_CONFIG = {
-  owner:  'Trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
+  owner:  'trolorder',        // ← Votre pseudo GitHub (ex: 'trolorder')
   repo:   'Gold-silver',        // ← Nom du dépôt      (ex: 'gold-silver')
   branch: 'main',   // ← Branche (laisser 'main')
   mode:   'private', // ← 'private' ou 'public'
@@ -1376,25 +1420,66 @@ function isPrivate(){ return S.isVisitor && cfg.mode==='private'; }
 
 function privLock(pageId){
   const page=$(pageId); if(!page) return;
-  // Créer l'overlay une seule fois
-  if(page.querySelector('.priv-overlay')) return;
+  if(page.querySelector('.priv-overlay')) return; // déjà affiché
+  page.style.position='relative';
   const ov=document.createElement('div');
   ov.className='priv-overlay';
-  ov.innerHTML=`<div class="priv-lock">
-    <div class="priv-lock-icon">🔒</div>
-    <h3>Contenu privé</h3>
-    <p>Authentifiez-vous pour accéder à cette section.</p>
-    <button onclick="toggleAdmin()">🔒 Se connecter</button>
-  </div>`;
-  // position:relative sur le parent pour que l'overlay couvre tout
-  page.style.position='relative';
+  ov.innerHTML=`
+    <div class="login-card">
+      <div class="login-diamond">◆</div>
+      <div class="login-title">Accès privé</div>
+      <div class="login-sub">Entrez votre mot de passe maître<br>pour accéder à cette section.</div>
+      <div class="login-err" id="inline-err-${pageId}"></div>
+      <div class="login-input-wrap">
+        <input class="login-input" type="password" id="inline-pass-${pageId}"
+          placeholder="Mot de passe maître"
+          autocomplete="off" autocorrect="off" spellcheck="false"
+          onkeydown="if(event.key==='Enter')inlineAuth('${pageId}')">
+        <button class="login-eye" type="button"
+          onclick="const i=document.getElementById('inline-pass-${pageId}');const s=i.type==='password';i.type=s?'text':'password';this.textContent=s?'🙈':'👁'">👁</button>
+      </div>
+      <button class="login-btn" id="inline-btn-${pageId}"
+        onclick="inlineAuth('${pageId}')">Déverrouiller</button>
+      <div class="login-hint">
+        🔑 Mot de passe maître — fonctionne depuis n'importe quel appareil.<br>
+        <span style="opacity:.7">Votre token est chiffré dans votre dépôt GitHub.</span>
+      </div>
+    </div>`;
   page.appendChild(ov);
+  setTimeout(()=>document.getElementById('inline-pass-'+pageId)?.focus(),100);
 }
 
 function privUnlock(pageId){
   const page=$(pageId); if(!page) return;
   const ov=page.querySelector('.priv-overlay');
   if(ov) ov.remove();
+}
+
+async function inlineAuth(pageId){
+  const passEl=document.getElementById('inline-pass-'+pageId);
+  const errEl=document.getElementById('inline-err-'+pageId);
+  const btnEl=document.getElementById('inline-btn-'+pageId);
+  const pass=passEl?passEl.value:'';
+  const fail=msg=>{if(errEl){errEl.textContent=msg;errEl.style.display='block';}
+    if(btnEl){btnEl.disabled=false;btnEl.textContent='Déverrouiller';}};
+  if(!pass){fail('Entrez votre mot de passe.');return;}
+  if(btnEl){btnEl.disabled=true;btnEl.textContent='Vérification…';}
+  const storedHash=S.pwHash||cfg.pwHash||ls.get('pm_cfg')?.pwHash||'';
+  const storedEnc=S.encToken||cfg.encToken||ls.get('pm_cfg')?.encToken||'';
+  if(!storedHash||!storedEnc){
+    fail('Aucune configuration — utilisez ⚙️');return;
+  }
+  try{
+    const inputHash=await sha256hex(pass);
+    if(inputHash!==storedHash){fail('Mot de passe incorrect.');return;}
+    if(btnEl)btnEl.textContent='Déchiffrement…';
+    const token=await decryptWithPassword(storedEnc,pass);
+    if(!token||token.length<10){fail('Erreur de déchiffrement — reconfigurez via ⚙️');return;}
+    cfg.token=token;
+    const sc=ls.get('pm_cfg')||{};
+    ls.set('pm_cfg',{...sc,token,pwHash:storedHash,encToken:storedEnc});
+    unlockAdmin();
+  }catch(e){fail('Erreur: '+e.message);}
 }
 
 // ── Clé de session (dérivée du mot de passe, jamais stockée) ──
@@ -2128,32 +2213,22 @@ function toggleAdmin(){
 }
 
 async function doMasterAuth(){
-  const ti=$('tok-input');const ae=$('auth-err');const ab=$('auth-btn');
-  const pass=ti?ti.value:'';
+  const passEl=$('tok-input');const ae=$('auth-err');const ab=$('auth-btn');
+  const pass=passEl?passEl.value:'';
   const fail=msg=>{if(ae){ae.textContent=msg;ae.style.display='block';}
     if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}};
   if(!pass){fail('Entrez votre mot de passe.');return;}
   if(ab){ab.disabled=true;ab.textContent='Vérification…';}
   const storedHash=S.pwHash||cfg.pwHash||ls.get('pm_cfg')?.pwHash||'';
   const storedEnc=S.encToken||cfg.encToken||ls.get('pm_cfg')?.encToken||'';
-  if(!storedHash||!storedEnc){
-    fail('Aucune configuration — utilisez ⚙️ pour configurer.');return;
-  }
+  if(!storedHash||!storedEnc){fail('Aucune configuration — utilisez ⚙️');return;}
   try{
-    // Debug console
-    console.log('=== AUTH DEBUG ===');
-    console.log('pass length:', pass.length, '| first char code:', pass.charCodeAt(0));
-    console.log('storedHash (6 premiers):', storedHash.slice(0,6));
     const inputHash=await sha256hex(pass);
-    console.log('inputHash  (6 premiers):', inputHash.slice(0,6));
-    console.log('Match:', inputHash===storedHash);
     if(inputHash!==storedHash){fail('Mot de passe incorrect.');return;}
-    // Étape 2 : déchiffrer le token
     if(ab)ab.textContent='Déchiffrement…';
     const token=await decryptWithPassword(storedEnc,pass);
-    if(!token||token.length<10){fail('Erreur de déchiffrement.');return;}
+    if(!token||token.length<10){fail('Erreur de déchiffrement — reconfigurez via ⚙️');return;}
     cfg.token=token;
-    // Mémoriser localement
     const sc=ls.get('pm_cfg')||{};
     ls.set('pm_cfg',{...sc,token,pwHash:storedHash,encToken:storedEnc});
     if(ab){ab.disabled=false;ab.textContent='Déverrouiller';}
