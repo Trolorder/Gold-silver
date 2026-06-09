@@ -11,9 +11,9 @@
         "name": "Lingot Metalor 1 Oz troy (31,10 g)",
         "qty": 1,
         "date": "2026-06-09",
-        "desc": "Metalor Technologies, Neuchâtel — LBMA certifié",
-        "serial": "465468",
-        "buy": 1800,
+        "desc": "__enc__xIcsfPG446zthUysZ2jNYE3wcRPDSjy8kTw72jTKzLijY18twmHMa53wQkFhnvVR2VvX+zZo2LwHZdLraWHl9ErdnXxkuzKIwzyKZjIPcNw=",
+        "serial": "__enc__sppZG3eArLaAO0kBwWDtSEAetEIfAp4/EIjHZWLPOeuClA==",
+        "buy": "__enc__2L1mQTyJOEIU64oBsWOtqGajYe1fqTq97cEtRbL9cWI=",
         "grams": 31.1035,
         "fg": 31.1035,
         "wt": "1oz",
@@ -22,7 +22,8 @@
         "maker": "Metalor",
         "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mq6wjvmnxcpgjkkr1v-pile.jpg",
         "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mq6wjy958c5rgtib7m2-face.jpg",
-        "addedAt": "2026-06-09T17:17:09.172Z"
+        "addedAt": "2026-06-09T17:17:09.172Z",
+        "editedAt": "2026-06-09T17:18:07.756Z"
       }
     ],
     "silver": [
@@ -34,9 +35,9 @@
         "name": "1 Kg Kookaburra Ag",
         "qty": 1,
         "date": "2026-06-09",
-        "desc": "Perth Mint, 999/1000 — 1 kg",
-        "serial": "44598",
-        "buy": 1078,
+        "desc": "__enc__yq44Hxwxw+cF26bCixFRbnJwC3X77zJAcq2gnk97xZfPvV/AfrYPkczzpWej5GdbJC50Cpdpt7iN",
+        "serial": "__enc__EAxb0QE+jGaYD2pBzez96fdkU7UTrmgCEvxWQB4hdXNR",
+        "buy": "__enc__j85/4efcWIzqREzuMq051vzmY+TW5RFEugB5FKNEk0k=",
         "grams": 1000,
         "fg": 1000,
         "wt": "",
@@ -56,5 +57,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-09T17:17:09.173Z"
+  "updatedAt": "2026-06-09T17:18:07.760Z"
 }
