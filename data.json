@@ -1,0 +1,17 @@
+{
+  "authHash": "93frWnj+Bh2m5DRj/8d95Hy7Ik0x3M9zRvISdWdGflc=",
+  "authSalt": null,
+  "encToken": "OsG0LTzV2BsllRSA4AsPrYgLJd2Bd6NwHjtP9EvHQeDg6Sm1x7x6ymxs7zAlpaZXtGm1OP1Pp9dKB/rpnsCfiOEckup+n8AKw7BmqaUcvZ06kIX+",
+  "items": {
+    "gold": [],
+    "silver": []
+  },
+  "history": [
+    {
+      "date": "2026-06-09",
+      "val": 0
+    }
+  ],
+  "alerts": [],
+  "updatedAt": "2026-06-09T15:13:11.874Z"
+}
