@@ -335,8 +335,6 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
   .gr-lbl{font-size:.55rem}
 }
 /* ── MODE VISITEUR ─────────────────────────────── */
-.priv-lock-overlay{position:absolute;inset:0;display:flex;align-items:center;
-  justify-content:center;background:var(--bg);z-index:10;min-height:200px}
 .priv-lock{display:flex;flex-direction:column;align-items:center;justify-content:center;
   min-height:320px;text-align:center;padding:3rem 2rem}
 .priv-lock-icon{font-size:2.8rem;margin-bottom:1rem;opacity:.35;filter:grayscale(1)}
@@ -345,6 +343,18 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
 .priv-lock button{padding:.6rem 1.5rem;background:linear-gradient(135deg,var(--d),var(--a));
   border:none;border-radius:4px;color:#000;font-weight:700;cursor:pointer;
   font-family:'Inter',system-ui,sans-serif;font-size:.9rem}
+/* Masquage CSS des pages privées — aucun JS sur le DOM */
+body.page-priv-charts  #page-charts  > *:not(#charts-lock-msg)  { display:none!important }
+body.page-priv-fiscal  #page-fiscal  > *:not(#fiscal-lock-msg)  { display:none!important }
+body.page-priv-alerts  #page-alerts  > *:not(#alerts-lock-msg)  { display:none!important }
+body.page-priv-journal #page-journal > *:not(#journal-lock-msg) { display:none!important }
+#charts-lock-msg,#fiscal-lock-msg,#alerts-lock-msg,#journal-lock-msg{ display:none }
+body.page-priv-charts  #charts-lock-msg,
+body.page-priv-fiscal  #fiscal-lock-msg,
+body.page-priv-alerts  #alerts-lock-msg,
+body.page-priv-journal #journal-lock-msg{ display:flex!important;
+  flex-direction:column;align-items:center;justify-content:center;
+  min-height:50vh;text-align:center;padding:3rem 2rem }
 /* Stats bar en mode privé */
 body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
 /* JOURNAL */
@@ -741,7 +751,13 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   </div>
 
   <!-- CHARTS -->
-  <div class="page" id="page-charts" style="flex:1;min-width:0;position:relative">
+  <div class="page" id="page-charts" style="flex:1;min-width:0">
+  <div id="charts-lock-msg"><div class="priv-lock">
+    <div class="priv-lock-icon">🔒</div>
+    <h3>Contenu privé</h3>
+    <p>Authentifiez-vous pour accéder à cette section.</p>
+    <button onclick="toggleAdmin()">🔒 Se connecter</button>
+  </div></div>
     <div class="charts-page">
       <h2 class="section-title">Analyse <em>graphique</em></h2>
       <div class="kpi-grid" id="kpi-grid"></div>
@@ -771,7 +787,13 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   </div>
 
   <!-- FISCAL -->
-  <div class="page" id="page-fiscal" style="flex:1;min-width:0;position:relative">
+  <div class="page" id="page-fiscal" style="flex:1;min-width:0">
+  <div id="fiscal-lock-msg"><div class="priv-lock">
+    <div class="priv-lock-icon">🔒</div>
+    <h3>Contenu privé</h3>
+    <p>Authentifiez-vous pour accéder à cette section.</p>
+    <button onclick="toggleAdmin()">🔒 Se connecter</button>
+  </div></div>
     <div class="fiscal-page">
       <h2 class="section-title">Simulateur <em>fiscal</em></h2>
       <div id="versioning-bar" style="display:none;margin-bottom:1rem;padding:.6rem .8rem;
@@ -828,7 +850,13 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   </div>
 
   <!-- JOURNAL -->
-  <div class="page" id="page-journal" style="flex:1;min-width:0;position:relative">
+  <div class="page" id="page-journal" style="flex:1;min-width:0">
+  <div id="journal-lock-msg"><div class="priv-lock">
+    <div class="priv-lock-icon">🔒</div>
+    <h3>Contenu privé</h3>
+    <p>Authentifiez-vous pour accéder à cette section.</p>
+    <button onclick="toggleAdmin()">🔒 Se connecter</button>
+  </div></div>
     <div class="fiscal-page">
       <h2 class="section-title">Journal <em>d'activité</em></h2>
       <div class="export-row" id="journal-export-row" style="display:none">
@@ -840,7 +868,13 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   </div>
 
   <!-- ALERTS -->
-  <div class="page" id="page-alerts" style="flex:1;min-width:0;position:relative">
+  <div class="page" id="page-alerts" style="flex:1;min-width:0">
+  <div id="alerts-lock-msg"><div class="priv-lock">
+    <div class="priv-lock-icon">🔒</div>
+    <h3>Contenu privé</h3>
+    <p>Authentifiez-vous pour accéder à cette section.</p>
+    <button onclick="toggleAdmin()">🔒 Se connecter</button>
+  </div></div>
     <div class="alerts-page">
       <h2 class="section-title">Alertes <em>de cours</em></h2>
       <div class="info-box" id="notif-info">
@@ -1355,33 +1389,14 @@ const SITE_CONFIG = {
 
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2);
 
+function isPrivate(){ return S.isVisitor && cfg.mode==='private'; }
+// privLock/privUnlock : classe CSS uniquement, aucune modif du DOM
 function privLock(pageId){
-  const page=$(pageId); if(!page) return;
-  // Ne pas détruire le HTML — ajouter un overlay par-dessus
-  if(page.querySelector('.priv-lock-overlay')) return; // déjà là
-  // Cacher le contenu existant
-  Array.from(page.children).forEach(el=>{ el.dataset.privHidden='1'; el.style.display='none'; });
-  const ov=document.createElement('div');
-  ov.className='priv-lock-overlay';
-  ov.innerHTML=`<div class="priv-lock">
-    <div class="priv-lock-icon">🔒</div>
-    <h3>Contenu privé</h3>
-    <p>Authentifiez-vous pour accéder à cette section.</p>
-    <button onclick="toggleAdmin()">🔒 Se connecter</button>
-  </div>`;
-  page.appendChild(ov);
+  document.body.classList.add('page-priv-'+pageId.replace('page-',''));
 }
 function privUnlock(pageId){
-  const page=$(pageId); if(!page) return;
-  // Supprimer l'overlay
-  const ov=page.querySelector('.priv-lock-overlay');
-  if(ov) ov.remove();
-  // Réafficher le contenu
-  Array.from(page.children).forEach(el=>{
-    if(el.dataset.privHidden){ el.style.display=''; delete el.dataset.privHidden; }
-  });
+  document.body.classList.remove('page-priv-'+pageId.replace('page-',''));
 }
-function isPrivate(){ return S.isVisitor && cfg.mode==='private'; }
 
 // ── Clé de session (dérivée du mot de passe, jamais stockée) ──
 let _sessionKey = null; // CryptoKey AES-GCM
@@ -1868,7 +1883,7 @@ async function buildJournal(){
     const er=$('journal-export-row');if(er)er.style.display='none';
     return;
   }
-  privUnlock('page-journal');
+  privUnlock('page-journal'); // retire la classe CSS
   const er=$('journal-export-row');if(er)er.style.display='flex';
   const log=ls.get('pm_journal')||[];
   const el=$('journal-content'); if(!el)return;
@@ -2571,7 +2586,7 @@ function buildCharts(){
     privLock('page-charts');
     return;
   }
-  privUnlock('page-charts');
+  privUnlock('page-charts'); // retire la classe CSS
   buildKPIs();buildHistoryChart().catch(()=>{});buildSplitChart();buildTypesChart();buildTopChart();buildRatioChart();
 }
 
@@ -3553,7 +3568,7 @@ function buildAlerts(){
     privLock('page-alerts');
     return;
   }
-  privUnlock('page-alerts');
+  privUnlock('page-alerts'); // retire la classe CSS
   const list=$('alert-list');
   if(!S.alerts.length){list.innerHTML='<div style="font-size:.82rem;color:var(--tm);padding:.5rem">Aucune alerte configurée.</div>';return;}
   list.innerHTML=S.alerts.map((a,i)=>{
