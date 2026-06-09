@@ -1,5 +1,23 @@
 [
   {
+    "ts": "2026-06-09T05:37:36.062Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-09T05:37:32.003Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-09T05:37:24.282Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
     "ts": "2026-06-09T03:56:21.042Z",
     "type": "auth",
     "detail": "[activité]",
