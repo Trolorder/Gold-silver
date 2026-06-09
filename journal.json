@@ -1,5 +1,17 @@
 [
   {
+    "ts": "2026-06-09T09:52:13.858Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-09T09:52:05.040Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
     "ts": "2026-06-09T08:29:49.815Z",
     "type": "auth",
     "detail": "[activité]",
@@ -30,26 +42,8 @@
     "metal": null
   },
   {
-    "ts": "2026-06-09T08:27:58.061Z",
-    "type": "auth",
-    "detail": "[activité]",
-    "metal": null
-  },
-  {
     "ts": "2026-06-09T08:27:23.814Z",
     "type": "visit",
-    "detail": "[activité]",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-09T08:27:23.814Z",
-    "type": "visit",
-    "detail": "[activité]",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-09T08:26:48.533Z",
-    "type": "auth",
     "detail": "[activité]",
     "metal": null
   },
@@ -66,25 +60,7 @@
     "metal": null
   },
   {
-    "ts": "2026-06-09T08:25:52.406Z",
-    "type": "visit",
-    "detail": "[activité]",
-    "metal": null
-  },
-  {
     "ts": "2026-06-09T08:25:36.717Z",
-    "type": "visit",
-    "detail": "[activité]",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-09T08:25:36.717Z",
-    "type": "visit",
-    "detail": "[activité]",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-09T08:22:31.562Z",
     "type": "visit",
     "detail": "[activité]",
     "metal": null
@@ -102,7 +78,25 @@
     "metal": null
   },
   {
+    "ts": "2026-06-09T05:37:36.062Z",
+    "type": "auth",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
     "ts": "2026-06-09T05:37:32.003Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-09T05:37:32.003Z",
+    "type": "visit",
+    "detail": "[activité]",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-09T05:37:24.282Z",
     "type": "visit",
     "detail": "[activité]",
     "metal": null
@@ -139,12 +133,6 @@
   },
   {
     "ts": "2026-06-09T02:48:31.705Z",
-    "type": "visit",
-    "detail": "[activité]",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-08T18:58:19.769Z",
     "type": "visit",
     "detail": "[activité]",
     "metal": null
