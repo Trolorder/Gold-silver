@@ -3,7 +3,29 @@
   "encToken": "kl3srOxPqOZEuaWzWJDK6DH2ekOSTwzYvwii9dH6L1Dy7KpdDY75kqFQ/Nu0doASHIlw9GGRBKoG8iHcBdUi/ndkESUuSIZZoUhBKmqAXEOQkUE5",
   "items": {
     "gold": [],
-    "silver": []
+    "silver": [
+      {
+        "id": "mq6wji4i43nhbhvjvhk",
+        "type": "piece",
+        "catId": "s-p-045",
+        "metal": "silver",
+        "name": "1 Kg Kookaburra Ag",
+        "qty": 1,
+        "date": "2026-06-09",
+        "desc": "Perth Mint, 999/1000 — 1 kg",
+        "serial": "44598",
+        "buy": 1078,
+        "grams": 1000,
+        "fg": 1000,
+        "wt": "",
+        "fineness": 999,
+        "country": "Australie",
+        "maker": "",
+        "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mq6wj4lrk8vvx7qihz8-pile.jpg",
+        "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mq6wj97c3x5he4m24cs-face.jpg",
+        "addedAt": "2026-06-09T17:16:45.570Z"
+      }
+    ]
   },
   "history": [
     {
@@ -12,5 +34,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-09T17:15:41.940Z"
+  "updatedAt": "2026-06-09T17:16:45.571Z"
 }
