@@ -313,15 +313,51 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
 .lightbox.open{display:flex}
 .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px}
 .swipe-hint{display:none}
+.global-recap-bar{display:flex;align-items:center;gap:0;
+  background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(255,215,0,.03));
+  border-bottom:1px solid rgba(201,168,76,.18);padding:.55rem 2rem;overflow-x:auto}
+.global-recap-bar::-webkit-scrollbar{display:none}
+.gr-item{display:flex;flex-direction:column;padding:.1rem 1.1rem;flex-shrink:0}
+.gr-lbl{font-size:.6rem;text-transform:uppercase;letter-spacing:.13em;color:rgba(201,168,76,.55);margin-bottom:.15rem}
+.gr-val{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--tx);white-space:nowrap}
+.gr-sub{font-size:.7rem;color:var(--tm);margin-top:.1rem;white-space:nowrap}
+.gr-sep{width:1px;background:rgba(201,168,76,.15);align-self:stretch;flex-shrink:0;margin:0 .3rem}
 /* ── MODE VISITEUR ─────────────────────────────── */
-.priv-lock{display:flex;flex-direction:column;align-items:center;justify-content:center;
-  min-height:320px;text-align:center;padding:3rem 2rem}
-.priv-lock-icon{font-size:2.8rem;margin-bottom:1rem;opacity:.35;filter:grayscale(1)}
-.priv-lock h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--td);margin-bottom:.5rem}
-.priv-lock p{font-size:.85rem;color:var(--tm);margin-bottom:1.2rem}
-.priv-lock button{padding:.6rem 1.5rem;background:linear-gradient(135deg,var(--d),var(--a));
-  border:none;border-radius:4px;color:#000;font-weight:700;cursor:pointer;
-  font-family:'Inter',system-ui,sans-serif;font-size:.9rem}
+.priv-overlay{position:absolute;inset:0;z-index:5;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(ellipse at 50% 30%,rgba(201,168,76,.06) 0%,var(--bg) 70%);
+  min-height:60vh;padding:2rem}
+.login-card{width:100%;max-width:400px;
+  background:rgba(14,14,16,.95);border:1px solid rgba(201,168,76,.2);
+  border-radius:12px;padding:2.5rem 2rem;
+  box-shadow:0 24px 80px rgba(0,0,0,.6),0 0 0 1px rgba(201,168,76,.08);
+  display:flex;flex-direction:column;align-items:center;
+  animation:fadeUp .35s ease}
+body.light .login-card{background:rgba(245,242,237,.97)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.login-diamond{font-size:2.2rem;color:var(--a);margin-bottom:1rem;text-shadow:0 0 30px rgba(201,168,76,.4)}
+.login-title{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--tx);margin-bottom:.3rem;text-align:center}
+.login-sub{font-size:.82rem;color:var(--tm);margin-bottom:1.8rem;text-align:center;line-height:1.5}
+.login-input-wrap{position:relative;width:100%;margin-bottom:1rem}
+.login-input{width:100%;padding:.75rem 2.8rem .75rem 1rem;
+  background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.2);border-radius:6px;
+  color:var(--tx);font-size:1rem;font-family:'Inter',system-ui,sans-serif;
+  outline:none;transition:border-color .2s;box-sizing:border-box}
+.login-input:focus{border-color:rgba(201,168,76,.55)}
+.login-eye{position:absolute;right:.75rem;top:50%;transform:translateY(-50%);
+  background:none;border:none;cursor:pointer;color:var(--tm);font-size:1rem;padding:0}
+.login-btn{width:100%;padding:.8rem;
+  background:linear-gradient(135deg,#7A5C10,#C9A84C);
+  border:none;border-radius:6px;color:#000;font-weight:700;font-size:.95rem;
+  cursor:pointer;font-family:'Inter',system-ui,sans-serif;letter-spacing:.04em;
+  transition:opacity .2s;margin-bottom:.9rem}
+.login-btn:hover{opacity:.88}
+.login-btn:disabled{opacity:.45;cursor:not-allowed}
+.login-err{width:100%;padding:.55rem .8rem;
+  background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);
+  border-radius:5px;color:#fca5a5;font-size:.82rem;
+  margin-bottom:.8rem;display:none;text-align:center}
+.login-hint{font-size:.72rem;color:rgba(201,168,76,.45);text-align:center;line-height:1.6;margin-top:.3rem}
 /* Stats bar en mode privé */
 body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
 /* Infobulle ratio Or/Argent */
@@ -558,6 +594,7 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
     </select>
     <span class="sync-lbl" id="sync-lbl"></span>
     <button class="icon-btn" id="lock-btn" onclick="toggleAdmin()" title="Administration">🔒</button>
+    <button class="icon-btn" id="theme-btn" onclick="toggleTheme()" title="Thème clair/sombre">🌙</button>
     <button class="icon-btn" onclick="openQR()" title="QR Code accès mobile">📱</button>
     <button class="icon-btn" onclick="openSetup()" title="Configuration GitHub">⚙️</button>
   </div>
@@ -605,6 +642,24 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
       <button class="mob-menu-action" onclick="openQR();toggleMobMenu()">📱 QR Code</button>
     </div>
     <div id="mob-sync-lbl" style="font-size:.75rem;color:var(--tm);padding:.3rem .8rem .5rem"></div>
+  </div>
+</div>
+
+<!-- RÉCAP GLOBAL ADMIN -->
+<div id="global-recap" style="display:none">
+  <div class="global-recap-bar">
+    <div class="gr-item"><div class="gr-lbl">Portefeuille global</div><div class="gr-val" id="gr-total">—</div><div class="gr-sub" id="gr-total-sub">Or + Argent</div></div>
+    <div class="gr-sep"></div>
+    <div class="gr-item"><div class="gr-lbl">Prix d'achat total</div><div class="gr-val" id="gr-buy">—</div><div class="gr-sub" id="gr-buy-sub">Capital investi</div></div>
+    <div class="gr-sep"></div>
+    <div class="gr-item"><div class="gr-lbl">Plus-value latente</div><div class="gr-val" id="gr-pnl">—</div><div class="gr-sub" id="gr-pnl-sub">—</div></div>
+    <div class="gr-sep"></div>
+    <div class="gr-item"><div class="gr-lbl">Or</div><div class="gr-val" id="gr-gold">—</div><div class="gr-sub" id="gr-gold-sub">—</div></div>
+    <div class="gr-sep"></div>
+    <div class="gr-item"><div class="gr-lbl">Argent</div><div class="gr-val" id="gr-silver">—</div><div class="gr-sub" id="gr-silver-sub">—</div></div>
+    <div class="gr-sep"></div>
+    <div class="gr-item"><div class="gr-lbl">Rendement</div><div class="gr-val" id="gr-yield">—</div><div class="gr-sub">Depuis acquisition</div></div>
+    <div id="gr-inflation" style="display:contents"></div>
   </div>
 </div>
 
@@ -730,6 +785,14 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   <div class="page" id="page-fiscal" style="flex:1;min-width:0">
     <div class="fiscal-page">
       <h2 class="section-title">Simulateur <em>fiscal</em></h2>
+      <div id="versioning-bar" style="display:none;margin-bottom:1rem;padding:.6rem .8rem;
+        background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.2);border-radius:5px;
+        display:flex;align-items:center;gap:.8rem;flex-wrap:wrap">
+        <span style="font-size:.82rem;color:var(--a)">📅 Historique</span>
+        <input type="date" id="version-date" class="form-input" style="max-width:180px;padding:.3rem .6rem;font-size:.82rem" onchange="viewVersion(this.value)">
+        <span id="version-info" style="font-size:.8rem;color:var(--td)"></span>
+        <button class="btn-secondary" style="padding:.3rem .8rem;font-size:.8rem" onclick="resetVersion()">↩ Retour actuel</button>
+      </div>
 
       <!-- BARRE RÉSUMÉ GLOBAL -->
       <div id="fiscal-global"></div>
@@ -739,6 +802,7 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
         <button class="regime-tab active" id="ftab-simu"   onclick="switchFTab('simu')">🧮 Simulation de vente</button>
         <button class="regime-tab"        id="ftab-detail" onclick="switchFTab('detail')">📋 Détail par bien</button>
         <button class="regime-tab"        id="ftab-guide"  onclick="switchFTab('guide')">📖 Guide fiscal</button>
+        <button class="regime-tab"        onclick="openVersioning()">📅 Historique</button>
       </div>
 
       <!-- SIMULATION -->
@@ -777,7 +841,7 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   <div class="page" id="page-journal" style="flex:1;min-width:0">
     <div class="fiscal-page">
       <h2 class="section-title">Journal <em>d'activité</em></h2>
-      <div class="export-row" id="journal-export-row">
+      <div class="export-row" id="journal-export-row" style="display:none">
         <button class="export-btn" onclick="clearJournal()">🗑 Effacer le journal</button>
         <button class="export-btn" onclick="exportJournalCSV()">⬇ Exporter CSV</button>
       </div>
@@ -1321,15 +1385,54 @@ const SITE_CONFIG = {
 
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2);
 
-function privLock(containerId){
-  const el=$(containerId);
-  if(!el) return;
-  el.innerHTML=`<div class="priv-lock">
-    <div class="priv-lock-icon">🔒</div>
-    <h3>Contenu privé</h3>
-    <p>Authentifiez-vous pour accéder à cette section.</p>
-    <button onclick="toggleAdmin()">🔒 Se connecter</button>
+function privLock(pageId){
+  const page=$(pageId); if(!page) return;
+  if(page.querySelector('.priv-overlay')) return;
+  page.style.position='relative';
+  const ov=document.createElement('div'); ov.className='priv-overlay';
+  ov.innerHTML=`<div class="login-card">
+    <div class="login-diamond">◆</div>
+    <div class="login-title">Accès privé</div>
+    <div class="login-sub">Entrez votre mot de passe maître<br>pour accéder à cette section.</div>
+    <div class="login-err" id="il-err-${pageId}"></div>
+    <div class="login-input-wrap">
+      <input class="login-input" type="password" id="il-pass-${pageId}"
+        placeholder="Mot de passe maître" autocomplete="off"
+        onkeydown="if(event.key==='Enter')inlineAuth('${pageId}')">
+      <button class="login-eye" type="button"
+        onclick="const i=document.getElementById('il-pass-${pageId}');const s=i.type==='password';i.type=s?'text':'password';this.textContent=s?'🙈':'👁'">👁</button>
+    </div>
+    <button class="login-btn" id="il-btn-${pageId}" onclick="inlineAuth('${pageId}')">Déverrouiller</button>
+    <div class="login-hint">🔑 Mot de passe maître — depuis n'importe quel appareil</div>
   </div>`;
+  page.appendChild(ov);
+  setTimeout(()=>document.getElementById('il-pass-'+pageId)?.focus(),100);
+}
+function privUnlock(pageId){
+  const page=$(pageId); if(!page) return;
+  const ov=page.querySelector('.priv-overlay'); if(ov) ov.remove();
+}
+async function inlineAuth(pageId){
+  const passEl=document.getElementById('il-pass-'+pageId);
+  const errEl=document.getElementById('il-err-'+pageId);
+  const btnEl=document.getElementById('il-btn-'+pageId);
+  const pass=passEl?passEl.value:'';
+  const fail=msg=>{if(errEl){errEl.textContent=msg;errEl.style.display='block';}
+    if(btnEl){btnEl.disabled=false;btnEl.textContent='Déverrouiller';}};
+  if(!pass){fail('Entrez votre mot de passe.');return;}
+  if(btnEl){btnEl.disabled=true;btnEl.textContent='Vérification…';}
+  const storedHash=S.authHash||cfg.authHash;
+  const storedEnc=S.encToken||cfg.encToken;
+  if(!storedHash||!storedEnc){fail('Aucune configuration — utilisez ⚙️');return;}
+  try{
+    const inputHash=await sha256hex(pass);
+    if(inputHash!==storedHash){fail('Mot de passe incorrect.');return;}
+    if(btnEl)btnEl.textContent='Déchiffrement…';
+    const token=await decryptWithPassword(storedEnc,pass);
+    if(!token||token.length<10){fail('Erreur — reconfigurez via ⚙️');return;}
+    cfg.token=token;
+    unlockAdmin();
+  }catch(e){fail('Erreur: '+e.message);}
 }
 function isPrivate(){ return S.isVisitor && cfg.mode==='private'; }
 
@@ -1648,6 +1751,8 @@ function setCurrency(c){S.currency=$('currency-sel').value=c;ls.set('pm_currency
     toast('Erreur au démarrage','error');
   }finally{
     $('loading-screen').style.display='none';
+    applyTheme();
+    if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
     // Log visite
     getClientIP().then(ip=>logActivity('visit','Visite du site ('+ip+')'));
     // Charger le journal depuis GitHub si possible
@@ -1847,6 +1952,7 @@ async function buildJournal(){
 }
 
 async function clearJournal(){
+  if(!S.isAdmin){toast('Connexion requise','error');return;}
   if(!S.isAdmin){toast('Connectez-vous pour effacer le journal','error');return;}
   if(!confirm('Effacer tout le journal ?')) return;
   ls.set('pm_journal',[]);
@@ -1882,6 +1988,7 @@ async function clearJournal(){
 }
 
 function exportJournalCSV(){
+  if(!S.isAdmin){toast('Connexion requise','error');return;}
   if(!S.isAdmin){toast('Connectez-vous pour exporter le journal','error');return;}
   const log=ls.get('pm_journal')||[];
   if(!log.length){toast('Journal vide','info');return;}
@@ -1897,6 +2004,152 @@ function exportJournalCSV(){
   a.download='journal_patrimoine.csv';a.click();
   logActivity('export','Export journal CSV');
   toast('Journal exporté','success');
+}
+
+// ── THÈME CLAIR/SOMBRE ───────────────────────────────────────
+function toggleTheme(){
+  const light=document.body.classList.toggle('light');
+  ls.set('pm_theme',light?'light':'dark');
+  const btn=$('theme-btn');if(btn)btn.textContent=light?'☀️':'🌙';
+}
+function applyTheme(){
+  const t=ls.get('pm_theme');
+  if(t==='light'){document.body.classList.add('light');const b=$('theme-btn');if(b)b.textContent='☀️';}
+}
+
+// ── EXPORT / IMPORT .VAULT ───────────────────────────────────
+async function exportVault(){
+  if(!S.isAdmin){toast('Connexion requise','error');return;}
+  const data={version:2,createdAt:new Date().toISOString(),
+    items:S.items,history:S.history,alerts:S.alerts,
+    authHash:S.authHash||cfg.authHash,encToken:S.encToken||cfg.encToken};
+  const json=JSON.stringify(data,null,2);
+  const enc=new TextEncoder();
+  const iv=crypto.getRandomValues(new Uint8Array(12));
+  const keyMat=await crypto.subtle.importKey('raw',enc.encode(cfg.token.slice(-16)||'vault'),
+    {name:'AES-GCM'},false,['encrypt']);
+  const ct=await crypto.subtle.encrypt({name:'AES-GCM',iv},keyMat,enc.encode(json));
+  const buf=new Uint8Array(12+ct.byteLength);
+  buf.set(iv,0);buf.set(new Uint8Array(ct),12);
+  const vault=JSON.stringify({vault:true,v:2,data:btoa(String.fromCharCode(...buf))});
+  const blob=new Blob([vault],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download=`patrimoine_${new Date().toISOString().split('T')[0]}.vault`;
+  a.click();
+  logActivity('export','Export .vault local');
+  toast('Sauvegarde .vault téléchargée','success');
+}
+
+async function importVault(){
+  if(!S.isAdmin){toast('Connexion requise','error');return;}
+  const input=document.createElement('input');input.type='file';input.accept='.vault,.json';
+  input.onchange=async()=>{
+    const file=input.files[0];if(!file)return;
+    try{
+      const text=await file.text();const parsed=JSON.parse(text);
+      if(!parsed.vault||!parsed.data){toast('Fichier .vault invalide','error');return;}
+      const buf=Uint8Array.from(atob(parsed.data),c=>c.charCodeAt(0));
+      const iv=buf.slice(0,12);const ct=buf.slice(12);
+      const enc=new TextEncoder();
+      const keyMat=await crypto.subtle.importKey('raw',enc.encode(cfg.token.slice(-16)||'vault'),
+        {name:'AES-GCM'},false,['decrypt']);
+      const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv},keyMat,ct);
+      const data=JSON.parse(new TextDecoder().decode(pt));
+      if(!confirm('Importer '+file.name+' ? Cette action remplacera toutes vos données actuelles.'))return;
+      S.items=data.items||{gold:[],silver:[]};
+      S.history=data.history||[];S.alerts=data.alerts||[];
+      const ok=await saveToGH();
+      if(ok){render();toast('Import .vault réussi','success');}
+    }catch(e){toast('Erreur import: '+e.message,'error');}
+  };
+  input.click();
+}
+
+// ── VERSIONING ───────────────────────────────────────────────
+let _versionBackup=null;
+function openVersioning(){
+  const bar=$('versioning-bar');
+  if(bar)bar.style.display=bar.style.display==='none'?'flex':'none';
+}
+async function viewVersion(dateStr){
+  if(!dateStr)return;
+  const info=$('version-info');
+  const sorted=[...S.history].sort((a,b)=>a.date.localeCompare(b.date));
+  const snap=sorted.filter(h=>h.date<=dateStr).slice(-1)[0];
+  if(!snap){if(info)info.textContent='Aucun snapshot disponible avant cette date.';return;}
+  if(info)info.textContent='Snapshot du '+new Date(snap.date).toLocaleDateString('fr-FR')+' · Valeur : '+fmtVal(toDisplay(snap.val));
+  if(!_versionBackup)_versionBackup={gold:[...S.items.gold],silver:[...S.items.silver]};
+  S.items.gold=(S.items.gold||[]).filter(i=>!i.date||i.date<=dateStr);
+  S.items.silver=(S.items.silver||[]).filter(i=>!i.date||i.date<=dateStr);
+  render();buildFiscal();
+  toast('Portefeuille au '+new Date(snap.date).toLocaleDateString('fr-FR'),'info');
+}
+function resetVersion(){
+  if(_versionBackup){S.items.gold=_versionBackup.gold;S.items.silver=_versionBackup.silver;_versionBackup=null;}
+  const vd=$('version-date');if(vd)vd.value='';
+  const vi=$('version-info');if(vi)vi.textContent='';
+  render();buildFiscal();toast('Retour aux données actuelles','info');
+}
+
+// ── RÉCAP GLOBAL ADMIN ───────────────────────────────────────
+function renderGlobalRecap(){
+  const bar=$('global-recap');
+  if(!bar)return;
+  if(!S.isAdmin){bar.style.display='none';return;}
+  bar.style.display='block';
+  const sym={EUR:'€',USD:'$',CHF:'₣',GBP:'£'}[S.currency];
+  const gold=S.items.gold||[];const silver=S.items.silver||[];
+  const allItems=[...gold.map(i=>({...i,metal:'gold'})),...silver.map(i=>({...i,metal:'silver'}))];
+  const totGold=gold.reduce((s,i)=>s+getGrams(i)*i.qty*(S.prices.gold||0),0);
+  const totSilver=silver.reduce((s,i)=>s+getGrams(i)*i.qty*(S.prices.silver||0),0);
+  const totV=totGold+totSilver;
+  const validBuy=allItems.filter(i=>i.buy!=null&&!isNaN(i.buy));
+  const totBuy=validBuy.reduce((s,i)=>s+Number(i.buy),0);
+  const totPnl=totBuy>0?totV-totBuy:null;
+  const pnlPct=totBuy>0?(totPnl/totBuy)*100:null;
+  const fv=v=>f2(toDisplay(v))+' '+sym;
+  $('gr-total').textContent=fv(totV);$('gr-total').style.color='var(--a)';
+  $('gr-total-sub').textContent='Or + Argent combinés';
+  if(totBuy>0){$('gr-buy').textContent=fv(totBuy);$('gr-buy-sub').textContent=validBuy.length+' bien'+(validBuy.length>1?'s':'');}
+  else{$('gr-buy').textContent='—';$('gr-buy-sub').textContent='Saisir prix d’achat';}
+  if(totPnl!=null){
+    $('gr-pnl').textContent=(totPnl>=0?'+':'')+fv(totPnl);
+    $('gr-pnl').style.color=totPnl>=0?'#22c55e':'#ef4444';
+    $('gr-pnl-sub').textContent=(pnlPct>=0?'+':'')+f2(pnlPct)+'% sur capital';
+  }else{$('gr-pnl').textContent='—';$('gr-pnl').style.color='var(--td)';$('gr-pnl-sub').textContent='Prix achat non renseigné';}
+  const buyGold=gold.filter(i=>i.buy!=null&&!isNaN(i.buy)).reduce((s,i)=>s+Number(i.buy),0);
+  $('gr-gold').textContent=fv(totGold);$('gr-gold').style.color='var(--a)';
+  $('gr-gold-sub').textContent=buyGold>0?'Achat : '+fv(buyGold):f3(gold.reduce((s,i)=>s+getTotal(i),0)/31.1035)+' Oz';
+  const buySilver=silver.filter(i=>i.buy!=null&&!isNaN(i.buy)).reduce((s,i)=>s+Number(i.buy),0);
+  $('gr-silver').textContent=fv(totSilver);$('gr-silver').style.color='rgba(180,190,200,.9)';
+  $('gr-silver-sub').textContent=buySilver>0?'Achat : '+fv(buySilver):f3(silver.reduce((s,i)=>s+getTotal(i),0)/31.1035)+' Oz';
+  if(pnlPct!=null){$('gr-yield').textContent=(pnlPct>=0?'+':'')+f2(pnlPct)+'%';$('gr-yield').style.color=pnlPct>=0?'#22c55e':'#ef4444';}
+  else{$('gr-yield').textContent='—';$('gr-yield').style.color='var(--td)';}
+  renderInflationComparison(allItems,totBuy,totV,sym);
+}
+
+async function renderInflationComparison(allItems,totBuy,totV,sym){
+  const el=$('gr-inflation');if(!el)return;
+  if(totBuy<=0){el.innerHTML='';return;}
+  const validDates=allItems.filter(i=>i.date&&i.buy&&!isNaN(i.buy));
+  if(!validDates.length){el.innerHTML='';return;}
+  const avgYear=validDates.reduce((s,i)=>s+new Date(i.date).getFullYear()*(Number(i.buy)/totBuy),0);
+  const yearsHeld=new Date().getFullYear()-Math.round(avgYear);
+  if(yearsHeld<=0){el.innerHTML='';return;}
+  const inflRates={2000:1.8,2001:1.8,2002:1.9,2003:2.2,2004:2.3,2005:1.9,2006:1.9,2007:1.6,
+    2008:3.2,2009:0.1,2010:1.7,2011:2.3,2012:2.2,2013:1.0,2014:0.6,2015:0.0,2016:0.2,
+    2017:1.2,2018:1.8,2019:1.3,2020:0.5,2021:1.6,2022:5.2,2023:4.9,2024:2.3,2025:1.5};
+  let cumInfl=1;
+  for(let y=Math.round(avgYear);y<new Date().getFullYear();y++) cumInfl*=(1+(inflRates[y]||2)/100);
+  const inflatedBuy=totBuy*cumInfl;
+  const realGain=totV-inflatedBuy;
+  const realGainPct=((totV/inflatedBuy)-1)*100;
+  el.innerHTML=`<div class="gr-sep"></div>
+    <div class="gr-item" title="Capital ${fmtVal(totBuy)} ajusté inflation INSEE · ${yearsHeld} ans">
+      <div class="gr-lbl">Gain réel (vs inflation)</div>
+      <div class="gr-val" style="color:${realGain>=0?'#22c55e':'#ef4444'}">${realGain>=0?'+':''}${f2(toDisplay(realGain))} ${sym}</div>
+      <div class="gr-sub">${(realGainPct>=0?'+':'')+f2(realGainPct)}% · inflation cumulée ${f2((cumInfl-1)*100)}%</div>
+    </div>`;
 }
 
 function toggleMobMenu(){
@@ -2134,6 +2387,9 @@ async function encryptJournalEntry(entry){
 }
 
 function unlockAdmin(){
+  // Retirer tous les overlays de connexion
+  document.querySelectorAll('.priv-overlay').forEach(el=>el.remove());
+  renderGlobalRecap();
   S.isAdmin=true;S.isVisitor=false;
   const vb=$('visitor-bar');if(vb)vb.style.display='none';
   const cw=$('config-warn');if(cw)cw.style.display='none';
@@ -2204,7 +2460,7 @@ function render(){
   const mlb=$('mob-lock-btn'); if(mlb) mlb.textContent=S.isAdmin?'🔓 Admin actif':'🔒 Se connecter';
   const sh=$('sidebar-hint'); if(sh) sh.style.display=S.isAdmin?'none':'block';
   const ws=$('wt-section'); if(ws) ws.style.display=S.filter.type==='piece'?'none':'block';
-  renderPriceBar();renderStats();renderCards();
+  renderPriceBar();renderStats();renderCards();renderGlobalRecap();
   if(S.currentPageView==='charts')buildCharts();
   if(S.currentPageView==='fiscal')buildFiscal();
   if(S.currentPageView==='alerts')buildAlerts();
