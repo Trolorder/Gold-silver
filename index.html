@@ -313,24 +313,31 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
 .lightbox.open{display:flex}
 .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px}
 .swipe-hint{display:none}
-/* ── LOCK SCREENS ─────────────────────────────────────────── */
-.page-lock-screen{display:none;position:absolute;inset:0;z-index:10;
-  align-items:center;justify-content:center;
-  background:radial-gradient(ellipse at 50% 30%,rgba(201,168,76,.06) 0%,var(--bg) 70%)}
-/* Activer le lock screen via classe sur body */
-body.lock-page-charts  #page-charts  { position:relative }
-body.lock-page-fiscal  #page-fiscal  { position:relative }
-body.lock-page-alerts  #page-alerts  { position:relative }
-body.lock-page-journal #page-journal { position:relative }
+/* ── LOCK SCREENS (overlay centré) ────────────────────────── */
+.page-lock-screen{
+  display:none;position:absolute;inset:0;z-index:10;
+  align-items:center;justify-content:center;padding:2rem;
+  background:rgba(6,6,7,.82);backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px)
+}
+body.lock-page-charts  #page-charts,
+body.lock-page-fiscal  #page-fiscal,
+body.lock-page-alerts  #page-alerts,
+body.lock-page-journal #page-journal { position:relative;overflow:hidden }
 body.lock-page-charts  #lock-page-charts,
 body.lock-page-fiscal  #lock-page-fiscal,
 body.lock-page-alerts  #lock-page-alerts,
 body.lock-page-journal #lock-page-journal { display:flex!important }
-/* Masquer le contenu des pages verrouillées */
-body.lock-page-charts  #page-charts  > *:not(#lock-page-charts)  { visibility:hidden }
-body.lock-page-fiscal  #page-fiscal  > *:not(#lock-page-fiscal)  { visibility:hidden }
-body.lock-page-alerts  #page-alerts  > *:not(#lock-page-alerts)  { visibility:hidden }
-body.lock-page-journal #page-journal > *:not(#lock-page-journal) { visibility:hidden }
+/* ── BLUR PORTEFEUILLE (visiteur) ─────────────────────────── */
+body.priv .card-val,body.priv .card-vals,body.priv .card-pnl,
+body.priv .card-ref,body.priv .card-desc,
+body.priv .card-qty,body.priv .card-date{
+  filter:blur(6px);user-select:none;pointer-events:none
+}
+body.priv .list-val,body.priv .list-pnl,body.priv .list-meta{
+  filter:blur(6px);user-select:none;pointer-events:none
+}
+body.priv .stat-sensitive{filter:blur(7px);user-select:none}
 .global-recap-bar{display:flex;align-items:center;gap:0;
   background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(255,215,0,.03));
   border-bottom:1px solid rgba(201,168,76,.18);padding:.55rem 2rem;overflow-x:auto}
@@ -2457,7 +2464,8 @@ async function encryptJournalEntry(entry){
 }
 
 function unlockAdmin(){
-  // Retirer toutes les classes de verrouillage
+  // Retirer body.priv et toutes les classes de verrouillage
+  document.body.classList.remove('priv');
   ['page-charts','page-fiscal','page-alerts','page-journal'].forEach(p=>
     document.body.classList.remove('lock-'+p));
   renderGlobalRecap();
@@ -2518,6 +2526,8 @@ function render(){
   const G=S.page==='gold';
   const privMode=isPrivate();
   document.body.className=(G?'':'silver')+(privMode?' priv':'');
+  // Appliquer le thème
+  if(ls.get('pm_theme')==='light') document.body.classList.add('light');
   // Desktop tabs
   const tg=$('tab-gold'); if(tg) tg.classList.toggle('active',G);
   const ts=$('tab-silver'); if(ts) ts.classList.toggle('active',!G);
@@ -3071,29 +3081,9 @@ function _privLockHTML(){
 }
 
 function buildFiscal(){
-  if(S.isVisitor&&cfg.mode==='private'){
-    // Vider toutes les zones sensibles
-    const zones=['fiscal-global','simu-item-list','simu-result','fiscal-alert-box','fiscal-tbody','fiscal-guide-content'];
-    zones.forEach(id=>{const el=$(id);if(el)el.innerHTML='';});
-    const simuResult=$('simu-result'); if(simuResult) simuResult.style.display='none';
-    // Afficher le cadenas uniquement dans fiscal-global (un seul suffit)
-    const g=$('fiscal-global');
-    if(g) g.innerHTML=_privLockHTML();
-    // Cacher fp-simu, fp-detail et fp-guide — rien ne doit transpirer
-    ['fp-simu','fp-detail','fp-guide'].forEach(id=>{const el=$(id);if(el)el.style.display='none';});
-    // Remettre tous les onglets inactifs pour ne pas laisser "Détail par bien" en surbrillance
-    ['ftab-simu','ftab-detail','ftab-guide'].forEach(id=>{const el=$(id);if(el)el.classList.remove('active');});
-    return;
-  }
-  // Reassurer que fp-simu est visible, cacher detail/guide
-  ['fp-simu','fp-detail','fp-guide'].forEach(id=>{
-    const el=$(id); if(el) el.style.display = id==='fp-simu' ? '' : 'none';
-  });
-  // Réactiver l'onglet simu par défaut
-  _simuCurrentTab='simu';
-  ['ftab-simu','ftab-detail','ftab-guide'].forEach(id=>{
-    const el=$(id); if(el) el.classList.toggle('active', id==='ftab-simu');
-  });
+  privUnlock('page-fiscal');
+  if(isPrivate()){ privLock('page-fiscal'); return; }
+
   buildFiscalGlobal();
   buildFiscalSimu();
 }
