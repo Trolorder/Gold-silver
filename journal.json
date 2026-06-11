@@ -1,5 +1,23 @@
 [
   {
+    "ts": "2026-06-11T08:25:43.542Z",
+    "type": "auth",
+    "detail": "__enc__C4FBy8i4Q1Pqk20sd0vZAB5wmMC76qccaOR5lrjyJjlypS98PJNjhchZfesfw7Jqv7S3jr5O+CORuJg=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-11T08:25:38.254Z",
+    "type": "visit",
+    "detail": "__enc__XdMgYV+hyLrh0whL7e7ZCeLr0XHip5CiuhYIxUnJAnU75dB3cOjVutoVAnDdqWeY6EE/edvTbmpYNg==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-11T08:25:37.532Z",
+    "type": "visit",
+    "detail": "__enc__mkr7j8C1AubYuMWdv7A9H3/gC/m7gWI9QoP7d9uswiMwtdoskqShtfO2QvswjwlkBpe8nC3amyIymw==",
+    "metal": null
+  },
+  {
     "ts": "2026-06-11T07:13:51.771Z",
     "type": "auth",
     "detail": "__enc__94fK+r86IeUyw7B69ljgq8hqPsxIqoBDilc2+V2fgfjRRPvbXJxC1NQxRWDfrdPJYYViWksat0VJTqQ=",
