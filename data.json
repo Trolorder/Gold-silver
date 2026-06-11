@@ -10,10 +10,10 @@
         "metal": "gold",
         "name": "Lingot Metalor 1 Oz troy (31,10 g)",
         "qty": 1,
-        "date": "2026-06-09",
-        "desc": "__enc__xIcsfPG446zthUysZ2jNYE3wcRPDSjy8kTw72jTKzLijY18twmHMa53wQkFhnvVR2VvX+zZo2LwHZdLraWHl9ErdnXxkuzKIwzyKZjIPcNw=",
-        "serial": "__enc__sppZG3eArLaAO0kBwWDtSEAetEIfAp4/EIjHZWLPOeuClA==",
-        "buy": "__enc__2L1mQTyJOEIU64oBsWOtqGajYe1fqTq97cEtRbL9cWI=",
+        "date": "2021-06-09",
+        "desc": "__enc__ywuf2udyvekht1H9CtNdwutYWz17b8XGaWDFof+4Pc+eXjwfVaAoS92sCKOVOLlIUAuJoFZtoO6VpKXhp3YqBXaDU+3lT1yPh98aLHSDIQk=",
+        "serial": "__enc__lZZH3SRtGs8+bod7js3HaEL7ZWKtvWLEUmV6PrflYVzSrw==",
+        "buy": "__enc__4j2JncoiNRXa57DSn6N554Z0le7LR1VxK7ek6fp88qY=",
         "grams": 31.1035,
         "fg": 31.1035,
         "wt": "1oz",
@@ -23,7 +23,8 @@
         "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mq6wjvmnxcpgjkkr1v-pile.jpg",
         "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mq6wjy958c5rgtib7m2-face.jpg",
         "addedAt": "2026-06-09T17:17:09.172Z",
-        "editedAt": "2026-06-09T17:18:07.756Z"
+        "editedAt": "2026-06-11T04:51:56.269Z",
+        "_buyDecrypted": true
       }
     ],
     "silver": [
@@ -35,9 +36,9 @@
         "name": "1 Kg Kookaburra Ag",
         "qty": 1,
         "date": "2026-06-09",
-        "desc": "__enc__yq44Hxwxw+cF26bCixFRbnJwC3X77zJAcq2gnk97xZfPvV/AfrYPkczzpWej5GdbJC50Cpdpt7iN",
-        "serial": "__enc__EAxb0QE+jGaYD2pBzez96fdkU7UTrmgCEvxWQB4hdXNR",
-        "buy": "__enc__j85/4efcWIzqREzuMq051vzmY+TW5RFEugB5FKNEk0k=",
+        "desc": "__enc__SC5YT/zT7AwwxJ2yFv0nNTKv2ZBtVXfXHxpAJJKbj+SJnyEOZBV4QKJDRgNtODxQyKHA+F7J8lXx",
+        "serial": "__enc__dSl6hPAUHTZhuEKDi2YIPLbstVM/EhsYZbX9LSh68ZfC",
+        "buy": "__enc__zKETYhbjJBJ4CuTrGi+ivOPg7cTSt3fe4bvd6hf7SEM=",
         "grams": 1000,
         "fg": 1000,
         "wt": "",
@@ -46,7 +47,8 @@
         "maker": "",
         "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mq6wj4lrk8vvx7qihz8-pile.jpg",
         "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mq6wj97c3x5he4m24cs-face.jpg",
-        "addedAt": "2026-06-09T17:16:45.570Z"
+        "addedAt": "2026-06-09T17:16:45.570Z",
+        "_buyDecrypted": true
       }
     ]
   },
@@ -54,8 +56,12 @@
     {
       "date": "2026-06-09",
       "val": 0
+    },
+    {
+      "date": "2026-06-11",
+      "val": 5626.78
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-09T17:18:07.760Z"
+  "updatedAt": "2026-06-11T04:51:56.272Z"
 }
