@@ -11,9 +11,9 @@
         "name": "Lingot Metalor 1 Oz troy (31,10 g)",
         "qty": 1,
         "date": "2021-06-09",
-        "desc": "__enc__ywuf2udyvekht1H9CtNdwutYWz17b8XGaWDFof+4Pc+eXjwfVaAoS92sCKOVOLlIUAuJoFZtoO6VpKXhp3YqBXaDU+3lT1yPh98aLHSDIQk=",
-        "serial": "__enc__lZZH3SRtGs8+bod7js3HaEL7ZWKtvWLEUmV6PrflYVzSrw==",
-        "buy": "__enc__4j2JncoiNRXa57DSn6N554Z0le7LR1VxK7ek6fp88qY=",
+        "desc": "__enc__jr7FRzj22ngwIqqg8JgCkqkYfDsgsP1Z4viuMStPitCmMwkBMqD0V182f2YFQR/PHs4Fd+1zIT1tkhTmXS2oea4+fNlogJ3/eodiUp3m9tY=",
+        "serial": "__enc__rysF2LeAIZlJ4X/VAij5ixFZ5rfC8UN7Ia5bWok8X1M5VA==",
+        "buy": "__enc__66u/zQGR2zUbnpY9JjlnO0Vi4ENjR14nzOAJQWjzw8Y=",
         "grams": 31.1035,
         "fg": 31.1035,
         "wt": "1oz",
@@ -23,7 +23,7 @@
         "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mq6wjvmnxcpgjkkr1v-pile.jpg",
         "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mq6wjy958c5rgtib7m2-face.jpg",
         "addedAt": "2026-06-09T17:17:09.172Z",
-        "editedAt": "2026-06-11T04:51:56.269Z",
+        "editedAt": "2026-06-12T19:07:19.303Z",
         "_buyDecrypted": true
       }
     ],
@@ -36,9 +36,9 @@
         "name": "1 Kg Kookaburra Ag",
         "qty": 1,
         "date": "2026-06-09",
-        "desc": "__enc__SC5YT/zT7AwwxJ2yFv0nNTKv2ZBtVXfXHxpAJJKbj+SJnyEOZBV4QKJDRgNtODxQyKHA+F7J8lXx",
-        "serial": "__enc__dSl6hPAUHTZhuEKDi2YIPLbstVM/EhsYZbX9LSh68ZfC",
-        "buy": "__enc__zKETYhbjJBJ4CuTrGi+ivOPg7cTSt3fe4bvd6hf7SEM=",
+        "desc": "__enc__RC+RfLVK+aHDhqMt1QZ+T+A8OlPTk79uFqDlc4E2iUqVWCrLMZqpEWZfYwKX7ia8/VH52MGgg5rp",
+        "serial": "__enc__gFwwwBGosHTrvJug99S+nJ7Vfnxd3AboNTHn0lsysdJ1",
+        "buy": "__enc__wUcTYl/xMVkefPKIhCxFmaNB/Rj8it8MOo6ku8jdoG8=",
         "grams": 1000,
         "fg": 1000,
         "wt": "",
@@ -60,8 +60,12 @@
     {
       "date": "2026-06-11",
       "val": 5626.78
+    },
+    {
+      "date": "2026-06-12",
+      "val": 5626.78
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-11T04:51:56.272Z"
+  "updatedAt": "2026-06-12T19:07:19.307Z"
 }
