@@ -1985,9 +1985,11 @@ async function buildJournal(){
   if(exportRow) exportRow.style.display=S.isAdmin?'flex':'none';
 
   if(isPrivate()||!S.isAdmin){
-    privLock('journal-content');
+    privUnlock('page-journal');
+    privLock('page-journal');
     return;
   }
+  privUnlock('page-journal');
   const log=ls.get('pm_journal')||[];
   const el=$('journal-content'); if(!el)return;
   if(!log.length){
@@ -2684,16 +2686,8 @@ function renderCards(){
 const CHARTCFG={color:'rgba(201,168,76,.7)',colorSilver:'rgba(155,165,180,.7)',bg:'rgba(201,168,76,.1)'};
 
 function buildCharts(){
-  const overlay=$('charts-lock-overlay');
-  const realContent=$('charts-real-content');
-  if(isPrivate()){
-    if(overlay) privLock('charts-lock-overlay');
-    if(realContent) realContent.style.display='none';
-    return;
-  }
-  // Connecte : effacer l'overlay et afficher le contenu reel
-  if(overlay) overlay.innerHTML='';
-  if(realContent) realContent.style.display='';
+  privUnlock('page-charts');
+  if(isPrivate()){ privLock('page-charts'); return; }
   buildKPIs();buildHistoryChart();buildSplitChart();buildTypesChart();buildTopChart();buildRatioChart();
 }
 
@@ -3616,15 +3610,10 @@ function exportPDF(){
 //  ALERTS
 // ════════════════════════════════════════════════════════════
 function buildAlerts(){
-  // Masquer le bouton d'ajout si non connecté
+  privUnlock('page-alerts');
+  if(isPrivate()){ privLock('page-alerts'); return; }
   const addBtn=document.querySelector('#page-alerts .add-btn');
   if(addBtn) addBtn.style.display=S.isAdmin?'block':'none';
-
-  if(isPrivate()){
-    const al=$('alert-list');
-    if(al) al.innerHTML='<div style="font-size:.85rem;color:var(--tm);padding:.5rem">🔒 Connectez-vous pour voir les alertes.</div>';
-    return;
-  }
   const list=$('alert-list');
   if(!S.alerts.length){list.innerHTML='<div style="font-size:.82rem;color:var(--tm);padding:.5rem">Aucune alerte configurée.</div>';return;}
   list.innerHTML=S.alerts.map((a,i)=>{
