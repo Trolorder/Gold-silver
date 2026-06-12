@@ -313,9 +313,26 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
 .lightbox.open{display:flex}
 .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px}
 .swipe-hint{display:none}
+/* ── CHART CARDS COLLAPSIBLES ─────────────────────────────── */
+.chart-card{position:relative;overflow:hidden;transition:all .3s ease}
+.chart-card.collapsed .chart-wrap{display:none}
+.chart-card.collapsed{background:var(--s);border:1px solid var(--br);border-radius:7px}
+.chart-collapse-btn{
+  position:absolute;top:.7rem;right:.7rem;
+  background:none;border:none;cursor:pointer;
+  color:var(--tm);font-size:.85rem;padding:.2rem .5rem;
+  border-radius:3px;transition:all .2s;z-index:2;
+  display:none
+}
+.chart-collapse-btn:hover{color:var(--a);background:var(--s)}
+body:not(.priv) .chart-collapse-btn{display:block}
+.chart-card.collapsed .chart-collapse-btn{color:var(--a)}
+/* En mode visiteur : toutes les cartes collapsées visuellement */
+body.priv .chart-card .chart-wrap{opacity:.08;filter:blur(3px);pointer-events:none}
+body.priv .chart-card .kpi-grid{opacity:.08;filter:blur(3px);pointer-events:none}
 /* ── LOCK SCREENS (overlay centré) ────────────────────────── */
 .page-lock-screen{
-  display:none;position:absolute;inset:0;z-index:10;
+  display:none;position:fixed;inset:0;z-index:100;
   align-items:center;justify-content:center;padding:2rem;
   background:rgba(6,6,7,.82);backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px)
@@ -790,18 +807,26 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
       <div class="kpi-grid" id="kpi-grid"></div>
       <div class="charts-grid">
         <div class="chart-card chart-full">
+  <button class="chart-collapse-btn" onclick="toggleChartCard(this)" title="Réduire/Agrandir">⌃</button>
+  
           <div class="chart-title">Évolution de la valeur du portefeuille</div>
           <div class="chart-wrap-tall"><canvas id="chart-history"></canvas></div>
         </div>
         <div class="chart-card">
+  <button class="chart-collapse-btn" onclick="toggleChartCard(this)" title="Réduire/Agrandir">⌃</button>
+  
           <div class="chart-title">Répartition Or / Argent</div>
           <div class="chart-wrap"><canvas id="chart-split"></canvas></div>
         </div>
         <div class="chart-card">
+  <button class="chart-collapse-btn" onclick="toggleChartCard(this)" title="Réduire/Agrandir">⌃</button>
+  
           <div class="chart-title">Répartition Lingots / Pièces</div>
           <div class="chart-wrap"><canvas id="chart-types"></canvas></div>
         </div>
         <div class="chart-card chart-full">
+  <button class="chart-collapse-btn" onclick="toggleChartCard(this)" title="Réduire/Agrandir">⌃</button>
+  
           <div class="chart-title" id="chart-ratio-title">Ratio Or / Argent
             <span class="ratio-info-btn" title="" onclick="this.nextElementSibling.classList.toggle('visible')" style="cursor:pointer;font-size:.75rem;opacity:.5;margin-left:.4rem;vertical-align:middle">ℹ️</span>
             <div class="ratio-tooltip-box">
@@ -816,6 +841,8 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
           <div class="chart-wrap"><canvas id="chart-ratio"></canvas></div>
         </div>
         <div class="chart-card chart-full">
+  <button class="chart-collapse-btn" onclick="toggleChartCard(this)" title="Réduire/Agrandir">⌃</button>
+  
           <div class="chart-title">Valeur par possession (top 10)</div>
           <div class="chart-wrap"><canvas id="chart-top"></canvas></div>
         </div>
@@ -2086,6 +2113,27 @@ function exportJournalCSV(){
 }
 
 // ── THÈME CLAIR/SOMBRE ───────────────────────────────────────
+function toggleChartCard(btn){
+  const card=btn.closest('.chart-card');
+  if(!card)return;
+  card.classList.toggle('collapsed');
+  btn.textContent=card.classList.contains('collapsed')?'⌄':'⌃';
+}
+function collapseAllCharts(){
+  document.querySelectorAll('.chart-card').forEach(card=>{
+    card.classList.add('collapsed');
+    const btn=card.querySelector('.chart-collapse-btn');
+    if(btn)btn.textContent='⌄';
+  });
+}
+function expandAllCharts(){
+  document.querySelectorAll('.chart-card').forEach(card=>{
+    card.classList.remove('collapsed');
+    const btn=card.querySelector('.chart-collapse-btn');
+    if(btn)btn.textContent='⌃';
+  });
+}
+
 function toggleTheme(){
   const light=document.body.classList.toggle('light');
   ls.set('pm_theme',light?'light':'dark');
@@ -2466,10 +2514,10 @@ async function encryptJournalEntry(entry){
 }
 
 function unlockAdmin(){
-  // Retirer body.priv et toutes les classes de verrouillage
   document.body.classList.remove('priv');
   ['page-charts','page-fiscal','page-alerts','page-journal'].forEach(p=>
     document.body.classList.remove('lock-'+p));
+  expandAllCharts();
   renderGlobalRecap();
   S.isAdmin=true;S.isVisitor=false;
   const vb=$('visitor-bar');if(vb)vb.style.display='none';
