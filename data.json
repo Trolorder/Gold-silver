@@ -11,9 +11,9 @@
         "name": "Lingot Metalor 1 Oz troy (31,10 g)",
         "qty": 1,
         "date": "2021-06-09",
-        "desc": "__enc__jr7FRzj22ngwIqqg8JgCkqkYfDsgsP1Z4viuMStPitCmMwkBMqD0V182f2YFQR/PHs4Fd+1zIT1tkhTmXS2oea4+fNlogJ3/eodiUp3m9tY=",
-        "serial": "__enc__rysF2LeAIZlJ4X/VAij5ixFZ5rfC8UN7Ia5bWok8X1M5VA==",
-        "buy": "__enc__66u/zQGR2zUbnpY9JjlnO0Vi4ENjR14nzOAJQWjzw8Y=",
+        "desc": "__enc__QHiy+NjcVY9YrggyPxzd5ePZV6Vi1T7jQLI8zN9+9sOcEWQ2mU8Llh5EMoyuigIKXlZ+7hCStWkxymBhrGHNpPGPJgiYx1sHnmtQ+Wu0als=",
+        "serial": "__enc__f8jxY8S+YLSwBcEW6okoHSkZZI8lw12aAp/tTm9f0Ceyxg==",
+        "buy": "__enc__mXkhPl4Fomh6+jhyHU0r2MqNpB4o+1NJkEdHsetasQo=",
         "grams": 31.1035,
         "fg": 31.1035,
         "wt": "1oz",
@@ -36,9 +36,9 @@
         "name": "1 Kg Kookaburra Ag",
         "qty": 1,
         "date": "2026-06-09",
-        "desc": "__enc__RC+RfLVK+aHDhqMt1QZ+T+A8OlPTk79uFqDlc4E2iUqVWCrLMZqpEWZfYwKX7ia8/VH52MGgg5rp",
-        "serial": "__enc__gFwwwBGosHTrvJug99S+nJ7Vfnxd3AboNTHn0lsysdJ1",
-        "buy": "__enc__wUcTYl/xMVkefPKIhCxFmaNB/Rj8it8MOo6ku8jdoG8=",
+        "desc": "__enc__ya4M4IrYG8eWgYLSCrhPLBRnjoaBDHcHEVB8mL5qX5X0lsGuQbFSZo2WpifcYCRNFywtQF6N6dzU",
+        "serial": "__enc__aOUB/4ixenQs6wmQSx5CcE2v0xzWDZpEnzJe/3XG7LcY",
+        "buy": "__enc__0ECTBK7haHTAPU68cP+r2EbPLr0MICBQZaP5N7V7RiI=",
         "grams": 1000,
         "fg": 1000,
         "wt": "",
@@ -48,7 +48,8 @@
         "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mq6wj4lrk8vvx7qihz8-pile.jpg",
         "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mq6wj97c3x5he4m24cs-face.jpg",
         "addedAt": "2026-06-09T17:16:45.570Z",
-        "_buyDecrypted": true
+        "_buyDecrypted": true,
+        "editedAt": "2026-06-12T19:07:31.932Z"
       }
     ]
   },
@@ -67,5 +68,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-12T19:07:19.307Z"
+  "updatedAt": "2026-06-12T19:07:31.933Z"
 }
