@@ -12,9 +12,9 @@
         "name": "50 F Hercule",
         "qty": 11,
         "date": "2021-11-23",
-        "desc": "__enc__2EZd07out3WZm36MhyDwVlTd551mK7w+BHBmakIF2d8NpEPU1g==",
-        "serial": "__enc__qc2cSnCY1U58flJxzTwGijgjgKqKT1BjqtApnFaIgvw8",
-        "buy": "__enc__bnvHXnjvSxkcym2w0nuiPK4PM4pOUzkyh2xcpzmfIQ==",
+        "desc": "__enc__M+pQ0eJHTkjaJAUm4teuwvqP10N2RtLl17TvzSJs2W+9cObS8w==",
+        "serial": "__enc__SvFmv0fKSUIEJPpSaN5NSemFz4eXFRUpREtChsmG6MHY",
+        "buy": "__enc__0O8U1MGMtxuoHNNQper9N2Q+2X7Wdoc7NOsJF0SrOw==",
         "grams": 27,
         "fg": 27,
         "wt": "",
@@ -25,6 +25,27 @@
         "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mqc3bdqvh85fwq7x0pg-face.jpg",
         "addedAt": "2026-06-13T08:22:54.136Z",
         "editedAt": "2026-06-13T08:26:39.096Z"
+      },
+      {
+        "id": "mqc3ovhozl55play1e8",
+        "type": "piece",
+        "catId": "s-p-040",
+        "metal": "silver",
+        "name": "5 Fr Écu",
+        "qty": 1,
+        "date": "2021-11-23",
+        "desc": "__enc__p3jKzlGizRfo7ZjhSio3AUDAcXdv7dCOhSGhFZcMqLxlbus1NthizIsptqzxlbvd1glfmccklHTCRV14CqGwzlV2eACgFivogA==",
+        "serial": "__enc__CkuLWKYS8yR9fO2QlzC3HZ0fVItqpqgACaRcQ1qKM2/m",
+        "buy": "__enc__ebt8FhOy2u0L//lAoLEyNSY4eQbEFuzDGi0iGReD",
+        "grams": 22.5,
+        "fg": 22.5,
+        "wt": "",
+        "fineness": 900,
+        "country": "France",
+        "maker": "",
+        "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mqc3onh2rgjdr1g6y8f-pile.jpg",
+        "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mqc3oqm4mn8a3hioh7a-face.jpg",
+        "addedAt": "2026-06-13T08:35:44.364Z"
       }
     ]
   },
@@ -47,5 +68,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-13T08:26:39.099Z"
+  "updatedAt": "2026-06-13T08:35:44.368Z"
 }
