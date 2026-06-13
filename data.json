@@ -3,27 +3,49 @@
   "authSalt": null,
   "encToken": "kl3srOxPqOZEuaWzWJDK6DH2ekOSTwzYvwii9dH6L1Dy7KpdDY75kqFQ/Nu0doASHIlw9GGRBKoG8iHcBdUi/ndkESUuSIZZoUhBKmqAXEOQkUE5",
   "items": {
-    "gold": [],
+    "gold": [
+      {
+        "id": "mqc4olgx8cahu0lnmct",
+        "type": "piece",
+        "catId": "g-p-039",
+        "metal": "gold",
+        "name": "__enc__W86mRLXuyfXy4B2jZ72SceNtmeg8QO73APRPgdUCocBMCZjG4drSrKSZyBbsHbVVKDGGSovhW0H33g==",
+        "qty": "__enc__cgYsPUXyQWJ+z1av2kjgr04PD4TBszzIIEvLpR0=",
+        "date": "__enc__VsRb/FM+GDGnf9WfIWw0vyLI18jJ5k7Sk8W4d81oAAmBg0xXIZA=",
+        "desc": "__enc__y7jvYP8vUfBx69rs1wAEmOWVKXiFjL6pHgLMHKdPHc6lHANHIAOaSQPrOK0cu5c0kNaIHKgMnjdD2i84qk9msMPuyHN8ZglMRxmS82cOs3KJO9pBPowtMS8DA7BSZFOiXLx+iBo=",
+        "serial": "__enc__XYhfd3f/l3n1OwpX3Fnq0VXU2IdZu3Tm0Ku/ZvNO+b8J",
+        "buy": "__enc__xKWKjXsYfb6wH362GBcINfPe7w06JqnikVj5YY879g==",
+        "grams": "__enc__6W9+joYuftc+ocRhAZXfMej2Znsvdozvi6o4U4gyiOQ=",
+        "fg": "__enc__NrPCHEmO+S4gsu2Uv4BbJSx6tv9sOwLsn/h1ZbTTcXM=",
+        "wt": "",
+        "fineness": null,
+        "country": "",
+        "maker": "",
+        "imgPile": "__enc__DRmk0TnDaeNxceG0E2MZyLMvq39mHWvRWDhTBm+Fo9oUJCeWp6ZERtN8t56mK69hstU2x1GOwUjpdqoM9h11FsW7I6BM2W3vEfPxQztGFldcWpP2O4cNII/vQHqOY3QNggaUaCN5Bfevukj9I2iVgqCuM01ZqSysI4aANw==",
+        "imgFace": "__enc__kGYWWnjchCoZ0/kBrgE9ThZ9F5Jf6EqENYweX1S+WMtNa6tur/IRlU9A6UZ8R5mcAQP6etRBvp5o7bhW1RYr5Fm9DEh36q7QnA8sf0cbGcJ3R9IXinlQPeXvHhxS5YvVQoH1E6YAN0uTNV41g8do8OhMbjGgFFY7uCR1dQ==",
+        "addedAt": "2026-06-13T09:03:30.993Z"
+      }
+    ],
     "silver": [
       {
         "id": "mqc38d6ghb2ez03wzqt",
         "type": "piece",
         "catId": "s-p-016",
         "metal": "silver",
-        "name": "__enc__qIS7ABNGbwN3oLi0bwFm89aJSMBQH/Oxt//NDr60ay0+fz+Abq74FQ==",
-        "qty": "__enc__ZzcSP+z7jwWf80yFGUZDxUSA+j7s41sR8antPONu",
-        "date": "__enc__WRUlM4UCyS80dq7tO+0y/XU5/Q6SBoA0T8vH5Z5yaUVhmDJjS2k=",
-        "desc": "__enc__asenY+suG5JS+3M3eUv0tgMeFX4RkF63TjgV/oAxWBheqC4bbw==",
-        "serial": "__enc__PLZOcpWu90bX8aZDJ0SoxA/Hat2JmsHdwQzD6Xdcutps",
-        "buy": "__enc__4Y4ndGo9zJ5c6EtzevPuD+TS+mFO5uzvaudQKn968Q==",
-        "grams": "__enc__QnTLD1i1hLN2OJlwazqh4KNwtTpuqHlRsb+bxnoI",
-        "fg": "__enc__ROtb7TIDT6uYMbBZGFIGadIChDGRpunPoEJL0IPG",
+        "name": "__enc__EBQ+CBqfQHrR62EqQmRuS2cK1Y9M4iAEmMiKu3bGR2ikbemcEP77eQ==",
+        "qty": "__enc__uHo6GyAEHLx4yhZQBDPrQG/TN+d7zKfLWhoYwYqq",
+        "date": "__enc__ebxHLJF3npE8Wv0XRrXVJksbgQlQVQTh5cCrdzEXTv+F+3tgJIc=",
+        "desc": "__enc__E/fn/ZndehJm+E5m+THM4MugwmMnza1O/vpwQHnRJYbq0gwWzg==",
+        "serial": "__enc__v2lDDXpAIAwBJ4djiZbGfM4syJ5i9DpO4FatXRBja4ZS",
+        "buy": "__enc__bp5gvodtCY/DzziW6rn56KUSaSi0tqNk60iRGtIErQ==",
+        "grams": "__enc__u6m705rALf/tArfSVpL4zg3TrDtAuTY4faQCWtIm",
+        "fg": "__enc__0JPbtuv19LQCnPjNBdJoj/ngvcGXSpFO8ERF754u",
         "wt": "",
         "fineness": 900,
         "country": "France",
         "maker": "",
-        "imgPile": "__enc__k8Yjnm+bt5p12RxBuO7aKknjdme2z12ZvUjnpbbGjKVmrBt+NaJK3DpK5zZNBJhBA6Tt4ZByiAPkiDCcXb7GIxEccL5Z+drmbNt0mKSqiOL0Ci+9h92rh8XNjcRka1fsyXinCaMh6+195Dn1siqmw1H7Hwe4jmrQQCUrlQ==",
-        "imgFace": "__enc__JouBphpogeIEw1cwhKbWzT90Lehc2j9qG3eyxESt7FbcKOMQY8Rh8KVXumZGoyMBOuAngY0FWU3jv2+AI0hinqla20eljVbpObegdYDjLtqWhqpfqDuZGx7B+lMJlMjUknlsy7msvm3CZa4qBy68lje/Jn5+bruyte1YiQ==",
+        "imgPile": "__enc__kLI5y4stKQHoOx6wUiXSc9rbAcoT59kAAiIUNNScj+evETQHZNS4wx9+0Rf9FdsMlBKcF/9ZaAY+ECOzVaJKcZ64lNOboJpIFKraFuguqOYGib40/7/tYXZkdb8ObHzsMKQCLIUdYyfNmPhVh2Zm+h31ITfuZA0zNfxCaQ==",
+        "imgFace": "__enc__++09avwj7xI+2m17JxJVf1JFWcySlZ7rAq9khLarhkfWsSufSTfYs8wwus4ofUNajZ0hdhmyk7rVRKVthsHRwKgvvV3N5y5RsxuboNf4Twim1Psdgqz28+y2HumutiKl6Rcifs1khHjKHiFCWhr+kgtkIMw2CE7eU+hskQ==",
         "addedAt": "2026-06-13T08:22:54.136Z",
         "editedAt": "2026-06-13T08:42:56.704Z"
       },
@@ -32,20 +54,20 @@
         "type": "piece",
         "catId": "s-p-040",
         "metal": "silver",
-        "name": "__enc__7dWYx1TK980U10vYl4deHWjs/L3Pf1DB+nTzaziqthn1C6OdbtBTHaWrmugOxoNpENeH+TxWa7FivX+XT3sZ0A==",
-        "qty": "__enc__wB9ZMBaOD0jq5CC5kyLRHMnfs3DneyOI+vnUn2M=",
-        "date": "__enc__syqC4xsjjS0I7n8ZWGZw/tmwiBROQw7HvDNPg0uMwj04ocJkLNg=",
-        "desc": "__enc__oxVmg6JwSHl0S28auqv+aQzkmztNtmVw8rM60vmRyGc=",
-        "serial": "__enc__+2As7is8HKuONI0RLBz5+4bl1ydgDd2a2S3CXJO9cH8M",
-        "buy": "__enc__4V26eb1egn/i68kxeu1TlQgr0I02gljigEMiJ7vz",
-        "grams": "__enc__6OIFka/zkPjSHL/Dt7KvdjPxXd/P69rPY12Yd/YXD6o=",
-        "fg": "__enc__Z9VcZwrUF/u3K72QsVgBh3MSGzzm/ivl7I8/y8jap3k=",
+        "name": "__enc__KGqBPR7dieNSMYpsBrK8ezm1lk2y3miz+wUuVHetbJxyXrXQFv9fMDELtti9tmcEYtVrbX0U72svr4Hks0hNPA==",
+        "qty": "__enc__6qa2wxVDiBbk59V5Nxy8oDhkunFWyrljr6Takec=",
+        "date": "__enc__rcoAAve9EmGWK959gPxlu63A49RyW3TfOEdP85W/YI/FPhSDxIY=",
+        "desc": "__enc__6OpkjTHFN/d7EiaRWX2ViWaB85mfrpNY4uzhung6ivo=",
+        "serial": "__enc__tqYs1+T/Kl2gnarcqTTLU2+AqJYza+io/jS/y6kDvnJ+",
+        "buy": "__enc__zNG5JvxjFbkas7LFcS/6/DJAtvXA3EIr6C0hDJBR",
+        "grams": "__enc__0uXrcAM9SbACdvricp9eQOf3aE1XrKT2fYjKRgmJOFI=",
+        "fg": "__enc__+EFWp3BJBthX6OEneoo0J6uJjwJSj7tBcILBq6blNtw=",
         "wt": "",
         "fineness": 900,
         "country": "France",
         "maker": "",
-        "imgPile": "__enc__CWzrDTW1tmUUcHnxApr1d8ZrZwNJjJeK/BdGvjYPK9HS/PKFtxcjDeWuWpnPvCP03aFSDNJmwal921VeXae9ePzWkUbt4eQIDSMNLzKA1kxMgBWbMPv9vdG+5+SGAmvlzCuwGqcV9o3y2OYLL6Q17SVRaU0lCEUiwr0=",
-        "imgFace": "__enc__u4tRlUi4/yx51KK+vHUxl3p0BUXWThRJqADkxY4Job8RYnmUwJuxIxqWL80f16X2UOi/V+MuBk3vVN6qjaP6qxqWv086KWXst1i+0lk/4gjKldp8VNuwpnQqV3U1AAc7DxYrnUgeUzsHILMrLX68TwdqKJ0uwE4H59sawA==",
+        "imgPile": "__enc__CHKVM/J5xmEZQsM7cPUZdvrMS8uWxGYOHZksOXmsHjJ5x2VDHAY6ZRoVtZrwvNVdcm9WWfyIt8R63E/eSmWg/w8Z8nXgkNjPUNhX7CwoyvPFQ8bEwXxQwr5RxRYApGIxnOOwpoWVtke0AORukQM1ci/mokyNuurnKkI=",
+        "imgFace": "__enc__YssBbvAS5bG5R2M7qApYhXNXSphcJvrjy8IeyRZdjl4nfvHU86QPiidYasrVdrsVDetQ4UKYA8A43FGVnlRlMzCvNV4+26B1FQnlckzVBr1/I4koyrDERCayT+Grq+jRkqgkPB/CprKgYSKimArtETyp/1uM8tz3I2vbqw==",
         "addedAt": "2026-06-13T08:35:44.364Z",
         "editedAt": "2026-06-13T08:44:36.788Z"
       },
@@ -54,20 +76,20 @@
         "type": "piece",
         "catId": "s-p-027",
         "metal": "silver",
-        "name": "__enc__L5MedHWRpv0Xh9+BLqTVbDJdE5ZC1jXUQqO3vuF/JoE9zyRiLvjWQeAE2ClAv5p8HzvTD0RGSoCyM2mW3w/eq+GDtMEjbLxo",
-        "qty": "__enc__ILIT8eeH2vTWoLmC43150QFHK/dwh8ecEnLReb4=",
-        "date": "__enc__iP0cDB79Fl3UBCWlanRbCFpkdIhZpzQzA+19CcD+cfqKdJFgS+Q=",
-        "desc": "__enc__MAWkrAiOQ9zokC+v0SppPlH3bFOJrV2aCeboq6snfy5XwMHMu4oOmGrH43EoP6GxCAh63j56RRiRck8028Zrg4WiCmWd7BH8",
-        "serial": "__enc__O4m60B4KQcYUSkX1TlXrEg+l9ULCRQHAroicU39qsTPc",
-        "buy": "__enc__D8SKbc7YSHo6yf83+HfphWQ4TH2Tf0veJE+8DsxP",
-        "grams": "__enc__tSqHNniqaPGpC2i50SrNeeQU71onmIVDfiqepv8S",
-        "fg": "__enc__jc4NmKMZ9T76KzywHnLZZ+Vg6yFp4d8mXMFjtpdp",
+        "name": "__enc__p2mmdX7XgV7XFVuWXTHidehzTDibMq7gyOsomek3RYeBjgO6c31N1uxiYo/HVZkIjLoTSe9qJa7JZUfGYooHg1bqfXZn6l5d",
+        "qty": "__enc__P9P7rEH4nzSI2uMa1NTpYb0pkfQs8kshjk2Ttww=",
+        "date": "__enc__V5yHXcH3vVEPdXiYXZgU6u5WsnnaodG2jyrbTqlQsjVYgvRL6A4=",
+        "desc": "__enc__qviXnhFNobtseymFvzlx6bIO5Q7etVGFBqqIwvTXVigXMXoO+MIjA4pmAil0kLyOfGQb/VCQj/7VEPLnV+XSBSi2WrbpCe5E",
+        "serial": "__enc__ZhSbtjZIGLZqL8y+aw3idfCcpzTm7yJOHD+dZFg8erg6",
+        "buy": "__enc__JfFp2ZqGhyEm6lYO0z6su4k04be81UPMyDQeFs0n",
+        "grams": "__enc__n5r5u40Iv65crC59724ZM7COdYi+JqGAeHsAei8G",
+        "fg": "__enc__Igg2DMoKHmkzcEjyKLfbW7qCRA7yYNaEjxNDRqre",
         "wt": "",
         "fineness": null,
         "country": "",
         "maker": "",
-        "imgPile": "__enc__AUp43u05jQnu6/OrkOD5fmwfzCR2sVzcFG7YiYm4j1WXVHsm/UqiIAqZ1Ek2oVH+I8+fsZB05Kx/XJHuv/lpWze5lgyvvZoZGJgqKqUTGqqlbfW9UiLKwjCSsMMASVTozM6RmGZ/sUGSW73KyiuEvGZ7aCqsdRPOgwCA",
-        "imgFace": "__enc__mc8v1OKHBv0RiUSAr+Tst8UkkzPUVZ51h70Gt3ur0Ult/BvUDXPdU2X1KADjvlYkuiq4hXgVIpxWxwwnp7Di/w6BMxv3XnrPJTaLObcxVb6cyKfV96hsxjMIUGiaLQOqh9zm4QVACcOgBCsEKou7nG9aRrsNCyeiCWVS6w==",
+        "imgPile": "__enc__3lUVUqgUfmzyClEWU7PqwI2XOEW17aXNtrzGVMprDA0uDya3/U5qCoYlNPo6KPPzvrmH2SaM3o9QzEvUIy23C4gQhOtD8RytuxiBfkKQ3WsXaccnESskDGak5fsYLK96vlMMg9Fcpig6UpDTF64CXxGAPXdtNi0ol6Ea",
+        "imgFace": "__enc__sjGvqi3/I8A76QCz+qLbvKyAfQS1T/EvdCi3njJ3+nsTbcjpiaGq+VdBu1nr6Pos7bnEVcdlV4NgEJOtkcglic0ag+9eSf4kzvf3SbqNp23CInr8JX910bih4FfEDb9XlMEkU17JBy91il1CUVD4WgNYOMsYBF6O1N0CQA==",
         "addedAt": "2026-06-13T08:51:26.607Z"
       },
       {
@@ -75,20 +97,20 @@
         "type": "piece",
         "catId": "s-p-027",
         "metal": "silver",
-        "name": "__enc__lbGJEiFNIDFGgqpTBquy+QwQChR+YVTZKEw67WmquWSF1Yj35EI6LXUtoSXP0Rt8L2fYdmf8sRG9AmXGboyZ",
-        "qty": "__enc__KQm5sDQvXbSLICLwzzQoHw7DgEIuG1/EoIf0oog=",
-        "date": "__enc__ZnUVpfcYtg3s2d+wey9vkmjBvuY6LOtw+6zzx4N/Z/S2AaP4KF8=",
-        "desc": "__enc__dxVDsrhL781vYkBoIOEhiVVhvonw9ru0MzwQVSiK+2BiUgDdcnxcnf3/qYmXOdhj+6sZYGQoux6/6OtqMAFCMu9juFl9nQwM42E=",
-        "serial": "__enc__jH7fF9veWni/IawMK+QAQBfaLixSQ4GZV09ljWChRf13",
-        "buy": "__enc__pb//IiLtlTnDZRPCkt36sBXLghn4f+YaUVeTakY=",
-        "grams": "__enc__qm9Cq+1mzfZontYATdFQIqryTucTzoE46hPQ9okr",
-        "fg": "__enc__sxp488ze56JdDmprSPAjM7X0/WwP7KKBh7TYAoUj",
+        "name": "__enc__Y9Q2jb7ssgXCtiQlSs6XUvbIvvh39K+QtzMgkMGm0FJIVweXdOosoKhUWXB1QMbH7+20UupwvVpt33qxMZOp",
+        "qty": "__enc__UUekmyzUYTQkLtH/Kv1B9LPpEPD5IGPtLBk/JNM=",
+        "date": "__enc__X3/roAJTfDnv3B+2uxbpEYS7mWnaxGz3bm83r1J5Gu+ctHDKVvA=",
+        "desc": "__enc__V8KJHIBsToA/Eiw2RJTqNPNwMFTGI/1Kb6yHmEsJuHoforh5HZ3RlVYNbLyJzr5a1ZF0H1l7+yAmbBrdWN9UxrAKC12z65rRQkI=",
+        "serial": "__enc__XjWXKFr92aQrf7NRjeQ+hIQnS2CN98fmqwmchd/eUcSP",
+        "buy": "__enc__BTDjvJ/Kkr4dE34fWLFdjK3Brdqf0I8oOrxoHAg=",
+        "grams": "__enc__CxXqdjDZgEAGv6gwE2goMYBwAEShWTm0qe7YcDcA",
+        "fg": "__enc__Is9Ty1T+5TIx1Nw9O1cxUy7vhHASwH7OAJIs67fe",
         "wt": "",
         "fineness": null,
         "country": "",
         "maker": "",
-        "imgPile": "__enc__bPEaTb3/yRCFNezPUL2/xBU8cVzmH9WZH/6LPNKtpG/5cjpPb/smRBrT8Lv5En3U1xiPu6fU7n5MhJrR+mhzU/32rdHkJ7ny3giPMA34tQt7gnY//aDbGIMD2PHs5xa7mhl/f7LhoJR4hs4esUy4wL+Anm5c3zGqSthI",
-        "imgFace": "__enc__tuow4vUhZBQi25evIj8kduRo2AYnj7dCStUWCyPqF/qiuzZM66LH1OstmVjy3IJl3Kd5MJh0Kjy7XD6hZM0F7JaJKMuH6VJKKQwoyY0yfjFfyu90SFGrySw4ICD6mn5wz8FlnOafnvGZQdhJsFb/Mgr6QvZPRfVFSeaAgw==",
+        "imgPile": "__enc__ZAx6nRHXkMUHjfUmg5ASLWx0Ne2+sZvYE+7MDGl3xlbKqfSaJ6MdPoTGcjogzxdOJZcqqdGZJ6m8t4uB/EBWhA7I1yc4XkDE8ZJJW5NpqWCjG0BUIUhvtxYgKv61s9o2pmH7Fv+2wZEjifZlk/WeFjQPLV1wxUdVfnf7",
+        "imgFace": "__enc__d6Ih4FwELpS2oGKmHJtLMICHeWPGkDG9z4HdBeb/8g0pQuiI/0SAPUnfYe4TNpGnb+7VJx/Lw0Fw5oD63z3iSdA42Hj85N0VlhqqGSkBo2keohWHUToGE+eFjtnXT1icArTNwrY7cx4dGxPY97n/dQMxKNKMUSmxWKwNWQ==",
         "addedAt": "2026-06-13T08:56:08.558Z"
       }
     ]
@@ -96,21 +118,21 @@
   "history": [
     {
       "date": "2026-06-09",
-      "val": "__enc__C40yBWQXu4U+AmaDM5FSDx8N4dWbaXzJTIgor2k="
+      "val": "__enc__YR9im4qGSZuWnzJo0DKw8t9fc8vjScpE/L1seF8="
     },
     {
       "date": "2026-06-11",
-      "val": "__enc__5/wkmgcLFVCiCIlcxJe3rA/awtfzy/F4KXSL6t7pVGdIhO0="
+      "val": "__enc__ZqtcezJatTz44YcYKvuSkdGm7vHcnTni7cUDD8cZ7IFVQSQ="
     },
     {
       "date": "2026-06-12",
-      "val": "__enc__YYOB62ZVWur1eOaZiIni4ozEgIp1OqNmgtG/VsnVTY4jP+4="
+      "val": "__enc__6WvLj0fS1ovCugiUpcLhv8cDOxgEbxqzIthXRTHfCLQSjxo="
     },
     {
       "date": "2026-06-13",
-      "val": "__enc__QNKuFHJRq5gA/qlGZzOrB+MFhwQXxRe2BI1pio5YU3XHYDc="
+      "val": "__enc__npmQT9nZsA1+V00TFtSIcJ5JfhabvidK6y720VOgYgVttM4="
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-13T08:56:08.560Z"
+  "updatedAt": "2026-06-13T09:03:30.995Z"
 }
