@@ -3,31 +3,7 @@
   "encToken": "kl3srOxPqOZEuaWzWJDK6DH2ekOSTwzYvwii9dH6L1Dy7KpdDY75kqFQ/Nu0doASHIlw9GGRBKoG8iHcBdUi/ndkESUuSIZZoUhBKmqAXEOQkUE5",
   "items": {
     "gold": [],
-    "silver": [
-      {
-        "id": "mq6wji4i43nhbhvjvhk",
-        "type": "piece",
-        "catId": "s-p-045",
-        "metal": "silver",
-        "name": "1 Kg Kookaburra Ag",
-        "qty": 1,
-        "date": "2026-06-09",
-        "desc": "__enc__ihi/glKrXnt5K08Em5kkZDlBXhjWYiq/KO72gxPCoKz9gEadAVCAQHKPT/AmHq/+dtidFAUuITNU",
-        "serial": "__enc__vUL0LEpnhTYjSjncpzN+82kG4roXbIrqaCPHmtknOxPr",
-        "buy": "__enc__qGdusHKThkBSDBgh90Qo3CGQdrZpyrXWWdxvid0QnQI=",
-        "grams": 1000,
-        "fg": 1000,
-        "wt": "",
-        "fineness": 999,
-        "country": "Australie",
-        "maker": "",
-        "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mq6wj4lrk8vvx7qihz8-pile.jpg",
-        "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mq6wj97c3x5he4m24cs-face.jpg",
-        "addedAt": "2026-06-09T17:16:45.570Z",
-        "_buyDecrypted": true,
-        "editedAt": "2026-06-12T19:07:31.932Z"
-      }
-    ]
+    "silver": []
   },
   "history": [
     {
@@ -48,5 +24,5 @@
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-13T07:25:21.255Z"
+  "updatedAt": "2026-06-13T07:25:24.251Z"
 }
