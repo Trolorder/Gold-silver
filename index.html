@@ -2515,8 +2515,16 @@ async function encryptJournalEntry(entry){
 
 function unlockAdmin(){
   document.body.classList.remove('priv');
-  ['page-charts','page-fiscal','page-alerts','page-journal'].forEach(p=>
-    document.body.classList.remove('lock-'+p));
+  ['page-charts','page-fiscal','page-alerts','page-journal'].forEach(p=>{
+    document.body.classList.remove('lock-'+p);
+    // Réinitialiser les formulaires de connexion inline
+    const passEl=document.getElementById('il-pass-'+p);
+    const errEl=document.getElementById('il-err-'+p);
+    const btnEl=document.getElementById('il-btn-'+p);
+    if(passEl) passEl.value='';
+    if(errEl){errEl.textContent='';errEl.style.display='none';}
+    if(btnEl){btnEl.disabled=false;btnEl.textContent='Déverrouiller';}
+  });
   expandAllCharts();
   renderGlobalRecap();
   S.isAdmin=true;S.isVisitor=false;
