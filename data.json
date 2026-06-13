@@ -1,5 +1,6 @@
 {
   "authHash": "a994696540befd55c96017a162c7ae2685f2010a7fd3224c0ada25241913933b",
+  "authSalt": null,
   "encToken": "kl3srOxPqOZEuaWzWJDK6DH2ekOSTwzYvwii9dH6L1Dy7KpdDY75kqFQ/Nu0doASHIlw9GGRBKoG8iHcBdUi/ndkESUuSIZZoUhBKmqAXEOQkUE5",
   "items": {
     "gold": [],
@@ -9,42 +10,42 @@
         "type": "piece",
         "catId": "s-p-016",
         "metal": "silver",
-        "name": "50 F Hercule",
-        "qty": 11,
-        "date": "2021-11-23",
-        "desc": "__enc__M+pQ0eJHTkjaJAUm4teuwvqP10N2RtLl17TvzSJs2W+9cObS8w==",
-        "serial": "__enc__SvFmv0fKSUIEJPpSaN5NSemFz4eXFRUpREtChsmG6MHY",
-        "buy": "__enc__0O8U1MGMtxuoHNNQper9N2Q+2X7Wdoc7NOsJF0SrOw==",
-        "grams": 27,
-        "fg": 27,
+        "name": "__enc__/pt6MBz+uJx8f1K4WXLotuK6OY9XEngkLvw51Alei/yzQEv2bUgrcQ==",
+        "qty": "__enc__jVUI8dEza4x7mfiDCF6qevD6ACmdUbNN92GIWnVi",
+        "date": "__enc__MLF2ElP/QMD7Aw57ucA/fIZvGbTCJQyuoaQ0idVnbHouytBDs+E=",
+        "desc": "__enc__Ov4n6bZ4NEaMW0H+EMfFZFfgZkpgYiBUkOtw674AE/i9QeP8kA==",
+        "serial": "__enc__wbWQk+mRoexDq7fc05L2ERrb/tuO/anZkT9q7gopwiRO",
+        "buy": "__enc__LxEkRxGrTcqzH+3CgIZDRY02STeKAJ8SFaYdGVQ2Nw==",
+        "grams": "__enc__UgkSv88X9PQopVbc1zjH1XgpWZQlrS8owvTOFtk+",
+        "fg": "__enc__nqfbYIx/1Q6BwcXjt138Xmdc7LCgVCSftDCTsc/8",
         "wt": "",
         "fineness": 900,
         "country": "France",
         "maker": "",
-        "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mqc3d496hsy25t5roc6-pile.jpg",
-        "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mqc3bdqvh85fwq7x0pg-face.jpg",
+        "imgPile": "__enc__RPojaIJC3pikTj2J1XAP52DSsGPr0/cmHLnAddymtsnQ34Ca7LbnA6MDCczzG2A91A1+0xqfcNSZlwDntpqlIwDVzpDwxDs/oXfkgM12aTyejAbqGMMrYirqhBbvKwCSB0Srd7w44un6Sw9raKzSin9HVcSOjydUZlnTxw==",
+        "imgFace": "__enc__Kf4AE25YcLN7Y+I4+qMaZpZUVgD9BRlhBXrH4KSbeLpA2HupL80BLtYafGc9dwb2fx60gtzFeINA3uUrnpdM/rc/OsdB5O6A8b5b7GTE5vMo0Q9AE48G+l6oZ3tK4mtgPsU+iPhZq821nCfPWTs0ikgIpV8lFtWeWC/9bw==",
         "addedAt": "2026-06-13T08:22:54.136Z",
-        "editedAt": "2026-06-13T08:26:39.096Z"
+        "editedAt": "2026-06-13T08:42:56.704Z"
       },
       {
         "id": "mqc3ovhozl55play1e8",
         "type": "piece",
         "catId": "s-p-040",
         "metal": "silver",
-        "name": "5 Fr Écu",
-        "qty": 1,
-        "date": "2021-11-23",
-        "desc": "__enc__p3jKzlGizRfo7ZjhSio3AUDAcXdv7dCOhSGhFZcMqLxlbus1NthizIsptqzxlbvd1glfmccklHTCRV14CqGwzlV2eACgFivogA==",
-        "serial": "__enc__CkuLWKYS8yR9fO2QlzC3HZ0fVItqpqgACaRcQ1qKM2/m",
-        "buy": "__enc__ebt8FhOy2u0L//lAoLEyNSY4eQbEFuzDGi0iGReD",
-        "grams": 22.5,
-        "fg": 22.5,
+        "name": "__enc__cJuOZS4Z5B+c7wO/R3nx9VkwGVYMgnEn32p5NHVRDM7gSvPBAw==",
+        "qty": "__enc__NqaKvGZB/Y5kiVnVvPxFjFBvp+6eu8jyxqVSTI4=",
+        "date": "__enc__D078WYWKH4tef3CjtEC7QUKJjqT0JIzXgctRtAhqVXsI2DmADGY=",
+        "desc": "__enc__SsvSgwyQVAXMqbIhf0OMbu4bsloGAdh5MitfzToVfMB3rpEB5v1ZvRS4SBYoOR9TghvgpxC+fNNePLU2W5+MlLK2qQOP4K/S2A==",
+        "serial": "__enc__MZ/LxM02pZTGAjm5QupT4puhFsz/FPEizHQv/0Li3xHR",
+        "buy": "__enc__8kTBH9vbBWdnHQCz+T1V9M/M9IHVXQH9KwEMaeZB",
+        "grams": "__enc__QnusRVQZG28kbnracrkoKFm6T1+tKJcA3n0x37pjZA8=",
+        "fg": "__enc__JpZBuUNLZ298JSTdnPgOW37ge/iN+x/Qj6IsMwNc+uA=",
         "wt": "",
         "fineness": 900,
         "country": "France",
         "maker": "",
-        "imgPile": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mqc3onh2rgjdr1g6y8f-pile.jpg",
-        "imgFace": "https://raw.githubusercontent.com/Trolorder/Gold-silver/main/images/mqc3oqm4mn8a3hioh7a-face.jpg",
+        "imgPile": "__enc__REH8hF2JLkL+RFnNRLw2xsYpKLXFP9fmlUH8tMGH2v5k6cCihN5ZGCsMdutENlO4Z4t7R6tAp6JXCcWH6kZJpxVSZ9zahziBsdIcTDULhF9Esc/3bCEy86K22UMR3qtS91xN259n0Am5+Dlq8BbRg2/zIj73C10q29BRsA==",
+        "imgFace": "__enc__MmN6p1dJwSO50cyCs3UEOzGqoqT4C8WF0UMr4AmtPtY+enPoS6pFRDg96QdzEZ9tGdI1c78CAHoeLJ1rUCHrOdcXGpYEcD5ymN4G0xdXShwIPnIW+5eXymrItvDJNJj5r7ZHcCZgxqwou290IXDC3r/LG2Mrpcjlff2/Tw==",
         "addedAt": "2026-06-13T08:35:44.364Z"
       }
     ]
@@ -52,21 +53,21 @@
   "history": [
     {
       "date": "2026-06-09",
-      "val": 0
+      "val": "__enc__Twl9EtKJsbz5bAb9TenIHhA1VyoJLfN1DXzs67M="
     },
     {
       "date": "2026-06-11",
-      "val": 5626.78
+      "val": "__enc__LiioB6vgmGtAYLk5UIhgvU2lNZzNVQenUOAz24Bv6+aqN00="
     },
     {
       "date": "2026-06-12",
-      "val": 5626.78
+      "val": "__enc__kdscXgMIP753Y7ookuymPp8tl7cm5hToh/dqdFda6Tu+usI="
     },
     {
       "date": "2026-06-13",
-      "val": 1889.39
+      "val": "__enc__subCOTrb1Am58ThHZZQ1PbCzQq1NXwCKN2S9JUeUvHyPZU0="
     }
   ],
   "alerts": [],
-  "updatedAt": "2026-06-13T08:35:44.368Z"
+  "updatedAt": "2026-06-13T08:42:56.707Z"
 }
