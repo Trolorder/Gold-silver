@@ -1,5 +1,17 @@
 [
   {
+    "ts": "2026-06-14T10:46:14.846Z",
+    "type": "auth",
+    "detail": "__enc__jQ45SIym2pl39KAl39ujNM7PYntWrCqDdS2/+ddpAItTsxIkGvZChDXSEhYqTM+PQLf1JqNfJ8qO1g==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-14T10:46:10.717Z",
+    "type": "visit",
+    "detail": "__enc__gPZ4U3DgU/BxT/1G/e1O2NvbAXySPzjvALPNPl4aXznEGaG0bRyOnhpCDkZJESvHAbzIBFACbr4i",
+    "metal": null
+  },
+  {
     "ts": "2026-06-14T09:46:09.764Z",
     "type": "auth",
     "detail": "__enc__FqAWIe+Q8BVNIvPDUduDbLD0qvLpHCXgw3LkdW3AHar8mvhSs3QclzUI+wvakQKzQ7doXqeToK4IDA==",
@@ -2985,18 +2997,6 @@
     "ts": "2026-06-13T07:21:44.362Z",
     "type": "auth",
     "detail": "__enc__GdiRgXNgatKp6vTfAvDImKvxvVO/scDpEc11q8d+ZeXhGfIo2gjMBsa0GELGtdZHjtYlQrxBZE65Pw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-13T07:21:41.745Z",
-    "type": "auth",
-    "detail": "__enc__CHaieAXRLsNfqhs7Z4OVlnIauSL+cRJMA6SzV+Ni81NwqzdlJAqx",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-13T07:21:41.745Z",
-    "type": "auth",
-    "detail": "__enc__5/hR5w5ybWKT5GQAVDATdhm5Jh3KeDWxfvB7X72neaM+WLPoM9TR",
     "metal": null
   }
 ]
