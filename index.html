@@ -1534,6 +1534,9 @@ async function inlineAuth(pageId){
     const token=await decryptWithPassword(storedEnc,pass);
     if(!token||token.length<10){fail('Erreur — reconfigurez via ⚙️');return;}
     cfg.token=token;
+    // Dériver la clé de session pour déchiffrer les champs items
+    await deriveSessionKey(pass);
+    await decryptAllItems();
     unlockAdmin();
   }catch(e){fail('Erreur: '+e.message);}
 }
@@ -2467,23 +2470,30 @@ async function doTokenAuth(){
 // Déchiffrer tous les champs sensibles après connexion
 async function decryptAllItems(){
   if(!_sessionKey) return;
-  const allPages=['gold','silver'];
-  for(const page of allPages){
+  const df=async(v,parseNum)=>{
+    if(!isEncrypted(v)) return v;
+    const dec=await decryptField(v);
+    if(dec===null) return null;
+    return parseNum?parseFloat(dec):dec;
+  };
+  for(const page of ['gold','silver']){
     const items=S.items[page]||[];
     for(let i=0;i<items.length;i++){
-      const item=items[i];
-      if(isEncrypted(item.buy)){
-        const dec=await decryptField(item.buy);
-        items[i]={...item, buy: dec!=null?parseFloat(dec):null, _buyDecrypted:true};
-      }
-      if(isEncrypted(item.serial)){
-        const dec=await decryptField(item.serial);
-        items[i]={...items[i], serial:dec||''};
-      }
-      if(isEncrypted(item.desc)){
-        const dec=await decryptField(item.desc);
-        items[i]={...items[i], desc:dec||''};
-      }
+      const it=items[i];
+      items[i]={...it,
+        name:   (await df(it.name,false))   ||it.name||'',
+        qty:    isEncrypted(it.qty) ? parseInt(await decryptField(it.qty))||1 : it.qty,
+        date:   (await df(it.date,false))   ||it.date||'',
+        grams:  isEncrypted(it.grams) ? parseFloat(await decryptField(it.grams))||0 : it.grams,
+        fg:     isEncrypted(it.fg)    ? parseFloat(await decryptField(it.fg))||0    : it.fg,
+        wt:     (await df(it.wt,false))     ||it.wt||'',
+        maker:  (await df(it.maker,false))  ||it.maker||'',
+        buy:    isEncrypted(it.buy)   ? parseFloat(await decryptField(it.buy))      : it.buy,
+        serial: (await df(it.serial,false)) ||it.serial||'',
+        desc:   (await df(it.desc,false))   ||it.desc||'',
+        imgPile:(await df(it.imgPile,false))||it.imgPile||null,
+        imgFace:(await df(it.imgFace,false))||it.imgFace||null,
+      };
     }
   }
 }
