@@ -1100,6 +1100,20 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
       <div class="form-group"><label class="form-label">Finesse (ex : 900)</label>
       <input type="number" class="form-input" id="manual-fineness" placeholder="ex : 900" min="1" max="999.9" step="0.1"></div>
     </div>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Pays d'émission</label>
+      <input type="text" class="form-input" id="manual-country" placeholder="ex : France, Suisse, Autriche…" list="country-list">
+      <datalist id="country-list">
+        <option value="France"><option value="Suisse"><option value="Allemagne">
+        <option value="Autriche"><option value="Royaume-Uni"><option value="États-Unis">
+        <option value="Canada"><option value="Australie"><option value="Mexique">
+        <option value="Belgique"><option value="Italie"><option value="Pays-Bas">
+        <option value="Afrique du Sud"><option value="Chine"><option value="Japon">
+      </datalist>
+      </div>
+      <div class="form-group"><label class="form-label">Diamètre (mm) — optionnel</label>
+      <input type="number" class="form-input" id="manual-diameter" placeholder="ex : 21" min="0" step="0.1"></div>
+    </div>
   </div>
   <hr class="form-divider">
   <div class="form-row">
@@ -1194,9 +1208,15 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
     <label class="form-label">Description / Notes</label>
     <textarea class="form-textarea" id="edit-desc" rows="3" placeholder="Millésime, état, série…"></textarea>
   </div>
-  <div class="form-group">
-    <label class="form-label">N° série / Référence</label>
-    <input type="text" class="form-input" id="edit-serial" placeholder="Optionnel">
+  <div class="form-row">
+    <div class="form-group">
+      <label class="form-label">Pays d'émission</label>
+      <input type="text" class="form-input" id="edit-country" placeholder="ex : France, Suisse…" list="country-list">
+    </div>
+    <div class="form-group">
+      <label class="form-label">N° série / Référence</label>
+      <input type="text" class="form-input" id="edit-serial" placeholder="Optionnel">
+    </div>
   </div>
 
   <div class="form-label" style="margin-bottom:.5rem">Photos</div>
@@ -4090,12 +4110,13 @@ function openEdit(id){
      ${item.maker?'· '+item.maker:''} ${item.country?'· '+item.country:''}`.replace(/\s+/g,' ').trim();
 
   // Remplir les champs
-  $('edit-name').value   = item.name   || '';
-  $('edit-qty').value    = item.qty    || 1;
-  $('edit-date').value   = item.date   || '';
-  $('edit-buy').value    = item.buy    != null ? item.buy : '';
-  $('edit-desc').value   = item.desc   || '';
-  $('edit-serial').value = item.serial || '';
+  $('edit-name').value    = item.name    || '';
+  $('edit-qty').value     = item.qty     || 1;
+  $('edit-date').value    = item.date    || '';
+  $('edit-buy').value     = item.buy     != null ? item.buy : '';
+  $('edit-desc').value    = item.desc    || '';
+  $('edit-serial').value  = item.serial  || '';
+  $('edit-country').value = item.country || '';
 
   // Photos
   setEditPhoto('pile', item.imgPile||null);
@@ -4156,12 +4177,13 @@ async function saveEdit(){
   // Appliquer les modifications
   S.items[S.page][idx] = {
     ...item,
-    name:   $('edit-name').value.trim()  || item.name,
-    qty:    newQty,
-    date:   $('edit-date').value         || item.date,
-    buy:    $('edit-buy').value !== ''   ? parseFloat($('edit-buy').value) : item.buy,
-    desc:   $('edit-desc').value,
-    serial: $('edit-serial').value,
+    name:    $('edit-name').value.trim()   || item.name,
+    qty:     newQty,
+    date:    $('edit-date').value          || item.date,
+    buy:     $('edit-buy').value !== ''    ? parseFloat($('edit-buy').value) : item.buy,
+    desc:    $('edit-desc').value,
+    serial:  $('edit-serial').value,
+    country: $('edit-country').value.trim()|| item.country||'',
     imgPile: _editPhotos.pile,
     imgFace: _editPhotos.face,
     editedAt: new Date().toISOString(),
