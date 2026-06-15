@@ -313,6 +313,19 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
 .lightbox.open{display:flex}
 .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px}
 .swipe-hint{display:none}
+/* ── BARRE DE RECHERCHE ──────────────────────────────────── */
+.search-wrap{position:relative;margin-bottom:.9rem}
+.search-input{width:100%;padding:.6rem 2.4rem .6rem .95rem;
+  background:rgba(255,255,255,.04);border:1px solid var(--br);border-radius:6px;
+  color:var(--tx);font-size:.9rem;font-family:'Inter',system-ui,sans-serif;
+  outline:none;transition:border-color .2s;box-sizing:border-box}
+.search-input:focus{border-color:var(--bs)}
+.search-input::placeholder{color:var(--tm)}
+.search-clear{position:absolute;right:.6rem;top:50%;transform:translateY(-50%);
+  background:none;border:none;cursor:pointer;color:var(--tm);font-size:.9rem;
+  padding:.1rem .3rem;display:none;line-height:1}
+.search-clear.visible{display:block}
+.search-count{font-size:.75rem;color:var(--tm);margin-top:.3rem}
 /* ── CHART CARDS COLLAPSIBLES ─────────────────────────────── */
 .chart-card{position:relative;overflow:hidden;transition:all .3s ease}
 .chart-card.collapsed .chart-wrap{display:none}
@@ -758,6 +771,13 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
       <div class="swipe-hint">← Balayez pour naviguer →</div>
       <h1 class="page-title">Patrimoine en <em id="metal-name">Or</em></h1>
       <p class="page-sub" id="page-sub">Chargement…</p>
+      <div class="search-wrap">
+        <input class="search-input" id="search-input" type="search"
+          placeholder="🔍 Rechercher par nom, fondeur, pays, référence…"
+          oninput="onSearch(this.value)"
+          autocomplete="off" autocorrect="off" spellcheck="false">
+        <button class="search-clear" id="search-clear" onclick="clearSearch()">✕</button>
+      </div>
       <div class="list-controls">
         <div class="sort-row">
           <span style="font-size:.75rem;color:var(--tm)">Trier par</span>
@@ -1669,8 +1689,22 @@ function fmtVal(eur){
 }
 let _sortBy='date_desc';
 let _viewMode='grid';
+let _searchQuery='';
 
 function setSort(v){_sortBy=v;renderStats();renderCards();}
+
+function onSearch(val){
+  _searchQuery=val.trim().toLowerCase();
+  const clr=$('search-clear');
+  if(clr) clr.classList.toggle('visible', _searchQuery.length>0);
+  renderCards();
+}
+function clearSearch(){
+  _searchQuery='';
+  const inp=$('search-input'); if(inp) inp.value='';
+  const clr=$('search-clear'); if(clr) clr.classList.remove('visible');
+  renderCards();
+}
 function setView(v){
   _viewMode=v;
   $('view-grid-btn')?.classList.toggle('active',v==='grid');
@@ -1682,6 +1716,13 @@ function getShown(){
   const items=(S.items[S.page]||[]).filter(i=>{
     if(S.filter.type!=='all'&&i.type!==S.filter.type)return false;
     if(S.filter.wt!=='all'&&i.type==='lingot'&&i.wt!==S.filter.wt)return false;
+    // Filtre recherche
+    if(_searchQuery){
+      const q=_searchQuery;
+      const searchable=[i.name,i.maker,i.country,i.serial,i.desc,i.wt,
+        i.type,i.fineness?String(i.fineness):''].join(' ').toLowerCase();
+      if(!searchable.includes(q)) return false;
+    }
     return true;
   });
   // Tri
@@ -2663,7 +2704,8 @@ function renderStats(){
     $('s-pnl-pct').textContent=(pnlPct>=0?'+':'')+f2(pnlPct)+'%';
   }else{$('s-pnl').textContent='—';$('s-pnl-pct').textContent='Saisir prix d\'achat';}
   const n=shown.length;
-  $('page-sub').innerHTML=`${n} élément${n>1?'s':''} · Valeur filtrée : <strong>${blur?'●●●':fmtVal(shownV)}</strong>`;
+  const searchInfo=_searchQuery?` · <span style="color:var(--a)">"${_searchQuery}"</span>`:''
+  $('page-sub').innerHTML=`${n} élément${n>1?'s':''}${searchInfo} · Valeur filtrée : <strong>${blur?'●●●':fmtVal(shownV)}</strong>`;
   // Masquer aussi s-wt (poids) si visiteur
   const wtEl=$('s-wt');if(wtEl&&blur){wtEl.textContent='●●● g';$('s-oz').textContent='●●● Oz troy';}
 }
@@ -4280,7 +4322,21 @@ function toast(msg,type='info'){
 // MODAL
 function openModal(id){$(id).classList.add('open');}
 function closeModal(id){$(id).classList.remove('open');}
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.overlay.open').forEach(o=>o.classList.remove('open'));closeLightbox();}});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    document.querySelectorAll('.overlay.open').forEach(o=>o.classList.remove('open'));
+    closeLightbox();
+    if(_searchQuery) clearSearch();
+  }
+  // Ctrl+F ou '/' pour focus la recherche (si portefeuille actif)
+  if((e.key==='f'&&(e.ctrlKey||e.metaKey))||e.key==='/'){
+    const inp=$('search-input');
+    if(inp&&S.currentPageView==='portfolio'){
+      e.preventDefault();
+      inp.focus();inp.select();
+    }
+  }
+});
 
 // ── FAILSAFE : force l'affichage après 5s ─────────────────────────────────
 function forceSkipLoading(){
