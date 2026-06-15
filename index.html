@@ -3298,7 +3298,7 @@ function renderSimuResult(item){
 
   // Simuler l'évolution sur slider
   const sliderHtml=`
-    <div class="simu-card" id="tax-evol-${item.id}">
+    <div class="simu-card">
       <div class="simu-section-title">⏳ Simulation temporelle — dans combien d'années vendez-vous ?</div>
       <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.5rem">
         <span style="font-size:.82rem;color:var(--td)">Aujourd'hui</span>
@@ -3389,7 +3389,7 @@ function renderSimuResult(item){
     <script>setTimeout(()=>updateSlider('${item.id}',0),50)<\/script>
 
     <!-- Évolution par années -->
-    <div class="simu-card">
+    <div class="simu-card" id="tax-evol-${item.id}">
       <div class="simu-section-title"><div style="display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;justify-content:space-between">
         <span>📊 Évolution de la taxe PV selon la durée</span>
         <label style="display:flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:400;color:var(--tm)">
