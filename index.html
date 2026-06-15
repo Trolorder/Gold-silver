@@ -3292,8 +3292,9 @@ function renderSimuResult(item){
   const tv=pnl!=null&&pnl>0?taxePlusValue(pnl,years):null;
   const bestPV=tv!=null&&tv<tf;
   const toExo=yearsToExo(years);
-  const pnlNetForait=pnl!=null?pnl-tf:null;
-  const pnlNetPV=pnl!=null&&tv!=null?pnl-tv:null;
+  // Net = prix de vente - taxe (pas gain - taxe)
+  const pnlNetForait=vl-tf;
+  const pnlNetPV=tv!=null?vl-tv:null;
 
   // Simuler l'évolution sur slider
   const sliderHtml=`
@@ -3351,7 +3352,7 @@ function renderSimuResult(item){
             = 11% impôt + 0,5% CRDS<br>
             <strong>Formulaire 2091</strong><br>
             Sans justificatif d’achat nécessaire<br>
-            ${pnlNetForait!=null?`Net après taxe : <strong>${fmtVal(pnlNetForait)}</strong>`:''}
+            ${pnlNetForait!=null?`Vous recevez net : <strong>${fmtVal(pnlNetForait)}</strong>`:''}
           </div>
         </div>
         <div class="result-card${bestPV?' best':''}">
@@ -3364,7 +3365,7 @@ function renderSimuResult(item){
                PV imposable : ${fmtVal(pnl*(1-(abat||0)/100))}<br>
                36,2% × PV imposable<br>
                <strong>Formulaire 2092</strong><br>
-               ${pnlNetPV!=null?`Net après taxe : <strong>${fmtVal(pnlNetPV)}</strong>`:''}`
+               ${pnlNetPV!=null?`Vous recevez net : <strong>${fmtVal(pnlNetPV)}</strong>`:''}`
             :pnl===null?'Renseignez le prix d’achat pour calculer'
             :'Plus-value nulle ou négative — non imposable'}
           </div>
