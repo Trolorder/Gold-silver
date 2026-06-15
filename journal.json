@@ -1,14 +1,14 @@
 [
   {
-    "ts": "2026-06-15T09:26:40.666Z",
+    "ts": "2026-06-15T09:26:51.199Z",
     "type": "auth",
-    "detail": "__enc__jb3ifWotWjhDGco8qLK4vNaIqSPdQAeBJdv6dFH3I65gP3jHM2/b9vlltMuE6HrnpjDBeRUiDKu+3zyY",
+    "detail": "__enc__970+Zo740UK+3x6tnf9KSad5eOx/LP2/Qn4fWhmhIetuOBq/l2zV9eMmKNke43bxkKxqVEV8nT8Qyw==",
     "metal": null
   },
   {
-    "ts": "2026-06-15T09:26:33.715Z",
+    "ts": "2026-06-15T09:26:29.489Z",
     "type": "visit",
-    "detail": "__enc__MQsUhvJYqhhxr1xIR1vprXf3Nq38aHSXvHJOwMJQ9xKNFWrT/+rYET4hZmjr80a5hRIp2QkC5PfK3pE=",
+    "detail": "__enc__N0Vwtx4ofUwdYw4Z+NKEkjmFQyU+VaQqCcNXPlS1c3OWrElBGEKoXO15PifqbROaTbA7n3lWyizo",
     "metal": null
   },
   {
