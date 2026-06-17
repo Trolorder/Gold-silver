@@ -1,32 +1,38 @@
 [
   {
+    "ts": "2026-06-17T17:40:10.345Z",
+    "type": "edit",
+    "detail": "__enc__rJFFAIStqK8D/EhlbMRqtgU7YzYfEAVeu3YG/2afR8IT5ef9QCvmcfa91jTn7qUlZy+04bc=",
+    "metal": "gold"
+  },
+  {
     "ts": "2026-06-17T17:39:58.536Z",
     "type": "edit",
-    "detail": "__enc__jS16rhmtqsiQmhj2uHjxAUU6S7MGEm8LhzZqI5K00bBOhdnSFS6q8pcXStejTvUR9Ktpt0nrtXTPVvjPLSG5pw==",
+    "detail": "__enc__ZEKDO8R94revWkBa0SIkhFtCWHxE6q8lrigcXVFpZNzQeV/gDyaSv0uzwOD/2IQqhnwl4vIscHag/6z/kpmtXA==",
     "metal": "gold"
   },
   {
     "ts": "2026-06-17T15:42:48.299Z",
     "type": "edit",
-    "detail": "__enc__51DPJlfi8pjOZN31P6TfT4bc08Z42DusEMVsigpzhYXRn5oh1YQJ4/AAO+rpKHQ8ZR91",
+    "detail": "__enc__5TE6C7UQq/DWIWsk/8UVEA6gQGOqEo+NHpBujKK/n+xUMvmegh5gKJdkDvWRgSookLcm",
     "metal": "gold"
   },
   {
     "ts": "2026-06-17T15:40:57.660Z",
     "type": "auth",
-    "detail": "__enc__YjUJ9EtosgdqmqAv4KHgPsd11i647BtRuDOByLoGXZ6JJ0JpznMTinriv3trodLBPmqH9f7xKIxrVsLE",
+    "detail": "__enc__xAl3YRRXsIUJHV3BYR/ptFfe18uiFOJG/ZGo64/0Z80JMTKyNog8Wvy7a31ea8JKaYPOuxzMSCHtfNrH",
     "metal": null
   },
   {
     "ts": "2026-06-17T15:38:30.927Z",
     "type": "visit",
-    "detail": "__enc__lyNRaFmHeF++EuXLjPFko+AfYAqqoL5/RLrCjypyScgDkkLU8K1+Te3g+Wr3+JWrBdd/5qElLoF5Umw=",
+    "detail": "__enc__YjAjrmhVhcDiGJVuSFbOC+D82LsLjpWUyaiG3O+8OTg7u9UD6ayW4Kj8UeoqZlnt1DDbRNcRNfETFYg=",
     "metal": null
   },
   {
     "ts": "2026-06-17T15:38:29.476Z",
     "type": "visit",
-    "detail": "__enc__irbV+iB8UdFwKmrx5hF52bMx4UV7pUkBFXov3UNSNojgqXzEc9yEwFIzlKFCryldlzsnaLVeu9G9xwc=",
+    "detail": "__enc__MDUuZkw4ZQkSh1931ke5MVUcPDHvHZU4Tz80uC5/FY400XVwM+pjeWGDWxBPSUdC7LhGondRWUpmGOs=",
     "metal": null
   },
   {
@@ -2991,12 +2997,6 @@
     "ts": "2026-06-13T13:40:25.446Z",
     "type": "edit",
     "detail": "__enc__wjsgupZK8j4GHB0fRgtyjBH7I/1+XYu03fmZoA9OKFDQllvqGuyT",
-    "metal": "silver"
-  },
-  {
-    "ts": "2026-06-13T13:40:25.446Z",
-    "type": "edit",
-    "detail": "__enc__w+EoW17n7jEKGunp2qeBiDJ5ucxHolX99PcQe7fwgjMJH/mQO45nBkhsNljlcgFSxqXVkRMeCtkew3st9c1RthWZJLbAcheqNME=",
     "metal": "silver"
   }
 ]
