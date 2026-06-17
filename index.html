@@ -16,7 +16,7 @@
   --a:var(--gold);--b:var(--gold-l);--d:var(--gold-d);
   --s:rgba(201,168,76,.07);--sh:rgba(201,168,76,.13);--br:rgba(201,168,76,.15);
   --bs:rgba(201,168,76,.4);--gl:rgba(201,168,76,.08);
-}---
+}
 body.silver{
   --a:var(--silver);--b:var(--silver-l);--d:var(--silver-d);
   --s:rgba(155,165,180,.07);--sh:rgba(155,165,180,.13);--br:rgba(155,165,180,.15);
@@ -313,106 +313,15 @@ nav{position:sticky;top:0;z-index:100;height:64px;padding:0 2rem;display:flex;al
 .lightbox.open{display:flex}
 .lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px}
 .swipe-hint{display:none}
-/* ── BARRE DE RECHERCHE ──────────────────────────────────── */
-.search-wrap{position:relative;margin-bottom:.9rem}
-.search-input{width:100%;padding:.6rem 2.4rem .6rem .95rem;
-  background:rgba(255,255,255,.04);border:1px solid var(--br);border-radius:6px;
-  color:var(--tx);font-size:.9rem;font-family:'Inter',system-ui,sans-serif;
-  outline:none;transition:border-color .2s;box-sizing:border-box}
-.search-input:focus{border-color:var(--bs)}
-.search-input::placeholder{color:var(--tm)}
-.search-clear{position:absolute;right:.6rem;top:50%;transform:translateY(-50%);
-  background:none;border:none;cursor:pointer;color:var(--tm);font-size:.9rem;
-  padding:.1rem .3rem;display:none;line-height:1}
-.search-clear.visible{display:block}
-.search-count{font-size:.75rem;color:var(--tm);margin-top:.3rem}
-/* ── CHART CARDS COLLAPSIBLES ─────────────────────────────── */
-.chart-card{position:relative;overflow:hidden;transition:all .3s ease}
-.chart-card.collapsed .chart-wrap{display:none}
-.chart-card.collapsed{background:var(--s);border:1px solid var(--br);border-radius:7px}
-.chart-collapse-btn{
-  position:absolute;top:.7rem;right:.7rem;
-  background:none;border:none;cursor:pointer;
-  color:var(--tm);font-size:.85rem;padding:.2rem .5rem;
-  border-radius:3px;transition:all .2s;z-index:2;
-  display:none
-}
-.chart-collapse-btn:hover{color:var(--a);background:var(--s)}
-body:not(.priv) .chart-collapse-btn{display:block}
-.chart-card.collapsed .chart-collapse-btn{color:var(--a)}
-/* En mode visiteur : toutes les cartes collapsées visuellement */
-body.priv .chart-card .chart-wrap{opacity:.08;filter:blur(3px);pointer-events:none}
-body.priv .chart-card .kpi-grid{opacity:.08;filter:blur(3px);pointer-events:none}
-/* ── LOCK SCREENS (overlay centré) ────────────────────────── */
-.page-lock-screen{
-  display:none;position:fixed;inset:0;z-index:100;
-  align-items:center;justify-content:center;padding:2rem;
-  background:rgba(6,6,7,.82);backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px)
-}
-body.lock-page-charts  #page-charts,
-body.lock-page-fiscal  #page-fiscal,
-body.lock-page-alerts  #page-alerts,
-body.lock-page-journal #page-journal { position:relative;overflow:hidden }
-body.lock-page-charts  #lock-page-charts,
-body.lock-page-fiscal  #lock-page-fiscal,
-body.lock-page-alerts  #lock-page-alerts,
-body.lock-page-journal #lock-page-journal { display:flex!important }
-/* ── BLUR PORTEFEUILLE (visiteur) ─────────────────────────── */
-body.priv .card-val,body.priv .card-vals,body.priv .card-pnl,
-body.priv .card-ref,body.priv .card-desc,
-body.priv .card-qty,body.priv .card-date{
-  filter:blur(6px);user-select:none;pointer-events:none
-}
-body.priv .list-val,body.priv .list-pnl,body.priv .list-meta{
-  filter:blur(6px);user-select:none;pointer-events:none
-}
-body.priv .stat-sensitive{filter:blur(7px);user-select:none}
-.global-recap-bar{display:flex;align-items:center;gap:0;
-  background:linear-gradient(135deg,rgba(201,168,76,.06),rgba(255,215,0,.03));
-  border-bottom:1px solid rgba(201,168,76,.18);padding:.55rem 2rem;overflow-x:auto}
-.global-recap-bar::-webkit-scrollbar{display:none}
-.gr-item{display:flex;flex-direction:column;padding:.1rem 1.1rem;flex-shrink:0}
-.gr-lbl{font-size:.6rem;text-transform:uppercase;letter-spacing:.13em;color:rgba(201,168,76,.55);margin-bottom:.15rem}
-.gr-val{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--tx);white-space:nowrap}
-.gr-sub{font-size:.7rem;color:var(--tm);margin-top:.1rem;white-space:nowrap}
-.gr-sep{width:1px;background:rgba(201,168,76,.15);align-self:stretch;flex-shrink:0;margin:0 .3rem}
 /* ── MODE VISITEUR ─────────────────────────────── */
-.priv-overlay{position:absolute;inset:0;z-index:5;
-  display:flex;align-items:center;justify-content:center;
-  background:radial-gradient(ellipse at 50% 30%,rgba(201,168,76,.06) 0%,var(--bg) 70%);
-  min-height:60vh;padding:2rem}
-.login-card{width:100%;max-width:400px;
-  background:rgba(14,14,16,.95);border:1px solid rgba(201,168,76,.2);
-  border-radius:12px;padding:2.5rem 2rem;
-  box-shadow:0 24px 80px rgba(0,0,0,.6),0 0 0 1px rgba(201,168,76,.08);
-  display:flex;flex-direction:column;align-items:center;
-  animation:fadeUp .35s ease}
-body.light .login-card{background:rgba(245,242,237,.97)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-.login-diamond{font-size:2.2rem;color:var(--a);margin-bottom:1rem;text-shadow:0 0 30px rgba(201,168,76,.4)}
-.login-title{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--tx);margin-bottom:.3rem;text-align:center}
-.login-sub{font-size:.82rem;color:var(--tm);margin-bottom:1.8rem;text-align:center;line-height:1.5}
-.login-input-wrap{position:relative;width:100%;margin-bottom:1rem}
-.login-input{width:100%;padding:.75rem 2.8rem .75rem 1rem;
-  background:rgba(255,255,255,.04);border:1px solid rgba(201,168,76,.2);border-radius:6px;
-  color:var(--tx);font-size:1rem;font-family:'Inter',system-ui,sans-serif;
-  outline:none;transition:border-color .2s;box-sizing:border-box}
-.login-input:focus{border-color:rgba(201,168,76,.55)}
-.login-eye{position:absolute;right:.75rem;top:50%;transform:translateY(-50%);
-  background:none;border:none;cursor:pointer;color:var(--tm);font-size:1rem;padding:0}
-.login-btn{width:100%;padding:.8rem;
-  background:linear-gradient(135deg,#7A5C10,#C9A84C);
-  border:none;border-radius:6px;color:#000;font-weight:700;font-size:.95rem;
-  cursor:pointer;font-family:'Inter',system-ui,sans-serif;letter-spacing:.04em;
-  transition:opacity .2s;margin-bottom:.9rem}
-.login-btn:hover{opacity:.88}
-.login-btn:disabled{opacity:.45;cursor:not-allowed}
-.login-err{width:100%;padding:.55rem .8rem;
-  background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);
-  border-radius:5px;color:#fca5a5;font-size:.82rem;
-  margin-bottom:.8rem;display:none;text-align:center}
-.login-hint{font-size:.72rem;color:rgba(201,168,76,.45);text-align:center;line-height:1.6;margin-top:.3rem}
+.priv-lock{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:320px;text-align:center;padding:3rem 2rem}
+.priv-lock-icon{font-size:2.8rem;margin-bottom:1rem;opacity:.35;filter:grayscale(1)}
+.priv-lock h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--td);margin-bottom:.5rem}
+.priv-lock p{font-size:.85rem;color:var(--tm);margin-bottom:1.2rem}
+.priv-lock button{padding:.6rem 1.5rem;background:linear-gradient(135deg,var(--d),var(--a));
+  border:none;border-radius:4px;color:#000;font-weight:700;cursor:pointer;
+  font-family:'Inter',system-ui,sans-serif;font-size:.9rem}
 /* Stats bar en mode privé */
 body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
 /* Infobulle ratio Or/Argent */
@@ -649,7 +558,6 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
     </select>
     <span class="sync-lbl" id="sync-lbl"></span>
     <button class="icon-btn" id="lock-btn" onclick="toggleAdmin()" title="Administration">🔒</button>
-    <button class="icon-btn" id="theme-btn" onclick="toggleTheme()" title="Thème clair/sombre">🌙</button>
     <button class="icon-btn" onclick="openQR()" title="QR Code accès mobile">📱</button>
     <button class="icon-btn" onclick="openSetup()" title="Configuration GitHub">⚙️</button>
   </div>
@@ -697,24 +605,6 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
       <button class="mob-menu-action" onclick="openQR();toggleMobMenu()">📱 QR Code</button>
     </div>
     <div id="mob-sync-lbl" style="font-size:.75rem;color:var(--tm);padding:.3rem .8rem .5rem"></div>
-  </div>
-</div>
-
-<!-- RÉCAP GLOBAL ADMIN -->
-<div id="global-recap" style="display:none">
-  <div class="global-recap-bar">
-    <div class="gr-item"><div class="gr-lbl">Portefeuille global</div><div class="gr-val" id="gr-total">—</div><div class="gr-sub" id="gr-total-sub">Or + Argent</div></div>
-    <div class="gr-sep"></div>
-    <div class="gr-item"><div class="gr-lbl">Prix d'achat total</div><div class="gr-val" id="gr-buy">—</div><div class="gr-sub" id="gr-buy-sub">Capital investi</div></div>
-    <div class="gr-sep"></div>
-    <div class="gr-item"><div class="gr-lbl">Plus-value latente</div><div class="gr-val" id="gr-pnl">—</div><div class="gr-sub" id="gr-pnl-sub">—</div></div>
-    <div class="gr-sep"></div>
-    <div class="gr-item"><div class="gr-lbl">Or</div><div class="gr-val" id="gr-gold">—</div><div class="gr-sub" id="gr-gold-sub">—</div></div>
-    <div class="gr-sep"></div>
-    <div class="gr-item"><div class="gr-lbl">Argent</div><div class="gr-val" id="gr-silver">—</div><div class="gr-sub" id="gr-silver-sub">—</div></div>
-    <div class="gr-sep"></div>
-    <div class="gr-item"><div class="gr-lbl">Rendement</div><div class="gr-val" id="gr-yield">—</div><div class="gr-sub">Depuis acquisition</div></div>
-    <div id="gr-inflation" style="display:contents"></div>
   </div>
 </div>
 
@@ -771,13 +661,6 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
       <div class="swipe-hint">← Balayez pour naviguer →</div>
       <h1 class="page-title">Patrimoine en <em id="metal-name">Or</em></h1>
       <p class="page-sub" id="page-sub">Chargement…</p>
-      <div class="search-wrap">
-        <input class="search-input" id="search-input" type="search"
-          placeholder="🔍 Rechercher par nom, fondeur, pays, référence…"
-          oninput="onSearch(this.value)"
-          autocomplete="off" autocorrect="off" spellcheck="false">
-        <button class="search-clear" id="search-clear" onclick="clearSearch()">✕</button>
-      </div>
       <div class="list-controls">
         <div class="sort-row">
           <span style="font-size:.75rem;color:var(--tm)">Trier par</span>
@@ -802,24 +685,6 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
 
   <!-- CHARTS -->
   <div class="page" id="page-charts" style="flex:1;min-width:0">
-<div class="page-lock-screen" id="lock-page-charts">
-  <div class="login-card">
-    <div class="login-diamond">◆</div>
-    <div class="login-title">Accès privé</div>
-    <div class="login-sub">Entrez votre mot de passe maître<br>pour accéder à cette section.</div>
-    <div class="login-err" id="il-err-page-charts"></div>
-    <div class="login-input-wrap">
-      <input class="login-input" type="password" id="il-pass-page-charts"
-        placeholder="Mot de passe maître" autocomplete="off"
-        onkeydown="if(event.key==='Enter')inlineAuth('page-charts')">
-      <button class="login-eye" type="button"
-        onclick="const i=document.getElementById('il-pass-page-charts');const s=i.type==='password';i.type=s?'text':'password';this.textContent=s?'🙈':'👁'">👁</button>
-    </div>
-    <button class="login-btn" id="il-btn-page-charts" onclick="inlineAuth('page-charts')">Déverrouiller</button>
-    <div class="login-hint">🔑 Mot de passe maître — depuis n'importe quel appareil</div>
-  </div>
-</div>
-
     <div class="charts-page">
       <h2 class="section-title">Analyse <em>graphique</em></h2>
       <div id="charts-lock-overlay"></div>
@@ -827,26 +692,18 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
       <div class="kpi-grid" id="kpi-grid"></div>
       <div class="charts-grid">
         <div class="chart-card chart-full">
-  <button class="chart-collapse-btn" onclick="toggleChartCard(this)" title="Réduire/Agrandir">⌃</button>
-  
           <div class="chart-title">Évolution de la valeur du portefeuille</div>
           <div class="chart-wrap-tall"><canvas id="chart-history"></canvas></div>
         </div>
         <div class="chart-card">
-  <button class="chart-collapse-btn" onclick="toggleChartCard(this)" title="Réduire/Agrandir">⌃</button>
-  
           <div class="chart-title">Répartition Or / Argent</div>
           <div class="chart-wrap"><canvas id="chart-split"></canvas></div>
         </div>
         <div class="chart-card">
-  <button class="chart-collapse-btn" onclick="toggleChartCard(this)" title="Réduire/Agrandir">⌃</button>
-  
           <div class="chart-title">Répartition Lingots / Pièces</div>
           <div class="chart-wrap"><canvas id="chart-types"></canvas></div>
         </div>
         <div class="chart-card chart-full">
-  <button class="chart-collapse-btn" onclick="toggleChartCard(this)" title="Réduire/Agrandir">⌃</button>
-  
           <div class="chart-title" id="chart-ratio-title">Ratio Or / Argent
             <span class="ratio-info-btn" title="" onclick="this.nextElementSibling.classList.toggle('visible')" style="cursor:pointer;font-size:.75rem;opacity:.5;margin-left:.4rem;vertical-align:middle">ℹ️</span>
             <div class="ratio-tooltip-box">
@@ -861,8 +718,6 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
           <div class="chart-wrap"><canvas id="chart-ratio"></canvas></div>
         </div>
         <div class="chart-card chart-full">
-  <button class="chart-collapse-btn" onclick="toggleChartCard(this)" title="Réduire/Agrandir">⌃</button>
-  
           <div class="chart-title">Valeur par possession (top 10)</div>
           <div class="chart-wrap"><canvas id="chart-top"></canvas></div>
         </div>
@@ -873,34 +728,8 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
 
   <!-- FISCAL -->
   <div class="page" id="page-fiscal" style="flex:1;min-width:0">
-<div class="page-lock-screen" id="lock-page-fiscal">
-  <div class="login-card">
-    <div class="login-diamond">◆</div>
-    <div class="login-title">Accès privé</div>
-    <div class="login-sub">Entrez votre mot de passe maître<br>pour accéder à cette section.</div>
-    <div class="login-err" id="il-err-page-fiscal"></div>
-    <div class="login-input-wrap">
-      <input class="login-input" type="password" id="il-pass-page-fiscal"
-        placeholder="Mot de passe maître" autocomplete="off"
-        onkeydown="if(event.key==='Enter')inlineAuth('page-fiscal')">
-      <button class="login-eye" type="button"
-        onclick="const i=document.getElementById('il-pass-page-fiscal');const s=i.type==='password';i.type=s?'text':'password';this.textContent=s?'🙈':'👁'">👁</button>
-    </div>
-    <button class="login-btn" id="il-btn-page-fiscal" onclick="inlineAuth('page-fiscal')">Déverrouiller</button>
-    <div class="login-hint">🔑 Mot de passe maître — depuis n'importe quel appareil</div>
-  </div>
-</div>
-
     <div class="fiscal-page">
       <h2 class="section-title">Simulateur <em>fiscal</em></h2>
-      <div id="versioning-bar" style="display:none;margin-bottom:1rem;padding:.6rem .8rem;
-        background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.2);border-radius:5px;
-        display:flex;align-items:center;gap:.8rem;flex-wrap:wrap">
-        <span style="font-size:.82rem;color:var(--a)">📅 Historique</span>
-        <input type="date" id="version-date" class="form-input" style="max-width:180px;padding:.3rem .6rem;font-size:.82rem" onchange="viewVersion(this.value)">
-        <span id="version-info" style="font-size:.8rem;color:var(--td)"></span>
-        <button class="btn-secondary" style="padding:.3rem .8rem;font-size:.8rem" onclick="resetVersion()">↩ Retour actuel</button>
-      </div>
 
       <!-- BARRE RÉSUMÉ GLOBAL -->
       <div id="fiscal-global"></div>
@@ -910,7 +739,6 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
         <button class="regime-tab active" id="ftab-simu"   onclick="switchFTab('simu')">🧮 Simulation de vente</button>
         <button class="regime-tab"        id="ftab-detail" onclick="switchFTab('detail')">📋 Détail par bien</button>
         <button class="regime-tab"        id="ftab-guide"  onclick="switchFTab('guide')">📖 Guide fiscal</button>
-        <button class="regime-tab"        onclick="openVersioning()">📅 Historique</button>
       </div>
 
       <!-- SIMULATION -->
@@ -947,27 +775,9 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
 
   <!-- JOURNAL -->
   <div class="page" id="page-journal" style="flex:1;min-width:0">
-<div class="page-lock-screen" id="lock-page-journal">
-  <div class="login-card">
-    <div class="login-diamond">◆</div>
-    <div class="login-title">Accès privé</div>
-    <div class="login-sub">Entrez votre mot de passe maître<br>pour accéder à cette section.</div>
-    <div class="login-err" id="il-err-page-journal"></div>
-    <div class="login-input-wrap">
-      <input class="login-input" type="password" id="il-pass-page-journal"
-        placeholder="Mot de passe maître" autocomplete="off"
-        onkeydown="if(event.key==='Enter')inlineAuth('page-journal')">
-      <button class="login-eye" type="button"
-        onclick="const i=document.getElementById('il-pass-page-journal');const s=i.type==='password';i.type=s?'text':'password';this.textContent=s?'🙈':'👁'">👁</button>
-    </div>
-    <button class="login-btn" id="il-btn-page-journal" onclick="inlineAuth('page-journal')">Déverrouiller</button>
-    <div class="login-hint">🔑 Mot de passe maître — depuis n'importe quel appareil</div>
-  </div>
-</div>
-
     <div class="fiscal-page">
       <h2 class="section-title">Journal <em>d'activité</em></h2>
-      <div class="export-row" id="journal-export-row" style="display:none">
+      <div class="export-row" id="journal-export-row">
         <button class="export-btn" onclick="clearJournal()">🗑 Effacer le journal</button>
         <button class="export-btn" onclick="exportJournalCSV()">⬇ Exporter CSV</button>
       </div>
@@ -977,24 +787,6 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
 
   <!-- ALERTS -->
   <div class="page" id="page-alerts" style="flex:1;min-width:0">
-<div class="page-lock-screen" id="lock-page-alerts">
-  <div class="login-card">
-    <div class="login-diamond">◆</div>
-    <div class="login-title">Accès privé</div>
-    <div class="login-sub">Entrez votre mot de passe maître<br>pour accéder à cette section.</div>
-    <div class="login-err" id="il-err-page-alerts"></div>
-    <div class="login-input-wrap">
-      <input class="login-input" type="password" id="il-pass-page-alerts"
-        placeholder="Mot de passe maître" autocomplete="off"
-        onkeydown="if(event.key==='Enter')inlineAuth('page-alerts')">
-      <button class="login-eye" type="button"
-        onclick="const i=document.getElementById('il-pass-page-alerts');const s=i.type==='password';i.type=s?'text':'password';this.textContent=s?'🙈':'👁'">👁</button>
-    </div>
-    <button class="login-btn" id="il-btn-page-alerts" onclick="inlineAuth('page-alerts')">Déverrouiller</button>
-    <div class="login-hint">🔑 Mot de passe maître — depuis n'importe quel appareil</div>
-  </div>
-</div>
-
     <div class="alerts-page">
       <h2 class="section-title">Alertes <em>de cours</em></h2>
       <div class="info-box" id="notif-info">
@@ -1100,20 +892,6 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
       <div class="form-group"><label class="form-label">Finesse (ex : 900)</label>
       <input type="number" class="form-input" id="manual-fineness" placeholder="ex : 900" min="1" max="999.9" step="0.1"></div>
     </div>
-    <div class="form-row">
-      <div class="form-group"><label class="form-label">Pays d'émission</label>
-      <input type="text" class="form-input" id="manual-country" placeholder="ex : France, Suisse, Autriche…" list="country-list">
-      <datalist id="country-list">
-        <option value="France"><option value="Suisse"><option value="Allemagne">
-        <option value="Autriche"><option value="Royaume-Uni"><option value="États-Unis">
-        <option value="Canada"><option value="Australie"><option value="Mexique">
-        <option value="Belgique"><option value="Italie"><option value="Pays-Bas">
-        <option value="Afrique du Sud"><option value="Chine"><option value="Japon">
-      </datalist>
-      </div>
-      <div class="form-group"><label class="form-label">Diamètre (mm) — optionnel</label>
-      <input type="number" class="form-input" id="manual-diameter" placeholder="ex : 21" min="0" step="0.1"></div>
-    </div>
   </div>
   <hr class="form-divider">
   <div class="form-row">
@@ -1208,15 +986,9 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
     <label class="form-label">Description / Notes</label>
     <textarea class="form-textarea" id="edit-desc" rows="3" placeholder="Millésime, état, série…"></textarea>
   </div>
-  <div class="form-row">
-    <div class="form-group">
-      <label class="form-label">Pays d'émission</label>
-      <input type="text" class="form-input" id="edit-country" placeholder="ex : France, Suisse…" list="country-list">
-    </div>
-    <div class="form-group">
-      <label class="form-label">N° série / Référence</label>
-      <input type="text" class="form-input" id="edit-serial" placeholder="Optionnel">
-    </div>
+  <div class="form-group">
+    <label class="form-label">N° série / Référence</label>
+    <input type="text" class="form-input" id="edit-serial" placeholder="Optionnel">
   </div>
 
   <div class="form-label" style="margin-bottom:.5rem">Photos</div>
@@ -1549,38 +1321,16 @@ const SITE_CONFIG = {
 
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2);
 
-function privLock(pageId){
-  document.body.classList.add('lock-'+pageId);
+function privLock(containerId){
+  const el=$(containerId);
+  if(!el) return;
+  el.innerHTML=`<div class="priv-lock">
+    <div class="priv-lock-icon">🔒</div>
+    <h3>Contenu privé</h3>
+    <p>Authentifiez-vous pour accéder à cette section.</p>
+    <button onclick="toggleAdmin()">🔒 Se connecter</button>
+  </div>`;
 }
-function privUnlock(pageId){
-  document.body.classList.remove('lock-'+pageId);
-}
-async function inlineAuth(pageId){
-  const passEl=document.getElementById('il-pass-'+pageId);
-  const errEl=document.getElementById('il-err-'+pageId);
-  const btnEl=document.getElementById('il-btn-'+pageId);
-  const pass=passEl?passEl.value:'';
-  const fail=msg=>{if(errEl){errEl.textContent=msg;errEl.style.display='block';}
-    if(btnEl){btnEl.disabled=false;btnEl.textContent='Déverrouiller';}};
-  if(!pass){fail('Entrez votre mot de passe.');return;}
-  if(btnEl){btnEl.disabled=true;btnEl.textContent='Vérification…';}
-  const storedHash=S.authHash||cfg.authHash;
-  const storedEnc=S.encToken||cfg.encToken;
-  if(!storedHash||!storedEnc){fail('Aucune configuration — utilisez ⚙️');return;}
-  try{
-    const inputHash=await sha256hex(pass);
-    if(inputHash!==storedHash){fail('Mot de passe incorrect.');return;}
-    if(btnEl)btnEl.textContent='Déchiffrement…';
-    const token=await decryptWithPassword(storedEnc,pass);
-    if(!token||token.length<10){fail('Erreur — reconfigurez via ⚙️');return;}
-    cfg.token=token;
-    // Dériver la clé de session pour déchiffrer les champs items
-    await deriveSessionKey(pass);
-    await decryptAllItems();
-    unlockAdmin();
-  }catch(e){fail('Erreur: '+e.message);}
-}
-
 function isPrivate(){ return S.isVisitor && cfg.mode==='private'; }
 
 // ── Clé de session (dérivée du mot de passe, jamais stockée) ──
@@ -1709,22 +1459,8 @@ function fmtVal(eur){
 }
 let _sortBy='date_desc';
 let _viewMode='grid';
-let _searchQuery='';
 
 function setSort(v){_sortBy=v;renderStats();renderCards();}
-
-function onSearch(val){
-  _searchQuery=val.trim().toLowerCase();
-  const clr=$('search-clear');
-  if(clr) clr.classList.toggle('visible', _searchQuery.length>0);
-  renderCards();
-}
-function clearSearch(){
-  _searchQuery='';
-  const inp=$('search-input'); if(inp) inp.value='';
-  const clr=$('search-clear'); if(clr) clr.classList.remove('visible');
-  renderCards();
-}
 function setView(v){
   _viewMode=v;
   $('view-grid-btn')?.classList.toggle('active',v==='grid');
@@ -1736,13 +1472,6 @@ function getShown(){
   const items=(S.items[S.page]||[]).filter(i=>{
     if(S.filter.type!=='all'&&i.type!==S.filter.type)return false;
     if(S.filter.wt!=='all'&&i.type==='lingot'&&i.wt!==S.filter.wt)return false;
-    // Filtre recherche
-    if(_searchQuery){
-      const q=_searchQuery;
-      const searchable=[i.name,i.maker,i.country,i.serial,i.desc,i.wt,
-        i.type,i.fineness?String(i.fineness):''].join(' ').toLowerCase();
-      if(!searchable.includes(q)) return false;
-    }
     return true;
   });
   // Tri
@@ -1919,8 +1648,6 @@ function setCurrency(c){S.currency=$('currency-sel').value=c;ls.set('pm_currency
     toast('Erreur au démarrage','error');
   }finally{
     $('loading-screen').style.display='none';
-    applyTheme();
-    if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
     // Log visite
     getClientIP().then(ip=>logActivity('visit','Visite du site ('+ip+')'));
     // Charger le journal depuis GitHub si possible
@@ -2076,11 +1803,9 @@ async function buildJournal(){
   if(exportRow) exportRow.style.display=S.isAdmin?'flex':'none';
 
   if(isPrivate()||!S.isAdmin){
-    privUnlock('page-journal');
-    privLock('page-journal');
+    privLock('journal-content');
     return;
   }
-  privUnlock('page-journal');
   const log=ls.get('pm_journal')||[];
   const el=$('journal-content'); if(!el)return;
   if(!log.length){
@@ -2122,7 +1847,6 @@ async function buildJournal(){
 }
 
 async function clearJournal(){
-  if(!S.isAdmin){toast('Connexion requise','error');return;}
   if(!S.isAdmin){toast('Connectez-vous pour effacer le journal','error');return;}
   if(!confirm('Effacer tout le journal ?')) return;
   ls.set('pm_journal',[]);
@@ -2158,7 +1882,6 @@ async function clearJournal(){
 }
 
 function exportJournalCSV(){
-  if(!S.isAdmin){toast('Connexion requise','error');return;}
   if(!S.isAdmin){toast('Connectez-vous pour exporter le journal','error');return;}
   const log=ls.get('pm_journal')||[];
   if(!log.length){toast('Journal vide','info');return;}
@@ -2174,173 +1897,6 @@ function exportJournalCSV(){
   a.download='journal_patrimoine.csv';a.click();
   logActivity('export','Export journal CSV');
   toast('Journal exporté','success');
-}
-
-// ── THÈME CLAIR/SOMBRE ───────────────────────────────────────
-function toggleChartCard(btn){
-  const card=btn.closest('.chart-card');
-  if(!card)return;
-  card.classList.toggle('collapsed');
-  btn.textContent=card.classList.contains('collapsed')?'⌄':'⌃';
-}
-function collapseAllCharts(){
-  document.querySelectorAll('.chart-card').forEach(card=>{
-    card.classList.add('collapsed');
-    const btn=card.querySelector('.chart-collapse-btn');
-    if(btn)btn.textContent='⌄';
-  });
-}
-function expandAllCharts(){
-  document.querySelectorAll('.chart-card').forEach(card=>{
-    card.classList.remove('collapsed');
-    const btn=card.querySelector('.chart-collapse-btn');
-    if(btn)btn.textContent='⌃';
-  });
-}
-
-function toggleTheme(){
-  const light=document.body.classList.toggle('light');
-  ls.set('pm_theme',light?'light':'dark');
-  const btn=$('theme-btn');if(btn)btn.textContent=light?'☀️':'🌙';
-}
-function applyTheme(){
-  const t=ls.get('pm_theme');
-  if(t==='light'){document.body.classList.add('light');const b=$('theme-btn');if(b)b.textContent='☀️';}
-}
-
-// ── EXPORT / IMPORT .VAULT ───────────────────────────────────
-async function exportVault(){
-  if(!S.isAdmin){toast('Connexion requise','error');return;}
-  const data={version:2,createdAt:new Date().toISOString(),
-    items:S.items,history:S.history,alerts:S.alerts,
-    authHash:S.authHash||cfg.authHash,encToken:S.encToken||cfg.encToken};
-  const json=JSON.stringify(data,null,2);
-  const enc=new TextEncoder();
-  const iv=crypto.getRandomValues(new Uint8Array(12));
-  const keyMat=await crypto.subtle.importKey('raw',enc.encode(cfg.token.slice(-16)||'vault'),
-    {name:'AES-GCM'},false,['encrypt']);
-  const ct=await crypto.subtle.encrypt({name:'AES-GCM',iv},keyMat,enc.encode(json));
-  const buf=new Uint8Array(12+ct.byteLength);
-  buf.set(iv,0);buf.set(new Uint8Array(ct),12);
-  const vault=JSON.stringify({vault:true,v:2,data:btoa(String.fromCharCode(...buf))});
-  const blob=new Blob([vault],{type:'application/json'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
-  a.download=`patrimoine_${new Date().toISOString().split('T')[0]}.vault`;
-  a.click();
-  logActivity('export','Export .vault local');
-  toast('Sauvegarde .vault téléchargée','success');
-}
-
-async function importVault(){
-  if(!S.isAdmin){toast('Connexion requise','error');return;}
-  const input=document.createElement('input');input.type='file';input.accept='.vault,.json';
-  input.onchange=async()=>{
-    const file=input.files[0];if(!file)return;
-    try{
-      const text=await file.text();const parsed=JSON.parse(text);
-      if(!parsed.vault||!parsed.data){toast('Fichier .vault invalide','error');return;}
-      const buf=Uint8Array.from(atob(parsed.data),c=>c.charCodeAt(0));
-      const iv=buf.slice(0,12);const ct=buf.slice(12);
-      const enc=new TextEncoder();
-      const keyMat=await crypto.subtle.importKey('raw',enc.encode(cfg.token.slice(-16)||'vault'),
-        {name:'AES-GCM'},false,['decrypt']);
-      const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv},keyMat,ct);
-      const data=JSON.parse(new TextDecoder().decode(pt));
-      if(!confirm('Importer '+file.name+' ? Cette action remplacera toutes vos données actuelles.'))return;
-      S.items=data.items||{gold:[],silver:[]};
-      S.history=data.history||[];S.alerts=data.alerts||[];
-      const ok=await saveToGH();
-      if(ok){render();toast('Import .vault réussi','success');}
-    }catch(e){toast('Erreur import: '+e.message,'error');}
-  };
-  input.click();
-}
-
-// ── VERSIONING ───────────────────────────────────────────────
-let _versionBackup=null;
-function openVersioning(){
-  const bar=$('versioning-bar');
-  if(bar)bar.style.display=bar.style.display==='none'?'flex':'none';
-}
-async function viewVersion(dateStr){
-  if(!dateStr)return;
-  const info=$('version-info');
-  const sorted=[...S.history].sort((a,b)=>a.date.localeCompare(b.date));
-  const snap=sorted.filter(h=>h.date<=dateStr).slice(-1)[0];
-  if(!snap){if(info)info.textContent='Aucun snapshot disponible avant cette date.';return;}
-  if(info)info.textContent='Snapshot du '+new Date(snap.date).toLocaleDateString('fr-FR')+' · Valeur : '+fmtVal(toDisplay(snap.val));
-  if(!_versionBackup)_versionBackup={gold:[...S.items.gold],silver:[...S.items.silver]};
-  S.items.gold=(S.items.gold||[]).filter(i=>!i.date||i.date<=dateStr);
-  S.items.silver=(S.items.silver||[]).filter(i=>!i.date||i.date<=dateStr);
-  render();buildFiscal();
-  toast('Portefeuille au '+new Date(snap.date).toLocaleDateString('fr-FR'),'info');
-}
-function resetVersion(){
-  if(_versionBackup){S.items.gold=_versionBackup.gold;S.items.silver=_versionBackup.silver;_versionBackup=null;}
-  const vd=$('version-date');if(vd)vd.value='';
-  const vi=$('version-info');if(vi)vi.textContent='';
-  render();buildFiscal();toast('Retour aux données actuelles','info');
-}
-
-// ── RÉCAP GLOBAL ADMIN ───────────────────────────────────────
-function renderGlobalRecap(){
-  const bar=$('global-recap');
-  if(!bar)return;
-  if(!S.isAdmin){bar.style.display='none';return;}
-  bar.style.display='block';
-  const sym={EUR:'€',USD:'$',CHF:'₣',GBP:'£'}[S.currency];
-  const gold=S.items.gold||[];const silver=S.items.silver||[];
-  const allItems=[...gold.map(i=>({...i,metal:'gold'})),...silver.map(i=>({...i,metal:'silver'}))];
-  const totGold=gold.reduce((s,i)=>s+getGrams(i)*i.qty*(S.prices.gold||0),0);
-  const totSilver=silver.reduce((s,i)=>s+getGrams(i)*i.qty*(S.prices.silver||0),0);
-  const totV=totGold+totSilver;
-  const validBuy=allItems.filter(i=>i.buy!=null&&!isNaN(i.buy));
-  const totBuy=validBuy.reduce((s,i)=>s+Number(i.buy),0);
-  const totPnl=totBuy>0?totV-totBuy:null;
-  const pnlPct=totBuy>0?(totPnl/totBuy)*100:null;
-  const fv=v=>f2(toDisplay(v))+' '+sym;
-  $('gr-total').textContent=fv(totV);$('gr-total').style.color='var(--a)';
-  $('gr-total-sub').textContent='Or + Argent combinés';
-  if(totBuy>0){$('gr-buy').textContent=fv(totBuy);$('gr-buy-sub').textContent=validBuy.length+' bien'+(validBuy.length>1?'s':'');}
-  else{$('gr-buy').textContent='—';$('gr-buy-sub').textContent='Saisir prix d’achat';}
-  if(totPnl!=null){
-    $('gr-pnl').textContent=(totPnl>=0?'+':'')+fv(totPnl);
-    $('gr-pnl').style.color=totPnl>=0?'#22c55e':'#ef4444';
-    $('gr-pnl-sub').textContent=(pnlPct>=0?'+':'')+f2(pnlPct)+'% sur capital';
-  }else{$('gr-pnl').textContent='—';$('gr-pnl').style.color='var(--td)';$('gr-pnl-sub').textContent='Prix achat non renseigné';}
-  const buyGold=gold.filter(i=>i.buy!=null&&!isNaN(i.buy)).reduce((s,i)=>s+Number(i.buy),0);
-  $('gr-gold').textContent=fv(totGold);$('gr-gold').style.color='var(--a)';
-  $('gr-gold-sub').textContent=buyGold>0?'Achat : '+fv(buyGold):f3(gold.reduce((s,i)=>s+getTotal(i),0)/31.1035)+' Oz';
-  const buySilver=silver.filter(i=>i.buy!=null&&!isNaN(i.buy)).reduce((s,i)=>s+Number(i.buy),0);
-  $('gr-silver').textContent=fv(totSilver);$('gr-silver').style.color='rgba(180,190,200,.9)';
-  $('gr-silver-sub').textContent=buySilver>0?'Achat : '+fv(buySilver):f3(silver.reduce((s,i)=>s+getTotal(i),0)/31.1035)+' Oz';
-  if(pnlPct!=null){$('gr-yield').textContent=(pnlPct>=0?'+':'')+f2(pnlPct)+'%';$('gr-yield').style.color=pnlPct>=0?'#22c55e':'#ef4444';}
-  else{$('gr-yield').textContent='—';$('gr-yield').style.color='var(--td)';}
-  renderInflationComparison(allItems,totBuy,totV,sym);
-}
-
-async function renderInflationComparison(allItems,totBuy,totV,sym){
-  const el=$('gr-inflation');if(!el)return;
-  if(totBuy<=0){el.innerHTML='';return;}
-  const validDates=allItems.filter(i=>i.date&&i.buy&&!isNaN(i.buy));
-  if(!validDates.length){el.innerHTML='';return;}
-  const avgYear=validDates.reduce((s,i)=>s+new Date(i.date).getFullYear()*(Number(i.buy)/totBuy),0);
-  const yearsHeld=new Date().getFullYear()-Math.round(avgYear);
-  if(yearsHeld<=0){el.innerHTML='';return;}
-  const inflRates={2000:1.8,2001:1.8,2002:1.9,2003:2.2,2004:2.3,2005:1.9,2006:1.9,2007:1.6,
-    2008:3.2,2009:0.1,2010:1.7,2011:2.3,2012:2.2,2013:1.0,2014:0.6,2015:0.0,2016:0.2,
-    2017:1.2,2018:1.8,2019:1.3,2020:0.5,2021:1.6,2022:5.2,2023:4.9,2024:2.3,2025:1.5};
-  let cumInfl=1;
-  for(let y=Math.round(avgYear);y<new Date().getFullYear();y++) cumInfl*=(1+(inflRates[y]||2)/100);
-  const inflatedBuy=totBuy*cumInfl;
-  const realGain=totV-inflatedBuy;
-  const realGainPct=((totV/inflatedBuy)-1)*100;
-  el.innerHTML=`<div class="gr-sep"></div>
-    <div class="gr-item" title="Capital ${fmtVal(totBuy)} ajusté inflation INSEE · ${yearsHeld} ans">
-      <div class="gr-lbl">Gain réel (vs inflation)</div>
-      <div class="gr-val" style="color:${realGain>=0?'#22c55e':'#ef4444'}">${realGain>=0?'+':''}${f2(toDisplay(realGain))} ${sym}</div>
-      <div class="gr-sub">${(realGainPct>=0?'+':'')+f2(realGainPct)}% · inflation cumulée ${f2((cumInfl-1)*100)}%</div>
-    </div>`;
 }
 
 function toggleMobMenu(){
@@ -2531,30 +2087,23 @@ async function doTokenAuth(){
 // Déchiffrer tous les champs sensibles après connexion
 async function decryptAllItems(){
   if(!_sessionKey) return;
-  const df=async(v,parseNum)=>{
-    if(!isEncrypted(v)) return v;
-    const dec=await decryptField(v);
-    if(dec===null) return null;
-    return parseNum?parseFloat(dec):dec;
-  };
-  for(const page of ['gold','silver']){
+  const allPages=['gold','silver'];
+  for(const page of allPages){
     const items=S.items[page]||[];
     for(let i=0;i<items.length;i++){
-      const it=items[i];
-      items[i]={...it,
-        name:   (await df(it.name,false))   ||it.name||'',
-        qty:    isEncrypted(it.qty) ? parseInt(await decryptField(it.qty))||1 : it.qty,
-        date:   (await df(it.date,false))   ||it.date||'',
-        grams:  isEncrypted(it.grams) ? parseFloat(await decryptField(it.grams))||0 : it.grams,
-        fg:     isEncrypted(it.fg)    ? parseFloat(await decryptField(it.fg))||0    : it.fg,
-        wt:     (await df(it.wt,false))     ||it.wt||'',
-        maker:  (await df(it.maker,false))  ||it.maker||'',
-        buy:    isEncrypted(it.buy)   ? parseFloat(await decryptField(it.buy))      : it.buy,
-        serial: (await df(it.serial,false)) ||it.serial||'',
-        desc:   (await df(it.desc,false))   ||it.desc||'',
-        imgPile:(await df(it.imgPile,false))||it.imgPile||null,
-        imgFace:(await df(it.imgFace,false))||it.imgFace||null,
-      };
+      const item=items[i];
+      if(isEncrypted(item.buy)){
+        const dec=await decryptField(item.buy);
+        items[i]={...item, buy: dec!=null?parseFloat(dec):null, _buyDecrypted:true};
+      }
+      if(isEncrypted(item.serial)){
+        const dec=await decryptField(item.serial);
+        items[i]={...items[i], serial:dec||''};
+      }
+      if(isEncrypted(item.desc)){
+        const dec=await decryptField(item.desc);
+        items[i]={...items[i], desc:dec||''};
+      }
     }
   }
 }
@@ -2585,19 +2134,6 @@ async function encryptJournalEntry(entry){
 }
 
 function unlockAdmin(){
-  document.body.classList.remove('priv');
-  ['page-charts','page-fiscal','page-alerts','page-journal'].forEach(p=>{
-    document.body.classList.remove('lock-'+p);
-    // Réinitialiser les formulaires de connexion inline
-    const passEl=document.getElementById('il-pass-'+p);
-    const errEl=document.getElementById('il-err-'+p);
-    const btnEl=document.getElementById('il-btn-'+p);
-    if(passEl) passEl.value='';
-    if(errEl){errEl.textContent='';errEl.style.display='none';}
-    if(btnEl){btnEl.disabled=false;btnEl.textContent='Déverrouiller';}
-  });
-  expandAllCharts();
-  renderGlobalRecap();
   S.isAdmin=true;S.isVisitor=false;
   const vb=$('visitor-bar');if(vb)vb.style.display='none';
   const cw=$('config-warn');if(cw)cw.style.display='none';
@@ -2655,8 +2191,6 @@ function render(){
   const G=S.page==='gold';
   const privMode=isPrivate();
   document.body.className=(G?'':'silver')+(privMode?' priv':'');
-  // Appliquer le thème
-  if(ls.get('pm_theme')==='light') document.body.classList.add('light');
   // Desktop tabs
   const tg=$('tab-gold'); if(tg) tg.classList.toggle('active',G);
   const ts=$('tab-silver'); if(ts) ts.classList.toggle('active',!G);
@@ -2670,7 +2204,7 @@ function render(){
   const mlb=$('mob-lock-btn'); if(mlb) mlb.textContent=S.isAdmin?'🔓 Admin actif':'🔒 Se connecter';
   const sh=$('sidebar-hint'); if(sh) sh.style.display=S.isAdmin?'none':'block';
   const ws=$('wt-section'); if(ws) ws.style.display=S.filter.type==='piece'?'none':'block';
-  renderPriceBar();renderStats();renderCards();renderGlobalRecap();
+  renderPriceBar();renderStats();renderCards();
   if(S.currentPageView==='charts')buildCharts();
   if(S.currentPageView==='fiscal')buildFiscal();
   if(S.currentPageView==='alerts')buildAlerts();
@@ -2724,8 +2258,7 @@ function renderStats(){
     $('s-pnl-pct').textContent=(pnlPct>=0?'+':'')+f2(pnlPct)+'%';
   }else{$('s-pnl').textContent='—';$('s-pnl-pct').textContent='Saisir prix d\'achat';}
   const n=shown.length;
-  const searchInfo=_searchQuery?` · <span style="color:var(--a)">"${_searchQuery}"</span>`:''
-  $('page-sub').innerHTML=`${n} élément${n>1?'s':''}${searchInfo} · Valeur filtrée : <strong>${blur?'●●●':fmtVal(shownV)}</strong>`;
+  $('page-sub').innerHTML=`${n} élément${n>1?'s':''} · Valeur filtrée : <strong>${blur?'●●●':fmtVal(shownV)}</strong>`;
   // Masquer aussi s-wt (poids) si visiteur
   const wtEl=$('s-wt');if(wtEl&&blur){wtEl.textContent='●●● g';$('s-oz').textContent='●●● Oz troy';}
 }
@@ -2814,8 +2347,16 @@ function renderCards(){
 const CHARTCFG={color:'rgba(201,168,76,.7)',colorSilver:'rgba(155,165,180,.7)',bg:'rgba(201,168,76,.1)'};
 
 function buildCharts(){
-  privUnlock('page-charts');
-  if(isPrivate()){ privLock('page-charts'); return; }
+  const overlay=$('charts-lock-overlay');
+  const realContent=$('charts-real-content');
+  if(isPrivate()){
+    if(overlay) privLock('charts-lock-overlay');
+    if(realContent) realContent.style.display='none';
+    return;
+  }
+  // Connecte : effacer l'overlay et afficher le contenu reel
+  if(overlay) overlay.innerHTML='';
+  if(realContent) realContent.style.display='';
   buildKPIs();buildHistoryChart();buildSplitChart();buildTypesChart();buildTopChart();buildRatioChart();
 }
 
@@ -3179,6 +2720,7 @@ function yearsToExo(years){ return years===null?null:Math.max(0,22-years); }
 
 let _simuSelectedId=null;
 let _simuCurrentTab='simu';
+let _simuTargetPrice=null; // Prix cible €/Oz saisi par l'utilisateur (persiste entre les biens)
 
 function switchFTab(tab){
   if(isPrivate()) return; // Ne pas exposer de données si non connecté
@@ -3203,9 +2745,29 @@ function _privLockHTML(){
 }
 
 function buildFiscal(){
-  privUnlock('page-fiscal');
-  if(isPrivate()){ privLock('page-fiscal'); return; }
-
+  if(S.isVisitor&&cfg.mode==='private'){
+    // Vider toutes les zones sensibles
+    const zones=['fiscal-global','simu-item-list','simu-result','fiscal-alert-box','fiscal-tbody','fiscal-guide-content'];
+    zones.forEach(id=>{const el=$(id);if(el)el.innerHTML='';});
+    const simuResult=$('simu-result'); if(simuResult) simuResult.style.display='none';
+    // Afficher le cadenas uniquement dans fiscal-global (un seul suffit)
+    const g=$('fiscal-global');
+    if(g) g.innerHTML=_privLockHTML();
+    // Cacher fp-simu, fp-detail et fp-guide — rien ne doit transpirer
+    ['fp-simu','fp-detail','fp-guide'].forEach(id=>{const el=$(id);if(el)el.style.display='none';});
+    // Remettre tous les onglets inactifs pour ne pas laisser "Détail par bien" en surbrillance
+    ['ftab-simu','ftab-detail','ftab-guide'].forEach(id=>{const el=$(id);if(el)el.classList.remove('active');});
+    return;
+  }
+  // Reassurer que fp-simu est visible, cacher detail/guide
+  ['fp-simu','fp-detail','fp-guide'].forEach(id=>{
+    const el=$(id); if(el) el.style.display = id==='fp-simu' ? '' : 'none';
+  });
+  // Réactiver l'onglet simu par défaut
+  _simuCurrentTab='simu';
+  ['ftab-simu','ftab-detail','ftab-guide'].forEach(id=>{
+    const el=$(id); if(el) el.classList.toggle('active', id==='ftab-simu');
+  });
   buildFiscalGlobal();
   buildFiscalSimu();
 }
@@ -3292,15 +2854,30 @@ function renderSimuResult(item){
   const tv=pnl!=null&&pnl>0?taxePlusValue(pnl,years):null;
   const bestPV=tv!=null&&tv<tf;
   const toExo=yearsToExo(years);
-  // Net = prix de vente - taxe (pas gain - taxe)
-  const pnlNetForait=vl-tf;
-  const pnlNetPV=tv!=null?vl-tv:null;
+  const pnlNetForait=pnl!=null?pnl-tf:null;
+  const pnlNetPV=pnl!=null&&tv!=null?pnl-tv:null;
+
+  // Prix cible : garder la valeur précédente ou utiliser le cours actuel
+  if(!_simuTargetPrice) _simuTargetPrice=Math.round(S.prices[item.metal]*31.1035);
 
   // Simuler l'évolution sur slider
   const sliderHtml=`
     <div class="simu-card">
-      <div class="simu-section-title">⏳ Simulation temporelle — dans combien d'années vendez-vous ?</div>
-      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.5rem">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:.3rem">
+        <div class="simu-section-title" style="margin:0;border:none;padding:0">⏳ Simulation temporelle — dans combien d'années vendez-vous ?</div>
+        <label style="display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--tm);white-space:nowrap">
+          <span>Prix cible</span>
+          <input type="number" id="simu-target-oz"
+            value="${_simuTargetPrice}"
+            min="1" step="10"
+            style="width:90px;padding:.28rem .5rem;background:rgba(255,255,255,.06);
+              border:1px solid var(--bs);border-radius:4px;color:var(--a);
+              font-size:.88rem;font-weight:600;text-align:right"
+            oninput="_simuTargetPrice=parseFloat(this.value)||_simuTargetPrice;updateSlider('${item.id}',document.getElementById('simu-slider')?.value||0)">
+          <span style="color:var(--a)">€/Oz</span>
+        </label>
+      </div>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.5rem;margin-top:.6rem">
         <span style="font-size:.82rem;color:var(--td)">Aujourd'hui</span>
         <input type="range" class="years-slider" id="simu-slider" min="0" max="${Math.max(25,years!=null?25:25)}" value="0" oninput="updateSlider('${item.id}',this.value)">
         <span style="font-size:.82rem;color:var(--td)">25 ans</span>
@@ -3327,9 +2904,12 @@ function renderSimuResult(item){
   const yearRows=[];
   for(let y=0;y<=22;y+=y<2?1:y<5?1:5){
     const a=abattementPV(y);
-    const pvFutur=pnl!=null?pnl*(1+0.04*(y)):null; // hypothèse +4%/an
+    // Valeur au prix cible (fixe, saisi par l'utilisateur)
+    const tpg=(_simuTargetPrice||S.prices[item.metal]*31.1035)/31.1035;
+    const vlY=getGrams(item)*item.qty*tpg;
+    const pvFutur=item.buy!=null?vlY-item.buy:null;
     const tvY=pvFutur&&pvFutur>0?taxePlusValue(pvFutur,y):0;
-    const tfY=taxeForfaitaire(vl*(1+0.04*y));
+    const tfY=taxeForfaitaire(vlY);
     const isCur=years!=null&&y===Math.min(22,years);
     yearRows.push(`<div class="tax-compare-row" style="${isCur?'background:var(--s);border-radius:4px;padding:.45rem .5rem':''}">
       <span class="tcr-year">${y===22?'22+ ans':y+' an'+(y>1?'s':'')}</span>
@@ -3352,7 +2932,7 @@ function renderSimuResult(item){
             = 11% impôt + 0,5% CRDS<br>
             <strong>Formulaire 2091</strong><br>
             Sans justificatif d’achat nécessaire<br>
-            ${pnlNetForait!=null?`Vous recevez net : <strong>${fmtVal(pnlNetForait)}</strong>`:''}
+            ${pnlNetForait!=null?`Net après taxe : <strong>${fmtVal(pnlNetForait)}</strong>`:''}
           </div>
         </div>
         <div class="result-card${bestPV?' best':''}">
@@ -3365,7 +2945,7 @@ function renderSimuResult(item){
                PV imposable : ${fmtVal(pnl*(1-(abat||0)/100))}<br>
                36,2% × PV imposable<br>
                <strong>Formulaire 2092</strong><br>
-               ${pnlNetPV!=null?`Vous recevez net : <strong>${fmtVal(pnlNetPV)}</strong>`:''}`
+               ${pnlNetPV!=null?`Net après taxe : <strong>${fmtVal(pnlNetPV)}</strong>`:''}`
             :pnl===null?'Renseignez le prix d’achat pour calculer'
             :'Plus-value nulle ou négative — non imposable'}
           </div>
@@ -3385,9 +2965,9 @@ function renderSimuResult(item){
 
     <!-- Évolution par années -->
     <div class="simu-card">
-      <div class="simu-section-title">📊 Évolution de la taxe PV selon la durée (hypothèse cours +4%/an)</div>
+      <div class="simu-section-title">📊 Évolution de la taxe PV selon la durée au prix cible</div>
       ${yearRows.join('')}
-      <div style="font-size:.68rem;color:var(--tm);margin-top:.6rem">Hypothèse illustrative : cours +4%/an. Barre = avantage du régime PV vs forfaitaire.</div>
+      <div style="font-size:.68rem;color:var(--tm);margin-top:.6rem">Calculé au prix cible que vous avez saisi. Barre = avantage du régime PV vs forfaitaire.</div>
     </div>
   `;
   // Init slider
@@ -3402,8 +2982,9 @@ function updateSlider(itemId, addYears){
   addYears=parseInt(addYears)||0;
   const baseYears=fiscalYears(item.date)||0;
   const totalYears=baseYears+addYears;
-  // Prix de vente = valeur actuelle (le slider montre l'effet fiscal du temps, pas la variation de cours)
-  const futurVl=getGrams(item)*item.qty*S.prices[item.metal];
+  // Valeur estimée au prix cible saisi par l'utilisateur
+  const targetPriceGram=(_simuTargetPrice||S.prices[item.metal]*31.1035)/31.1035;
+  const futurVl=getGrams(item)*item.qty*targetPriceGram;
   const futurBuy=item.buy||null;
   const futurPnl=futurBuy!=null?futurVl-futurBuy:null;
   const futurAbat=abattementPV(totalYears);
@@ -3429,20 +3010,12 @@ res.innerHTML=`<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:
       <div class="fiscal-kpi-val" style="${exo?'color:#22c55e':'color:var(--a)'}">${exo?'0 €':fmtVal(taxeMin)}</div>
       <div class="fiscal-kpi-sub">${exo?'Exonération totale':best}</div>
     </div>
-    <div class="fiscal-kpi" style="${exo?'border-color:rgba(34,197,94,.4)':'border-color:rgba(201,168,76,.25)'}">
+    <div class="fiscal-kpi" style="${exo?'border-color:rgba(34,197,94,.4)':'border-color:rgba(34,197,94,.25)'}">
       <div class="fiscal-kpi-lbl">Vous recevez net</div>
-      <div class="fiscal-kpi-val" style="color:${exo?'#22c55e':'#22c55e'}">${fmtVal(futurNet)}</div>
-      <div class="fiscal-kpi-sub">Après ${exo?'exonération':('taxe '+best.toLowerCase())}</div>
+      <div class="fiscal-kpi-val" style="color:#22c55e">${fmtVal(futurNet)}</div>
+      <div class="fiscal-kpi-sub">Après ${exo?'exonération':'taxe '+best.toLowerCase()}</div>
     </div>
   </div>`;
-}
-
-function rebuildEvolutionChart(itemId, priceOz){
-  // Reconstruire le chart avec le prix cible saisi
-  const canvas=document.getElementById('chart-tax-'+itemId);
-  if(!canvas)return;
-  if(canvas._chartInst){canvas._chartInst.destroy();canvas._chartInst=null;}
-  buildTaxEvolutionChart(itemId);
 }
 
 function buildFiscalDetail(){
@@ -3753,10 +3326,15 @@ function exportPDF(){
 //  ALERTS
 // ════════════════════════════════════════════════════════════
 function buildAlerts(){
-  privUnlock('page-alerts');
-  if(isPrivate()){ privLock('page-alerts'); return; }
+  // Masquer le bouton d'ajout si non connecté
   const addBtn=document.querySelector('#page-alerts .add-btn');
   if(addBtn) addBtn.style.display=S.isAdmin?'block':'none';
+
+  if(isPrivate()){
+    const al=$('alert-list');
+    if(al) al.innerHTML='<div style="font-size:.85rem;color:var(--tm);padding:.5rem">🔒 Connectez-vous pour voir les alertes.</div>';
+    return;
+  }
   const list=$('alert-list');
   if(!S.alerts.length){list.innerHTML='<div style="font-size:.82rem;color:var(--tm);padding:.5rem">Aucune alerte configurée.</div>';return;}
   list.innerHTML=S.alerts.map((a,i)=>{
@@ -3809,6 +3387,7 @@ async function requestNotif(){
 //  METAL / FILTER SWITCH
 // ════════════════════════════════════════════════════════════
 function switchMetal(p){
+  if(p!==S.page) _simuTargetPrice=null; // Réinitialiser si on change de métal
   S.page=p;S.filter={type:'all',wt:'all'};
   document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.fb')[0].classList.add('active');
@@ -4125,13 +3704,12 @@ function openEdit(id){
      ${item.maker?'· '+item.maker:''} ${item.country?'· '+item.country:''}`.replace(/\s+/g,' ').trim();
 
   // Remplir les champs
-  $('edit-name').value    = item.name    || '';
-  $('edit-qty').value     = item.qty     || 1;
-  $('edit-date').value    = item.date    || '';
-  $('edit-buy').value     = item.buy     != null ? item.buy : '';
-  $('edit-desc').value    = item.desc    || '';
-  $('edit-serial').value  = item.serial  || '';
-  $('edit-country').value = item.country || '';
+  $('edit-name').value   = item.name   || '';
+  $('edit-qty').value    = item.qty    || 1;
+  $('edit-date').value   = item.date   || '';
+  $('edit-buy').value    = item.buy    != null ? item.buy : '';
+  $('edit-desc').value   = item.desc   || '';
+  $('edit-serial').value = item.serial || '';
 
   // Photos
   setEditPhoto('pile', item.imgPile||null);
@@ -4192,13 +3770,12 @@ async function saveEdit(){
   // Appliquer les modifications
   S.items[S.page][idx] = {
     ...item,
-    name:    $('edit-name').value.trim()   || item.name,
-    qty:     newQty,
-    date:    $('edit-date').value          || item.date,
-    buy:     $('edit-buy').value !== ''    ? parseFloat($('edit-buy').value) : item.buy,
-    desc:    $('edit-desc').value,
-    serial:  $('edit-serial').value,
-    country: $('edit-country').value.trim()|| item.country||'',
+    name:   $('edit-name').value.trim()  || item.name,
+    qty:    newQty,
+    date:   $('edit-date').value         || item.date,
+    buy:    $('edit-buy').value !== ''   ? parseFloat($('edit-buy').value) : item.buy,
+    desc:   $('edit-desc').value,
+    serial: $('edit-serial').value,
     imgPile: _editPhotos.pile,
     imgFace: _editPhotos.face,
     editedAt: new Date().toISOString(),
@@ -4359,21 +3936,7 @@ function toast(msg,type='info'){
 // MODAL
 function openModal(id){$(id).classList.add('open');}
 function closeModal(id){$(id).classList.remove('open');}
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){
-    document.querySelectorAll('.overlay.open').forEach(o=>o.classList.remove('open'));
-    closeLightbox();
-    if(_searchQuery) clearSearch();
-  }
-  // Ctrl+F ou '/' pour focus la recherche (si portefeuille actif)
-  if((e.key==='f'&&(e.ctrlKey||e.metaKey))||e.key==='/'){
-    const inp=$('search-input');
-    if(inp&&S.currentPageView==='portfolio'){
-      e.preventDefault();
-      inp.focus();inp.select();
-    }
-  }
-});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.overlay.open').forEach(o=>o.classList.remove('open'));closeLightbox();}});
 
 // ── FAILSAFE : force l'affichage après 5s ─────────────────────────────────
 function forceSkipLoading(){
