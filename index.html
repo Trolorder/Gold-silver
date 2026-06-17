@@ -16,7 +16,7 @@
   --a:var(--gold);--b:var(--gold-l);--d:var(--gold-d);
   --s:rgba(201,168,76,.07);--sh:rgba(201,168,76,.13);--br:rgba(201,168,76,.15);
   --bs:rgba(201,168,76,.4);--gl:rgba(201,168,76,.08);
-}---
+}
 body.silver{
   --a:var(--silver);--b:var(--silver-l);--d:var(--silver-d);
   --s:rgba(155,165,180,.07);--sh:rgba(155,165,180,.13);--br:rgba(155,165,180,.15);
@@ -3327,8 +3327,13 @@ function renderSimuResult(item){
   const yearRows=[];
   for(let y=0;y<=22;y+=y<2?1:y<5?1:5){
     const a=abattementPV(y);
-    const pvFutur=pnl!=null?pnl*(1+0.04*(y)):null; // hypothèse +4%/an
-    const tvY=pvFutur&&pvFutur>0?taxePlusValue(pvFutur,y):0;
+    // Prix cible saisi par l'utilisateur
+    const ozInput=document.getElementById('simu-oz-price-'+itemId);
+    const ozTarget=ozInput?parseFloat(ozInput.value)||S.prices[item.metal]:S.prices[item.metal];
+    const futurVlY=getGrams(item)*item.qty*(ozTarget/31.1035);
+    const futurBuyY=item.buy||0;
+    const pvFutur=futurVlY-futurBuyY;
+    const tvY=pvFutur>0?taxePlusValue(pvFutur,y):0;
     const tfY=taxeForfaitaire(vl*(1+0.04*y));
     const isCur=years!=null&&y===Math.min(22,years);
     yearRows.push(`<div class="tax-compare-row" style="${isCur?'background:var(--s);border-radius:4px;padding:.45rem .5rem':''}">
@@ -3384,10 +3389,22 @@ function renderSimuResult(item){
     <script>setTimeout(()=>updateSlider('${item.id}',0),50)<\/script>
 
     <!-- Évolution par années -->
-    <div class="simu-card">
-      <div class="simu-section-title">📊 Évolution de la taxe PV selon la durée (hypothèse cours +4%/an)</div>
+    <div class="simu-card" id="tax-evol-${item.id}">
+      <div class="simu-section-title"><div style="display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;justify-content:space-between">
+        <span>📊 Évolution de la taxe PV selon la durée</span>
+        <label style="display:flex;align-items:center;gap:.4rem;font-size:.8rem;font-weight:400;color:var(--tm)">
+          Prix cible 1 Oz :
+          <input type="number" id="simu-oz-price-${item.id}"
+            value="${Math.round(S.prices[item.metal])}"
+            min="1" step="10"
+            style="width:90px;padding:.25rem .5rem;background:rgba(255,255,255,.06);
+              border:1px solid var(--br);border-radius:4px;color:var(--tx);font-size:.82rem"
+            oninput="rebuildTaxChart('${item.id}')">
+          €/Oz
+        </label>
+      </div></div>
       ${yearRows.join('')}
-      <div style="font-size:.68rem;color:var(--tm);margin-top:.6rem">Hypothèse illustrative : cours +4%/an. Barre = avantage du régime PV vs forfaitaire.</div>
+      <div style="font-size:.68rem;color:var(--tm);margin-top:.6rem">Barre = avantage du régime PV vs forfaitaire selon la durée de détention.</div>
     </div>
   `;
   // Init slider
@@ -3438,11 +3455,17 @@ res.innerHTML=`<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:
 }
 
 function rebuildEvolutionChart(itemId, priceOz){
-  // Reconstruire le chart avec le prix cible saisi
-  const canvas=document.getElementById('chart-tax-'+itemId);
-  if(!canvas)return;
-  if(canvas._chartInst){canvas._chartInst.destroy();canvas._chartInst=null;}
-  buildTaxEvolutionChart(itemId);
+  rebuildTaxChart(itemId);
+}
+function rebuildTaxChart(itemId){
+  // Reconstruire le rendu du chart avec le prix cible saisi
+  const all=getAllFiscalItems();
+  const item=all.find(i=>i.id===itemId);
+  if(!item)return;
+  const container=document.getElementById('tax-evol-'+itemId);
+  if(container){
+    buildTaxEvolutionChart(itemId);
+  }
 }
 
 function buildFiscalDetail(){
