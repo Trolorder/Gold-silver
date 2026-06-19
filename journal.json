@@ -1,5 +1,17 @@
 [
   {
+    "ts": "2026-06-19T16:07:31.493Z",
+    "type": "auth",
+    "detail": "__enc__uUY+t3XgDzIH+NyW9d0zKhDPag37jL0BJgJKZ98O756siFGnX7V/SGCyS7sQ7ryGuDQZxz1hVo7hvws=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T16:07:26.840Z",
+    "type": "visit",
+    "detail": "__enc__ag+v0c/YzyqsH0WEkrie9PfKilNY3RT3Ytayb0pLJc/W1Sha5YTRek/bHB22Tf0AidY3qzsTps/k7Q==",
+    "metal": null
+  },
+  {
     "ts": "2026-06-19T15:00:48.015Z",
     "type": "edit",
     "detail": "__enc__dWia/Hf/yIhH9vcLx72TumLXZElY4AOzg5V93FuXmfjm6E33MdpkfrxGj3sGsBpBsfrcD37ODYqP",
@@ -966,9 +978,21 @@
     "metal": null
   },
   {
+    "ts": "2026-06-18T13:16:11.934Z",
+    "type": "auth",
+    "detail": "__enc__tBthP7YlW3o9T1qUsKal4tq27omrkBdI/3qsvMwlfVugz9EXd0xX+q7kC2lNNNiPp5Vg0Swx41mn1dg=",
+    "metal": null
+  },
+  {
     "ts": "2026-06-18T13:16:06.344Z",
     "type": "visit",
     "detail": "__enc__iK1TFWRfiFiTcaHtZXd4dKAphrFAL3bhbPcfQ4gbCRUToCOmiTCD0pRyq1sD94fD61eviyj4TvVrXA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T13:16:06.344Z",
+    "type": "visit",
+    "detail": "__enc__Gnk7cDxCk7jr6rqYo2L8kuv6vP7KiagmWh2B/WXe74SsSGBtRWJfoF7zWEvzQgShRYu8OiA010gbuw==",
     "metal": null
   },
   {
@@ -2973,30 +2997,6 @@
     "ts": "2026-06-18T00:07:23.521Z",
     "type": "auth",
     "detail": "__enc__dllenG4KLybUV8XENS3qkVBXgk1PescluN+mTrkjc23GZL0WB0jmzA1hRN/kCxLhnkIkMycIWSQ54Q==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:23.521Z",
-    "type": "auth",
-    "detail": "__enc__ic3jCqbgUMEaeowpbvazNJoZFWrE2kTRSTNOn2Y4wGyvwSF2WY3GkIsjnYTx8NlbCc2BWinnqatlPA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:23.521Z",
-    "type": "auth",
-    "detail": "__enc__vGDP9iUQIva0dt8kCfCVNiqjztvNNcjrNckzWd/WIzoVgYxl4OjbVF2Hoyq92sUd8SWdeLQg+pNhdg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:23.521Z",
-    "type": "auth",
-    "detail": "__enc__Uf/PcRoQ3fXaFOmSTOr75+wl1B2VsFW/air933hIQo5HK74TBwfLjHdsTIBliKkB6BSmJHVB5PzfHQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:23.521Z",
-    "type": "auth",
-    "detail": "__enc__woWJz8H0qqAIOkxiLZdpmaJLIrxG0bVK5VYsxAYMaDzxVlt6ot12RmH8QGIpa2ZcE1Z6h1s9uanjUQ==",
     "metal": null
   }
 ]
