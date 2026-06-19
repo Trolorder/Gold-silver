@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "ts": "2026-06-19T21:25:50.900Z",
+    "type": "auth",
+    "detail": "__enc__pazSbbduFPoBxRtnurMfaFUECcrqduQV2FxVLAnjh5j7m2Ey3p22islj8GKUTL3wskt+TdneQY9NBg==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T21:25:40.803Z",
+    "type": "visit",
+    "detail": "__enc__GBkqJZyDJIYXYP11QHWTIsMU1bbEGROJxKXgpe9u++cjZBM813OhrOaFvAx3b4MQhZnim9k39acV",
+    "metal": null
+  }
+]
