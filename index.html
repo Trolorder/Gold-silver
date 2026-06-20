@@ -636,6 +636,24 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   </div>
 </div>
 
+<!-- RÉCAP GLOBAL ADMIN -->
+<div id="global-recap" style="display:none">
+  <div class="global-recap-bar">
+    <div class="gr-item"><div class="gr-lbl">Portefeuille global</div><div class="gr-val" id="gr-total">—</div><div class="gr-sub" id="gr-total-sub">Or + Argent combinés</div></div>
+    <div class="gr-sep"></div>
+    <div class="gr-item"><div class="gr-lbl">Prix d'achat total</div><div class="gr-val" id="gr-buy">—</div><div class="gr-sub" id="gr-buy-sub">Capital investi</div></div>
+    <div class="gr-sep"></div>
+    <div class="gr-item"><div class="gr-lbl">Plus-value latente</div><div class="gr-val" id="gr-pnl">—</div><div class="gr-sub" id="gr-pnl-sub">—</div></div>
+    <div class="gr-sep"></div>
+    <div class="gr-item"><div class="gr-lbl">Or</div><div class="gr-val" id="gr-gold">—</div><div class="gr-sub" id="gr-gold-sub">—</div></div>
+    <div class="gr-sep"></div>
+    <div class="gr-item"><div class="gr-lbl">Argent</div><div class="gr-val" id="gr-silver">—</div><div class="gr-sub" id="gr-silver-sub">—</div></div>
+    <div class="gr-sep"></div>
+    <div class="gr-item"><div class="gr-lbl">Rendement</div><div class="gr-val" id="gr-yield">—</div><div class="gr-sub">Depuis acquisition</div></div>
+    <div id="gr-inflation" style="display:contents"></div>
+  </div>
+</div>
+
 <div id="visitor-bar" class="visitor-bar" style="display:none">
   👁 Mode visiteur — les valeurs sont masquées
   <button onclick="toggleAdmin()">Se connecter</button>
@@ -764,6 +782,8 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   <div class="page" id="page-fiscal" style="flex:1;min-width:0">
     <div class="fiscal-page">
       <h2 class="section-title">Simulateur <em>fiscal</em></h2>
+      <div id="fiscal-lock-overlay"></div>
+      <div id="fiscal-real-content">
 
       <!-- BARRE RÉSUMÉ GLOBAL -->
       <div id="fiscal-global"></div>
@@ -789,7 +809,9 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
         <div id="fiscal-alert-box"></div>
         <div class="export-row">
           <button class="export-btn" onclick="exportCSV()">⬇ CSV</button>
+          <button class="export-btn" onclick="exportPatrimoine()">⬇ CSV patrimoine</button>
           <button class="export-btn" onclick="exportPDF()">⬇ PDF</button>
+          <button class="export-btn" style="border-color:var(--bs);color:var(--a)" onclick="exportAnnualReport()">📄 Rapport annuel PDF</button>
         </div>
         <table class="fiscal-table" id="fiscal-table">
           <thead><tr>
@@ -804,6 +826,7 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
       <div id="fp-guide" style="display:none">
         <div id="fiscal-guide-content"></div>
       </div>
+      </div><!-- /fiscal-real-content -->
     </div>
   </div>
 
@@ -811,11 +834,14 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   <div class="page" id="page-journal" style="flex:1;min-width:0">
     <div class="fiscal-page">
       <h2 class="section-title">Journal <em>d'activité</em></h2>
+      <div id="journal-lock-overlay"></div>
+      <div id="journal-real-content">
       <div class="export-row" id="journal-export-row">
         <button class="export-btn" onclick="clearJournal()">🗑 Effacer le journal</button>
         <button class="export-btn" onclick="exportJournalCSV()">⬇ Exporter CSV</button>
       </div>
       <div id="journal-content"></div>
+      </div><!-- /journal-real-content -->
     </div>
   </div>
 
@@ -823,12 +849,15 @@ body.priv .stat-sensitive{filter:blur(8px);pointer-events:none;user-select:none}
   <div class="page" id="page-alerts" style="flex:1;min-width:0">
     <div class="alerts-page">
       <h2 class="section-title">Alertes <em>de cours</em></h2>
+      <div id="alerts-lock-overlay"></div>
+      <div id="alerts-real-content">
       <div class="info-box" id="notif-info">
         <strong>Notifications :</strong> Activez les notifications navigateur pour recevoir les alertes même en arrière-plan.
         <button onclick="requestNotif()" style="margin-left:.5rem;background:transparent;border:1px solid var(--bs);border-radius:3px;color:var(--a);cursor:pointer;padding:.1rem .4rem;font-size:.72rem">Activer</button>
       </div>
       <div class="alert-list" id="alert-list"></div>
       <button class="add-btn" style="max-width:200px" onclick="openAddAlert()">+ Nouvelle alerte</button>
+      </div><!-- /alerts-real-content -->
     </div>
   </div>
 </div>
@@ -1353,7 +1382,7 @@ const CATALOG={
 // ════════════════════════════════════════════════════════════
 //  STATE
 // ════════════════════════════════════════════════════════════
-let cfg={owner:'',repo:'',branch:'main',token:'',pin:'',mode:'private'};
+let cfg={owner:'',repo:'',branch:'main',token:'',mode:'private'};
 let S={
   page:'gold',items:{gold:[],silver:[]},
   prices:{gold:80,silver:1.02},fxRates:{EUR:1,USD:1.08,CHF:0.96,GBP:0.85},
@@ -1386,17 +1415,32 @@ const SITE_CONFIG = {
 
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2);
 
-function privLock(containerId){
-  const el=$(containerId);
-  if(!el) return;
-  el.innerHTML=`<div class="priv-lock">
+function isPrivate(){ return S.isVisitor && cfg.mode==='private'; }
+
+// ── Carte de déverrouillage stylée — UNE SEULE implémentation pour tout le site ──
+function _privLockHTML(){
+  return `<div class="priv-lock">
     <div class="priv-lock-icon">🔒</div>
     <h3>Contenu privé</h3>
     <p>Authentifiez-vous pour accéder à cette section.</p>
     <button onclick="toggleAdmin()">🔒 Se connecter</button>
   </div>`;
 }
-function isPrivate(){ return S.isVisitor && cfg.mode==='private'; }
+
+// Porte de confidentialité générique : affiche la carte ou révèle le contenu.
+// Convention : #${key}-lock-overlay (carte) + #${key}-real-content (contenu réel)
+function applyPrivacyGate(key, locked){
+  const overlay=$(key+'-lock-overlay');
+  const content=$(key+'-real-content');
+  if(locked){
+    if(overlay) overlay.innerHTML=_privLockHTML();
+    if(content) content.style.display='none';
+    return true;
+  }
+  if(overlay) overlay.innerHTML='';
+  if(content) content.style.display='';
+  return false;
+}
 
 // ── Clé de session (dérivée du mot de passe, jamais stockée) ──
 let _sessionKey = null; // CryptoKey AES-GCM
@@ -1472,35 +1516,7 @@ async function decryptWithPassword(b64, password){
   }catch(e){return null;}
 }
 
-// ── AES-GCM ENCRYPTION ──────────────────────────────────────
-async function deriveKey(secret){
-  const enc=new TextEncoder();
-  const keyMat=await crypto.subtle.importKey('raw',enc.encode(secret),{name:'PBKDF2'},false,['deriveKey']);
-  return crypto.subtle.deriveKey(
-    {name:'PBKDF2',salt:enc.encode('patrimoine-metaux-2024'),iterations:100000,hash:'SHA-256'},
-    keyMat,{name:'AES-GCM',length:256},false,['encrypt','decrypt']
-  );
-}
-async function aesEncrypt(data, secret){
-  const key=await deriveKey(secret);
-  const iv=crypto.getRandomValues(new Uint8Array(12));
-  const enc=new TextEncoder();
-  const ct=await crypto.subtle.encrypt({name:'AES-GCM',iv},key,enc.encode(data));
-  const buf=new Uint8Array(iv.length+ct.byteLength);
-  buf.set(iv,0);buf.set(new Uint8Array(ct),iv.length);
-  return btoa(String.fromCharCode(...buf));
-}
-async function aesDecrypt(b64, secret){
-  try{
-    const buf=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));
-    const iv=buf.slice(0,12);const ct=buf.slice(12);
-    const key=await deriveKey(secret);
-    const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv},key,ct);
-    return new TextDecoder().decode(pt);
-  }catch(e){return null;}
-}
-function getEncKey(){ return cfg.pin||(cfg.token?cfg.token.slice(-12):''); }
-function isEncEnabled(){ return false; } // Données en clair (repo public) — seul le token est chiffré
+// (Champs sensibles chiffrés via deriveSessionKey/encryptField/decryptField — voir plus haut)
 async function fetchTimeout(url,opts={},ms=8000){
   const ctrl=new AbortController();
   const timer=setTimeout(()=>ctrl.abort(),ms);
@@ -1671,8 +1687,7 @@ async function saveToGH(){
 
 function setSS(type,msg){
   const dotClass='dot'+(type==='syncing'?' syncing':type==='error'?' error':S.live?' live':'');
-  const enc=isEncEnabled()?'<span class="enc-badge">🔐 Chiffré</span>':'';
-  const html=msg+(msg&&enc?' ':'')+enc;
+  const html=msg;
   const ld=$('live-dot'); if(ld) ld.className=dotClass;
   const md=$('mob-dot');  if(md) md.className=dotClass;
   const sl=$('sync-lbl'); if(sl) sl.innerHTML=html;
@@ -1882,14 +1897,10 @@ async function getClientIP(){
 }
 
 async function buildJournal(){
-  // Masquer les boutons d'export si non connecté
+  if(applyPrivacyGate('journal', isPrivate()||!S.isAdmin)) return;
+  // Masquer les boutons d'export si non connecté (sécurité supplémentaire)
   const exportRow=$('journal-export-row');
   if(exportRow) exportRow.style.display=S.isAdmin?'flex':'none';
-
-  if(isPrivate()||!S.isAdmin){
-    privLock('journal-content');
-    return;
-  }
   const log=ls.get('pm_journal')||[];
   const el=$('journal-content'); if(!el)return;
   if(!log.length){
@@ -1981,6 +1992,66 @@ function exportJournalCSV(){
   a.download='journal_patrimoine.csv';a.click();
   logActivity('export','Export journal CSV');
   toast('Journal exporté','success');
+}
+
+function renderGlobalRecap(){
+  const bar=$('global-recap');
+  if(!bar)return;
+  if(!S.isAdmin){bar.style.display='none';return;}
+  bar.style.display='block';
+  const sym={EUR:'€',USD:'$',CHF:'₣',GBP:'£'}[S.currency];
+  const gold=S.items.gold||[];const silver=S.items.silver||[];
+  const allItems=[...gold.map(i=>({...i,metal:'gold'})),...silver.map(i=>({...i,metal:'silver'}))];
+  const totGold=gold.reduce((s,i)=>s+getGrams(i)*i.qty*(S.prices.gold||0),0);
+  const totSilver=silver.reduce((s,i)=>s+getGrams(i)*i.qty*(S.prices.silver||0),0);
+  const totV=totGold+totSilver;
+  const validBuy=allItems.filter(i=>i.buy!=null&&!isNaN(i.buy));
+  const totBuy=validBuy.reduce((s,i)=>s+Number(i.buy),0);
+  const totPnl=totBuy>0?totV-totBuy:null;
+  const pnlPct=totBuy>0?(totPnl/totBuy)*100:null;
+  const fv=v=>f2(toDisplay(v))+' '+sym;
+  $('gr-total').textContent=fv(totV);$('gr-total').style.color='var(--a)';
+  $('gr-total-sub').textContent='Or + Argent combinés';
+  if(totBuy>0){$('gr-buy').textContent=fv(totBuy);$('gr-buy-sub').textContent=validBuy.length+' bien'+(validBuy.length>1?'s':'');}
+  else{$('gr-buy').textContent='—';$('gr-buy-sub').textContent='Saisir prix d\u2019achat';}
+  if(totPnl!=null){
+    $('gr-pnl').textContent=(totPnl>=0?'+':'')+fv(totPnl);
+    $('gr-pnl').style.color=totPnl>=0?'#22c55e':'#ef4444';
+    $('gr-pnl-sub').textContent=(pnlPct>=0?'+':'')+f2(pnlPct)+'% sur capital';
+  }else{$('gr-pnl').textContent='—';$('gr-pnl').style.color='var(--td)';$('gr-pnl-sub').textContent='Prix achat non renseigné';}
+  const buyGold=gold.filter(i=>i.buy!=null&&!isNaN(i.buy)).reduce((s,i)=>s+Number(i.buy),0);
+  $('gr-gold').textContent=fv(totGold);$('gr-gold').style.color='var(--a)';
+  $('gr-gold-sub').textContent=buyGold>0?'Achat : '+fv(buyGold):f3(gold.reduce((s,i)=>s+getTotal(i),0)/31.1035)+' Oz';
+  const buySilver=silver.filter(i=>i.buy!=null&&!isNaN(i.buy)).reduce((s,i)=>s+Number(i.buy),0);
+  $('gr-silver').textContent=fv(totSilver);$('gr-silver').style.color='rgba(180,190,200,.9)';
+  $('gr-silver-sub').textContent=buySilver>0?'Achat : '+fv(buySilver):f3(silver.reduce((s,i)=>s+getTotal(i),0)/31.1035)+' Oz';
+  if(pnlPct!=null){$('gr-yield').textContent=(pnlPct>=0?'+':'')+f2(pnlPct)+'%';$('gr-yield').style.color=pnlPct>=0?'#22c55e':'#ef4444';}
+  else{$('gr-yield').textContent='—';$('gr-yield').style.color='var(--td)';}
+  renderInflationComparison(allItems,totBuy,totV,sym);
+}
+
+async function renderInflationComparison(allItems,totBuy,totV,sym){
+  const el=$('gr-inflation');if(!el)return;
+  if(totBuy<=0){el.innerHTML='';return;}
+  const validDates=allItems.filter(i=>i.date&&i.buy&&!isNaN(i.buy));
+  if(!validDates.length){el.innerHTML='';return;}
+  const avgYear=validDates.reduce((s,i)=>s+new Date(i.date).getFullYear()*(Number(i.buy)/totBuy),0);
+  const yearsHeld=new Date().getFullYear()-Math.round(avgYear);
+  if(yearsHeld<=0){el.innerHTML='';return;}
+  const inflRates={2000:1.8,2001:1.8,2002:1.9,2003:2.2,2004:2.3,2005:1.9,2006:1.9,2007:1.6,
+    2008:3.2,2009:0.1,2010:1.7,2011:2.3,2012:2.2,2013:1.0,2014:0.6,2015:0.0,2016:0.2,
+    2017:1.2,2018:1.8,2019:1.3,2020:0.5,2021:1.6,2022:5.2,2023:4.9,2024:2.3,2025:1.5};
+  let cumInfl=1;
+  for(let y=Math.round(avgYear);y<new Date().getFullYear();y++) cumInfl*=(1+(inflRates[y]||2)/100);
+  const inflatedBuy=totBuy*cumInfl;
+  const realGain=totV-inflatedBuy;
+  const realGainPct=((totV/inflatedBuy)-1)*100;
+  el.innerHTML=`<div class="gr-sep"></div>
+    <div class="gr-item" title="Capital ${fmtVal(totBuy)} ajusté inflation INSEE · ${yearsHeld} ans">
+      <div class="gr-lbl">Gain réel (vs inflation)</div>
+      <div class="gr-val" style="color:${realGain>=0?'#22c55e':'#ef4444'}">${realGain>=0?'+':''}${f2(toDisplay(realGain))} ${sym}</div>
+      <div class="gr-sub">${(realGainPct>=0?'+':'')+f2(realGainPct)}% · inflation cumulée ${f2((cumInfl-1)*100)}%</div>
+    </div>`;
 }
 
 function toggleMobMenu(){
@@ -2208,21 +2279,12 @@ async function encryptItemFields(item){
   return encrypted;
 }
 
-// Chiffrer le journal avant sauvegarde
-async function encryptJournalEntry(entry){
-  if(!_sessionKey) return {...entry, detail:'[activité]', ip:undefined};
-  return {...entry,
-    detail: await encryptField(entry.detail||''),
-    ip: entry.ip ? await encryptField(entry.ip) : undefined
-  };
-}
 
 function unlockAdmin(){
   S.isAdmin=true;S.isVisitor=false;
+  renderGlobalRecap();
   const vb=$('visitor-bar');if(vb)vb.style.display='none';
   const cw=$('config-warn');if(cw)cw.style.display='none';
-  // Retirer tous les overlays de protection
-  document.querySelectorAll('[id^="priv-overlay-"]').forEach(el=>el.remove());
   closeModal('auth-modal');
   render();
   // Reconstruire la page courante
@@ -2235,10 +2297,6 @@ function unlockAdmin(){
   toast('Mode admin activé ✓','success');
   getClientIP().then(ip=>logActivity('auth','Connexion admin ('+ip+')'));
 }
-// PIN remplacé par mot de passe maître
-// doTokenAuth défini plus haut
-// unlockAdmin défini plus haut
-
 // ════════════════════════════════════════════════════════════
 //  SIDEBAR
 // ════════════════════════════════════════════════════════════
@@ -2288,7 +2346,7 @@ function render(){
   const mlb=$('mob-lock-btn'); if(mlb) mlb.textContent=S.isAdmin?'🔓 Admin actif':'🔒 Se connecter';
   const sh=$('sidebar-hint'); if(sh) sh.style.display=S.isAdmin?'none':'block';
   const ws=$('wt-section'); if(ws) ws.style.display=S.filter.type==='piece'?'none':'block';
-  renderPriceBar();renderStats();renderCards();
+  renderPriceBar();renderStats();renderCards();renderGlobalRecap();
   if(S.currentPageView==='charts')buildCharts();
   if(S.currentPageView==='fiscal')buildFiscal();
   if(S.currentPageView==='alerts')buildAlerts();
@@ -2431,16 +2489,7 @@ function renderCards(){
 const CHARTCFG={color:'rgba(201,168,76,.7)',colorSilver:'rgba(155,165,180,.7)',bg:'rgba(201,168,76,.1)'};
 
 function buildCharts(){
-  const overlay=$('charts-lock-overlay');
-  const realContent=$('charts-real-content');
-  if(isPrivate()){
-    if(overlay) privLock('charts-lock-overlay');
-    if(realContent) realContent.style.display='none';
-    return;
-  }
-  // Connecte : effacer l'overlay et afficher le contenu reel
-  if(overlay) overlay.innerHTML='';
-  if(realContent) realContent.style.display='';
+  if(applyPrivacyGate('charts', isPrivate())) return;
   buildKPIs();buildHistoryChart();buildSplitChart();buildTypesChart();buildTopChart();buildRatioChart();
 }
 
@@ -2804,7 +2853,10 @@ function yearsToExo(years){ return years===null?null:Math.max(0,22-years); }
 
 let _simuSelectedId=null;
 let _simuCurrentTab='simu';
-let _simuTargetPrice=null; // Prix cible €/Oz saisi par l'utilisateur (persiste entre les biens)
+// Deux prix cibles distincts (or et argent ont des valeurs différentes)
+let _simuTargetPrice={gold:null,silver:null};
+// Switch : true = garder mon prix saisi entre les biens / false = toujours revenir au cours actuel
+let _simuKeepCustomPrice=false;
 
 function switchFTab(tab){
   if(isPrivate()) return; // Ne pas exposer de données si non connecté
@@ -2818,32 +2870,9 @@ function switchFTab(tab){
   if(tab==='simu')   buildFiscalSimu();
 }
 
-function _privLockHTML(){
-  // Utilise la même classe .priv-lock que privLock() → apparence identique partout
-  return `<div class="priv-lock">
-    <div class="priv-lock-icon">🔒</div>
-    <h3>Contenu privé</h3>
-    <p>Authentifiez-vous pour accéder à cette section.</p>
-    <button onclick="toggleAdmin()">🔒 Se connecter</button>
-  </div>`;
-}
-
 function buildFiscal(){
-  if(S.isVisitor&&cfg.mode==='private'){
-    // Vider toutes les zones sensibles
-    const zones=['fiscal-global','simu-item-list','simu-result','fiscal-alert-box','fiscal-tbody','fiscal-guide-content'];
-    zones.forEach(id=>{const el=$(id);if(el)el.innerHTML='';});
-    const simuResult=$('simu-result'); if(simuResult) simuResult.style.display='none';
-    // Afficher le cadenas uniquement dans fiscal-global (un seul suffit)
-    const g=$('fiscal-global');
-    if(g) g.innerHTML=_privLockHTML();
-    // Cacher fp-simu, fp-detail et fp-guide — rien ne doit transpirer
-    ['fp-simu','fp-detail','fp-guide'].forEach(id=>{const el=$(id);if(el)el.style.display='none';});
-    // Remettre tous les onglets inactifs pour ne pas laisser "Détail par bien" en surbrillance
-    ['ftab-simu','ftab-detail','ftab-guide'].forEach(id=>{const el=$(id);if(el)el.classList.remove('active');});
-    return;
-  }
-  // Reassurer que fp-simu est visible, cacher detail/guide
+  if(applyPrivacyGate('fiscal', isPrivate())) return;
+  // Réassurer que fp-simu est visible, cacher detail/guide
   ['fp-simu','fp-detail','fp-guide'].forEach(id=>{
     const el=$(id); if(el) el.style.display = id==='fp-simu' ? '' : 'none';
   });
@@ -2941,25 +2970,36 @@ function renderSimuResult(item){
   const pnlNetForait=pnl!=null?pnl-tf:null;
   const pnlNetPV=pnl!=null&&tv!=null?pnl-tv:null;
 
-  // Prix cible : garder la valeur précédente ou utiliser le cours actuel
-  if(!_simuTargetPrice) _simuTargetPrice=Math.round(S.prices[item.metal]*31.1035);
+  // Prix cible : selon le switch, garder la valeur saisie ou repartir du cours actuel
+  const curMarketOz=Math.round(S.prices[item.metal]*31.1035);
+  if(!_simuKeepCustomPrice || _simuTargetPrice[item.metal]==null){
+    _simuTargetPrice[item.metal]=curMarketOz;
+  }
 
   // Simuler l'évolution sur slider
   const sliderHtml=`
     <div class="simu-card">
-      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:.3rem">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.6rem;margin-bottom:.3rem">
         <div class="simu-section-title" style="margin:0;border:none;padding:0">⏳ Simulation temporelle — dans combien d'années vendez-vous ?</div>
-        <label style="display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--tm);white-space:nowrap">
-          <span>Prix cible</span>
-          <input type="number" id="simu-target-oz"
-            value="${_simuTargetPrice}"
-            min="1" step="10"
-            style="width:90px;padding:.28rem .5rem;background:rgba(255,255,255,.06);
-              border:1px solid var(--bs);border-radius:4px;color:var(--a);
-              font-size:.88rem;font-weight:600;text-align:right"
-            oninput="_simuTargetPrice=parseFloat(this.value)||_simuTargetPrice;updateSlider('${item.id}',document.getElementById('simu-slider')?.value||0)">
-          <span style="color:var(--a)">€/Oz</span>
-        </label>
+        <div style="display:flex;align-items:center;gap:.9rem;flex-wrap:wrap">
+          <label style="display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--tm);white-space:nowrap">
+            <span>Prix cible (${item.metal==='gold'?'Or':'Argent'})</span>
+            <input type="number" id="simu-target-oz"
+              value="${_simuTargetPrice[item.metal]}"
+              min="1" step="10"
+              style="width:90px;padding:.28rem .5rem;background:rgba(255,255,255,.06);
+                border:1px solid var(--bs);border-radius:4px;color:var(--a);
+                font-size:.88rem;font-weight:600;text-align:right"
+              oninput="_simuTargetPrice['${item.metal}']=parseFloat(this.value)||_simuTargetPrice['${item.metal}'];updateSlider('${item.id}',document.getElementById('simu-slider')?.value||0)">
+            <span style="color:var(--a)">€/Oz</span>
+          </label>
+          <label style="display:flex;align-items:center;gap:.4rem;font-size:.76rem;color:var(--tm);cursor:pointer;white-space:nowrap" title="Si activé, votre prix saisi est conservé en passant d'un bien à l'autre. Sinon il repart du cours actuel à chaque sélection.">
+            <input type="checkbox" id="simu-keep-price" ${_simuKeepCustomPrice?'checked':''}
+              onchange="_simuKeepCustomPrice=this.checked"
+              style="accent-color:var(--a);cursor:pointer">
+            <span>Garder ce prix entre les biens</span>
+          </label>
+        </div>
       </div>
       <div style="display:flex;align-items:center;gap:1rem;margin-bottom:.5rem;margin-top:.6rem">
         <span style="font-size:.82rem;color:var(--td)">Aujourd'hui</span>
@@ -2988,8 +3028,9 @@ function renderSimuResult(item){
   const yearRows=[];
   for(let y=0;y<=22;y+=y<2?1:y<5?1:5){
     const a=abattementPV(y);
-    // Valeur au prix cible (fixe, saisi par l'utilisateur)
-    const tpg=(_simuTargetPrice||S.prices[item.metal]*31.1035)/31.1035;
+    // Valeur au prix cible (fixe, saisi par l'utilisateur, spécifique au métal)
+    const tOz=_simuTargetPrice[item.metal]||Math.round(S.prices[item.metal]*31.1035);
+    const tpg=tOz/31.1035;
     const vlY=getGrams(item)*item.qty*tpg;
     const pvFutur=item.buy!=null?vlY-item.buy:null;
     const tvY=pvFutur&&pvFutur>0?taxePlusValue(pvFutur,y):0;
@@ -3066,8 +3107,9 @@ function updateSlider(itemId, addYears){
   addYears=parseInt(addYears)||0;
   const baseYears=fiscalYears(item.date)||0;
   const totalYears=baseYears+addYears;
-  // Valeur estimée au prix cible saisi par l'utilisateur
-  const targetPriceGram=(_simuTargetPrice||S.prices[item.metal]*31.1035)/31.1035;
+  // Valeur estimée au prix cible saisi par l'utilisateur (spécifique au métal)
+  const targetOz=_simuTargetPrice[item.metal]||Math.round(S.prices[item.metal]*31.1035);
+  const targetPriceGram=targetOz/31.1035;
   const futurVl=getGrams(item)*item.qty*targetPriceGram;
   const futurBuy=item.buy||null;
   const futurPnl=futurBuy!=null?futurVl-futurBuy:null;
@@ -3410,15 +3452,10 @@ function exportPDF(){
 //  ALERTS
 // ════════════════════════════════════════════════════════════
 function buildAlerts(){
+  if(applyPrivacyGate('alerts', isPrivate())) return;
   // Masquer le bouton d'ajout si non connecté
   const addBtn=document.querySelector('#page-alerts .add-btn');
   if(addBtn) addBtn.style.display=S.isAdmin?'block':'none';
-
-  if(isPrivate()){
-    const al=$('alert-list');
-    if(al) al.innerHTML='<div style="font-size:.85rem;color:var(--tm);padding:.5rem">🔒 Connectez-vous pour voir les alertes.</div>';
-    return;
-  }
   const list=$('alert-list');
   if(!S.alerts.length){list.innerHTML='<div style="font-size:.82rem;color:var(--tm);padding:.5rem">Aucune alerte configurée.</div>';return;}
   list.innerHTML=S.alerts.map((a,i)=>{
@@ -3471,7 +3508,6 @@ async function requestNotif(){
 //  METAL / FILTER SWITCH
 // ════════════════════════════════════════════════════════════
 function switchMetal(p){
-  if(p!==S.page) _simuTargetPrice=null; // Réinitialiser si on change de métal
   S.page=p;S.filter={type:'all',wt:'all'};
   document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.fb')[0].classList.add('active');
@@ -3513,7 +3549,6 @@ function switchType(t){
   const ws=$('weight-picker-section');if(ws)ws.innerHTML='';
   $('cat-search').value='';buildCatalog();
 }
-function getCatItems(){const m=S.page,t=S.formType==='lingot'?'lingots':'pieces';return CATALOG[m][t]||[];}
 // ── Sélection fondeur + poids (lingots) ──────────────────────────────────
 let selMaker=null, selWeight=null;
 
