@@ -1,38 +1,44 @@
 [
   {
+    "ts": "2026-06-22T07:38:30.635Z",
+    "type": "edit",
+    "detail": "__enc__tdI0qX/YVqJ+50ZJFeK4gpQsSfE+VFflOD7zDb3u1KyvwBCl0frJu4HgQjSbgKi9+A8I0yFu8vYZhlw7X9o6+MVh",
+    "metal": "gold"
+  },
+  {
     "ts": "2026-06-22T06:48:14.219Z",
     "type": "edit",
-    "detail": "__enc__Tn7MfFxta02wA5tQMTuusns3/OygWEKcuvBK8l4Ew8Aj2wWka4/gGhu+xCRDVJeVwP8u9LGPu4qFpYM8raBw7/4J",
+    "detail": "__enc__Yv3nY3K4QGzlh8xVCkMsADlVKzxHFd8LZZNgxHkhwCqmxmCpLTdRdlWgva0vVO2vTAxeJoWDAqExdSuCkZaeYxKZ",
     "metal": "gold"
   },
   {
     "ts": "2026-06-22T05:56:41.105Z",
     "type": "edit",
-    "detail": "__enc__hjS9G5Q2jdI/qDZNHCLI0ZwaI3qTVtzCA0uDp748OspgaHOeE6q7oyXswbuBGB7SFGtFlkc=",
+    "detail": "__enc__B7yf8grdQTD2aGAk0vbsJJSKZthktks0v2CwPN2e6lIbLhycMwXFPFxvKzNCRrjQbxf5jys=",
     "metal": "gold"
   },
   {
     "ts": "2026-06-22T05:17:53.921Z",
     "type": "edit",
-    "detail": "__enc__Z24q5AaAd5rE33WpweaAi0g2NNIrhZfBJyQHFRWJRP8iSS55bpYsxuWUfqXcSQohmYKk48V4T7BDnwFI7/ckP5s=",
+    "detail": "__enc__k661jOhqYJhC75QpzNOg++Z/SBH7GL5t+nm4P55z0zVK8ccH1y3AHIZhvCEdmz3C5VRl8y2vBC5SCT8fkDGNjrw=",
     "metal": "gold"
   },
   {
     "ts": "2026-06-22T05:15:42.735Z",
     "type": "edit",
-    "detail": "__enc__x8QkF3gP7NNW/vj4xLBHiHlZjV2T54/732PdR1WJC5abrnQhh/gG5RmMAyneSLmshOrHMLEVE9EE",
+    "detail": "__enc__7uLgtLz+2F78foRmqQ9dpYHo4KIPbIzMc2GOpnjF9f8kggLSXGZcs+X1cUG+pWnq8O9d8a63LN4u",
     "metal": "gold"
   },
   {
     "ts": "2026-06-22T05:11:18.407Z",
     "type": "auth",
-    "detail": "__enc__n2HI37SxWq5Z5H0l+BEZ68AJhNnUw4L7HLEEpxSaUxOHv4eWeyokFL+VtpvtoxUNsZ2Zi2F8MU+mqwA=",
+    "detail": "__enc__xqflRzQiHnbodFiUquEjcFCCN+B1cGjficqUOnqGukyabxBStJMA6eGvepv9J2AOOnH7nOCytSI/N7E=",
     "metal": null
   },
   {
     "ts": "2026-06-22T05:11:14.573Z",
     "type": "visit",
-    "detail": "__enc__dCVBRoUy/W1Hgbf69LDFbcySgpi53gdrbnZPiPe2O1CeUazSJzeyzlWuERYLlS+kX/B6C4LrDgJd+Q==",
+    "detail": "__enc__BUCBhip7QM98i/UVkMWg9s95JYE05VoJr6nip8N6joUg2TCCE/JGTk2M317rvNn6TByYccjgMkERfw==",
     "metal": null
   },
   {
@@ -2991,12 +2997,6 @@
     "ts": "2026-06-17T23:24:17.291Z",
     "type": "auth",
     "detail": "__enc__n923PTGOgww+rdnxRSNVQW258a3bmFI22dkUR9tbxktFRv3KS/tNP1eTe+pIF7aBKOuohH90FA3rTA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:24:17.291Z",
-    "type": "auth",
-    "detail": "__enc__YSU3xBLHh9Qb1sF/3ty70Yrq0RaURa76/PcnsqYmF89Q6gg8RY9BA0b2J8ww/sxuWJQeLCiBDVHoew==",
     "metal": null
   }
 ]
