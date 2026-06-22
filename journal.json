@@ -1,32 +1,38 @@
 [
   {
+    "ts": "2026-06-22T06:48:14.219Z",
+    "type": "edit",
+    "detail": "__enc__Tn7MfFxta02wA5tQMTuusns3/OygWEKcuvBK8l4Ew8Aj2wWka4/gGhu+xCRDVJeVwP8u9LGPu4qFpYM8raBw7/4J",
+    "metal": "gold"
+  },
+  {
     "ts": "2026-06-22T05:56:41.105Z",
     "type": "edit",
-    "detail": "__enc__3xozjYQCqw930qHDLLN3yC8l2o5NVnAdm5IvB5h2ZbMD4e9ZxnybKL3o3utaQ2c9w0Sd/ss=",
+    "detail": "__enc__hjS9G5Q2jdI/qDZNHCLI0ZwaI3qTVtzCA0uDp748OspgaHOeE6q7oyXswbuBGB7SFGtFlkc=",
     "metal": "gold"
   },
   {
     "ts": "2026-06-22T05:17:53.921Z",
     "type": "edit",
-    "detail": "__enc__RJqhPbN9ekspmRTvz/SpdgxIsLdOV2LeIYl/XsNXeL2EyFVpfLWdz/t6GMG2U2vt62sX/lcoVW6o6oW5nkRMixc=",
+    "detail": "__enc__Z24q5AaAd5rE33WpweaAi0g2NNIrhZfBJyQHFRWJRP8iSS55bpYsxuWUfqXcSQohmYKk48V4T7BDnwFI7/ckP5s=",
     "metal": "gold"
   },
   {
     "ts": "2026-06-22T05:15:42.735Z",
     "type": "edit",
-    "detail": "__enc__zbYZxz0e3T84nXv/XZGSxP/PkN/x/fDNzIQUxQSmUSujhSfMS82KmydhadcbTqg8/DLCPSq7n6it",
+    "detail": "__enc__x8QkF3gP7NNW/vj4xLBHiHlZjV2T54/732PdR1WJC5abrnQhh/gG5RmMAyneSLmshOrHMLEVE9EE",
     "metal": "gold"
   },
   {
     "ts": "2026-06-22T05:11:18.407Z",
     "type": "auth",
-    "detail": "__enc__k7mFScOcfraCS6MaIT6MG53qLk1LQRT5AGvXVQgV9y5XVDQxB8CaNzUXJpQShQOEnFMQqI3NvoCgNg4=",
+    "detail": "__enc__n2HI37SxWq5Z5H0l+BEZ68AJhNnUw4L7HLEEpxSaUxOHv4eWeyokFL+VtpvtoxUNsZ2Zi2F8MU+mqwA=",
     "metal": null
   },
   {
     "ts": "2026-06-22T05:11:14.573Z",
     "type": "visit",
-    "detail": "__enc__ISjhPFKgMdqFUXBA9OYUPKOkMiK21qIes3AUPvbO4yFsJafIg+iDsFwN1Gu5mn5scAm/MMU7x1ThOA==",
+    "detail": "__enc__dCVBRoUy/W1Hgbf69LDFbcySgpi53gdrbnZPiPe2O1CeUazSJzeyzlWuERYLlS+kX/B6C4LrDgJd+Q==",
     "metal": null
   },
   {
@@ -2991,12 +2997,6 @@
     "ts": "2026-06-17T23:24:17.291Z",
     "type": "auth",
     "detail": "__enc__YSU3xBLHh9Qb1sF/3ty70Yrq0RaURa76/PcnsqYmF89Q6gg8RY9BA0b2J8ww/sxuWJQeLCiBDVHoew==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:24:17.291Z",
-    "type": "auth",
-    "detail": "__enc__xznrtTG41mASsdKdrCKF3GndQvTpuVwyrg8EUu7NovTNcqLbJWwybDzXKtBLTLZwlE7JsMSSL5QJNQ==",
     "metal": null
   }
 ]
