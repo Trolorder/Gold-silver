@@ -1,14 +1,20 @@
 [
   {
+    "ts": "2026-06-23T17:02:55.126Z",
+    "type": "edit",
+    "detail": "__enc__YqHidP0SvAUPO5Mpn2E6Fgh2fzj4MmAWiYQEZclvIvFKuoaXdzlDiKIf5JjeCJjrKOsp2kxb2jXMHfltjvk=",
+    "metal": "gold"
+  },
+  {
     "ts": "2026-06-23T17:01:19.809Z",
     "type": "auth",
-    "detail": "__enc__XuoQjPIGvQVRmdgE0uD+fpv0sEWsazQw2E0rpL+7066A+nrzTAuJ80/X4p2AgXN+v/M6l4+1gYS9Og==",
+    "detail": "__enc__+Hnj+qbIKBLa92eZMnSAiSoMtCVk4WjosL7+riqpeiHsQDWndcvWnXXIp0Mb4X9bXAoTuUdsHdZqBQ==",
     "metal": null
   },
   {
     "ts": "2026-06-23T17:01:16.968Z",
     "type": "visit",
-    "detail": "__enc__xbf7e9FC4R0atxd+QOeKfMkZnSDU9BbFY6wyTwUY9sVs6A2ICqQT8gf/nUGpmaQ0ewPzO0+6TioE",
+    "detail": "__enc__mMLLVbUS9T3GBuUm3RcfU/YYAtw51l2UyWFihW1V90uO1/6AM16SO1zqWa2EK4GY/KjSqyfqDNf2",
     "metal": null
   },
   {
@@ -2991,12 +2997,6 @@
     "ts": "2026-06-17T23:35:56.245Z",
     "type": "visit",
     "detail": "__enc__tehyWljVrQAhIwqIM538xC+fHRcdKT9BOU8tS/E6BTROAxr3tRdKN4i5JG7qn6ROO52CnA1OZOD6",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:35:56.245Z",
-    "type": "visit",
-    "detail": "__enc__ZAuu4e/9CaH322Ml97TSd4kh8XLlzQ//rzXNClThAgCmy2shxfyyfLDPaSID5T3N/R6a2NX7uCc6",
     "metal": null
   }
 ]
