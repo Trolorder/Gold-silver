@@ -1,5 +1,29 @@
 [
   {
+    "ts": "2026-06-28T19:03:23.947Z",
+    "type": "auth",
+    "detail": "__enc__XUgz33kzwzPE+ufBIgJeuDQOzrwBgeuCiBy+p5jw7pEu88MFvLVBcU4V/J13LbzS5AS00kiecSvqRg==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-28T19:03:11.910Z",
+    "type": "visit",
+    "detail": "__enc__ZsfTRwEu8OaqtWMDtzHpN5suz92CYAVsoJTnkphXn28poOa+7H2/hkGvF4J7WVatHQ034x8iM4cZ",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-28T19:03:07.912Z",
+    "type": "visit",
+    "detail": "__enc__MQS9wUBJL4xDjzVBqybse0xQ1s9aBM3XMQYrCgqHelm8nPrqtOaXUYkDMIvUFJx5TVYJpBvve5a4",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-25T19:21:59.336Z",
+    "type": "visit",
+    "detail": "__enc__W4/A8H5Za5KW7WSNjCSDAZzrNyc9DsiOpv3xxQD4AZYERGenH+6E78J+QdQ0j6Ro0xAAETlWTnCU",
+    "metal": null
+  },
+  {
     "ts": "2026-06-23T17:02:55.126Z",
     "type": "edit",
     "detail": "__enc__YqHidP0SvAUPO5Mpn2E6Fgh2fzj4MmAWiYQEZclvIvFKuoaXdzlDiKIf5JjeCJjrKOsp2kxb2jXMHfltjvk=",
@@ -1044,6 +1068,1710 @@
     "metal": null
   },
   {
+    "ts": "2026-06-19T17:45:58.384Z",
+    "type": "auth",
+    "detail": "__enc__T6IppPEZgioC+TB97S3L2UV+/hq64b4t8w+zItl7Ryw4w29quufc+DjihRjtcf3wHj8X9wKMCL1Jk9PZ",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T17:45:49.567Z",
+    "type": "visit",
+    "detail": "__enc__j75BCQsSSWjk8eSc+lPXW+mslBysYep1tdCLvRu5t6HFcO1vjBsYGrfpDnoPOkeayXTvuY8CoriCeno=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T17:45:06.732Z",
+    "type": "auth",
+    "detail": "__enc__QhSB9BgU9mnK1bMlnD1TPLl9oFTzNPIQXeMg9o0mp93Us4VUJ3vKxeLzvvBiiKrT1AXUHSiE0UXsOAof",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T17:44:34.281Z",
+    "type": "visit",
+    "detail": "__enc__ay5n34PimJUMmMn2AD49y9evA/7cWjy5EaOTo+wQtNXqocwZ0buBr1I2OOxGjmc5lLydnVyJSRblf2M=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T17:44:26.620Z",
+    "type": "auth",
+    "detail": "__enc__PQEbApbWHotTywaa7NjaqTV6Lb103bJzR8Tq3S7+aJORpTd2Aqd/KGN9uqqNQ4d59frXPy9zW8qEvay4",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T17:44:26.620Z",
+    "type": "auth",
+    "detail": "__enc__e041TY3anFAhH4Qy0HzhAoR1ei3OeQsUQsRVjtcfTQPoRaB9xbuAeCQGJv2McLEcxqJ54euL51sqQk9e",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T17:44:02.579Z",
+    "type": "visit",
+    "detail": "__enc__7AEF91ducR7cWU/r7xTQksOwqSNlUj8IHU0kgQ/yS+KgWIiA/97GBsWEoAhJZMD7vNzVU15khQL+l94=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T17:44:02.579Z",
+    "type": "visit",
+    "detail": "__enc__ZHpELplCs7B5L8bpyzyLmMCoESWwRwm8epsJrc6Jv6eeN/eztZ68I26RnjPQQiln3TS0Wnae8DsbkhA=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T17:40:05.348Z",
+    "type": "auth",
+    "detail": "__enc__T9dgzePkvbmVmbReAnvYKO7b37o1RJl5iUQ8niOK+sgKgRGu2ktvt0YRNlMpVPd9P6q0MdWanR4XfcE9",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T17:40:05.348Z",
+    "type": "auth",
+    "detail": "__enc__6cyGSJolgcNqVP/h0Hljknhhn1VXC9QUa9rkOs/B2MM8ghF5pYsMiLa52KRN1w8PgfVZIsk0+FFCqEHy",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T17:40:05.348Z",
+    "type": "auth",
+    "detail": "__enc__AjxUsuXrQHHnE6AyN7E9Oo1fZQ+r2VGimFIU4SnXHzucYXoEb2/FUkLdxJxQM12uEpR5CJsJjB1/vN1c",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T17:36:57.479Z",
+    "type": "visit",
+    "detail": "__enc__2JNb/AvKoUNw11e7YcCwcM6HAXt4h3ZM4MHgBG1jYeBKcoPjq4pDYElI3xU8z925U53TkeBgjhgdJSA=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T17:36:57.479Z",
+    "type": "visit",
+    "detail": "__enc__bf9vcCreOScNLrLZEHdMxjEMmTb362pEg34Y9me6OqX1IMdJ5i1pbRI9mCO3s2UDFjYqrjyGA9Eaz1M=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T17:36:57.479Z",
+    "type": "visit",
+    "detail": "__enc__wS1oCfZwiBpPYkJiW/LrmWKy9LHRCGU8sohHIz1+vLmGTD+Y22gYs/Qhy4nGI617RJD4oGptElPKu70=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T16:14:04.183Z",
+    "type": "auth",
+    "detail": "__enc__INIsf3lC40kLMreqducSVIihd+f/HWCoKyg+aWMvpGQY7LH5MxeJCDWwxn84dJKEV7e12+q29eGO0jE=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T16:07:31.493Z",
+    "type": "auth",
+    "detail": "__enc__uUY+t3XgDzIH+NyW9d0zKhDPag37jL0BJgJKZ98O756siFGnX7V/SGCyS7sQ7ryGuDQZxz1hVo7hvws=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T16:07:31.493Z",
+    "type": "auth",
+    "detail": "__enc__Raf0amJg/U3bwoC61LDYhmzQ6yhmjWipWthNU3PtIYiRa50275lS1P+3oF/7ryZJq/EmTUF5UTRePUE=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T16:07:26.840Z",
+    "type": "visit",
+    "detail": "__enc__ag+v0c/YzyqsH0WEkrie9PfKilNY3RT3Ytayb0pLJc/W1Sha5YTRek/bHB22Tf0AidY3qzsTps/k7Q==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T16:07:26.840Z",
+    "type": "visit",
+    "detail": "__enc__hYPgjxshPJNFKdtjlBWPLm4oc0bpLyMrPUG67VvvCv86zVNY+doZjAbeh52MOBw1HRbU2ehXSYXspQ==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T15:01:35.525Z",
+    "type": "edit",
+    "detail": "__enc__hXzW6jXO8basEr9mbH/nAhnMbLZu6uMgZa1LGxG9QythdTYRnsscwTueCMIuruA7AXkaww7oTQtaCMUOH+sQe7oFeMjM7xaO",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T15:01:35.525Z",
+    "type": "edit",
+    "detail": "__enc__H6eE2nthEwOHCjpBVuml5JEMF7o3gCzAPKjtIUYQV4IkGfTn0y4OvE8B9PWWj7cmViPam9zB9ySaGvGA6jPMJyZYD9LDCi5Y",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T15:01:35.525Z",
+    "type": "edit",
+    "detail": "__enc__g2DmB4DhbyMjsbWg2hQJsRyF3slZc/no7wIWe2ixtx4OHWoJFP+gmja6WghEB3tiWNXVKZFy7mt1kRiAKNYjcBofoor5PWV5",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T15:01:26.007Z",
+    "type": "edit",
+    "detail": "__enc__mXTY1ZKto89TT0LYPDu2oEWBnCq1LnHRJkXnB8r77j88cXaWzRQbn23ypQftglqxQJoEmFQlGazBgT+J9ZIubU0tW/GePYKl",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T15:01:26.007Z",
+    "type": "edit",
+    "detail": "__enc__UueniHzodj0IOr0XiyPNiEDfJGZ5sZQkQxaoax2ICdrm6jTTGY1cY6EdQBIbnA2gPLbP52ek/ewVhYx5aJLmf8wZOjMmbFaI",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T15:01:26.007Z",
+    "type": "edit",
+    "detail": "__enc__tuHrAuXP9bDBZUNnVHk6hsFKD/ov1tkUlhePFyJ/6HCmqM9zqJuubuT6nOZIN0gS5XKok9f7WvdIxe3Htcr67oSbPs2Tuiik",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T15:01:17.960Z",
+    "type": "edit",
+    "detail": "__enc__BWwKFS7HkLyoJ+ubSNtejf9ad0rrRfuACl15UEQHq++9PJ6H0wueiTbGHSAkBWyDpHZQQ+RUNaHZs+clSJ9+Musafuw62WnS",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T15:01:17.960Z",
+    "type": "edit",
+    "detail": "__enc__8wQw15T8KK+5uGBUZPJ0CYXzOolgtPYL2txX9ZR+cnqWzy0zaXOThnKFBH1zUifNaYD7Im3Fk9I2BISNmkRv/vFEHwfAvWc2",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T15:01:17.960Z",
+    "type": "edit",
+    "detail": "__enc__TanbNyK9VfMJohhu+VjOeQlm2rQyr7P6tCR6Jw9IWCZi7fy5uCBTvvL9iU8H4VCgMstkAdQzGz2wf1w+Y+2UVlA/aCG2HRjf",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T15:00:48.015Z",
+    "type": "edit",
+    "detail": "__enc__dWia/Hf/yIhH9vcLx72TumLXZElY4AOzg5V93FuXmfjm6E33MdpkfrxGj3sGsBpBsfrcD37ODYqP",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T15:00:48.015Z",
+    "type": "edit",
+    "detail": "__enc__kTeh3V4P4cr0r1vqoo14s/WZXtffxFiNHKLNFO2yDFbE/NGzxzUozTcRX7F4GCbSejoZSQb4VNWZ",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T15:00:48.015Z",
+    "type": "edit",
+    "detail": "__enc__4N/HBaD+vbxAoQQ+QRQhdgmND0UN3UROaujIWum09+5G2nZ+VGmLRhvrn2Djcc6WYUCnMDbGMa1M",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T15:00:48.015Z",
+    "type": "edit",
+    "detail": "__enc__9ldXNrh021/T5WHlGB9Ql7t+bRAHHuv7h8qYwVPxSnSSbtn7VuEWrPhdRbfz5q2MuhRvYJ1rX6Yv",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T15:00:26.525Z",
+    "type": "auth",
+    "detail": "__enc__7sBBJnfuY1iHQr+KDQpS3fT4rWtAiWL3uowiJSsE1ZnUp/Ab2HB7FiIJA5pU1At5CPepgFzuCDRUqKxS",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T15:00:26.525Z",
+    "type": "auth",
+    "detail": "__enc__VWWvydcGQDJcJyfm9QdNxWwrypHL7Ji82HE5AJagnQ6e0OSbrf50b696Y203b9aFwYJwzfghX86ox4Az",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T15:00:26.525Z",
+    "type": "auth",
+    "detail": "__enc__Oe5+plFjnn9Zk3Jn8blBEymhL/VeaklsfM2jrqjc1Uuc+rYIhgUfsdgpBKzTqApqdqOCcOTmKbPDWCop",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T15:00:26.525Z",
+    "type": "auth",
+    "detail": "__enc__JhkqprOnXZbF8Fe3dWvsi/R8detGm5319iWvMlNs9ZUIKZ5lkLnpJBmAZN7zIJnx5gLl21n7ATFIKgxW",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T15:00:17.304Z",
+    "type": "visit",
+    "detail": "__enc__GhkTfxcL2PfEnoERaNBXhw4nyDpgVb6yqV/CmmpRMwLRgO7Lmz317x9pPMoy2fS8elreDweOsms4F/I=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T15:00:17.304Z",
+    "type": "visit",
+    "detail": "__enc__vap2VCw4cZeOEKDmGaOS6yrh4OE2qFWfiBtcGCMrF4x03sHKQPLMUmBdZntJwptGdCgotpBkoyNkwJI=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T15:00:17.304Z",
+    "type": "visit",
+    "detail": "__enc__l5HMPQbwCchJutkKpMXkpxu7LGHlnr2Keu8e0cvfMKUihGrVsKgfHca/mJQyVcfDIRVEpZjvVN8rXu0=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T15:00:17.304Z",
+    "type": "visit",
+    "detail": "__enc__RiNZcRMyarDSN1ZJtTiwixwwj5Hz/nNlvEC9dKvdCWnTGnW7WvQiJzwuM9WM2wqFKlkdo6AhdhmX3Hg=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T15:00:14.732Z",
+    "type": "visit",
+    "detail": "__enc__nOl8dotQC39wYW7yskiieg2SeI6hfwOGo0uDGGVmjWGmMiFH7a5A5x7lnUfVgXA33YgC3/VpHklmqUM=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T15:00:14.732Z",
+    "type": "visit",
+    "detail": "__enc__nK6ZYesuNsod1H/vIW9zehVJa/GWXIQUMHeac+qJS82YkhR20tTSn9or+VqkGutvqfQDRU6qBn+gz6M=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T15:00:14.732Z",
+    "type": "visit",
+    "detail": "__enc__57V6GSq57u4ei161EDK+RGOYwNIx/MdW+rMsfnISurbm9j7g5HAUdIiwBnPfYiDdGxQNv8EtTDdqaxE=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T15:00:14.732Z",
+    "type": "visit",
+    "detail": "__enc__PR/EEpzFAoKY8NaLbeFMqQm7XdEvcXRy0+b+w8FFGb435wOr6EzLmarvwD7AMKYPZvXeLhxVW0YUzR4=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:53.810Z",
+    "type": "visit",
+    "detail": "__enc__iDCoUioP4knejea7F6sUTkkWO8I2Jcp/O0JpPa1ouEOhzcoPxEzvipIGiwgQAo7OG0CajfpwugNEzes=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:53.810Z",
+    "type": "visit",
+    "detail": "__enc__1cxythR35iQ76Bp0wyKAUB51WiomGrwXF5h52Otm4Q5YHD6cYJ+94cxKc+jRzkV8mX14UbSSGfvbbpo=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:53.810Z",
+    "type": "visit",
+    "detail": "__enc__vCgBxIGA8t1t6k3+qbWfN2IubwIrlIPdwUTtrdqUa/GyQqkzR0oQ7gDd4rtVp14dZ3h1V/Rit09Asj0=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:53.810Z",
+    "type": "visit",
+    "detail": "__enc__kgvCywe9jNPvR9aoI4yCoU/JUp96tpo6FI6KcZFv3MiQ4zRqt/VCWtV9lQ02CUuSPNFx95L8QZ0i5KU=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:47.226Z",
+    "type": "auth",
+    "detail": "__enc__VxdQvK5CwbwXlMBeTopmadQdU2OTnpxwESj9FEkZ6b5QfzkiHi1u28gaYphqkyTq/WGECgF/18hXcMWV",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:47.226Z",
+    "type": "auth",
+    "detail": "__enc__9CzEQQIGQyFjpRp+Si+kg9r6AJcIpy62ewkC+z/Jm+PgX3O+oyqe1Oo3s7Rhj5f7drXjUPG0xjy3ZvIB",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:47.226Z",
+    "type": "auth",
+    "detail": "__enc__nUBtZOULik0HDsCtgAtce/6LoRVTWxrk2sfN15hydOBwJnvl0zrlseh/EZPRVWmamAMshGJWxgk5Y/Kb",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:47.226Z",
+    "type": "auth",
+    "detail": "__enc__knwzEGRANcG6nP7DZXSQoJk6PTPBDipQDOj/eCVywes5Bala7+0Pf4U3v0Ymrf5TpnmgRj90IUel1gtS",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:40.568Z",
+    "type": "visit",
+    "detail": "__enc__+VbcXRb7+3cnGLgrMeIGEFnZgWY8Soc3C+QrJRvq6leYpmTlOGmPECPNlXCFwjHVuq4iyWo5CaCr/i8=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:40.568Z",
+    "type": "visit",
+    "detail": "__enc__dDfdDt/6X5bTEMiCqc9SHxfR/ob4OJd1OoB7a6kzLCHMBFg+DZ81jYWOh9fZYLGJHikIEiq2p+6RyZs=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:40.568Z",
+    "type": "visit",
+    "detail": "__enc__99mCv+dJ3bkQu5VwND1LAFxqDuCPnRs873SnGwJQz6++TyR8KcITNzKK3gb2IdgF7TYnJHU6KJL3Mhk=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:40.568Z",
+    "type": "visit",
+    "detail": "__enc__qGGw/eWtc9OTxXe2xAooJL/AkaNs/cKH3v7I68PDWxORCk93nJyDzG1WNmBMNS38Ww7pXKrenOHoddo=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:35.232Z",
+    "type": "auth",
+    "detail": "__enc__I7I58iCFhgpOVJoaHJ2ry+MTibwZHUREGf28qm3ah6D6m71Y0NjhmHq8QafNA+XbLdA9p5zRvNx5RNti",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:35.232Z",
+    "type": "auth",
+    "detail": "__enc__5Iy3bZu+yJRkxJmsPK4UVkiB9a8prS+QTFWiBwVHC8jXRXXtb+diAUOAexUpRVL/UW3Ma/Qq5KtG2L9f",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:35.232Z",
+    "type": "auth",
+    "detail": "__enc__HHzhKPVGKpb7KGbAQ86luGdJ+DWPvRol0J02mNsCYyIENc2X/le7cEIQcqSeZlYFnjlNWUYfJdzDPtVX",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:35.232Z",
+    "type": "auth",
+    "detail": "__enc__7SwKdmO9tV8HBLHvst+iZWsSxRkpYqnDqnvh+zk5BdnliCOgE/GXgEW7b14Uc25OJ08V0WxKubx+Yp7c",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:35.232Z",
+    "type": "auth",
+    "detail": "__enc__a/81cn5g5bMfHzipRhqnv4dzfVcpty1rYwrwT6sF3rb2hGZH9m+ktm/PCfJNP7ZVfoyigAEe/m9tPJim",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:30.569Z",
+    "type": "visit",
+    "detail": "__enc__SpQ4uzXw7fv+9VCQCWW3HxnFR3dnrKxTFpfcSKIWUhm8l3QRtcCF35EGcdcg9d+BNMUQcyxpdrKqyDU=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:30.569Z",
+    "type": "visit",
+    "detail": "__enc__Z0fjnxJMbs4lpTQIzILoHnMVaTSaI9uMUGslKpT6sk/LGKI5VSFM+EYurUQBYDBrAnZqsdWkcZVaY8A=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:30.569Z",
+    "type": "visit",
+    "detail": "__enc__5sMqT2u4B3pWAhzihWdvk+ua4wu7QEvTuYg5seT4eMQd3uEjLFNUabaOEpY7CkbCsRYL3RFtG/ABSyc=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:30.569Z",
+    "type": "visit",
+    "detail": "__enc__Q1F54eDte1aK7jYKOouIH702bDoJudtdOhWYoOSzP9aPXZID6cf899tVa18rUQ5/FEzCPW31pjmBwwg=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:30.569Z",
+    "type": "visit",
+    "detail": "__enc__xr4G4h2GdlQujkzgKuW0aNpNSPyn5eNLJfpKPwFhu6kitrbly5/1XESbnR/sl82l64V4dWP7Z3XoWww=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:25.524Z",
+    "type": "visit",
+    "detail": "__enc__w7S/6eZRLj8xZmvKUKbmy+T/SNsRc/wPpo/mXXnSj3XxkHgXG3hoGHOstTwriLdwnmqi7mjzflqZuD8=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:25.524Z",
+    "type": "visit",
+    "detail": "__enc__zxUq1tfSzOEFKZ1PTBIKeUqSyU2i4bZXWaXXEmEmKgFOmYHm8iMrC8I1w3nX5Z+GU7jeOR3jW3EViPI=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:25.524Z",
+    "type": "visit",
+    "detail": "__enc__XRRxVDZziVlS7TksZxvA3AYhdPCHm1IcdO1B/MEEiqD6rpxPWQpcdRD752DsS4zXFOB/+xnfARZCA90=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:25.524Z",
+    "type": "visit",
+    "detail": "__enc__vnnwzQ1VaL5hTEHxkn8YGSmUis1aCtAEY83dyWKqQ0Y0osTDTVyOjXB/j2UulE4VjxyVRjdb350WUG0=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T14:59:25.524Z",
+    "type": "visit",
+    "detail": "__enc__f4oy+/rB9/k2vgZL8Ay45ggeRS8RnSYlUsckQn7r2Is7wrC02Ly0drDQFvzSbTrSmwEnyni3NR4IFKA=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T09:23:25.800Z",
+    "type": "edit",
+    "detail": "__enc__pDqo0hkJCX6tAoBYUlK9nGPuRBfVOl1/CZgNP9BX+HAfU2a6+E8jk0hRNAM7j52gfh+o80m+WDYYSHVG",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T09:11:24.590Z",
+    "type": "edit",
+    "detail": "__enc__32mDoWldx2ycZA5vI0YW/SUq1n6hhEAVbhFe5GoWQUQ6cw9GPSSQlMRqwGeFVyl8In6iGxLku2IPu7a2",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T09:10:14.130Z",
+    "type": "edit",
+    "detail": "__enc__YAKIrWvIlpZOLy4ckJF9MkHk+mw0fnUsVyxsN8Aqot75X42e5MXep4s97fLp8ZHD+WbadYn3Y8gRlQmL",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T09:02:26.931Z",
+    "type": "edit",
+    "detail": "__enc__irPOpGaUPuIjlDRXoXM01tc1Y2PqOCEO0tdivcHoBy0A30uvx70LzqafdD7sc+bXwQeFexPahMwX6fYp1GZHAezJD+z5",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T09:02:08.480Z",
+    "type": "edit",
+    "detail": "__enc__BoU1aCb7GO/S4iuyZYuCoSgxwEdtG9IuS/QuhRQ8ussE96hc8ktosMICVSORuVvcshISad2j1FPeIGdWL2lU2YF9mQJxNrvv",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T09:01:51.692Z",
+    "type": "edit",
+    "detail": "__enc__BCz+HGItct5vHonkE2B6XrLY/LfcYDkSn+Q9zWwXx+IQBJ/cOuU4i/vgGHvqmjmiilaDZtNCB62zWHi3pgTLNFOYGaSsR5jg3HYiCQ==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:56:10.274Z",
+    "type": "auth",
+    "detail": "__enc__lo5DOYwBInBF++WmqrvbewsfWvgXOwcwqwwuyO+QKyCtz2mFsFTMU5htdRyN83FzY5GgG66HFU//Uw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:56:06.098Z",
+    "type": "visit",
+    "detail": "__enc__8OW5aodSddlE2Bz52WGG2CeqjF7wI2lvgRoATZrl/NhuIYvD2gr/iZkqylAVECPITZTH+pUp7zB1",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:54:44.442Z",
+    "type": "auth",
+    "detail": "__enc__XYawez+7/YQvHf6fH75CCl5/iz2N4y5h6NGdpkIBgIslnx2RVYFvsu34Gzz0DJ2DNAchmzSC9mW+fw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:54:44.442Z",
+    "type": "auth",
+    "detail": "__enc__TqDJM35acrVm6s71tLnfytmLqR3LXO7y/s7bWn0KlCm0ecai4OQ7oCuuLANLkSyS/DxVA7xNts/gyg==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:54:42.667Z",
+    "type": "visit",
+    "detail": "__enc__HCDnaIq5vNqJc63LkehMsN45a7Gqtx+7S5mEJOEC8NamMn179oBt6ARTTq18JdWJgTMLjKD69G/x",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:54:42.667Z",
+    "type": "visit",
+    "detail": "__enc__f6z9waWj0Is9w94ggE1ID91xrg7/Tdzuo+L1DNgDFrL5PppFqTeOW5+CtlPW7tgQJKC5wUVGHux9",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:53:21.125Z",
+    "type": "auth",
+    "detail": "__enc__x7MgNTeKkA9P7cyOBtoGSAlj7QeTzzwdiSB9msZ0BTxXeQgrAXegP8+Xj9uEXDfGqJ7xzEsetqxKUQ==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:53:21.125Z",
+    "type": "auth",
+    "detail": "__enc__1WsdLWsnzl8fKU+Wnjw2QEdYo/tzVC10QM91R2vugzTBRUAlpsaZcvKhODHrg+S7Y8kzGHDI2zli6w==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:53:21.125Z",
+    "type": "auth",
+    "detail": "__enc__J9tNcWrpvFpO5lM/hK3K1it7qsd+RTb9c141JYoaDxuqG3qLuYovHqGoWF4atzmub9wtceZpLejtBw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:53:18.430Z",
+    "type": "visit",
+    "detail": "__enc__f5SKsEk6P/yHCPu4bgt9/044AW/coFmkYiWLnjA2/Ky9OHlmDtTArdfZAP4icWlHF4kFesMIM+ai",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:53:18.430Z",
+    "type": "visit",
+    "detail": "__enc__wxMJJU2n7bwJiLxHdKzIFT+7QRcF3y5Q54E5ABMz7vBw35+aMWF6J25F2ExWUOaes7CJobG0600P",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:53:18.430Z",
+    "type": "visit",
+    "detail": "__enc__jAOuzIf9V3vpS5bWQMt0Y1xa9he+8vCoox7bgzyzHJGATgwFemrt/h8cUYEyBbYX7alZHAVbf5pp",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:48:16.827Z",
+    "type": "auth",
+    "detail": "__enc__wuFGooNbvdNDOviDwKumgNU6YXDF45WOHSVjmlcS5SYPD1He3bd3bM1EyqRBx3pbuFlNdsol5eT1pA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:48:16.827Z",
+    "type": "auth",
+    "detail": "__enc__hnxV4MOGrgyyUk+nqNrzQvNzCiPKCK1WAChkwE4WjhH7Rd1S9WkjVYmkhUJLF/oQiuidKC/VNc5oRg==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:48:16.827Z",
+    "type": "auth",
+    "detail": "__enc__GksVdeGqAqTmaQxdy+l2wICPIxMkOCmbWcPGKTv9AhKrSsQZigx6Cdhl9W0Rl4VxzLxWd6qinXp7Iw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:48:14.495Z",
+    "type": "visit",
+    "detail": "__enc__rFhO+G5qj1YnwgazLNs0bU7vEFo0Sv+tsGAaR9Y/qbWcLl/mL5iOd/e7QIJRZaIQ40mhHzIUPXPr",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:48:14.495Z",
+    "type": "visit",
+    "detail": "__enc__Gb2GkWJzvm8UWjj6+zEtUOGxYCG562jBXkkohy3GetKartNu8ayV0kk+PQ+FEVH3HIzb2jI99Klg",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:48:14.495Z",
+    "type": "visit",
+    "detail": "__enc__nEE6pmi9266KyjegnoTc41dIug/9KNuRCuLyM20k16mqm/ziFR4ZTvT0D4K111d9cWKlOGltg7kh",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:48:04.898Z",
+    "type": "auth",
+    "detail": "__enc__42fxl5KbbllpeE9OdJh0+7Qa3EOIvfxAlFmt3/OPP+WRS9m5kM8FR+z/Xw4MhnRTUYwhiO9YCED9oA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:48:04.898Z",
+    "type": "auth",
+    "detail": "__enc__pGup5q55GXopBpDD9UaycAfJcIyMq/6anHXXim4uyV2U+KVVBQSmjc6uNqSTpJets2oK/482Rhkjvw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:48:04.898Z",
+    "type": "auth",
+    "detail": "__enc__oGxzRE8S52Ocaedfb5ZIHZ3QNKhY9TeVxKyeOHsI9sr1UezMff0ubW4GKwCHWG5/6qq5q25IRHNYzQ==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:48:04.898Z",
+    "type": "auth",
+    "detail": "__enc__rGuKUrseTrzYVugq4WyZdq5LoHbokTjvaaqpSsXbSBrCfepXi1f0cv9VdLF3DSM9JBcFKWOWp0R3xA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:48:02.448Z",
+    "type": "visit",
+    "detail": "__enc__vP3tcUMCCpW/0iHhp2cmdOUBCAUxmRlNmWb7uL0y7BBbONPz7VCBIvcHyNB3wvf1Ub+LT+T6E6Xs",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:48:02.448Z",
+    "type": "visit",
+    "detail": "__enc__kvYJ3jpVIscu4zn+NUcU4mNdzJRBpyZbExfAW+HTXnnaAkQKn7CMFx6ecpSQ+Uf7OTO7QKjp5W8j",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:48:02.448Z",
+    "type": "visit",
+    "detail": "__enc__lWNaBbLUWQftRMwyaWwes6YvCUO1LBN4tMQMBvbP9eVeVJGVIRM5iT7kJChylqigW0v2fpmamLRn",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:48:02.448Z",
+    "type": "visit",
+    "detail": "__enc__+LNpVksxO+3tB3ZO3gXCr4JEB/R3Yb/x9KvZYfoakOQ4E8X13yYrAzMRtoQFmHoXHJaGxEctT8Es",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:45:42.634Z",
+    "type": "auth",
+    "detail": "__enc__AO2V8sw3vP3SXml0fDaKLs8kBy+GcczzjqnMzfApew/uHSPyBd4ePM9ntN+lqrqatT6EmZvCs+7hyQ==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:45:42.634Z",
+    "type": "auth",
+    "detail": "__enc__APSLk2LxJU4dcbdWu05kXJ/WBk6Wx751M5ANtap/th1YGcBl/nVOAdQOv59AxUlPMpMPPyzOb2TrwA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:45:42.634Z",
+    "type": "auth",
+    "detail": "__enc__hFaW2nOnh6KdzCaH+pRj2PO5hpgc7+qT9OVVavqCKLD76oAVbYpZWkuJE64dcQuXSWWXQEXnS/ATSQ==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:45:42.634Z",
+    "type": "auth",
+    "detail": "__enc__LEk3R3tCNRK45ybez6/Aae2khKpTLFcfjSiEupppRB51s/tAhSad+0+JAintpAj8T3MA5CauosJdrA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:45:42.634Z",
+    "type": "auth",
+    "detail": "__enc__CdbjUuPD4P0yRZ2DRsd+gbYJQ4xWZZpjaVrqmh9FStyfe/fwvzbSmSo8IGHT1MYlxls1VUFK84yoeQ==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:45:38.281Z",
+    "type": "visit",
+    "detail": "__enc__97RkM/7K6mU1x2Gdf4DF8mBZo0OSL1zXaqQCuPDbQ1o2J9FU5rqrQCKHv1Dpo5bKtiFdBA1CayRX",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:45:38.281Z",
+    "type": "visit",
+    "detail": "__enc__dVXjfJTOQY9F6mLnb7M/R4iy3crnwns00/aFyrCotSLS+6z/FaTDt9ynuz6HDfD2zj+wVaEmV4ve",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:45:38.281Z",
+    "type": "visit",
+    "detail": "__enc__+pQSpvm3gRZbQfk9uy92Ed38p69ohpQ5MYI2TuidCvfX0b3J3ya/eLfiXls8e0KNHLXD6TD3m5hK",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:45:38.281Z",
+    "type": "visit",
+    "detail": "__enc__5GYyIjxfYxxjNm3t3ei0lR0cAXooXgpNL/Rv7MixqKwzgr+bpy+13dfIkXYeQJk4xZstj+yfYT0n",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:45:38.281Z",
+    "type": "visit",
+    "detail": "__enc__wOVMZJy+Jtg5jAw+7XQjaMELs5VA4VcQgk7NZSyOaSlkZyGeuVS0DU9aOkLPKsVTsspNT4npFGm6",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:28:38.178Z",
+    "type": "auth",
+    "detail": "__enc__D+cMeeBwsXJg3yjNmYe+fWMrwByL4Fc7M9bCucH54Bgtpqn4J3iZhU8ovBlxDR+4mCOaR+kiEqbwjw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:28:38.178Z",
+    "type": "auth",
+    "detail": "__enc__Bk1febe24oBoXRj3BaDzDHADUsjU4Og4RU/3+Fo9Z6cnLUM//3/ON3nf3a/15GBqMgPK9eR/y3eNmQ==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:28:38.178Z",
+    "type": "auth",
+    "detail": "__enc__A9o56mrcjyVOMp686ElLmxVC+/zFdVLzCfci9RYet9P8KOGRK8Qre0dRo6VaGZaw4x5yJ1596G5XMw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:28:38.178Z",
+    "type": "auth",
+    "detail": "__enc__u4KBfl47JdadEldQST4gO1kX+v2XvvMQjpCP0X46C470nllj1FaMEg3G6sAwoUHM5zlRFblieqQ0cA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:28:38.178Z",
+    "type": "auth",
+    "detail": "__enc__PQmbncy+WMLS8y/Zx6vVmIsEm2jLeMtYEyO/C7UfEplRTzhA11PzcaIXUNcC570oQ2ka6oUzM3oTqA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:28:38.178Z",
+    "type": "auth",
+    "detail": "__enc__Orqy5TRNqv/F/Oq/fOTVb6xXxAiZmyIqyyh1U/cHwWduDjqj/z+ut3CGswAJSS+/L3btdSFleX4Vmw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:28:34.665Z",
+    "type": "visit",
+    "detail": "__enc__PZxf2Li5JmLm8yphCprueIejlETvas6wM7hWvGKsw2Xzd2r+LkTOiyFqymEz1u4Pl3YEnNQegVzV",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:28:34.665Z",
+    "type": "visit",
+    "detail": "__enc__EdHl91hv7Koi1iwjUaC8EMx1oYMX6FncWZoGEMznzJLwiDBLRDon7kCrecMAtqszuyt0yFk5Y9dJ",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:28:34.665Z",
+    "type": "visit",
+    "detail": "__enc__D/y7A/oxCCSh4dToz4fr8t8/sywSxmMCgGI+9RAsyPpkaKl+LqOLSIYkfTxMU5lgp50lALzUNsWZ",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:28:34.665Z",
+    "type": "visit",
+    "detail": "__enc__v0KojEkPoiOJ9vAUZXqL404i8aBzfd0Edt2acP2rWa7wpAx5jG34/opd6G6Gd2TGS7TXMrx1l24N",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:28:34.665Z",
+    "type": "visit",
+    "detail": "__enc__2PhX27qcwGW4oEJPZxSy76AXqYW0EVJSnIgDBzQEK0OQWZ5t5kOeYe1Y60qfFKB593T2WxgW7pRU",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:28:34.665Z",
+    "type": "visit",
+    "detail": "__enc__E2tlzZ8lTw4+CUiy4dcNEB7ttzUnwH7Nj5w3Ymqoqlfb9/Ly7OtNJSRJrhg9G7vBN6XCdadaZ2t5",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:25:12.965Z",
+    "type": "edit",
+    "detail": "__enc__zrJ8iSIlfCapCs/2cRwjHVyojU45gmC0IGTkKcp9Nv6tL6LjD981gdYiJcG4Z4z/Hj51mVVw255RreXoJUEYgJh1FaG9Pc+0fJOV5IRGvKo6iZpf",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:25:12.965Z",
+    "type": "edit",
+    "detail": "__enc__D49PzP3KiPrbdLblCkdJO0s2PeDFvrH7exrGd9XkHxIX9agRMwzw5ceCHP1rZvbkrk6iAXEsSXeR966XFfFeqeR6tM9/UW8vhprvqHrChGtFj7CP",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:25:12.965Z",
+    "type": "edit",
+    "detail": "__enc__/e/EXK4JD31DNj6Fe/IjVcz+qB65BgCtBK4DqYLeia6c8jhQCLxT6PWKM32VkwoOvQfRNaoeTOP2SF1RMj+DZxpe41lZhrjZYqRjQ/hns5Z5iITL",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:25:12.965Z",
+    "type": "edit",
+    "detail": "__enc__JC0h01vt8eD1hHs8yZ+XJ2NzPgbFaVjvVBet4qAnI0t62qZpM8FfGLQsHK/z9SmkT3iwsW3nNsF68EPvHxO2/3kedOQnnd29WJSAYMzHnvAEfPvj",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:25:12.965Z",
+    "type": "edit",
+    "detail": "__enc__3x8qj97idXgPXuZuRgU/FGZG64imayAKYuZ+u3E0i1lMllc4Fxa/7/88VcGfMJjtTJ1smsi+sra+OtXU93OzL2agbvGp69qI7vz+IzCZsbtcDU4O",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:25:12.965Z",
+    "type": "edit",
+    "detail": "__enc__IE5Zgu+UXzWPabPCEro+gBJhOXbLZylGPM5huzDYs/5jFQkYP6Y8RL/XSnYCHC5xEZU9dsUByBoMcHP2p+gOtlreHld25j8f8K8tdEZoZc4A/tHW",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:25:12.965Z",
+    "type": "edit",
+    "detail": "__enc__Foeuo7uuS+pXwW5rcyhShRI4PxlBy/cgF45zBk3esuxGJcChgGkhsC7qf4SVxek47FNmdVXbN0Ad2+M1Ekr3gzoBYS3hrWiXVhrKZEfc12f/AmZc",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:23:21.569Z",
+    "type": "edit",
+    "detail": "__enc__QC0dpXoTNj+r6ar26aFvg7U7ikt2SyF2HEUHdS5Yyshym9k05AEUcjIekd08wWhf5BIQ7wP6DE1QNy4I5gND/As1sr7Z1zT4Fu31/lwBmIFb3yHW",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:23:21.569Z",
+    "type": "edit",
+    "detail": "__enc__k/M0WCc5o3jCkbOjuwoWIfo+tl+VX8ivqVl+edChhpPJLwybWeJTpCIYA94g8KMS0PGEsR0rW6f7kS4hP0hD42Y8ChN+w4JeVwgnoYk/1cbRWRXh",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:23:21.569Z",
+    "type": "edit",
+    "detail": "__enc__XY5bPXPqtXUPIHMd3sVa8FSHNSx704BXS7QRfrm259syt3bwjNMNbqJVbp+7smUVgE7J88r9by3I3M/T/AZT51KfgcemG8RSs5YbhCAHKtEGnWDT",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:23:21.569Z",
+    "type": "edit",
+    "detail": "__enc__Vf1AoXmvADI85vUCUxW67Bx2zkp/3qMOGZ+AqNwq8ckFumiR+iNgAc3kBgmyDYii+GGfZKyvOHQc2L24QcXrkXsjyxgkY2T0x8yGS6hkieE3Anej",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:23:21.569Z",
+    "type": "edit",
+    "detail": "__enc__U3iXRp1UEoSYUkHbqAdpJ7gD4Wuszw18N/c7E2uzxk1dt7GHYq5AZI2njN2SETrUbOmUDJg2L/pw4VFhZGqmex39o98l803TxRuVUQYpQTz5mjg6",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:23:21.569Z",
+    "type": "edit",
+    "detail": "__enc__u7axman0qZxBRhh6n3VNjXnFKvkbczfyU18eXFnrfOvXSLiVOeIG5YUlsbeaZzHi/I+iFCZ5tbTAWVHhuM3NjNtHYABlZVcqrhnF1SNjRmYr/zP8",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:23:21.569Z",
+    "type": "edit",
+    "detail": "__enc__aKZqIQ10YQxhihFHLUFzrEY44nPKB+7I/ijWr1bMOcckvSgDLc/a53FxIVTHqmwhly2f46x5XZTPOHNldI44M53mvMZt4NidPm7WSTCk3Ecn9jYx",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:22:08.401Z",
+    "type": "edit",
+    "detail": "__enc__isX6C02FEpkpb+HEKt2SzXxB3WydjEtV55kSzE1UrkA/ieVGEJlFgoH5QlwuHmuPNXxcHr2mNVchqUtGWy3MvHX4j69U+HjBk1I9/Xc3HaJIwQ5Z",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:22:08.401Z",
+    "type": "edit",
+    "detail": "__enc__ykayfFZVGqhztHLxluh7kL2Hrk305eZKHC3Mxm1Tm9y2W+pslbkqJU7BR5tvH8Ahhk4IXszVav4JUMv/loUa8CMBuMgUnkFus+1n5AeepF5wswjW",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:22:08.401Z",
+    "type": "edit",
+    "detail": "__enc__jMfztcbBkZpIn3SzIT8xxfAiHVIpeEAS/wRIUSeQ2puDiNdCfnXPz4sJ2u46zGW1bQH5b3LFVqkOPwtSSYp4nvAB8a/is5Nyk82loxh4NLtRF4yD",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:22:08.401Z",
+    "type": "edit",
+    "detail": "__enc__2IyeIxcK1gdJX+tBL2kX/Qp4MBdHgSlnJ5CiFdYhr9Ki5POBtd2ZNRPOtXMzlR85akulb9tBWbFjm6PoA43vLVLK+ufENymykYAvgz+hOz2/x0Yd",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:22:08.401Z",
+    "type": "edit",
+    "detail": "__enc__2pcWZyeIk2tvti/nM/S1db5YOWd5LnW4PQUjUupMfXOngiQcG2yx7fycDy3hfGAKg4abIKnspFt5+z9xLNYeEVV2pKKIKi5b8BNGFqtBhLigth7Y",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:22:08.401Z",
+    "type": "edit",
+    "detail": "__enc__2FabxdxRhb2V49nH2vfafoTu6ud5OxVAxSZy+cfTHR39bIRWR67GaSs7Mht5TA8o/BmasN3+lmYW16hRNQnO8vJdHf+H1T9SQ7SzkPvTPmiAhhGH",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:22:08.401Z",
+    "type": "edit",
+    "detail": "__enc__4WWSN+R1clJWqa+VzuJpCJ6AvTtTwZex/JQV16GGKXodV0zv76BOt5Bj5rd9k3llIQLB3xzDalBi2EGV6+eMcrkvwso+ZzRunJSk+rRjwmO2ZbUp",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:20:21.641Z",
+    "type": "edit",
+    "detail": "__enc__vRdrpjywaY+sWP4k9m6ZpstaZefLJO+fQnpkHBGpmwdKCefypJC7P1bVsi9QWvWJrMcEL5cjA/ADAfNkmy8Ra58ZQRxR3YyZl1v5fOwIZVkTcVZZ",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:20:21.641Z",
+    "type": "edit",
+    "detail": "__enc__gB6ZmLfkILwqxGKRYxm82ngMkFhRBgjoIkyzPnlH9JIjcZ0A5gF8/zIROYwv/jSkIm79iPfKsmAV0JdvZDqC5Sy/Js3qQdjaQiKfVWQf3yIGrMJ6",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:20:21.641Z",
+    "type": "edit",
+    "detail": "__enc__zxQlHZ/zPkLM7jMvu8sqkDpw4sEs5rd/R0F8vKOdUYR/ObqiwfgMz+zAhQLNgsXtd6fVUkMKE8aC0vsMySIsnnuqs54BkPN/8kth+w544qZnT5C7",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:20:21.641Z",
+    "type": "edit",
+    "detail": "__enc__HDWml4dJjQvvnAXp7BFJumW16o/iOVE4T2J0H81htNXul5Y45XzzTUQQATd+XML246b2ln5egMnvA391Dl0SHY3NVlAAXdF06T6QzVAu+vtqmOq7",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:20:21.641Z",
+    "type": "edit",
+    "detail": "__enc__tV6WrjiNH/fg4EMrA9JHjamQiRYEvm/8CLU3iRNi05r6trHvADzika1hsjxhRfw7GvkvOfCMdKyU/LBdHtM4sYcrgAzZv4ks5ZUgxVwK4OiZcGkk",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:20:21.641Z",
+    "type": "edit",
+    "detail": "__enc__N+qu/6h+pDv+WPJyy7/5Q7pPI9mFCf2XdWC6E3A4tPVXCuQ3KBcgMJuxPvpM4wDOD2ZnsRHTjUeX3NxaDtOjXWFfzjDjQf/vqig+r5oTcN3clBqP",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:20:21.641Z",
+    "type": "edit",
+    "detail": "__enc__yl80x9uJNxk10y0yah2RDqvdaeZqdHOLS95nJNXH8e+0zM9oC0K7qnl09wW9Nrcwszg7XJEAR/D2DBVet/GiA+Z34W6Vuu60/Omp8sAmH+EaPEmA",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-19T08:19:43.406Z",
+    "type": "auth",
+    "detail": "__enc__+8uLgEqs2lSGNMwHk2vC7KC9vrtjWTgM063OmSqchogqbw7w4geFWXF1vFpBFlSgNsklAuILj2Bp3g==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:19:43.406Z",
+    "type": "auth",
+    "detail": "__enc__cmJZVLjhpzp2dcnRqL1vhrb2dKNe36YvhMLwto8FuhJrnUb3FQDFZz9ti58hSIS49BRIkov5Mk11iA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:19:43.406Z",
+    "type": "auth",
+    "detail": "__enc__Db/BQdqtmHqzWvQQknd6Y6GmODEbLEXi8ggtY+AEUBXhGQSOeB+/vW2i+X1JuAkROnpVKYQS22kSLQ==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:19:43.406Z",
+    "type": "auth",
+    "detail": "__enc__GR3VSJQBPMDxFVBmoRiHD4AyJ1Apv0df0EcmCU2JhgV/NXvNQDg60hfdixtjXUUpTKHaQ4oU5i+agA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:19:43.406Z",
+    "type": "auth",
+    "detail": "__enc__ALIwUEkchZJbcY7I+b0gGV/RS9MuK+ZZXLMl9sDdICzkALz7O/tEAsrKbRSuh6+hk9TghY6/njtmgA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:19:43.406Z",
+    "type": "auth",
+    "detail": "__enc__magjNZVXi2vLZq8R1qfIW/0ZdXOtQOLMVFUe8doaUzULxj0gh13/kNmC3KvUXPzUJ+bBaGLLisHpcA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:19:43.406Z",
+    "type": "auth",
+    "detail": "__enc__/irVE13P/4JepQicaQUX1G6EvyT4qEfAgFf5nO4RQNkhOzvO0z6gqluU6vTcNPEs5rJ5OD724XdmAw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:19:36.756Z",
+    "type": "visit",
+    "detail": "__enc__LVva9ITYNkqXKpNRC1L3RYlCZsWFaluNF4W86zduwomv1PMFhvXKyNbgj9uzJRwz/hc6w5opGSNr",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:19:36.756Z",
+    "type": "visit",
+    "detail": "__enc__TcWUFjSnLAb/wSAE/jhUkthogzoZRaijr+GKQ1oAlGtvuUASJYA9SB0yiu2LNTn172Qmtadw9lQN",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:19:36.756Z",
+    "type": "visit",
+    "detail": "__enc__UH43zWRyKTpHa4md9P2bilj0ypcixTfwflB7hc0MkBJxBXT4a5mFhyB5NiSuGD1f/9xSDa/YwcM9",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:19:36.756Z",
+    "type": "visit",
+    "detail": "__enc__4ovGqAQWhWwjEM/vRMMD7XSW91kozgqznhgVWvL3YE6tckNJFg6uJbIGASqHkHHJ4g/KS4bfyRY3",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:19:36.756Z",
+    "type": "visit",
+    "detail": "__enc__0Rc5o9He68wqQ8swWiLMnj7JcDUcP7sgj7IWTbSoGP37HZDQZQcEtgOCwPYUUtnmKpj+/+UYN/ET",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:19:36.756Z",
+    "type": "visit",
+    "detail": "__enc__dr3D9OsrUiCbr9Z2UEnAud4bULPBUaZ2VlrFd8fV7YMD59JwGxG5nJWUKRge7omihHeSmTW9W7HB",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-19T08:19:36.756Z",
+    "type": "visit",
+    "detail": "__enc__N+N2QTIwlFIzxOmOUExs2TxRv8OneXdRSdgj6pF7+F0Jv+k5q8rILq29pgz1aUL5ObIN1WoUXbAX",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T20:59:26.495Z",
+    "type": "edit",
+    "detail": "__enc__YZwKygn1v1DlSO+ue1NikCa48VRnN9i0hOP/2RwYWCQCc1ZiKCC+DvzRh9N9IMp8wG0EQhs=",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:26.495Z",
+    "type": "edit",
+    "detail": "__enc__DcLQAc9T3ByiK/2od3XOleVYXXko+ImoS3TH5wqmNJTwacXDDgoH5EsBtdxzFcEvQkA0GOY=",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:26.495Z",
+    "type": "edit",
+    "detail": "__enc__CFc1cm1Xy1GBPiRcv79l2+bwh96my/FDlQXklxt9rG1cJalQu3fjNJw0oQwl4mNFk1B55Jg=",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:26.495Z",
+    "type": "edit",
+    "detail": "__enc__g2PhEKDTFtnQi943HjsBWRPIxbXZU6PzONmkOiA33Zd6SMOpcd6CMi0j2FNww1pN4SKyRY8=",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:26.495Z",
+    "type": "edit",
+    "detail": "__enc__0vgGTyPpmgDSPnAbxXVuV8BP9eKNVhMFGzgEicA/WksPOhYfLY5/3nglMKzbCiGWOCxiG/Y=",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:26.495Z",
+    "type": "edit",
+    "detail": "__enc__sziLC4xG3/5K9hm1zbXorSCKK0bzbO4uNgW6cy/hEwPCTlZWsnyo6mUrLcbPB+buwXHRv30=",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:26.495Z",
+    "type": "edit",
+    "detail": "__enc__HhUB/KD9L8ca2w0Y8egwptYH16Fq8ky/jYnWol8M66gmsjKjZAA+MaI9/+pJpRipW5t3wVk=",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:21.440Z",
+    "type": "edit",
+    "detail": "__enc__4HoI9b4R6EKI6NidycaRHW3R0GtbQMUKF574lc4I2vLe7OtFKmcbTz8SXsvKDdD5+SiV6Mc=",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:21.440Z",
+    "type": "edit",
+    "detail": "__enc__Ljv/aLUtiP+eVyGgBmQp0SeubVcCmP8ul/guIpkpi4093lqpjmwFv3Uh58tgv3apHQqa4rQ=",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:21.440Z",
+    "type": "edit",
+    "detail": "__enc__nE4F5RlwG57vCzloagGZw0bwqxz7Ek0WE8p7WhGgPwqLzosWu83uoozTX4t8c7+BaCfg4g4=",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:21.440Z",
+    "type": "edit",
+    "detail": "__enc__37eAyCzn+snbsoFlPQ8nAfEuJudwe5TnqUho6D7EFmSTmX46JFL6PfQ2H2ltm8mUDa7ptBM=",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:21.440Z",
+    "type": "edit",
+    "detail": "__enc__UNrnoGFXpRAh6iKEqTuNV+GrMoIMNCs1l5607T+pE/qgqzRhPrRf4Nk9g0QrLxM7OQYtCEA=",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:21.440Z",
+    "type": "edit",
+    "detail": "__enc__F9rbGvwXEjP+yTq9IE9AT0ovcfQIYqwozJ5YmKmPh0Q7m/UmkwMFnK/giD6dWN3TzoQKXro=",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:21.440Z",
+    "type": "edit",
+    "detail": "__enc__UtOOxeL+HfNYmppS9yWW4iUKVdr4N0ahSNDUqFl1dotwP9OStrjpowKzkV9FchGdiiWtT9w=",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:14.866Z",
+    "type": "edit",
+    "detail": "__enc__Sq9b1nT2YaLNjz9SPVs8z7V5frGgbV/ZbKpLjwgE73CcUhoPy1vMG12kD7QBKJrrzWXbeQgs9GGh",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:14.866Z",
+    "type": "edit",
+    "detail": "__enc__hqFLH+DrxwsszS1GAxpuuRzlyG8o+ddzJyjOQxqI538bG5zkV+aa0BO/ol6Nbkv6ieNBx5l61G9I",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:14.866Z",
+    "type": "edit",
+    "detail": "__enc__+wJsvVKWQJAaxWxecNNsjxlUO/z3ltADt7wkh9W06bMqrh6NEJIpSaby1xTD3hcjevXj7rAsjzVR",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:14.866Z",
+    "type": "edit",
+    "detail": "__enc__UQIsW7KR/y36rRL7XEvD7ddLcOyBXb24ziH3Phuq4Z+8xz2d5yukXGOcgEpK8m9rHeGZG/Auo3R/",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:14.866Z",
+    "type": "edit",
+    "detail": "__enc__a/98ZQ1ZqofLgEpKNbX2UuDUYwKlqVM2qvzYK0s0vumm9jK4Nxy8L3339TYJ6PDSqYwV844ZN9PF",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:14.866Z",
+    "type": "edit",
+    "detail": "__enc__DP/4FV98MTTHGwvK1cg4QjsAPSAtT+r5r+ozDj2ztJyBcNFpMjun2ocBdx6NKmkKsMjo6q9xJzHT",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:14.866Z",
+    "type": "edit",
+    "detail": "__enc__b/kpjp1AKOtqSbMYVG6CiEkYlhSiITIJXJ7UZRXxV7I9+1SX095rGJyPc2+8/etNkVRrfOtuUtYD",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:07.957Z",
+    "type": "edit",
+    "detail": "__enc__J8IQx26eF86/AUP+DCAv1OvWN4N2AVxPIPtoOjB4ioDVNmIdYzt5K+B3xyN0vK4iuq9GI7v28Hu/",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:07.957Z",
+    "type": "edit",
+    "detail": "__enc__GsijzipH7uPHAzN/GRDzSyQEW+XT4pj2NRom0pKrsYoswHvSCMmGrQi7cgzB6SyqRyLvRe30WJXW",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:07.957Z",
+    "type": "edit",
+    "detail": "__enc__3/auhh7PJZJHRNRaghe7fjt9XRn3jrE3+Or6s6B2/eaSzxnKKstK8LL3ffvv1x/908/ARX+OpEuj",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:07.957Z",
+    "type": "edit",
+    "detail": "__enc__c1hTW5G6dx9ESLRLs0dijg2oPPid4CQn+ffCNEBm/yi3l3eeZWHoaejsNDA2WE3SHoK3va7uoh6R",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:07.957Z",
+    "type": "edit",
+    "detail": "__enc__A+V3JAzER+ko5gwS2QzLy4+ggnrFFsVFyxc04XdyI4ZZp0IQtVXXidGYV6xmn27DRSnFEUid9S3E",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:07.957Z",
+    "type": "edit",
+    "detail": "__enc__LFYNuNPvzSU/y6DB3RYnWF93swICWjeTuFAkOeLhMJEP/tLpLwyGL2tk/OmKm97DQHmHCVPWHlvC",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:07.957Z",
+    "type": "edit",
+    "detail": "__enc__mWx2RGVI+BaHOvOYzCdjR0qAOxnGLoyKx9ZFE7se4wDk5Xmc/owlio5T5KgS4TVWGQiAq40ebyfm",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:59:07.957Z",
+    "type": "edit",
+    "detail": "__enc__DpDfQ4s8jBlIFquaWkgDI8CbCMcmAi55ddir/fNRwY3DcPjdOQLga5a5Kw9AObhEO+w5goJDeglW",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T20:57:33.286Z",
+    "type": "auth",
+    "detail": "__enc__r2/xDElWEa42T35G2n2y6J1/NAqRYp3clBC9Oqseg45XtsOkQ0jR+Rgs8fD9SrAohMQ/3r/Q5Yw4lg==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T20:57:33.286Z",
+    "type": "auth",
+    "detail": "__enc__xwnvR+fTDCe3erXHQi+ZRyiBLrMFqx2ejqkEbVFOh8ZzugPCZE26AYqyWzMrR/YOpGYyM8WTOkhUAw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T20:57:33.286Z",
+    "type": "auth",
+    "detail": "__enc__Zz8Ik8MiTr3Qdj6tVFZlWSh/pRNc7xJtIE9aOKawbLzeOb2aukpkFnv8SMYh5hoaX24mlW9f+KOsSA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T20:57:33.286Z",
+    "type": "auth",
+    "detail": "__enc__gA797qbd+dQTYf4JS6p2tGs8wLw/qtZB9fbiayZp/DEpue2/SBJ0CwSy8raZrkL2R0YZ9jIqalznzg==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T20:57:33.286Z",
+    "type": "auth",
+    "detail": "__enc__XqWI7bLArkxzwBlJqNQijQWxyddSXgP5XbAIPuiEQZsv55a745DDnhdr9j1LB9e456mHwn6pmUWPzw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T20:57:33.286Z",
+    "type": "auth",
+    "detail": "__enc__1YWnE1nIYbKqGwKRoV5i6P8VX1mC/wM+QRz6ZnknOB/UfusVmy6jyc5lCwP5/VhVii4tQRTC75sl4w==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T20:57:33.286Z",
+    "type": "auth",
+    "detail": "__enc__47KAG1CT8CWFRN1C4YcS5Zx4zHpnkaZoXOV6cj7w3H0vGjNkG9j4yLLjteqFb8K2Xat1f0zt8RfSMA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T20:57:33.286Z",
+    "type": "auth",
+    "detail": "__enc__uwMNUks06btEO+NwBDC+4yJ8Pt074paJ9rXefoRrNUCE51ZqcmkB9Hjx+ZDnEEbCzvDeHuZhUzolpQ==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T20:57:26.738Z",
+    "type": "visit",
+    "detail": "__enc__sGE2KTASfiGzNAzuGJuTtABactb05NzPpBIhyfOPpo2vQ0XO/S2O2JGU6Zu/JWSlEyjOcDdNbI5X",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T20:57:26.738Z",
+    "type": "visit",
+    "detail": "__enc__jOD5DVnKbXgV76JFksY8qAynpkARehPDMpe8Gy4/m4v9n86z/MTogzGbBvp+zjD68gwxw0wlgwXt",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T20:57:26.738Z",
+    "type": "visit",
+    "detail": "__enc__jzVrBRhenXPs0uEhlRPVQjhDynSfgx+gNdTt7zpW52Iv9MXsk1EjOIhJhJ2FwuZfUBMzpWujWzhB",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T20:57:26.738Z",
+    "type": "visit",
+    "detail": "__enc__jkfSdJT46CgGVtJOHA611BgecRlTEl4i3odbdC6Br0RJFBoYU/uYel+vylLK7w573/5i1XM5M3OI",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T20:57:26.738Z",
+    "type": "visit",
+    "detail": "__enc__Z1szw1QwqL+ZON+RQ1lhX/wErCRNt8lIBzlEVzG5ndZzERkG+yy2g8DZQ0ErPKUZm70kYltfFQax",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T20:57:26.738Z",
+    "type": "visit",
+    "detail": "__enc__rvz9iXKWnQINgpqLafWEWzzA7dgCNJxiN0Dg1Um43wsVce84GtW4WnBlOaxHxg1ASowFA/oUi4lm",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T20:57:26.738Z",
+    "type": "visit",
+    "detail": "__enc__jaFiMDIqatY8tn5iHTGq7YheFsywrmJb3IoJT2a3sI5+POX7Zfwdv5C7AXfbkupNKK3cbANo/r1X",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T20:57:26.738Z",
+    "type": "visit",
+    "detail": "__enc__hnvqADVsOB2sdi9OUPY4hT4nXBAJ7Jq0P8CVf9O8q3dsyjVFQOLjt5pVtFAm/Ub4F/lcCkwghXWS",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T18:00:11.521Z",
+    "type": "auth",
+    "detail": "__enc__HzACGy7bhXV4Rs8vG+tyGFwI1LhnVudadf4cuGwozgL8tOhmW+boXWMv2lTIvV32QYu0dpjnp+k4zQC3",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T18:00:11.521Z",
+    "type": "auth",
+    "detail": "__enc__qQRba2VSuxkfpj323lrrQU0hhQpyNFfzcONp9aQkWOh1M35U2r13IjdarBN08BKG2w4kScyeTS+l2UJw",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T18:00:11.521Z",
+    "type": "auth",
+    "detail": "__enc__699K2dBIIUUyzImDGTWOBIX4mV/OyXAW9WMSOvx7h2I7vJIKDlgHnBC/grfde4XasDIpd86o62yjVaBl",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T18:00:11.521Z",
+    "type": "auth",
+    "detail": "__enc__h9yy2J/uuUIIvT0l1WcAvgtjGuVLyZwwgxaLukOIMYf2cgmW+yibSihAethi9msrgO2Y2gy9KX1ctsBs",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T18:00:11.521Z",
+    "type": "auth",
+    "detail": "__enc__6TLGN2LPQAY8X5F9nqpWqeWcspojii7MeTVJ4mxLaLKETb1RVg2yL5q9vPfbu4i5o6nq5UGC9RZdkHf7",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T18:00:11.521Z",
+    "type": "auth",
+    "detail": "__enc__OqATtYIbX8SO/q8JhpFdhccqNHTBC3FC99KbJ/9KSAioWkz/Q3AO1Ar+dgzBvsQ8uZLhGliCP45LYrfm",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T18:00:06.617Z",
+    "type": "visit",
+    "detail": "__enc__ynOwqerBsOG3s7bG5OOiMv/BLjEtOmZ5dIqk6GoXTRT2CmeCZDSEEzbG2gu8vfQrYDKM3+OiYO0WsXk=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T18:00:06.617Z",
+    "type": "visit",
+    "detail": "__enc__qhTTV3xshWveBapYSILuOcXQYBbaQlUUJJHikdf7WGjutw7Ls2YgDy0+naE+xyMX53n41BLmNGH3Hhw=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T18:00:06.617Z",
+    "type": "visit",
+    "detail": "__enc__p/+DS0m4aiKOdATtKd8zftOCzTNH9MJQZHV5kkMhv65fM3Um5ZSMJKSrR8VXJzFGWd0v7KrG/aigny8=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T18:00:06.617Z",
+    "type": "visit",
+    "detail": "__enc__Uvk+2fGVGkp0jcyHlQX0v/lcjQQQA+b322sK0/jvL6D0x+qGKBtbsFFbIAkQ4NBIAGzFKTXObxsBBeQ=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T18:00:06.617Z",
+    "type": "visit",
+    "detail": "__enc__Cr8yNTpxSIp16KyPMZQzpWWb+Uh20p2BtxekHcJPFzb0YDFv0CMFEDxuFHoOXM4FjecwlTRoWXV1yPQ=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T18:00:06.617Z",
+    "type": "visit",
+    "detail": "__enc__QWgFyC9efCOQWl7u+2dONtHafrjVk1HnFZyShbb3bW+aiUrEdgKw3J6RGdsWsEWJswTcgcuI+KFtpx8=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T13:16:11.934Z",
+    "type": "auth",
+    "detail": "__enc__HfY61wNf8+5rqin1YM0izp44vhvVrsdwdRYhmlwrnGCPdjJCRAtwYX0I8Jw1yMm8Iu3PYRs5thmWCcc=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T13:16:11.934Z",
+    "type": "auth",
+    "detail": "__enc__tBthP7YlW3o9T1qUsKal4tq27omrkBdI/3qsvMwlfVugz9EXd0xX+q7kC2lNNNiPp5Vg0Swx41mn1dg=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T13:16:11.934Z",
+    "type": "auth",
+    "detail": "__enc__maeZ5dv8/ni4XDwrTrXs8BTBgmTw+TD86oVOmc6anr+LBkWp58HoRqopZDbtPl6g1LWv0K2pEa7MBCI=",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T13:16:06.344Z",
+    "type": "visit",
+    "detail": "__enc__iK1TFWRfiFiTcaHtZXd4dKAphrFAL3bhbPcfQ4gbCRUToCOmiTCD0pRyq1sD94fD61eviyj4TvVrXA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T13:16:06.344Z",
+    "type": "visit",
+    "detail": "__enc__Gnk7cDxCk7jr6rqYo2L8kuv6vP7KiagmWh2B/WXe74SsSGBtRWJfoF7zWEvzQgShRYu8OiA010gbuw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T13:16:06.344Z",
+    "type": "visit",
+    "detail": "__enc__048E93stBXbhpfv8qxBscHHFZTUIM2ygHLBByMb8EMt5g0ZG4UaZp0wH9YhHG53378SVemTLRLUXjw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:25:01.177Z",
+    "type": "edit",
+    "detail": "__enc__UVW9wCuhZhQBYI5J5kn9X6jEfbyeQZIjKwgXdkYN1tYTUs/lYQM0xDwEsAyJv+mNL6Ald4pFqpUf5cQgPvGlehnG/eCR/dD1",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:25:01.177Z",
+    "type": "edit",
+    "detail": "__enc__HetfFgZfn+rl8ZbaonUgJTfHPgOVpewl60ccsZVka1617QrH/hrm9wCgA2koV9XZp8NV6GE0tCiJTkXj05g2x72G9PhkmM2S",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:25:01.177Z",
+    "type": "edit",
+    "detail": "__enc__kfF62F2ByTi8K2Nl6wB4N2RJXKP3zho0w6iFwrDiIJA2KtOgzHstXG5ygFW28/UAI5b2dIJ0HSrJ/NaCBC5DVoVhXyym87s7",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:25:01.177Z",
+    "type": "edit",
+    "detail": "__enc__D6V3bVTJ6qp6Eu0uTGGQK/kWo1azT+kzrKEN7sb9jgmg0UVKTtb4KXjwbkF5CbID066YTjaii02Sh2Argv+xM24jUO2dPsPR",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:25:01.177Z",
+    "type": "edit",
+    "detail": "__enc__1GZnFM0aV8INSJayptB1etfxESIfErhZnN41Q3rKn8HNQGhAkfXhAwf9h/qd22O4CFX9WCZvEijFpVhJ2WdyBC9acqOCsODK",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:25:01.177Z",
+    "type": "edit",
+    "detail": "__enc__NxhIUcEpMKZlhYnXl8bUB+JO7KPhUW6O7mBgdQZYAL3SfhX5n0xGxOMVUf4SuI7lgjwVejZQ2NY0NOTtS1o1AjwYU0IylB+s",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:25:01.177Z",
+    "type": "edit",
+    "detail": "__enc__BpwAKL2f1S3POxQ5hNvK99h5TjcQndoU9UHYY3e3mRZCkDnl9wf4xTseQabkD0O818GgLvWFN4y3OfdaUmjU8AvpyO8dSBe0",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:25:01.177Z",
+    "type": "edit",
+    "detail": "__enc__Au+YZi1A/KF3f3WOTuCNd2ofbi3Ui/m63YOIF+awLpPTVulrH3W2zfVks6BwnkA1jfltJs6yehHom3sLuyJpSOxaGkukLFW7",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:25:01.177Z",
+    "type": "edit",
+    "detail": "__enc__OrOv2LalD/rEB/dNz2yjJnGtRuiend2+kTvEncY2ShSlhNgKp4cs7mORqqJxpUnregvyHl76DO8W9cCPqUsId2F21I2yBIUv",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:22:27.027Z",
+    "type": "edit",
+    "detail": "__enc__NA0UHk8Oe5/Eb7+rTa4n4MQ7LGgYW7Qj3ruEWx8F9ATKjyeMBpb3OkrkVtvmoc4pnW7LNhx7Nwo3/xir2D9PlQ==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:22:27.027Z",
+    "type": "edit",
+    "detail": "__enc__qRHIGRhyrmvUAOgERBqd9z5Lt6hZ3NUxKUUQFfeL5T5nGQYLSEn2/7/K2hqkNz3vz7BZK1oZARFzBNGdwbaJ+w==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:22:27.027Z",
+    "type": "edit",
+    "detail": "__enc__kLJqoRowz0zGw9UoGbhPrrKDniy45hoLWvO6eho16uqRsdIJ4pY30dadbpZSXPLPXqAHlLb5ahqc4auEu3piPQ==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:22:27.027Z",
+    "type": "edit",
+    "detail": "__enc__U0auelhMOInaA7TjxdKnvUnxRV9z4m/DMw37yWDEvnnE1NNa66rsvdF/kiuOU5kaMHninuN+rjhTsoY3PdowKg==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:22:27.027Z",
+    "type": "edit",
+    "detail": "__enc__XfCQNMbiu9siVYNxjA3gu989rh9eXweyGFgeNVHRQM9q2eaGlDVUANKSJOqBr3DHJ/vzsUrOIIsGejD+oTE3zg==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:22:27.027Z",
+    "type": "edit",
+    "detail": "__enc__3iW0V4V6Q6a9N1pya13keBswSS4gvxhZaRV3uPxKbVTPQ7KGokuPjWSdY+vuAaDI/XoFl+vfpK/K0itg+bdjWg==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:22:27.027Z",
+    "type": "edit",
+    "detail": "__enc__DzxOZZkYNpqZL8yi3WtVlUUmEehFP9BsttLOnob8xX8fzpDbdjdxdrwn17lKGGNS7Vwzy1Rrmq94cd/YTGEW3g==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:22:27.027Z",
+    "type": "edit",
+    "detail": "__enc__lwEg7iDBgXoBcFcYdCB4XMIEVNPJUmK6RflFU4i5gdqsIpKyfHG0wadzfbri3ZD8LnHjrTKIX+pj+ZjGkesWHg==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:22:27.027Z",
+    "type": "edit",
+    "detail": "__enc__+i+cfmJNSqfdD3vntlmH01GtUCArkGalybIv+RJ+OGAjyb/Gx+s7AZiNAFjP2q/vBaXXqeE8BGer+ZFu4TkhmQ==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:43.767Z",
+    "type": "edit",
+    "detail": "__enc__M3GH6JD+eXppuNNthOeaV3DfsK+F+H1EYuiICOsGk7Cju4WQDBre1FsSEyrJpb9jgelFNDfDQjsnfCH0Xct+uA==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:43.767Z",
+    "type": "edit",
+    "detail": "__enc__I0MTPjRJLjBZvwXAM7uAdMrExy9Rl+IAbWD99QE/FpMh3tx3grHgxtSPe2B2ewJ7QKTETvdJ3YjyboANZVlXfw==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:43.767Z",
+    "type": "edit",
+    "detail": "__enc__TG/dleL0RWx/3Gpdo2pGlBkelZefNk0Nd3ohY+uDBPpvmbldMz2JlckzWTUK7kZrhacpPhyK8q91spnOsOCx/w==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:43.767Z",
+    "type": "edit",
+    "detail": "__enc__2wqtjhRCbcsZGb7oO3epeON6vc2p4kOc2iwaxYOWV/lo8byCEfKRsgnlkLXqoQyBdJwJuMjTvrGvWzkISKdFpQ==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:43.767Z",
+    "type": "edit",
+    "detail": "__enc__u6dby75InmSjzDmY/TWcuyo56MZh5/1iPtqg7KpaL1FIq1XSaEy7Whjr/WjzgtMI8zV+GRRGJuu/rlpLqiSR7w==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:43.767Z",
+    "type": "edit",
+    "detail": "__enc__G8wYcwxujDApjDcfpOLORfnJN+LMXNPJwvSZNSC007DajCRn8vB6VkwmF+5KQV99PHrGsoXr5fsbND0YBLudfA==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:43.767Z",
+    "type": "edit",
+    "detail": "__enc__0fPiQSV1kJcUM/Vi0VktCzFBjuiWbXBW39u33RE08OHbMiiYz43CSRYKNHDQ6op6PBL2sixzoUyWCSc1006mrQ==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:43.767Z",
+    "type": "edit",
+    "detail": "__enc__Zbuj0DBfLTIXhATrxjBL1Tttve47yfFZtqYQ3bb5hjAOJkYcT837xU7L7XbqiymQhQqJKsjSEiu2rOfBEs1O9g==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:43.767Z",
+    "type": "edit",
+    "detail": "__enc__8IhGeDLt2kNIWFzyjM1ei2094I7ZaJIQiHriVrL184/31TpfTXmde2ytLIBfgDiy3BHRMDNRFdTbT3TrKOyOwg==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:28.529Z",
+    "type": "edit",
+    "detail": "__enc__NYn6PGo2V2DTsauRHnjKiANQNh8H2ldthKA/5f5p36Zrgts5Dk1BsO2mSHeHSaXRk6VpgKVoAeKckMEHDrdgfg==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:28.529Z",
+    "type": "edit",
+    "detail": "__enc__TubEmFSYZ+CTT5AxvyrVt1tMN5A43xwt3fcY2YSM57fJ/t/3u+7HJKuewSNealFCovVIBKYcEGC+pDRGd+rtRg==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:28.529Z",
+    "type": "edit",
+    "detail": "__enc__DnIP08mlR2kVSrNl229KRpkf31MQbhzOh8GOjgGW6R776nEPziQp0CSPxcKuMcaKSuLb0r9q9DSdaGuI90Fu/w==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:28.529Z",
+    "type": "edit",
+    "detail": "__enc__61juelLEoUW/GxwjWb4UTRz+iP38/tBOzN/O0xNSRu0GJqvJGmkiDNuZ5TDX5ys/aSWnDbvmPwibp8bK9ZAf7g==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:28.529Z",
+    "type": "edit",
+    "detail": "__enc__ZRZq7WvpS8BiUjdvqXbqmvtoi90H4BOOb6LIXWalF//U1ZcNxDCliLwHz356LGdWTFKDZDijpanD9/hExL9LZQ==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:28.529Z",
+    "type": "edit",
+    "detail": "__enc__fXFpRu6fsZHgZpUCFfWdNOVYkD1bAZAIYa46BERIVMREwGie3hFV08GlnSvIIUO97gJ+mTm/SSUltxKE8Q7TZQ==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:28.529Z",
+    "type": "edit",
+    "detail": "__enc__4ZrHwX5Tcbt9esUdwOrgS6RgbZkWcd+6ybd28cXSDUHv4x85hM+5i6B0qiboR7xTeUkYZGjnewbznPaBUG8vxg==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:28.529Z",
+    "type": "edit",
+    "detail": "__enc__x7927nYgnZkpSJL6ZBRxceQhbUa09nW8yoqbhub63hC22L2AX9QlSfHjTnPe1M0vdDZvRQelsRfQCxin4PPnnQ==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:28.529Z",
+    "type": "edit",
+    "detail": "__enc__kZoPufTc6LIsCY95DMtUvHqThtujCE+BajqXn5QrYIDb/LwvoLHjIt9RcW9GUD89y5/1r8GQhTQLXakj2QmwDA==",
+    "metal": "gold"
+  },
+  {
+    "ts": "2026-06-18T09:21:12.064Z",
+    "type": "auth",
+    "detail": "__enc__5P4khONJ+AsIUSnKpzZg1qrSdPIgh/zmXnUV73eRoZrcg8RwSVb4eJUjdSlLu8pmdYXBQYYicdfwkA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:12.064Z",
+    "type": "auth",
+    "detail": "__enc__3Z1TpBiTwMU0Q7TmLMJkoNfDT14woSpOhjC+7mwpR3ziCXAXE4SsOvjeKq5L3lHeelDaTVCcsRaxFw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:12.064Z",
+    "type": "auth",
+    "detail": "__enc__OiJW4enZFttTrBtJcIILI3m4ar57DhbQMuEgT62+m8nux/l39oNE00G0WIx6Is5j1+cE+Z7Sa2J9Fw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:12.064Z",
+    "type": "auth",
+    "detail": "__enc__iyOI7cz65qivQ2YDREI9A7+KKIRap4oNbCw1CBH5OYouHg2+yv+QiTLcDhU2UoHomTepfiOnBYAskw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:12.064Z",
+    "type": "auth",
+    "detail": "__enc__cPqLxJXa8jKRhN+S0ItCEUcun6IAPc2ejoSBE+XkqSx/pq1lCd5ALuR/nQT46bPYonhH5gBgCEma9Q==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:12.064Z",
+    "type": "auth",
+    "detail": "__enc__/m48qYX0nhQ++oNfcwBSKHyjlAYJAzY6DzFHH7D0xlfhcTv+IuWFp7TKC4ennn++7p4Tdak5/UVU7w==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:12.064Z",
+    "type": "auth",
+    "detail": "__enc__aHtLI8LYNHqhkpiSXSOC+7XdEz7xDrmIT19XcbpH92lU9JE7WB3Pi9TRom3rmvLpBEZvve78PzoDbg==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:12.064Z",
+    "type": "auth",
+    "detail": "__enc__JcoHJhXizb9KQiddKHwpRVdpxEqmV58V/dnHTUxW3wXLw/pXd4UPI1ZDZYRTgsOMi0TdEgtaIy735g==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:12.064Z",
+    "type": "auth",
+    "detail": "__enc__qXlaYO3J5L1I11Dtn6DdTlgRUzcLJJrqU/tWWFpG4DnATG6p5kfgzv0M62INqE7bJ765cBMuXLuDUg==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:07.429Z",
+    "type": "visit",
+    "detail": "__enc__sNbgyWFKe67HUc14BLjxfyGzJa+rX8sKO9JdOvjI5vkmbTYKmM36MO//TfoNrAAAON6fbBCVVckP",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:07.429Z",
+    "type": "visit",
+    "detail": "__enc__hfeuqERGHfcvj5ADo0VA7XmUTiQRquxitdquLj+1bv0KmxcaZhjBnolXR0TbxVrqwJRNuktVgLKn",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:07.429Z",
+    "type": "visit",
+    "detail": "__enc__ER+2SQcZV+SFiSl3AJTGhyvA9pIaAyCNoZ2ARCuy5pJcWlhyrmHpJoE45SPUhDc7UhMm1SlH50Wj",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:07.429Z",
+    "type": "visit",
+    "detail": "__enc__svyH2iq6tGgCu72kFZCv+30UtEJS3B0QGe892FINKmVgze6+73zf2ZVazVWd/OxZVZFm7CoLnhx+",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:07.429Z",
+    "type": "visit",
+    "detail": "__enc__Y0Col44fNp0kVmso2jffauZ2hucGZ91mJcopLH4MHdhT+0fNKcg1vfRekULNW0BIjy4P/njy8FKm",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:07.429Z",
+    "type": "visit",
+    "detail": "__enc__bqOQq/kLhasqRegJYPOWi5TVgQWlQjXov5hVbuh7cOBOVkc7P7PKJbYZZ6fOLeDBxz72rDYeVJkc",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:07.429Z",
+    "type": "visit",
+    "detail": "__enc__AXsArLcS0lIOWs9rTQmim1SIlDYMMBUD8d/GYaye9DOXh80/n/8++eFSGyOhmIQ/RHQkedLR59GO",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:07.429Z",
+    "type": "visit",
+    "detail": "__enc__TNU/3wgE6udwCTPepJd5aBXQS33j7EIt6MtoazjB0YSAPcVSHJCCqaBXDA/2ZjVJu9oOCms84boh",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:21:07.429Z",
+    "type": "visit",
+    "detail": "__enc__HiGOqDHIDCFGdyX8b3rzLqkUSzF/hCSNqO/QDnHcTqviw1tXg+RV0PSzMAaGx3QBltRGOPWy1Lmd",
+    "metal": null
+  },
+  {
     "ts": "2026-06-18T09:12:16.859Z",
     "type": "auth",
     "detail": "__enc__O+70Iv/c9LBRr+lZT1irTDzbXPdG6Adb82YPQSyiv+O4pw7nhwWnvuy7yjFwe41ancZzTbZMjtdCdg==",
@@ -1059,6 +2787,12 @@
     "ts": "2026-06-18T09:12:16.859Z",
     "type": "auth",
     "detail": "__enc__LgAXUkyyMmWw53vsQoQe8qNyUfkRlYLTaNJIOMgFG4pi521TXZ5qUy+EtvLQ2sZqiSxeHu5k2qV+RQ==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T09:12:16.859Z",
+    "type": "auth",
+    "detail": "__enc__xt8QhcybfmmN4te6g6XqcDIoqy4LTrudBF/sL79IyaHJ5/4NgZ1cy4ZLhVi2RXY5A/8yvOIFj6oXDA==",
     "metal": null
   },
   {
@@ -1080,9 +2814,69 @@
     "metal": null
   },
   {
+    "ts": "2026-06-18T09:11:45.836Z",
+    "type": "visit",
+    "detail": "__enc__COJtIOagmNiw++qai6fQkVeBM5N1lhYdrq1xMcj1KeYqPdBDJddrEAIhVr0epqRNFDZLWjpoQUSl",
+    "metal": null
+  },
+  {
     "ts": "2026-06-18T00:38:08.571Z",
     "type": "auth",
     "detail": "__enc__IASULhR7FZVvCUzCrORxVFHQBuxSYaPXuOegiBB7rHw2y5l5UbGmleldW/3srzKKZkUewzgbFTvaCw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:38:08.571Z",
+    "type": "auth",
+    "detail": "__enc__GRmJubCqjgWbRIMCupBugwaoN9ytFA3OElsmPb523o0NAVfXgyFG8+8gSbfjtaByGC2BiwTygA8kCw==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:38:08.571Z",
+    "type": "auth",
+    "detail": "__enc__1tb6YvPWtJOnVuAbT5zkDXNY26h6+L6z+R6vtuiPKYT1d9vI4hEgmESjoOl+N5tLHjCAtObi/OlhuA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:38:08.571Z",
+    "type": "auth",
+    "detail": "__enc__R9DzBLNo6XwZSRNxwhUYu1rnp0EGqBn1iwBu+qwMbFLY5UNHFbm/B8p9wJz3ck2+3ARQ9oDUmQ57tg==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:38:08.571Z",
+    "type": "auth",
+    "detail": "__enc__lyjO4Dkpxfvoif9p2dxK+Kvy5EhedoUL8DB0ACoGTekNjsXbnNNixjL9yYmm2juSp/cUBZeq2RTHTA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:38:08.571Z",
+    "type": "auth",
+    "detail": "__enc__ADxBbaot6eTzIaABfrPnLQKrZN5ulrwKDpt/lxVUpFOceLf1umKGyDiGs7lQV9c7qzfmAXRC4RN6Zg==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:38:08.571Z",
+    "type": "auth",
+    "detail": "__enc__BmrS/Pqv/SXFf0nzTgI3QLx+/+tR70UUff9TFUxDS6/5r7Pp/l9t0E1q0ksLE+Xee4LUHnLYptPXPA==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:38:08.571Z",
+    "type": "auth",
+    "detail": "__enc__FH0ojihL2kQNJSYYTLfblJcWF5D6KU0GebXSXl0Hycy+aQE5xo8iA86SFV33LkOWrXd+ZX56uyBRlg==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:38:08.571Z",
+    "type": "auth",
+    "detail": "__enc__24XTqgaRBHFvIzPQRCaQH1jH1UjN6dTDetaknWyfe6IXbgd+o/l305wqXt0GZNpWslzI+XNbUKk0DQ==",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:38:08.571Z",
+    "type": "auth",
+    "detail": "__enc__WzjGrM6+/VIfTTtWjfRcZH68o8BhmZuOQue2aInrGPf2zC0evZvYxcvU/wIV4e/UA8s4ySGkeTqJ+g==",
     "metal": null
   },
   {
@@ -1092,1911 +2886,117 @@
     "metal": null
   },
   {
+    "ts": "2026-06-18T00:36:35.768Z",
+    "type": "visit",
+    "detail": "__enc__05JZL4EfOK7cEYKxkh8m3+Pd1QaCSpDer0jh0Ye1r8mGysRwNJqkdFXfyZ035uoFT/Dnwfn5NHex",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:36:35.768Z",
+    "type": "visit",
+    "detail": "__enc__RBi3S9C7dmQo8cPmHydc7FHezW3gRsYTM1T7xNRceFdpmmrdeOgZown0MhIUaUE0htWbZWxQ1z8K",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:36:35.768Z",
+    "type": "visit",
+    "detail": "__enc__smdNMypntAmkqn+wHJYEswR7WThrBAuReAKvMPcRaj3Z3l+0Kmb2v/uy2VIuDzOk7kr+knzrn4MZ",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:36:35.768Z",
+    "type": "visit",
+    "detail": "__enc__u+CSRjc+PNyhLnLzqlKMXa7TU6AOQzw+XfBCnTuoDxLb85jp2FCBl4LOjh+v9oo8wG7pxaQuXbqy",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:36:35.768Z",
+    "type": "visit",
+    "detail": "__enc__NWzq2LM/DfchrZvzErc9ykaKNBy8hPdLRiflvI2SZJhYy5idrVtLadMPNsyVrCMv1tYuic8cLnKk",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:36:35.768Z",
+    "type": "visit",
+    "detail": "__enc__EvgRhdorePujZzSGoHp+8Zr6aLM3Jw5HjE0ChuRUzCTONGounmW0mU7ULqbA+43cUh26oBlEtM3A",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:36:35.768Z",
+    "type": "visit",
+    "detail": "__enc__C+NwKpJMvl+0ucM+Caei9T/t4iywjrkd7EBjXe9jNKcjzCJXFzM6DBt0JiDUGA8HkOZjVgbHKRMN",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:36:35.768Z",
+    "type": "visit",
+    "detail": "__enc__5Jl48NYYWbakqiaetNuZJWWcI1QvHwswFUxy2aoAnpLcuTRp7Vkvu1+eaM0PiKttuLTOVRT5dyxT",
+    "metal": null
+  },
+  {
+    "ts": "2026-06-18T00:36:35.768Z",
+    "type": "visit",
+    "detail": "__enc__0DG8sy6KAhy43R3OUO9ypLYY49BvYp2VX3dl4G/GtF9gw/Je7UF+QRtwbIhSWvpggf1/XSQ/1DpW",
+    "metal": null
+  },
+  {
     "ts": "2026-06-18T00:36:28.406Z",
     "type": "visit",
     "detail": "__enc__DQ257f64gtSed3Xsu2kzlmENHdvG5i/kiFK0i7YaEq4rKwrgrPocU5169JNOYiuDDj74rmKaH6dP",
     "metal": null
   },
   {
-    "ts": "2026-06-18T00:35:55.280Z",
+    "ts": "2026-06-18T00:36:28.406Z",
     "type": "visit",
-    "detail": "__enc__f8yex7BiGQgze2fJDBLY1bZLESErQRxoP3Kqh9A+6Di7HlDLYtLBEITWkghVx0Q9Fz/EhH5ALgVI",
+    "detail": "__enc__ws/QorveYSVZjK6E7lE3LHJqvgRG6wKnR86q9el4qsCP7r/lsWDs2d7fc/ZCI0czKX3a7XBDls7H",
     "metal": null
   },
   {
-    "ts": "2026-06-18T00:30:11.793Z",
-    "type": "auth",
-    "detail": "__enc__e0Gc2uSwPQRIiPGYwEh3HJ+iIxC6AzcHHwdFESobNNI5Sd0EuBvxO9BfrUWqrKwTSCNwtuQAJZtwmw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:30:08.264Z",
-    "type": "auth",
-    "detail": "__enc__nPmIT0IoJuMklOM8M3hK/EpNQbS9ljcr5JdxH2woWYF1Tymckeq+PTIjtrsMYiBR7MRGTDWfn4JDFw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:30:08.264Z",
-    "type": "auth",
-    "detail": "__enc__AOsh6ehfzwfryhroIvvEOD6IOhdT7Imn0JApPmDBZFEmOljyyYsbt1q7SwYC6In00Qixmqdxejo+tA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:30:00.077Z",
-    "type": "visit",
-    "detail": "__enc__OdkU5cu1FVFk1xxvUKapHbLwyyKHtFgB1paFGvucvC6MF7PhGiKr/yPxJbiWxclXDXENvOTVMw9d",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:30:00.077Z",
-    "type": "visit",
-    "detail": "__enc__gnckF6TiMVnC5yGSuAJECtvfUiOFywkXb7hCLG9Gevs0WCVJmnf1/DBJMwoepU1FZ42zlG5ry6ym",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:29:59.531Z",
-    "type": "visit",
-    "detail": "__enc__IKcNlo6UGEhTPCRvV8cjM01BX0PPR6WxHm2gTUGP6DgEluP73W4demU8cH3GZ7WFMyVvQJPWl8oH",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:29:59.531Z",
-    "type": "visit",
-    "detail": "__enc__l96fgsMryRhxjok5e8PeEl5TDdavUAWKU9Il1sSn8CHsfoXA9WvO4N3dqdX+Kkmix3BuVW8Swi13",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:28:04.955Z",
-    "type": "visit",
-    "detail": "__enc__L7MDW3CHmXQN3zuXMYzz/3Mj9wV9RX2qF8tBlrDZQh5ol56vRWomLFBCgf77NHAwDLCBQKxmxx7c",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:28:04.955Z",
-    "type": "visit",
-    "detail": "__enc__e2W6zqe8G5D+5LeKDKgHIm/MEldXqz16qviUpyFBcjG64G7Avj1UaUJeJK+QFdS7rKBBu1VhFuaE",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:27:58.633Z",
-    "type": "visit",
-    "detail": "__enc__zfBEDUA/fsI9BZffYeWi6dIUKxtH7BXvCO7CqOBzdxnl0k3MnyhxiLT4FXxaQ/eLYPLmobLDD1Uc",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:27:58.633Z",
-    "type": "visit",
-    "detail": "__enc__nIcyCeEywL2fnJ8nmcdaWs6WVk5zlhmV0E6dEUSfbwnX2E52Bhzf1EY+UBCkwsvtj7ZxX2T16om3",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:23:41.286Z",
-    "type": "auth",
-    "detail": "__enc__1L5zJmY9/E/rnKJLBa7Qqah6AoIHo3P3QTRYJp5J5vdYgmEbjFoyHy/+9eGOXT6q1AjNhKUtxOzJTQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:23:41.286Z",
-    "type": "auth",
-    "detail": "__enc__xS9D4WvCm3BpXyRy/BsjpHBvajue/IHpnoLJokfSRk3KO8dO/8VQMZOFUXZGULaASda6Eo2ZM+xdCw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:23:38.520Z",
-    "type": "auth",
-    "detail": "__enc__ugMeWg9Zaza9RXyTqrXgmLLijR9OqU8AZEW+Unc+OSry/Hcb6dMc//VYCcvpygp4mWQ2KY281csebw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:23:38.520Z",
-    "type": "auth",
-    "detail": "__enc__GPBL2csV2G+gAPEUkuVjW3NNFg9D1EpqFKkYU0h8pb85fOKQISeuMreNBA/Rnh4feNNi+AH4dBJfeA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:23:38.520Z",
-    "type": "auth",
-    "detail": "__enc__0p8364V9u8HjEPo0o+4aaEaaOhAM13Gtm5DHcyk59lnCMMrxYopIm9TE8wZJ0NKPKW8SQX1i3ULPOw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:23:35.377Z",
-    "type": "visit",
-    "detail": "__enc__Wn3L5V34EcvXBY1TAF8HvVPa2tbhTHIx+PlqK2TqiicIRr5iPtInW6e3wHwro3yt8mTQ/uNWcsnR",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:23:35.377Z",
-    "type": "visit",
-    "detail": "__enc__r2cwYqd4KbYsJ7SBhlZ9EPCAn54yKIiSYsgF5dxh1NazcXCQMSICB0NGpvfLVg7SNpA/3jIXmSYS",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:23:35.377Z",
-    "type": "visit",
-    "detail": "__enc__/5YV995GvfAb5nVnyyd1Oz3sqlVX575E1u2nDpjJI8dsad5jfYLGXgEO+RfjO34+iLqBYLNvSoGf",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:23:34.659Z",
-    "type": "visit",
-    "detail": "__enc__QfLhpmDQkkasCIgsx7uPdlqWi/CPwWkwAddJE+x3WFyiCI7UrOOiaUYBhTNBtf+GGMGo+NkMlONq",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:23:34.659Z",
-    "type": "visit",
-    "detail": "__enc__HPadGJF4lzqqh0j6aEd6J7rLMtOVdp2ZYjuXun5qoPPA7VLTd1qLeCxcgXqzDKbQ3jr81ODHDFBx",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:23:34.659Z",
-    "type": "visit",
-    "detail": "__enc__/H51G2/YG95ueWJ4aPcljznoaktrafeQEJms0nOHU0x8xiXNSf1uIkAcfQukdL46Aw8qChnPB8Pe",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:23:00.889Z",
-    "type": "auth",
-    "detail": "__enc__ofN40+psLtXWqoERR5vpx/fCJxIbZf2q9RPoQkHWVCyYrNcMqwIsfDRiS9gr/T5bmTy0RZ9jcPYzzw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:23:00.889Z",
-    "type": "auth",
-    "detail": "__enc__C+a91epB8elE1eoOlxJPnETwnV2YzESNkbFArgIJ16pDw9eCw5I/2h8oyyyA8IaA9W6fTzkyhTmgkA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:23:00.889Z",
-    "type": "auth",
-    "detail": "__enc__YVIDtIq6wDYL721XIaXRZe8n8SklOtr0te/Fj6OaPZVTW0hNn6rA4vM/iar7WXWAzxYS6Y+HK3Ht5w==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:22:31.358Z",
-    "type": "auth",
-    "detail": "__enc__5PhIo9IcnLAkZKDe8ldmONGFoUyAxPbsO4l0A4Jl5YcTE60MIkq9WyW/w4bjt6lSHXy1QThCk3lVdQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:22:31.358Z",
-    "type": "auth",
-    "detail": "__enc__qJnKhM2K1xVuv0VWCvkkQYtTEhXSiXzeDSr6qUtlWyOymc6+0192irYNHeDgnSPRVdTWuNdbekzegg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:22:31.358Z",
-    "type": "auth",
-    "detail": "__enc__rpKkUbSZ3VuVnO2UQ2F+pGMTh+X2A409b1ZdS9PKZxv3VFiMzM1R9vF7FjkgVLpGZECtrZFPVi+j2A==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:22:26.418Z",
-    "type": "auth",
-    "detail": "__enc__B1F9Ep4676+cRpje9+7TF2PUooUkgrvJRpc6UF8f/t4ehKyJ46S3OEK8Wv7zpKeuTlddVYD6a0Sh4w==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:22:26.418Z",
-    "type": "auth",
-    "detail": "__enc__IY9byLko0kPml3SU7usK155KOgxax9kfxbXDuoXQqK2eC9YrHHVrb7S06Hg9XHjon3p8+XdS9hspgw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:22:26.418Z",
-    "type": "auth",
-    "detail": "__enc__PU/7FWY0Ef+GqcpedltbkgoMO84QX+/l8Z5RnqLPEjK0ODFNi2M006+gKJn9s2yGQXiPQ3tm+9OFEQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:22:26.418Z",
-    "type": "auth",
-    "detail": "__enc__FfZIBj8FwqzQ+20TuA0hjv9y3XqKa9yrvGtqTHqvwRZBus/ywLa4yK/FotUPN+bzqe73M+zQ34KxuA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:22:23.688Z",
-    "type": "visit",
-    "detail": "__enc__W00FRqFU9DMKgIfiIFc68oALTjgAuI4YN9FTQyq5hENb0dIShBH72AhCpHzJO+uB3ylc1cGOJCi+",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:22:23.688Z",
-    "type": "visit",
-    "detail": "__enc__yCHhjJoY+tZDkGv85EKZEXIJXUMW95bpZs+w18vesV/JzEwORBfennRXOTWhIKxXC9qEarECkb8j",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:22:23.688Z",
-    "type": "visit",
-    "detail": "__enc__7GNLEr7i9Jeik6z84SQd7wIYbNu58j+rp846pjrVK2S4coy1zfBFmD6BpJn/93MNvE/9nJHbJY7G",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:22:23.688Z",
-    "type": "visit",
-    "detail": "__enc__TFZsbOIPnvv2NCUHUeiojqABq4OL1EUDC8LySDrOb64baoKG6tR4qO93mEViJnY9hr38DifKNnL4",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:30.290Z",
-    "type": "auth",
-    "detail": "__enc__HOUgIopUVu0wTi77pO245Ha7X0EKGzMj+J3zykIaLBREiUGtUN63eNt8XosfxTIcxMyY4Vht7lQ/Nw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:30.290Z",
-    "type": "auth",
-    "detail": "__enc__kLaR0cU8LfLopqo1amh/GgVw346PHQDpNu1TsL6jmqe6Ot5aZVkj2IhgWrGrrZpZFL5fpjAlCR3p9w==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:30.290Z",
-    "type": "auth",
-    "detail": "__enc__0aucACFSSqarNeLGdzCujmjPDXPfQi06ZqXyvG/k910qfCg6twRROWLpWDo11m+Mv4v584RTYKleyg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:23.049Z",
-    "type": "visit",
-    "detail": "__enc__nbcD3+pxbbF+/KbawBwK94Y7dYs/HPT6ZKfpB7I0XxAKA8QQTrQ0CHEvkfmxX1XTzTK5H4nXgZ10",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:23.049Z",
-    "type": "visit",
-    "detail": "__enc__PLku6eR05CtSholMOoTGMug/h81PMCm0uiu6XqDSraxSvkYsXuMPNLklji21GCTf48bd2ECCbibZ",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:23.049Z",
-    "type": "visit",
-    "detail": "__enc__BCbre3YLn75SU+syRif7Kp2xP6RnwL5hMOLtfBl7lbjjDxqlIQ0BXR1QO5aX4bXmjX0WlfvJ0hIn",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:20.913Z",
-    "type": "visit",
-    "detail": "__enc__Yp0R7eNaZcsTDV8GpomGv5FSQYmkFu4gEmE4AUuDi0YwZqniowz1ssEgimGHhujocJbvOKxztZj3",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:20.913Z",
-    "type": "visit",
-    "detail": "__enc__2KQjkg1WP0YSz4js1Hyx7oSYmIfqDP1F7R7JkG0ONYjbHJr4QZCyE9OUpThOkPHvs3ezak87h5Gy",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:20.913Z",
-    "type": "visit",
-    "detail": "__enc__f81du7VCYh0MiSLHhWlVAGRIvbMcaBnMPzXYFCqnBjtavi0+H5uxBY9L74GDArcC853+ssSez8G7",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:08.252Z",
-    "type": "auth",
-    "detail": "__enc__S3GCaKlBlFkcoT+mhSamI4ACl3jnMLbngTf29W7LFk4xL3+Uh6ciqMe/MK6Q/tpNXu62rdSpsXEXXg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:08.252Z",
-    "type": "auth",
-    "detail": "__enc__g3wdT5aSLnWz11D70sWoveu4+A3wz6ZsNp0NeGg4pjQqio/WfrSEKpHtycKykm1z7IJ3cLQruyrwHA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:08.252Z",
-    "type": "auth",
-    "detail": "__enc__g4Y2Dk8eiMJXRQXxWtn/8XSezdtH5Hnyh8xenkS7HWfJvvWVF7WynEkLfx9170S/vxOc2vSOdMsosg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:08.252Z",
-    "type": "auth",
-    "detail": "__enc__AUL2zG5hwlV/W3OIe6HJW6HxKVQ4DQC94MDJDTT32oRHBouAjFDusAouw5peVL54uFnRSzdouQD2/Q==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:05.461Z",
-    "type": "visit",
-    "detail": "__enc__4Jmo3+sjF5Lp+nJOXcH1yKoWG1JyETPrhfy9VidAUa1EnGITH10yNq0kcl1BMh0oo9cBE/OxirLz",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:05.461Z",
-    "type": "visit",
-    "detail": "__enc__9KYckPXwTyQKi3H0J2//Evy0U71qWaAFgaxENFzBx0gHAle+wrHgImzShsGKeaKGBwoMKuSFx+ty",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:05.461Z",
-    "type": "visit",
-    "detail": "__enc__4SYrC6kC11qsVDva6a/0po/5UVr9OSMA3TfZkneuLgQqu5xBLxH3wbLO+X004CPIRL6briBcIy2M",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:17:05.461Z",
-    "type": "visit",
-    "detail": "__enc__GCMgBRF6z8AJkDrWRmH2CxbRj6KrqhIDVglL0hXO3MmfJenpFWUqrcmZP6qFsiNpTGY9F6I3elVN",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:12:40.470Z",
-    "type": "auth",
-    "detail": "__enc__stX/JzbHhwibdigxs+ZF1qqqq4KydWdIpUB0nrpIPr6DjJFxxK9pH99kCR5PDcKNKGHRYjm1oFYIsA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:12:40.470Z",
-    "type": "auth",
-    "detail": "__enc__2H4nhgu1Gptuy1KJ1mbBw7fdKSJ1YKya1osv77jtvfhIHvb3JsG520q2oWcWMQP7YoyMiBA50wq5Dw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:12:40.470Z",
-    "type": "auth",
-    "detail": "__enc__+CxfP6OytCzQAt7TyssTRFCD7i9vw/TlaC4UgXNpKZzKNmVOKFo0Z/433pDKYZFgN5CtrLCBkk3xAA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:12:40.470Z",
-    "type": "auth",
-    "detail": "__enc__wSzBOpcb7oufHutPwW4pPrevUL3P6fNMA4AT/B+5zpxHj1dTdEo2TP9Bnsu7KpPzJRmrK9yr2rs1uQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:12:40.470Z",
-    "type": "auth",
-    "detail": "__enc__/Q6Ktw6/f3ACTWiUm2XJSxRJ5d0p1lWEe20XlCMeGDp6qevQEESWfGjooTC4J8OZfiHU+N6/Fa5Dhg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:12:38.184Z",
-    "type": "visit",
-    "detail": "__enc__t0vucPQ36EgFDblA1IyHz37P3BOntEo07dBWg77m8x54GjTR21/2vKKxomonXSEyyXswDf8/9cca",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:12:38.184Z",
-    "type": "visit",
-    "detail": "__enc__PPlL0Sv+fdULq5iuoP0dFmStS9v6yO/S1Ro3x7eE1RE3jZbRGxcJc0o3kQMMwgmD5rE+7SuDmoDs",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:12:38.184Z",
-    "type": "visit",
-    "detail": "__enc__I//5cYdkNa6TJIu0ODDkDEsLnXa4J35KTVpsFl4t1tcYh021Kj1nU3mEQxhag5nSmeVhNIEE5SyN",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:12:38.184Z",
-    "type": "visit",
-    "detail": "__enc__nWW3mZBIzhwPUZM7gbGXJmdzkod2ktk+jTapEXZUzaVc2aSnVSFPKysgUeg6a7Rd53DutwkRCy/b",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:12:38.184Z",
-    "type": "visit",
-    "detail": "__enc__jsU2zgdPrlhdmh9kCfSsX6SHYvKPHDhZK7vPFRRndbPHyf+Ds5tZA351ctTRQ4DMXJs2wOanTP3Q",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:45.689Z",
-    "type": "auth",
-    "detail": "__enc__Po4HStNh3TsxV805YHoV1VYHp0YYQR0fCORuNjNtIJMv5fhn4BQKweaY2jU2W/ZWBLAw2MydZ2VDdQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:45.689Z",
-    "type": "auth",
-    "detail": "__enc__+O0/dcMjck8UrJ9m8jr9jjEg1z8Q7J6fyxzNj3GsnNFnj9b3R7NOtRB0X5NN3V4LkByys0jFLeqC2A==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:45.689Z",
-    "type": "auth",
-    "detail": "__enc__PwmZZVmaCnWeJfB7OqAMDx4sYzGSCgbe+I7DCKTPS59fKUrSYIMMIDT0B+Ap7/vUDcMNTkkwbp65GQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:45.689Z",
-    "type": "auth",
-    "detail": "__enc__YDOa1pwDMJmypdYN2n3U3N5csW5V8a2kpiJctY9IxuzSgQD47+57uvX0T0bqmIdRMVeiHFk+wjQOMA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:45.689Z",
-    "type": "auth",
-    "detail": "__enc__uqfbk4BQts2mqcatMiFHTHb+t8xwOtKOIfS1/MkSdTa4AFWn1Oo0BqUEzA8qabfiUublopW3fMhL+Q==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:37.255Z",
-    "type": "visit",
-    "detail": "__enc__0iwvJU24u8g+nTDRTnyYo8j5goEyl9tMMFXT/p+Mr9dWyftDCGsxonFpdPUDdhIOR1ULyJRaSmF2",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:37.255Z",
-    "type": "visit",
-    "detail": "__enc__XhFNbih9rDwvVS+xjBKvv/e2Y9eCbUMRN9gD3PFbxMyTFEUQP8TGRcqFcWFWBjrEo4o1CFmdAu/H",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:37.255Z",
-    "type": "visit",
-    "detail": "__enc__cObHE71cUUd873ehUjfZbwcxGHKte9PQGqgYMA+FXYt3KD1EHcbp6muhYW2nT7zJcoHxsXBQePWK",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:37.255Z",
-    "type": "visit",
-    "detail": "__enc__/uY6adb57BZBTjtCluX0IeU5a8Z/abJZKTux/kRjv8+1+vLYd/ODXgFe+qJtS5rGY0xO66aEf3xH",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:37.255Z",
-    "type": "visit",
-    "detail": "__enc__X5gixjOXj7qsm/fbyFWvDF/3+THFawBnn4F3YjnstCt91jnFid0hlN7kwy0LiqISS1zOriiluhnK",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:23.521Z",
-    "type": "auth",
-    "detail": "__enc__1Qf0dLYTfiwXPMjDk+KmJDH3c4lTJE7uMvnkhDPm/UvEiDQ8ez2h2tnkhMs7iXlnROHgtHg0P962vg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:23.521Z",
-    "type": "auth",
-    "detail": "__enc__dllenG4KLybUV8XENS3qkVBXgk1PescluN+mTrkjc23GZL0WB0jmzA1hRN/kCxLhnkIkMycIWSQ54Q==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:23.521Z",
-    "type": "auth",
-    "detail": "__enc__ic3jCqbgUMEaeowpbvazNJoZFWrE2kTRSTNOn2Y4wGyvwSF2WY3GkIsjnYTx8NlbCc2BWinnqatlPA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:23.521Z",
-    "type": "auth",
-    "detail": "__enc__vGDP9iUQIva0dt8kCfCVNiqjztvNNcjrNckzWd/WIzoVgYxl4OjbVF2Hoyq92sUd8SWdeLQg+pNhdg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:23.521Z",
-    "type": "auth",
-    "detail": "__enc__Uf/PcRoQ3fXaFOmSTOr75+wl1B2VsFW/air933hIQo5HK74TBwfLjHdsTIBliKkB6BSmJHVB5PzfHQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:17.755Z",
-    "type": "visit",
-    "detail": "__enc__LOY4lk23ErcjEZWMCeJNK2p2XzOYD0HcTYdqqwrcgPwyGe+CB0J6q9Bvt/jxZ70L4vBx3C00Becl",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:17.755Z",
-    "type": "visit",
-    "detail": "__enc__JQ4ZEd9nk3m693skZaUIQUSJi6gL6450G+9XMTgw6yVT+CDMn68JnzySZo812ot8ZXZxgokUxkTp",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:17.755Z",
-    "type": "visit",
-    "detail": "__enc__d80cB6H7cK0C6rCg3LLWYqlT3T2JWsG8aE4SyeofeXamxo/isYircuqmNt5p4+ZD4FNv3PF0xV42",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:17.755Z",
-    "type": "visit",
-    "detail": "__enc__Tq9z6GOU0WEvM+iTKJr09lIMO6LBGoX7HeykQ0nFnyGnkMaZutY9zYBtHUzY5ArqOF9BJGBF37kF",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:07:17.755Z",
-    "type": "visit",
-    "detail": "__enc__pRR/qdKqNNGSj+QJHL/TYPZMH92vQnSgnreZhybV1w7HbHzY+JBkwQvvOThv4IhVChmQaCAa2SlA",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:06:49.602Z",
-    "type": "auth",
-    "detail": "__enc__t6xWsMjP6q6t1fbub2LslSX16QpOslv7cGc2ayMaPgyvkej4u+HIG7l/dfJzwGAz3SuYv62FBvJ1Bg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:06:49.602Z",
-    "type": "auth",
-    "detail": "__enc__i++DdzC3QG/cgIlkWsVsmKoZ6/JRzcnN4PVrarTBCOy+lEiyfgTcQgOCgv4uj5dGbdhFbtDonQ+CRw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:06:49.602Z",
-    "type": "auth",
-    "detail": "__enc__DpoOL/AWswyYQT5KcoaU8qR2fXVHjApYGtsnMxNIwMFWDnmT0rFr6sr1HFfzdgfYQ347EQnp0vv6yQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:06:49.602Z",
-    "type": "auth",
-    "detail": "__enc__FYdDmvHrVabf3YTXoGaUYLkVuDBtlX509CHmpDuaLVGv4NLua3DijhIMT4VEDenzzfVUTBl7ZF/NhQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:06:49.602Z",
-    "type": "auth",
-    "detail": "__enc__46IGbtHB2gN2j4cdLlwsQ8UwGNefKtw5ta1AFHSsn2IIHHLZt5t9GTWSmomBLqaj16j0EhXmmBumUg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:06:49.602Z",
-    "type": "auth",
-    "detail": "__enc__90IuOO4/Mku/cHj8qYlq6S2a/Z7Z6L4mR0qBAOD4NFuX3nTSMD6vk/KkThGJyt4Irjxa4LcMyOsdVg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:06:44.440Z",
-    "type": "visit",
-    "detail": "__enc__K6lSDXxNjdFBEEgQTvo+OXPrgHTF5XvGm+X1T3JZxK6y4m4TVw8Sa60FxgvY5d9zyVm0qraIYEt5",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:06:44.440Z",
-    "type": "visit",
-    "detail": "__enc__WqEn92oSb9/S76W89jymFi2tIJ7uZNr/KdLPovkwyq2i3LFvoZ06LuMKLFHVxo/h6wL74KnrD5vt",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:06:44.440Z",
-    "type": "visit",
-    "detail": "__enc__qxU/nDFNV4cD44Sg+9lNfgVBs1kpwWg5jtjjC6xnzLMCdvLSyMGjekKXAACSmzIxddCZuzPNOB8Q",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:06:44.440Z",
-    "type": "visit",
-    "detail": "__enc__cHbKiIIrmXsICSZu9SPlaTRdleqPuIzVBVikuPLhNTAjUpJVvjH4VewQwKiQYiuNwEq1mpPWB5kJ",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:06:44.440Z",
-    "type": "visit",
-    "detail": "__enc__Yg6b07+inq4Eb6q5wW6VZolgjG1I1N7RWMjq4rmGOyAcBtKcisYBg86u4xJIvlwPufLhC/Sm8q8K",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:06:44.440Z",
-    "type": "visit",
-    "detail": "__enc__3YFoZy3cgUA4PYYXTOC9vf7FsJKMUU6mQroml6DZYEB8B/2a9RRF2+PB8rFdx0A21GIfrKIHhhor",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:01:56.512Z",
-    "type": "auth",
-    "detail": "__enc__aq1NZiQT2jKuMs5FZ+qIBmFIJL5B+n2gLEfWP2DWd30eaykDIhgE4PhCH/C8mFMD/py8zc/5Ppo/wQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:01:56.512Z",
-    "type": "auth",
-    "detail": "__enc__ctkTGTcg+22z1tSG2yM+WGmKoHMnGjhWyWHsNZAFSUZFNxGvg/S2X8Tad0bKQu4txQkjYpMqFc8oww==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:01:56.512Z",
-    "type": "auth",
-    "detail": "__enc__kSg4rt3yNoqufGb7NdydqFhUPz7WrdCYg2i8/sDlSih+ylEUD8bgSy9vTSt9FfM+67rAiTYj3VnpfA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:01:56.512Z",
-    "type": "auth",
-    "detail": "__enc__aXAPaWJeOnHhc9snYFEwBh0wZ1rdkwIf9a4WW6BUYS5usuHFJDjAEmruMsDB0h3B770ttUSBGLFQCg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:01:56.512Z",
-    "type": "auth",
-    "detail": "__enc__kTmFNZkFTmxquSdgTu0Nmm5LtnEzJQvpSfg/r0FEaJzF56v7r9qJl7p5MrsqRGCIIvfW0sLy1WN07w==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:01:56.512Z",
-    "type": "auth",
-    "detail": "__enc__SHeQ3qD+WFKIBjkZjpHHr1XaqaAS5jdHaKBY4l3vadJBmBX65t3KWXFjtfvJEVxweypDkTCmbMLlLA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:01:56.512Z",
-    "type": "auth",
-    "detail": "__enc__yvj22nuUYQKVWYmpykUeRMBhlTKT6BUah+bzVU9Qu2V2dGpN6jSR2egv91Xn2HD3n3PbpycYN+tiig==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:01:52.654Z",
-    "type": "visit",
-    "detail": "__enc__dF4wQL95TXeF8MBdL4LaRnDLNFaEIROEYwmo0O5P3yQkHb4QdWvavxczHeZ4TeRaGus8kyv0QkJq",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:01:52.654Z",
-    "type": "visit",
-    "detail": "__enc__8TwkkV1jVGvs8ZpUrRFqt2N9xLSeDLqSZxv9e6kHykFzkMdVOPL9uQE+aezy0XQlgqS8RgRlrsUq",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:01:52.654Z",
-    "type": "visit",
-    "detail": "__enc__XsQyfkm0oTGFDX/TegQ1lQpGkKrAssXa/vXu7n0gweCFFaULN+96T31qoU/tK71CgOZqT6e5qIm8",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:01:52.654Z",
-    "type": "visit",
-    "detail": "__enc__I8Ko6YNJ1vnXHJs0oMwBI3cpyjBEZhtaEyZFPvwdYeOKVogyYV4ZDXA1tLvvxvliwOB4Kbendo0S",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:01:52.654Z",
-    "type": "visit",
-    "detail": "__enc__Z6O4T6X1enYg/iLfoo0Y9oPKDC4UCsahCwvOV5tNLXwYTVayWTfCjRS11lPSiHQcagfa0yQY7nBb",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:01:52.654Z",
-    "type": "visit",
-    "detail": "__enc__ZZaRbfAHGfp5iEhy+ocj6d8JS7453gq484Z4puk2oA7jAz1T7YCphbNn20aQxAtuWjRKqrpFYu+D",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:01:52.654Z",
-    "type": "visit",
-    "detail": "__enc__VFtyGefmQZPsdBvCik6pFm2syLEGRzmGuAGRSXOU5m9FAM6jIlnm36tfjG0aslLupAQUWhkgmfEe",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:44.953Z",
-    "type": "auth",
-    "detail": "__enc__2houA2dlMzw9TvsXYTKfpz+Z7pLPXgMYpWpevMXXbXEBKdwEdVcEy9c6abYEAa61WSxGk0OX+Tc4AQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:44.953Z",
-    "type": "auth",
-    "detail": "__enc__tY5NrGIwnxvDR/ijEdRSS9+pgEHMdv4AY1JatKJOo01Qt2EmhZkP/W+yuOvb3riEcf7Ivffk3gD1Cw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:44.953Z",
-    "type": "auth",
-    "detail": "__enc__6BZsrHyIrzozUdjWeF1XHYmXXmWe6qIS674xDsjhvbZxd3eK/eUjso/lWuG58eDJjvZiuCP5QR9xBw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:44.953Z",
-    "type": "auth",
-    "detail": "__enc__JBBe1hQbDr3xNl4DZgbg7TKDEJLYbn8Ge43WgI7K8u7uZv3gQ33QxPHvfxKWoRpJuCE+pSPXTSTOsA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:44.953Z",
-    "type": "auth",
-    "detail": "__enc__exEErCvH5Z+WbAYd0ePLRRvwypWK50Kwltx+rD3BM+m6zNmo33xX3SUMnLmYR8RFaKcFA2e4kLxZJg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:44.953Z",
-    "type": "auth",
-    "detail": "__enc__D72iY+UUvfKwkdYDhqM/4YXMEXTkt2eMUIP0XWOSSrDijL7bPOgUN9q926hMpa7HXyYxAXolfuyGJA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:44.953Z",
-    "type": "auth",
-    "detail": "__enc__Oqdi1g3eW3ewac//iCb3s0MUNe7eyco1cRCbvUW+3YqqDwjIarzydkWQ6+YmJIQpSXXPiBfF/T3/tQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:44.953Z",
-    "type": "auth",
-    "detail": "__enc__U1LHMnkEs7/30lLcUxu13RaZA7etkNLhOkaEkeDION0yH1ViKgO6Bpnj9Ly9JxNNqY5L/d0KtZTg0A==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:41.710Z",
-    "type": "visit",
-    "detail": "__enc__83Hh0FqQtR9K/cADMY7A75Doz8nCJF/5ogOZKca929p3DdGbpH96NQYvoa7fruJ11BkyUzAR9Vgm",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:41.710Z",
-    "type": "visit",
-    "detail": "__enc__rGFwB3es2OqsM+0Eys4VlSj5HZAMepIRNO3Q/OsmF8O8RspwgG9J5MjaXaZASTFHl0vBz4ryD8a3",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:41.710Z",
-    "type": "visit",
-    "detail": "__enc__fueGAlj40zYlpPiU1cFJoZo4me35nbO8WJ4nnIzGtUYtcXD3xbGfSJWiWk9kEmajsEX5X1uTKir/",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:41.710Z",
-    "type": "visit",
-    "detail": "__enc__STsAqpD8w1BMDxzpk87/RYUKoZzTyvxXG6OQsPo7snuBvcdNueFlwhRSvZqRyoBZJm/RXw0uqRKk",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:41.710Z",
-    "type": "visit",
-    "detail": "__enc__MfDydSfseuJTv33CSvKf4R9SshrlClCouffaxM9/BmXXVLzRhh8epEdNwppC+bTEdu9/kuPFF7pl",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:41.710Z",
-    "type": "visit",
-    "detail": "__enc__hrHcZDQ5H6PscKPRfhSVFn5zXXn34V3Nh+vDHtBIVPcp5Q7NkDSEV0FhuaIfYOFg2qcDTV/hB9Gh",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:41.710Z",
-    "type": "visit",
-    "detail": "__enc__JvCCoop+VcHOVtdIZx2twV6WhPYSf2hNq30Vb2ZNgcr21HN8vX013v5JJ91iY7dpNJsZUjc9886g",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:41.710Z",
-    "type": "visit",
-    "detail": "__enc__pTLbxCD9gJ0UBY3wmL1/z/uE1n4XLapQ3oRiC3ahaTcCCzMc4IAToEApMOuhQ7cKMRYm2056nP9G",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:37.665Z",
-    "type": "visit",
-    "detail": "__enc__CWPu+48WQahwPYT/VDh9OATzc6Zs9DHaprGqMfNBOcA2FqpWuSC5tuLsamgby2veECCJv+g5f/hz",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:37.665Z",
-    "type": "visit",
-    "detail": "__enc__ShVTCVNLHJPBAc+yflcEZl2ft1ja75BEXbYR0hhQV3974EDTXlYavPDn5uG9QlOz+bbIbYcXrUtm",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:37.665Z",
-    "type": "visit",
-    "detail": "__enc__tF1gSJJc3wCE24uYKAM4OM0CKUjf8tg4Y5AftdIJxdjTg0R6fC/U1E+fv4ZGUGse0lesTAl4OoFE",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:37.665Z",
-    "type": "visit",
-    "detail": "__enc__25G/GfBiul3usRziPCtyel5mNyVhETa+IoPwMxEZN5hVpTzUrU/lNlPw0V5kQ5hExDzQdvgUTOkV",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:37.665Z",
-    "type": "visit",
-    "detail": "__enc__pXK5wRe2GBX6iTBSnyd8sCsM9gwsWC4Ap5h7I9wwqw2MLX0RU7PF5r/bvlehQUux9EPhzV+aMp4h",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:37.665Z",
-    "type": "visit",
-    "detail": "__enc__3mLOQc2Xi5ycQR/hT5Xvv8mCY7WPkZejLGAuv51uEOt6dEnuuB6IljSs0D6nMKjSLLjVPUQOha0+",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:37.665Z",
-    "type": "visit",
-    "detail": "__enc__UykaS3WN83h/mBqhLDooTiJGbMkPEld0wMvo+GVFjNbTR24sbaHedu7nA4zC0mhJepa6NhDuCICQ",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-18T00:00:37.665Z",
-    "type": "visit",
-    "detail": "__enc__9vB+lJfnhfOclOMhv6k30ytCi2MhkkwruW8jMDAi0wr9r7BV1NUXxl9V3cMOcQDmBW+c4sSafadl",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:33.877Z",
-    "type": "auth",
-    "detail": "__enc__doC1I1kiIilTGKPjGjYB8e+aPBR1Qj2B453DBRMBV0QAuABm6+zdXE+inzto1GNjPbKYN+lOAcjgVw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:33.877Z",
-    "type": "auth",
-    "detail": "__enc__ZEzlXmCKKFolAW9abMhPrDrVjrrAmU5XP5oV5NwYv8LME57HhwlJR3Q1U2lPBrP5QNGqGEQSB8dMEQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:33.877Z",
-    "type": "auth",
-    "detail": "__enc__gW4VtIKpP398/DlOJHIGXQ7Mm1XfWGLf4w87Dt+amIQHzQsjejL6T9WE7ExY736MBWoAJsEFktDlxg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:33.877Z",
-    "type": "auth",
-    "detail": "__enc__yFLgjqk/5zS5Y8+uygJP5rHPEMh5fWfDCT42qQryPCu4TQz8GqmPtEpdCE3zY/hvw7OBfuE7SYVFJw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:33.877Z",
-    "type": "auth",
-    "detail": "__enc__mMzGPC7H2GgQSlxawHJFXW9YZjMQ974GUxyRo2dFp81eIqvJmJe5ESAxB7KrR1PCR3B+TSryl2vvSA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:33.877Z",
-    "type": "auth",
-    "detail": "__enc__2VgLBhxsDq5qz+aMXJyMDHR8pnu7TDzYs0xiNySTZnI9PPl3d9QfPSx3ZZ2ptyV4+S89Oife9Gi8ZQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:33.877Z",
-    "type": "auth",
-    "detail": "__enc__l1BbDzxJU7j2bPjo2oRsyqQnBiRj4jKH9Ob2XX7b8PfyqzRWCzleMvjABoOE7+dA82OP5v1IBYpMbA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:33.877Z",
-    "type": "auth",
-    "detail": "__enc__BlmvZSU2wUhlWgNGyytRCkPtgiOFkubAimn6XkEtwYyVLs08GnbLkjWM4XEtdkeBNLPgA4xIc49org==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:30.797Z",
-    "type": "visit",
-    "detail": "__enc__q3h7xPobYNsQJaMDF25ZLNO1N5AyXHXW4LvrBAWVgKKx4qmzKMrTgDyNuwPKNgCyeEOJGtCz+ROx",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:30.797Z",
-    "type": "visit",
-    "detail": "__enc__MnE2PyIrSzVE48adpI97i/Egssi3nz4/SW8GX9XjrYrlGU9o81CtOLMZx/SITpStgrmqfTjqR7cO",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:30.797Z",
-    "type": "visit",
-    "detail": "__enc__RGvVdJ7+e/qrvioZEQuLmZY3A53HEfDzESUFHtP/hhc3qdn7WwTlOfXV5UfC/tvF3uhQ/BYTXZGT",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:30.797Z",
-    "type": "visit",
-    "detail": "__enc__klrtDB1mdRJdZw5wsfTgby13E/z6DexIiBDX7OpchcSdbB8jixYRMNM9lCMcwHu/rEzgoiOm/DYb",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:30.797Z",
-    "type": "visit",
-    "detail": "__enc__dHdeYejFZyB1wqnc1NwyyMCC/nQ+4j6ewHiEolUinOGYJN4euLt1cXzPMpcNQa3vWPNWkjSz2WLT",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:30.797Z",
-    "type": "visit",
-    "detail": "__enc__W2iFO/xrROVORMjxL0V7j3AKTKsP8jTFU29Le0rLSQgg10dJ/AgkvShesVsEU7yMj1mNFkfltxzZ",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:30.797Z",
-    "type": "visit",
-    "detail": "__enc__jb4/tJ3+vdKiG5s6pJM/zk1YZxNTRq4TapCMQ8EHy4xPKavi7u7qPlOsRmttx8+3fGIgqQiZAkwy",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:30.797Z",
-    "type": "visit",
-    "detail": "__enc__nRsXHv0z2vlaKSbyGK6jcn4x99qfCUZ7bW4+QgD7mbhXAq41nkZlp02A1HGOQug4uxuKwbpT75BJ",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:12.874Z",
-    "type": "auth",
-    "detail": "__enc__qeZMzB/aQd5YqKgHT3CjHb5eKXPclNt+rSOEkDf58STsFmfoAB78fseoyHfuixMuirkSoDgmBekUsA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:12.874Z",
-    "type": "auth",
-    "detail": "__enc__xdFX+Q5+6gxz2B88iN2tlNOe2Oc9PMdpmTu1GdWNuqIru7S1FFviV2uwK5Edd+BswDavMWN7mgJ8Wg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:12.874Z",
-    "type": "auth",
-    "detail": "__enc__oUNu9+1NL3kM3Dp/Xz/Blou2maDm27wP+AX7Yl5+vQD3Nt/E+tr1KhNpsZDN9b0QpRMpOBpoEU1ogw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:12.874Z",
-    "type": "auth",
-    "detail": "__enc__5VzcIAojYB/NVklPyNfze7zUb3c7I1JIghFGXtO3bDZq/F8hpfsvSOU9O8rK5lwtEOGHuyRuWtmIoA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:12.874Z",
-    "type": "auth",
-    "detail": "__enc__K2En2rHcZrgWy8Yx4Pdb7Gm2KGTR1f6zeSfCZpSpoqi/GAo/tE1YsQkAF4Fp7Ifd01bxiiY3JFE5/g==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:12.874Z",
-    "type": "auth",
-    "detail": "__enc__BM5ySl3zYn0qtAF0v+clNCQK8Yxb4xj53eV0kzRkrn+CICWRo0js1Pna8xtWK/I2r1770Ldh5pQn9A==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:12.874Z",
-    "type": "auth",
-    "detail": "__enc__2yDpnuKYY4lDT823p0fK8o0A6zU/+X12YyLF7uabeXkaj6hLDnYuvJzQ8t/d8WYwI3/NjVUUF5CuhA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:12.874Z",
-    "type": "auth",
-    "detail": "__enc__eMB4pL9/qZm+T4c6jj5gnzfDpnVf2l0TItGjvGj+pAg+GnxV7kKO+F0M9YN1IJaxYn9qXfQjAbl8ZQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:12.874Z",
-    "type": "auth",
-    "detail": "__enc__L4CeskBrFprkqhwpx/QtTGNSa/A3cMWmoROU49gTpEke0eK6dA2UTe3TnRTdH7VD6KQ8dqZrB+x2Qw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:09.384Z",
-    "type": "visit",
-    "detail": "__enc__secgAeQpeasSCEd4azzBUAK5oxtTCVYXwh/MFwfg2LWEr31/KhJSflphYzFyq4WzJBOQ2H1m+UqU",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:09.384Z",
-    "type": "visit",
-    "detail": "__enc__AgtqURttP2iz1hJD1ox+tt8G2cIHns5F1NdoTH+DLJ2Qid7a4T1/cZAJBrkThmIw3dKWmAd2DMXR",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:09.384Z",
-    "type": "visit",
-    "detail": "__enc__P+rrclhAT2+uxsb8iaztB1y66u4/ISZhP3Kri5nq00TAw+7FHnLFXw/FVhmMDG/vYl6z8kwA8Kgy",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:09.384Z",
-    "type": "visit",
-    "detail": "__enc__sBrKhYgpByA7OI0D+JywowyktIUp1aLXpfrKGeZjAR2NGsQUXapi/2u1fnnLZEAxtuNWwKgqebEs",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:09.384Z",
-    "type": "visit",
-    "detail": "__enc__81kJVu/R1+ej9QrNY1rriO9FMvcL38k/0GHz6tDCHS5BCToeIfDwhr4rCEAiuJEwIJ7byQcZ8Jct",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:09.384Z",
-    "type": "visit",
-    "detail": "__enc__blnTa8MQMIEhg1Z/VqbyOFwK+F/0Lt0Sro567wD1Psk5zpgrf1OSznKJV5AWAOLK50RC0YsJEoK5",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:09.384Z",
-    "type": "visit",
-    "detail": "__enc__R3K+xXC5Dbv1EJTnu2o9rref4RtGPGuB7iQ1tDDswAujFxAM680JElifIE1LD3VA/I0nluffZ3ZJ",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:09.384Z",
-    "type": "visit",
-    "detail": "__enc__Uz+asOULAKebAwitx279x9UTov/sPtQ1jWB6HkXurJP3/uL1bqOtCDhr3JSBEjqzJ1fNsJhvYV7C",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:09.384Z",
-    "type": "visit",
-    "detail": "__enc__k7XJvXAu/0ALaDWN5AhASIJylkNAu0YY+izrfuzMuRtuOkUZYwxRMfj+y+lMfFArnAbhf91X1Pzv",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:01.613Z",
-    "type": "visit",
-    "detail": "__enc__7hm4xdbjmm6U7nQ1vX53q1PGcRHGxSetbQNagXFaK2O4rGxt9dqp6NRwYPkwHqa75d+XiGP783hl",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:01.613Z",
-    "type": "visit",
-    "detail": "__enc__cremoFEjdfJuNyO1Lvy1RaS83lTeFrsRwkE3KEWusDkMpmL+zyALzl+Z2E5aXNDtJZQT51bIeLsU",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:01.613Z",
-    "type": "visit",
-    "detail": "__enc__T4mAGQ03LdYXNzh78Wc25FYGQ2x38s4FJ/T3pGZXwXVnwnLEIRAYxYZ9ECc/AAjml49+TD4F57a9",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:01.613Z",
-    "type": "visit",
-    "detail": "__enc__svcvOMtalgmichZ/cvP9TNnvugz+gKZ2OlQXIkwmfutQyxqFkXRp3j6MPGsdaf/gUWGxyDavbHZC",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:01.613Z",
-    "type": "visit",
-    "detail": "__enc__pF0UxILClqxRjUnosEgl+vgEEnoFUvjiI6gtZXZwjtPEqsnoNAFXWivYLLiKgVUZSR25nP3Pk9fu",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:01.613Z",
-    "type": "visit",
-    "detail": "__enc__p1vy923KQnPcLWaWrTcvtx1x+Rr96jqzE4UnALV5IrEtY2FBKmE8vA3VuSSeJARqAd79K1OQcLVQ",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:01.613Z",
-    "type": "visit",
-    "detail": "__enc__KkDyN42pv2ypahc5sJN0HPVjfhsdk6r2Rk5i2W6Fx2ybTPhptB6zUsJ6NTm3NbrYdv+tbg/wD6Dv",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:01.613Z",
-    "type": "visit",
-    "detail": "__enc__/qLbmhm0p1yZQ4VMqXPnhnqCNmA4PqC+VxcR0o+eVBKJLX73lHGxShAb8cq+Q6lpmLuy/Pjt1BbK",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:59:01.613Z",
-    "type": "visit",
-    "detail": "__enc__tNAG2HRmYob6pcLW6VbYT3gc43kD3eqO17l6eOpH6uHVBbNXSkqgadFRZ4cbKtbmqIh8sNc12+CL",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:58:13.543Z",
-    "type": "auth",
-    "detail": "__enc__cmDyfetCbTtbrvRim1lYS0xDn8vy16qjEteIcmslu6rCdR0Fu9P9AjX5nbdjbZ2R2hmGpnBxTcBQ1Q==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:58:13.543Z",
-    "type": "auth",
-    "detail": "__enc__rsW+sjYrcdVCpfxo/bYje/Ter1PYCedb+KYFT3iVulRH9TrHltG3qug59qxZ6idRPw8SIu6N64nQwg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:58:13.543Z",
-    "type": "auth",
-    "detail": "__enc__Wm8yZYB+8gfdgitKwbpTQ86vGVRwmYDmidFlVdX60U+FQEISasICqmFgmdFPhcZdXZqnHSjNSIQfjg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:58:13.543Z",
-    "type": "auth",
-    "detail": "__enc__h5MfzExDvYPTVUHTRBFyRqjLSD8yn/vHEKq35orMo2iyWbl3oBnx40bETQU7mM3nug2OH3KDRQIWKQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:58:13.543Z",
-    "type": "auth",
-    "detail": "__enc__+Wmy58f51e5aDL51Ct5oXJ3yiusikHP7dmY8OG7TdnVbl/+o11Sm5QzlYEucjbf49H4+whE5SBROIA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:57:12.943Z",
-    "type": "auth",
-    "detail": "__enc__fGOPrDJeyARiyM94qXMrcqV7VvvR1njZfbuQ41H71RVx7GxrmfVykSU/nwWgQOY3o4PPRMzGsFEw2Q==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:57:12.943Z",
-    "type": "auth",
-    "detail": "__enc__AgOGVDIMuPd0H6mdHvHdsMQMCiT057UiSwUYNv5Vdr3QEwAqSF81z3G672qx1AWC+y3T+5RS9iF4bw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:57:12.943Z",
-    "type": "auth",
-    "detail": "__enc__ZgO7oveL0HlYeQkFZaPA01TjWxGp6QsiH3biH9kZR3VNDrF93t2HMYuuQQ2HIvRCBQAnrSNbNKb1BA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:57:12.943Z",
-    "type": "auth",
-    "detail": "__enc__1abtTlvzFfo48hQhz0U9PQ/PJ90xX3aJlXxIW3a9dTXLOjFrNF8NdlPLZmmqWb3OMmleuX+1R7fimg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:57:12.943Z",
-    "type": "auth",
-    "detail": "__enc__U3gPAzIRXBjPWXy3g8adbV6s0wpQ7RTV1MKIBbx4j1vhEhwhy17zZxZvhbv315Xbk4ncnuZCxLAqqw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:57:12.943Z",
-    "type": "auth",
-    "detail": "__enc__/cBPZnyhpwmMfqHiSuUM5TJUQvdeqKmskD+NKlke3AVlTb1Ebbv6RPFbXtpyz+6HqmlRNRy1X4uaMQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:57:12.943Z",
-    "type": "auth",
-    "detail": "__enc__0qt+RyD/QhgOVfrXe1OQpWDbpSJlUySxgkSwC4kHnCY4bmT0MtLC4NKY9csntrj3D02CaRKq+kHzXA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:57:12.943Z",
-    "type": "auth",
-    "detail": "__enc__6zMQBL82/xHqKXDrQD2HOAfhG0sj3TFipBHW9JFV/lKCyNs7dgSfvTpuszN7byg5DKqlH5ocwLD6iA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:57:12.943Z",
-    "type": "auth",
-    "detail": "__enc__rShy0pM7l7pdvOh6qHfS1aAxdjyowYCECw/9U0anTMNMXUWuWg+sWJXq2j3IhEMFkKL8WhVrwoqvXw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:55:07.017Z",
-    "type": "visit",
-    "detail": "__enc__ilKh38RZyMqTARTHKTizhWctbQvPxXohbZ60woXJM65DNQhuKkGha2GqdgmAsC6iHt/nzsGmSwdL",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:55:07.017Z",
-    "type": "visit",
-    "detail": "__enc__uolGQSy8qQsLwV95ws+fe7UnT052x70IrdPoR/S5gSb698t96EVwsNtJ4O9gwuGY/GkQNL0mE1bR",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:55:07.017Z",
-    "type": "visit",
-    "detail": "__enc__9o7mrlqtQiVASWbLspOqSmfXqC2ef48CAlxkQgSsp7xkWFDYMZEDb+k9IW+wbMleuGevH6PrJnpd",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:55:07.017Z",
-    "type": "visit",
-    "detail": "__enc__x2gV+07IIdxIgSdBvCDKoZfeUOCQFhwJsG0J4aW5qZ0O0ptR1a/qEJ0X/8vs7XiyzBb2w05U+gXL",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:55:07.017Z",
-    "type": "visit",
-    "detail": "__enc__EunuvZdyoznVel0Ecdpt6oWm3+7QxnBTLPGQZJWSlTJ8AVsHN6efzmfXKGJvDo24p6eI3qLnhXy9",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:54:59.298Z",
-    "type": "visit",
-    "detail": "__enc__5dWyrjep1aiBJZWid519VYIMuP0Ht+GK3KCW8bUw/u080Pm6u17K7M8wHo3giizOZOkrv9TbIU0E",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:54:59.298Z",
-    "type": "visit",
-    "detail": "__enc__DSQd4c4Zv5z6pn3+9QZomCYx9NCWMcYzSZFddcA7YrjgewCT+Uk3B/AYgK4gNnyYpNG2ynq2B0NC",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:54:59.298Z",
-    "type": "visit",
-    "detail": "__enc__jGfcRkq6p31YN7H5nXGOsdKAwY8vzQGHaDuN+w7UmGzQhc3WtQvjIsHH/UXWIgGZMA3XSdko09oH",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:54:59.298Z",
-    "type": "visit",
-    "detail": "__enc__114FaY/2UgmmQo0YQlM7tMGqIxN9WToe5jcK/vWwV2gzvwVTr+E984uEV/8VvEj92nLJPxFQwtKR",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:54:59.298Z",
-    "type": "visit",
-    "detail": "__enc__2jBiRirylEQ1AQ/PmqVhgGhzvswbJUB6ZmDBuDTxOOaY2rW/nPkUM0bFpgPyqP0P3zaLzu+p/ji2",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:52:37.002Z",
-    "type": "visit",
-    "detail": "__enc__ytn+r5QlY8eF0a7OgqqHy29n7xtUIPB0FCszDJZhYA3SiHX7640W5PyY+T9kdHayCZUfA/htExQS",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:52:37.002Z",
-    "type": "visit",
-    "detail": "__enc__Ri+T+DYUGf7deI1wD9OW3c5Dxx7MEPt2wCVQr5AvKuxXELhzmPtw7y0mVoK/j1XCbFEMQdc1Bxam",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:52:37.002Z",
-    "type": "visit",
-    "detail": "__enc__uHoNGGIrH7+XN4u3pk3LhCUmvkyyTfkT4vkfqSBBMstpIVPsOSw3Q5f2ReZM8lMRYEkFBAVPs6W0",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:52:37.002Z",
-    "type": "visit",
-    "detail": "__enc__mm3X4jai1qmzf/biVpyvCKoBQHagG2RStJ7ECfYyL2Nt7iBVqnxfV5zBnP5HkdLlaDz8zMWxYUkW",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:52:37.002Z",
-    "type": "visit",
-    "detail": "__enc__0ifTBVn4Xj8E4Y7xK6t13JMzTWC27Gsjy67sV+Y/p8MMBq/NghSYWwVTtboO29nShKkeQbS0OXgc",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:51:42.912Z",
-    "type": "visit",
-    "detail": "__enc__MV0pmCIG5YYFCiG1yL+/mcKXY4BRGqPQwHIi/k9XduTT1p+aZgnxReF6qZAfkhzQApG0yBsaHrmb",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:51:42.912Z",
-    "type": "visit",
-    "detail": "__enc__f/lGm7e5NIvBudKrlPg23tTdKHYzzvFudOIOj4JFOdCTW4/Sgi5zxo/lDiZD4RRZVsF75MWiih78",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:51:42.912Z",
-    "type": "visit",
-    "detail": "__enc__KE2j59gJvWrz/sYkrW9hEEp+gIGlqGNkrx0K6UlIyMcfiid5QM0hj8d02TBDqX4Vv1CmAcZ6AWYe",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:51:42.912Z",
-    "type": "visit",
-    "detail": "__enc__8GcxUEaxfcGXNQc7ponfZrRfeE9hPEAO1tpUuIZBd/b/4aafqbZM82FIunJNnk4bnL0w+qV6mW8j",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:51:42.912Z",
-    "type": "visit",
-    "detail": "__enc__AQ8vVZXnRivkdxRODVbTgkQBPkF5eloia45/5pFdVY2oCtEEdlVsedoHmZk8JhWSKyIqfPCymP5x",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:51:42.912Z",
-    "type": "visit",
-    "detail": "__enc__xGRFQ7sVPf67vWO2i12S064cyQn+mZBOlGfv07SBUgy2oNytFpw8GgOjNWihtDGMnJXfLDny+act",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:51:42.912Z",
-    "type": "visit",
-    "detail": "__enc__2o2YsKjb3KpuudvgETqavXr4FXupvkzDrbfoDEUZiQO+vrK1qQ3BO3/TEMzrG+Qb/dho9VPO9MWH",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:51:42.912Z",
-    "type": "visit",
-    "detail": "__enc__V4Py+Y+a3H/cZ1vhpa6Eh1NRYErBgHR/VqH4U/TJNQF5GhSpeje5V8SzQn/vs4zdXdbCOhpigWm1",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:51:42.912Z",
-    "type": "visit",
-    "detail": "__enc__fGDkiPmQ9LGuRLmahiDHcNzaUG3WO0zyQAMjWMfrSt7vudNKynkSiqag8QNkPWpesbByb7DGCKqT",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:50:30.006Z",
-    "type": "visit",
-    "detail": "__enc__KU6wvDHenFyIAdy3g/SVGtcHFFfD81KPap/FH6YzJNl2KtzdFomm7q2SHsh14XKIktZFFiQ8X3jn",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:50:30.006Z",
-    "type": "visit",
-    "detail": "__enc__1Orww2CHtFL8ho1IGJSw6CFyhGjeXGMNc7vJSE9n/u4LmAK1B7+a21JE3nVc1VLco1lTiahz5CJv",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:50:30.006Z",
-    "type": "visit",
-    "detail": "__enc__PHPu7uUzkmnsm6h455QHITOE27X7WCSdiHzgyC+ogMK4EjQz8Cd7QlMN1ko0J1iRddR0xNfTQyy7",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:50:30.006Z",
-    "type": "visit",
-    "detail": "__enc__9bD3ZzYsQkpViWJ3W16xsB/az41FnBVhuWbcpW+WVaCJez6DaTgrhM5ggltGhMRixxko8PyY54j+",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:50:30.006Z",
-    "type": "visit",
-    "detail": "__enc__zykNaPhZNKW5JQRh5UAVHZWpS+n+hMqnGy3K4faEBrgEWLSTCVRmL5TzPLDg4uCaXNWaNea3dp6/",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:50:30.006Z",
-    "type": "visit",
-    "detail": "__enc__ORSXrPPKUYmRanRSKl8F916fx+4Yjq16Yzh8P2JmjnrlZJNr1O16uzCQ3TrFirqYru7GVwlNfDj5",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:50:30.006Z",
-    "type": "visit",
-    "detail": "__enc__W97/P8c48cQGiHee5/5uje8K818QecTF5t6H4hKM+EGbpiAF6LdHvA4mHknZ7p0XOhn1WuN8o09I",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:50:30.006Z",
-    "type": "visit",
-    "detail": "__enc__teGx8l03iRekoAy+KjXGQq8qCvyYhV/Fgsvh0e4emkk5v7eY0ZmWXNFJZdhUpPTteAmKyZUkLzEj",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:50:30.006Z",
-    "type": "visit",
-    "detail": "__enc__Q5CP9AAV2erG+Iy5z90JhSuF3fmK7JpUwF0DJT9NKhXAE1O0XuMJpMTKa/u1zLYSPueHX1PvTs20",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:47:27.439Z",
-    "type": "visit",
-    "detail": "__enc__NwdqHuM3ZrYATWW+BoDiNaPCgwPgE4bpZUfABWmpD99bZ+ITRMgJJLnSyhyyPOXvZ9P1qQIlLU9R",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:47:27.439Z",
-    "type": "visit",
-    "detail": "__enc__5FlCJnaQjzsaRiGrQSzeVDj/de4cSA8Na15yQo0XnYAISJvOnVf9QaRKWWydbtn5PJpEDHHahx1Q",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:47:27.439Z",
-    "type": "visit",
-    "detail": "__enc__tXg40bkNnoMziRLQJ9UHCEPFZM6O+eNhk8zvnACjLVXj9hqyZPbraiKNfo+OIVxr95w9TxzLxMRU",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:47:27.439Z",
-    "type": "visit",
-    "detail": "__enc__El5Rv7lRj9Qrl3kwIXys61Cm7zP4PnDghgFGHTihZbXeHYDXcbW6hPuJ95Yk62dAX3ZbuZU2cseS",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:47:27.439Z",
-    "type": "visit",
-    "detail": "__enc__0a89SLsPFq1NZU7lrrITl7Ia4iDDogVlvzyJ2bHdn+4Tfc1tDjgq0iZZlQhPfqQKKcaUvqvSGYrE",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:47:27.439Z",
-    "type": "visit",
-    "detail": "__enc__5kZAb/wVQALEW6veW5lT9piEjaIJGrv7pUOMWsz4lVF48XxyxgukhnoqbqCPkyPDDoIJD9IpAsQ/",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:47:27.439Z",
-    "type": "visit",
-    "detail": "__enc__gGm29cOnACOJ+WvTErkCWly4h3+0PKKJqxdeyZMGpETKZwd9HsjNjX+t+opbOmt7m8S+SPS5LpvH",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:47:27.439Z",
-    "type": "visit",
-    "detail": "__enc__TNjmFNaf+gUtE+RMOFPldfvQ84E0HfGZRAcguFyIEwrXF97/M4TJh4x4c2JPxplSV2YJfYlVjZQ3",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:47:27.439Z",
-    "type": "visit",
-    "detail": "__enc__DFkGgYdXhpRJOyfkWtKP53/if94DQNkEu5ZeTS5ddDRwH/+KMUH57LsEcJyQU3jlU+cV3VaHJhgL",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:45.905Z",
-    "type": "visit",
-    "detail": "__enc__pqoif/9B4EbIhh9Qf6n+kCuqTLVWuuEghWjnmDYNKkv3Pp0cWVBXuGYHkQaWHOybfcfhxO0sRHOe",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:45.905Z",
-    "type": "visit",
-    "detail": "__enc__dKX7fPoSpZ6/HIZlZ3jCJJ2rpjxorLIKLKaPXr/5/+7vjsNOE32S2V2Ms6g4G1vXErUFciLVNlJ/",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:45.905Z",
-    "type": "visit",
-    "detail": "__enc__hXokiZyVO42sNOz0r2da+QaX0gfP7OyZbjQhi0teLUyMWEsTxXrlpnqJNUZZffBhPcVIGniab/iP",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:45.905Z",
-    "type": "visit",
-    "detail": "__enc__EvAOoffTjzPakrWjdnhDXiLjsrazvujPD9gCHd9j4nGXaZeRkjwSMpKSJtw7GvsFKpBVICC3b7No",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:45.905Z",
-    "type": "visit",
-    "detail": "__enc__2d3BEh9lSqnT6ZXSBZ7wd3BDa+VzLrcirFUDsY6PM7SdWy8xj/IFR4AeoJTxncdglURuUeZ31X9E",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:45.905Z",
-    "type": "visit",
-    "detail": "__enc__0icZAwORpo7yibw4iRI+Sowz28xsBN52eREnqhnVLcS6WSoSZN2GU8BZc/2qjz4TEtCtw7XpnkXe",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:45.905Z",
-    "type": "visit",
-    "detail": "__enc__zZEzjb5AMxXZRKymSZ0xd9kdsWhcDyAksig+HgYA7Bz4FzXHUdINdXKDHtWDUmrhx2Yxf6gtKCMI",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:45.905Z",
-    "type": "visit",
-    "detail": "__enc__XjcO/SEHQN5ekZ/1MzBGiudAy6weLAlfFRRDr3kVdCuxBcpQvzKSM4Dctx4yUfpCGgVYv9jGP1d1",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:45.905Z",
-    "type": "visit",
-    "detail": "__enc__kVz8zR+qzdnpeng0Gx329yp01i/0+0OZZU7TEAXPmxLKdzOaHxx+3NfR2qbfYA/qIo6uEuv9mmz2",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:41.822Z",
-    "type": "visit",
-    "detail": "__enc__QnkB8Bf9WUhJG7BDvtQYEAUzzOCYZ1ZT4med4lNkUvsYdfn5QnVAl9pLiKg2ulITv4QxydHymdcs",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:41.822Z",
-    "type": "visit",
-    "detail": "__enc__YJdeRHcGYsEvqBBXK8PP3fRO2GSWTvCf87igmO3u9t6iALX9gQZuFuFGagq+xuqBE0OoT5owN++K",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:41.822Z",
-    "type": "visit",
-    "detail": "__enc__0Ph5y2fwydcppd2AIDO54MpuVB2Y47waz1JxsTK7m2LeBeyWnstYEa/zN8INFxEt7w0XsGlX0Nak",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:41.822Z",
-    "type": "visit",
-    "detail": "__enc__++M39yLXwCX0SoHD7egUQktTvxMfq5MjHdetJbZBwTac7/DrQxE09Ydz60EnsfyZTlck8xDiUixs",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:41.822Z",
-    "type": "visit",
-    "detail": "__enc__cxb6QCOme1vk3quzjItTdiSHwMLoSR9/JMoAsMkiF48padgNDc4o/p6GMuNL1+ZkM0jgWffTq33o",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:41.822Z",
-    "type": "visit",
-    "detail": "__enc__LSJsVMdMnTftKPQjIVkAKikKg4bE1Wm7YfUoF/qliWoMk6fJjJGxN0lyiX1kgTizi71LkZFK9+NW",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:41.822Z",
-    "type": "visit",
-    "detail": "__enc__QGi33EV17Qss4EEjuUVSAjoxDJF9BvJzhRUMy/UV6n2RZ4mpvlHLy4TCrVJznu9qP1oeJk4+N+w+",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:41.822Z",
-    "type": "visit",
-    "detail": "__enc__oTpJJH35X4C5+ijkUxa8xUJHgdQciwR4hCe7K1GurkHCGcU/vuKYT3Dlq9uabTGJZxdcK1OkyAvo",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:41.822Z",
-    "type": "visit",
-    "detail": "__enc__WnHplcYHw5OT30mdyFwMusT+ekcoKYXpu3JmbKF9CIjbM0GPXp8CbQU3Tk/pH1F/DRUNkRNs8tb9",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:21.445Z",
-    "type": "visit",
-    "detail": "__enc__ixvJiM6k2LtpwTqjgjXF0JxTZ+CL0uUDNOPaHKAezUIzEo16t3rUxYSn2I6U1OzSt6x40WaxPJYV",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:21.445Z",
-    "type": "visit",
-    "detail": "__enc__V3ydaCXezc3Y3Dut+YOjPr1x90FP6CrMi++I3wGdkqHm5lToFXAsDNngnE5G/SZ3GVhVEq/dCKyW",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:21.445Z",
-    "type": "visit",
-    "detail": "__enc__kUqFUnTv59qTVD4BC+g1ufua1sVlkcAZLTtxHi4nT0BsLJBNqbFXSOWOroOwkb7TUz9gRME43NsA",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:21.445Z",
-    "type": "visit",
-    "detail": "__enc__rKNQr1CCQiC/MLyfIpk1lSx+0+j23D81yPZyezMy1/n10ftnoUjXlBPXFtbvk3MJNY3ik1iiAUcG",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:21.445Z",
-    "type": "visit",
-    "detail": "__enc__nwrfItT5TKyHSDFmqnp+3QyxS+mk2D+52nNPabF0IzRbT8OhcX/ajSeHNWtNpdBsclAvmNnuT1QP",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:21.445Z",
-    "type": "visit",
-    "detail": "__enc__PR2ufPhZBbU6jSmamOPPLhIbYd0KUU5Uj00I/S8mvqAgEpWGsIjdwSL6dYBxNMy0m9PwrhoxK4aC",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:21.445Z",
-    "type": "visit",
-    "detail": "__enc__6qt3fnV9lxZgoHJMYm/ROzVM+jC4WTqZJ90x+0y4lrHBDIYR8GlDpNPtmxsNxzWVdSKeXdEsajSf",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:21.445Z",
-    "type": "visit",
-    "detail": "__enc__vMkBgIX0qbioE9I+qAaPud4g/qTUR8j0Mm18Ld5fcVea4zIFsWJ0a63x9n+Llgn30LeLvDWPc+z0",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:42:21.445Z",
-    "type": "visit",
-    "detail": "__enc__wsxGAEVcyGqSGol4/KWmKn8bC8I2N2Oysml4tdsH+ZNQRrnNKAD11TgxFsrGI5mpSs3JpSlPwiA4",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:48.789Z",
-    "type": "visit",
-    "detail": "__enc__iJnGoSfTzYuUIqVy59yosv/ikny/CkBHRlPiG12FKqSdPJhGz37WR/pZHolBi/wHYieKS/3s0TsP",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:48.789Z",
-    "type": "visit",
-    "detail": "__enc__m66vtFQ5mfNo6Eqq6nbzItpa0NUrVKVprCajyil0wsXEsOlxgLdRNB0dov5f9iArg5PkHOTPxUz9",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:48.789Z",
-    "type": "visit",
-    "detail": "__enc__xfEEJU/4PAB9canyeBtmhuoPuIX3GEzHfbu7z1k3IkjALANnpW1e2wvFNe9tF6nHcbgkxO4g2cI6",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:48.789Z",
-    "type": "visit",
-    "detail": "__enc__eVF2TPRorWDi1U8wo0zjop4PaCkJTFO/mVuhI2uJeQ/8sWiizHHFDUz+sHElZc121gtSq/vzNfiM",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:48.789Z",
-    "type": "visit",
-    "detail": "__enc__U5ZveqOZk5B4duLluukgICmCvgAzCDAjs5kCe+axsxFcqfPovAJ1y0LYzbPwCG6YVQuKAuCDymPS",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:48.789Z",
-    "type": "visit",
-    "detail": "__enc__XZDeUtfPPF1RAr//ZLL2YR5k3G5qnBJrGNlM1CM01ifihZ3jvnf1AE9yZbYiIL6WFRKpDBnqTq7m",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:48.789Z",
-    "type": "visit",
-    "detail": "__enc__7v981nHgkmcTCktRrSl8rwZvzIKELCrdWmvjW/5/DUUMgM9IQd4PmPlk6MIotV8Z6Kdo05YOzcBA",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:48.789Z",
-    "type": "visit",
-    "detail": "__enc__Ob7Z2d4OLoVbh4iHOl6OMbTZ14ayEAmavvXMSR/74ndA/VHcggXIfB3qkuuxo7/IuP/Rm5KV4Rdy",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:48.789Z",
-    "type": "visit",
-    "detail": "__enc__csI3DA43o3Sv44aUfytT0rSpnD7ZcWzTxi/kAlUG0Abp5uqZDux4i42/gC4MIYzSUnUVefDUBCCv",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:43.979Z",
-    "type": "visit",
-    "detail": "__enc__e/orQjVWnaWYaBCGDn5OrXgiwN7X31COm8o7pd9GgK0MZgbPiPqBihpcw0x5HHhg/kFj0yJrVHnt",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:43.979Z",
-    "type": "visit",
-    "detail": "__enc__3yxUlCTJ4RTS02y/VLEPeMEGCIO87Qyvev2gM3p37dAcS/C+fuII4jcisbDDXro5MdcQKTa36djQ",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:43.979Z",
-    "type": "visit",
-    "detail": "__enc__AdIwZ6KfnqJ/3poML5nvt4yjaawbzgNdE8/INp0jt+S3BjXEDrsRnbl5CMjxOXExoxLv7YcAbXlw",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:43.979Z",
-    "type": "visit",
-    "detail": "__enc__KAxvCk1jTud4nnMZKK+MMbswY7EHcWYypzeVRFxj965utsfRpLbu+9CV7h7lafyLcUVU4BCyVe3Z",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:43.979Z",
-    "type": "visit",
-    "detail": "__enc__yZlpuVQrz8n+cy6Ou6s/8f3ixJALAjPotoxNVpDaqWQg7BO2JNC8CRvXs8Iw+WPBkQ3WlBv+FcOf",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:43.979Z",
-    "type": "visit",
-    "detail": "__enc__Qeh+FXJznOLIPzcts8d1nCh4HtPBXn9vtc5p74RJqzGBpW8+jByPYnMtdyzeTauy7oyRoNhEOO1L",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:43.979Z",
-    "type": "visit",
-    "detail": "__enc__G55Bojybn48i/FbCJCCA7KLiLkT03ZKnH6SsE7Jws1gOI/SQijnn6QAyHoJ1WG/Cmh4EPMlMkfQQ",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:43.979Z",
-    "type": "visit",
-    "detail": "__enc__w0iu3FryToTPpJaIu5ZzQ2vXV21zG/iC5o2LFrFKycybF1jGf1ZBCqG2XeWc29fb+wUEv3BCn7/L",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:43.979Z",
-    "type": "visit",
-    "detail": "__enc__EvUPmwWf51rcBP/XW2X0Tr95pjRErwJepHktU9fHlbmn4bKYTcGm9tliluHeRTCuUAlQ7WcrCNuI",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:28.253Z",
-    "type": "auth",
-    "detail": "__enc__uJ3GXlO4T71j1kTXiIKOh3tkTuFuEF79P6beZN4ca04Pw98Q8wCzTPZibOOst+fnYDAS6IA3yGJEOA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:28.253Z",
-    "type": "auth",
-    "detail": "__enc__gmW/+v68m3qKUvC0Rf4CkX4z0ggfwELKcIKgI7ygEwf9o7P5/WRuV3BFyODAhf7dSnfmRa5OhU6vKQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:28.253Z",
-    "type": "auth",
-    "detail": "__enc__WM/9mnf8CIITJcRWisJk2pRcYedH3B9ErHvK39EkE8fXMztRf6ehmK1/Jj4QFUY9Uz96qtipEDxsiw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:28.253Z",
-    "type": "auth",
-    "detail": "__enc__j5XEBlP8Qj+CI3mWgS0ceBAY3SGyU1veWuH2gdU1MF+l8wBg5sAZlqBETrMjxdw4La9j7Jf0r5Sawg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:28.253Z",
-    "type": "auth",
-    "detail": "__enc__MzWHdRyEYqIUzfmccFbTfCT3pPSPAhpEOICxiPV9szPD8Iyp4juAn1tyL04qtwp4rR9iyp0IFY8m0g==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:28.253Z",
-    "type": "auth",
-    "detail": "__enc__THwJSHrI+HlBohJ+kvM3qcQ0ycJjVSjTX6zw3TnFHioUf5G40uNcADvAaUEbFEz+WcJ50/VRfGYLAQ==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:28.253Z",
-    "type": "auth",
-    "detail": "__enc__RSVOCgMitsoRQ7TjA5WICmeNj9MaevTwHD0Zyyyx+prDmCJzHmgdKgDECv1Thjj/9cr/x1pG/uEWFA==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:28.253Z",
-    "type": "auth",
-    "detail": "__enc__savpbZm1k/puCyj/LeF1DdBicIVyHC5/SVEci8UEdYP7aZE5xF7ac5jdo9e0uZ0XtcSAfq9qYZjCVw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:28.253Z",
-    "type": "auth",
-    "detail": "__enc__8dour9v8PRjHv4z7L4Dfnqap13ynHlrupVQmYzKK4L1SRM8AotN3GcnnEr6v7OSegkYGEZXp2qtEqw==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:28.253Z",
-    "type": "auth",
-    "detail": "__enc__aSOYidMqWS98fw+Jnc2ATmnnoqtgYS37mA0wLlZpDRX9nLdrfsxvLnnLVkZSZY+HixdSJUpsAfe1Kg==",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:22.267Z",
-    "type": "visit",
-    "detail": "__enc__t59qRSEvDR4+o/eKEzf6aTIGmPBkcz72qq2HnJKqW65DI8U9h+MyVFeUgoeO/2vSt4+b0ITegauG",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:22.267Z",
-    "type": "visit",
-    "detail": "__enc__5YYNbBduSbMFtVth38E8yzP69C7S+0M79G3kj5s/9/ldNBAjST8SI3Nz/R3KYP6d14KVlLZqhrEY",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:22.267Z",
-    "type": "visit",
-    "detail": "__enc__NJXUL8e/X+SdOX7ZfJUkGhvLX1YI1gXqtqg6cT81rF5BSNguBBkwKWT63idtFUzsX/tVB+A71Sg7",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:22.267Z",
-    "type": "visit",
-    "detail": "__enc__ZkvgHwXgYAwdCnOoL7RXqxnG3kHEOQXZeHUrUQ1S1HfbwToi451XYJ5dHJURjQ60ZNWitAGI9MRp",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:22.267Z",
-    "type": "visit",
-    "detail": "__enc__8Z5YYaG7as17FZF3QnJQ/SZa4Jdvc4kFYfJta7k7QwLxSiwViYn2XBXHHy77kXIjNBHs1FUx5MkL",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:22.267Z",
-    "type": "visit",
-    "detail": "__enc__4XvvF6I45HGyI5dxAyor6SCaefKKZcNIra2LRVQirc/wJk3oQQIWzlbz/s6MhUy4u2YSvZYtFePf",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:22.267Z",
-    "type": "visit",
-    "detail": "__enc__VwEnw8hMQnpoSYGQAand2M6Swh5lYkWk0g69GXvAdAD2cclFxBJCzNg6upr+N0pXqqWF5+ObBbAV",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:22.267Z",
-    "type": "visit",
-    "detail": "__enc__zu76/8+kaKacuKOGAiayxr3/2lcA7RIgHwfl9C0Y57LRtvVfnm/B/8S0vsR58lMKNqirxUhzvENi",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:22.267Z",
-    "type": "visit",
-    "detail": "__enc__SL+2ticLMRNVB0Q8SHK9L7LR0U9cOXvS5QlJymuwi33M8QJv5RslbnfmaTn1+746W02ovDbpZzw5",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:41:22.267Z",
-    "type": "visit",
-    "detail": "__enc__8RXlWXIypP/mDmI9IFiHL3vrkv31s+yY/I6QY6FPHeAspd9UkgUR1oqK2Mj5S/W2a8Mg7JmcZQT1",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:40:52.181Z",
-    "type": "visit",
-    "detail": "__enc__WjXcS8nrZdXmzd2oyZ82B9i72CMWJTpCjYFuL8hQaMz3kYCdYbprkE54ZFsINmFjdPiC4K05FfQH",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:40:52.181Z",
-    "type": "visit",
-    "detail": "__enc__QwVnh/6uPvb7dZa8QG0UDDlrEUysmSgyScNVGmap32s0QOwej/4Ekd7IzgvQZJ1HEWL+14eg+nI8",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:40:52.181Z",
-    "type": "visit",
-    "detail": "__enc__L+4QIhJgRqZ4Al6tOfixdfsuhjWJQKUS3B/qk44blTo+bkstno4IXmNC9Gbk9e49xRHZlid9++DR",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:40:52.181Z",
-    "type": "visit",
-    "detail": "__enc__FXpB0euYxtPrr7JfjxcSV/v9mHPjAJ/p/wqbFUEvgaWDG/jKbCv3dQmtUTL0H63IjELfK8lhjOSn",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:40:52.181Z",
-    "type": "visit",
-    "detail": "__enc__F9vB5E9nqLEB+yNo8s9YIY5txELN/CpMnh/4ROdczUWS812nTu/Wi2/n6yx3SxFAfqhTSpP3c4za",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:40:49.051Z",
-    "type": "visit",
-    "detail": "__enc__EKFt5/EvuekpGo0qKiXmgr0fNSsBfeM6JNgyhY9lEHOC4rG6qG9tciPKUyKZFyh2v2tolHtDtNHo",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:40:49.051Z",
-    "type": "visit",
-    "detail": "__enc__uxCG5+s7ejuMsPHS6FAV1+C9E3IPNafRpCkHa+/U090kt41PdHKL+GB/suOZfwEyj+h05yE1y8W8",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:40:49.051Z",
-    "type": "visit",
-    "detail": "__enc__ZP9M1Wwn1jd28NuIEQ4VfvoqCCwjM7R961yeFz09lu3fiork44QnKY7HZ+ZISAGyoeX49o6lkU0z",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:40:49.051Z",
-    "type": "visit",
-    "detail": "__enc__/IZc9anbPysYSRE59A7a0uLNg6C5wpkqpKgDC5z3oKsv+KCJlDRldv06f6ypeQfXrruM+EbJ9nkB",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:40:49.051Z",
-    "type": "visit",
-    "detail": "__enc__acC/Br1sf4J3f8Xgvd6xyceA5nqL7Gbk9f22I+uCRX1BqniO7X/9pmdStwT4jzZ+EzeTLRDxUo+Y",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:35:57.689Z",
-    "type": "visit",
-    "detail": "__enc__0JpJGjsEUcJMaUeDfJxns1HMm1Wq9SEPpqylb0wRdbxFzBen63+QTYST1uAIXw0DOZpf7UWxTJ9M",
-    "metal": null
-  },
-  {
-    "ts": "2026-06-17T23:35:57.689Z",
+    "ts": "2026-06-18T00:36:28.406Z",
     "type": "visit",
-    "detail": "__enc__J/dSnZPUDZ4NjSuMOjdnTMDb+p6I02RYplT1zStETs0BwCZP4xW6r28iUmwvi/J6O/2iX8n7MuYK",
+    "detail": "__enc__kzoxasKIv8Qp20ra2DvAQ1NKMBi8cbqiO21xbPVyGZrEoL5e3CMPZRJErsXROuB+ybRgh4AfgrVi",
     "metal": null
   },
   {
-    "ts": "2026-06-17T23:35:57.689Z",
+    "ts": "2026-06-18T00:36:28.406Z",
     "type": "visit",
-    "detail": "__enc__LqA94m77UYSRhLRBxppIYnh4YtDKBk3R6RrlXz1m2Viuv9xP2lM6GqF5DOT5w1XTuaAdw97qD34b",
+    "detail": "__enc__uDDMmJFu2z0vl3C+fVLuNsncDtKuczLubB7YmHT9Qgc5kDCBELxjWAkrFsPAdNcpdJ1/+KCrJKEv",
     "metal": null
   },
   {
-    "ts": "2026-06-17T23:35:57.689Z",
+    "ts": "2026-06-18T00:36:28.406Z",
     "type": "visit",
-    "detail": "__enc__RE2Yd3+CawFckXxVLraTGCDUbJ840kZ36KpLbcxlCUQKHTebsmB/JgIoKb43FygPICFhJfAkx1jd",
+    "detail": "__enc__tpphKHKIhNjxyXq6RJhAIY62N42tCf19iFJuTdviN8FGiNOT9Wr3kFYmN68biI6Ypq+HwahePn+K",
     "metal": null
   },
   {
-    "ts": "2026-06-17T23:35:57.689Z",
+    "ts": "2026-06-18T00:36:28.406Z",
     "type": "visit",
-    "detail": "__enc__iYIAsdjsJUh7Wl8zBBylzWVyA9m92LULGV5ZhtIRhgnlmOmAqQ0rxfXpGtLmLbpxdPJtJPE3EoX3",
+    "detail": "__enc__pydg9toyLCWb9SIWZSIZ8unXE3D/YZcvgdeHdLz4OrZa+qfuI/qxQsZ4NLWDp7Qv2va0ffxbyGvR",
     "metal": null
   },
   {
-    "ts": "2026-06-17T23:35:56.245Z",
+    "ts": "2026-06-18T00:36:28.406Z",
     "type": "visit",
-    "detail": "__enc__UfdeFEg3HsaOETsvGidaZTtyVlo2/j9silSkhBTbZE2OxU5ncWLrpl+kCPbmN3eWESmzMnIae16v",
+    "detail": "__enc__twYk2Ws2kqWTiunwveZ5qdJ3JbJE7elV7s2TxKOWAAQ9sOglKJZc3p6X/iV1iV4medFRQGtuE5wT",
     "metal": null
   },
   {
-    "ts": "2026-06-17T23:35:56.245Z",
+    "ts": "2026-06-18T00:36:28.406Z",
     "type": "visit",
-    "detail": "__enc__M5qjRv34r+8CepW6rzmrZkYym2YpGcM4/m5CcTCOvkVNYawWAnpzMEjN39rsjfg6/u+Cms0nHVPA",
+    "detail": "__enc__4pLjlYBhxaRJHhbLWMUrucpjmtRH1L6A+ai9lWr6o6dA1Ek7BWXOdlPdBcFuj2scBmlgGV/CGBNr",
     "metal": null
   },
   {
-    "ts": "2026-06-17T23:35:56.245Z",
+    "ts": "2026-06-18T00:36:28.406Z",
     "type": "visit",
-    "detail": "__enc__gUl9ApLs7lC0F3yl9l9nVq42AJSmjavoR7hG0R4Knl1weMdp6VXJiHlCQSdT57+YElV8yn1rme9Z",
+    "detail": "__enc__2EK7A91oceEEPuGSA4+iaq+6hVztWgnWgN3Jbu94LEDNSkUFQBQtrzXY7hxbxWz7Oh+Y7XTxiyu5",
     "metal": null
   },
   {
-    "ts": "2026-06-17T23:35:56.245Z",
+    "ts": "2026-06-18T00:36:28.406Z",
     "type": "visit",
-    "detail": "__enc__tehyWljVrQAhIwqIM538xC+fHRcdKT9BOU8tS/E6BTROAxr3tRdKN4i5JG7qn6ROO52CnA1OZOD6",
+    "detail": "__enc__aF00MBaHAcc+6VmhyIrpJF1lF0vT7GruhWWAi0SOspbNZfG8HU50MrEJSWAzApKO/sEe39rCavoG",
     "metal": null
   }
 ]
